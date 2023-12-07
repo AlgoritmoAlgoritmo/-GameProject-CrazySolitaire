@@ -1,21 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
-public class CardView : MonoBehaviour {
-    #region Variables
 
-    #endregion
-    
+namespace Solitaire.Cards {
 
-    #region MonoBehaviour methods
-    private void Start() {
-        
+    [System.Serializable]
+    public class CardView {
+        #region Variables
+        [SerializeField]
+        private Image frontImage;
+        [SerializeField]
+        private Image backImage;
+
+        private bool isFacingUp;
+        public bool IsFacingUp => isFacingUp;
+        #endregion
+
+
+        #region Constructors
+        public CardView() {  }
+        #endregion
+
+
+
+        #region Public methods
+        public void SetFrontSprite( Sprite _frontSprite ) {
+            if( frontImage )
+                frontImage.sprite = _frontSprite;
+
+            else
+                throw new System.Exception("frontImage reference is missing.");
+        }
+
+
+        public void SetBackSprite( Sprite _backSprite ) {
+            if( backImage )
+                backImage.sprite = _backSprite;
+
+            else
+                throw new System.Exception( "backImage reference is missing." );
+        }
+
+
+        public void FlipCard( bool _facingUp ) {
+            if( frontImage  &&  backImage ) {
+                frontImage.gameObject.SetActive( _facingUp );
+                frontImage.gameObject.SetActive( !_facingUp );
+            
+            } else {
+                throw new System.Exception("Either frontImage or backImage reference is missing.");
+            }
+        }
+        #endregion
     }
-
-
-    private void Update() {
-    
-    }
-    #endregion
 }

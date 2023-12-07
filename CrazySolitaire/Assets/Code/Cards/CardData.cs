@@ -1,6 +1,8 @@
 ﻿using Solitaire.Common;
 
 namespace Solitaire.Cards {
+
+    [System.Serializable]
     public class CardData {
 
         #region Variables

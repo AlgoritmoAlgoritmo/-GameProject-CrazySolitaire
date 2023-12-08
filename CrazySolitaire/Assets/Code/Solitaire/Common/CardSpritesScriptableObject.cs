@@ -13,15 +13,14 @@ namespace Solitaire.Common {
 
     public class CardSpritesScriptableObject : ScriptableObject {
         #region Variables
-
         public Sprite frontSprite;
         public Sprite backSprite;
+
 
         public List<Sprite> heartSprites;
         public List<Sprite> cloverSprites;
         public List<Sprite> diamondSprites;
         public List<Sprite> spadesSprites;
-
         #endregion
 
 
@@ -37,6 +36,25 @@ namespace Solitaire.Common {
             spadesSprites = _newSprites.spadesSprites;
         }
 
+
+        public List<Sprite> GetSuitCardsSprites( string suit ) {
+            switch (suit) {
+                case "HEARTS":
+                    return heartSprites;
+
+                case "CLOVER":
+                    return cloverSprites;
+
+                case "SPADES":
+                    return spadesSprites;
+
+                case "DIAMONDS":
+                    return diamondSprites;
+
+                default:
+                    throw new System.Exception( $"Suit {suit} doesn't exist." );
+            }
+        }
         #endregion
     }
 }

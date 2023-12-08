@@ -15,7 +15,6 @@ namespace Solitaire.Gameplay {
 
     public class DeckController : MonoBehaviour {
         #region Variables
-
         [SerializeField]
         private CardController cardPrefab;
         [SerializeField]
@@ -23,22 +22,13 @@ namespace Solitaire.Gameplay {
 
         private List<CardController> inGamecards;
         private List<CardController> clearedCards;
-
         #endregion
 
 
         #region Public methods
-
         public void InstantiateCards() {
 
         }
-
-
-        #endregion
-
-
-        #region Private methods
-
         #endregion
     }
 }

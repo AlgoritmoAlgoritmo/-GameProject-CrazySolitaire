@@ -33,12 +33,7 @@ namespace Solitaire.Gameplay {
         #region Public methods
         public abstract void Initialize();
 
-        public abstract void SubscribeToOnGameClearedEvent( Action action );
-        #endregion
-
-
-        #region Private methods
-
+        public abstract void SubscribeToOnGameClearedEvent( EventHandler eventHandler );
         #endregion
     }
 }

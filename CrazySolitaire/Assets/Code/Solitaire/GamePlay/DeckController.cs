@@ -4,10 +4,12 @@
 */
 
 
+
 using System.Collections.Generic;
 using UnityEngine;
 using Solitaire.Cards;
 using Solitaire.Common;
+using System;
 
 
 
@@ -20,6 +22,8 @@ namespace Solitaire.Gameplay {
         [SerializeField]
         private CardSpritesScriptableObject cardSprites;
 
+        public event EventHandler onCardsCleared;
+
         private List<CardController> inGamecards;
         private List<CardController> clearedCards;
         #endregion
@@ -29,6 +33,11 @@ namespace Solitaire.Gameplay {
         public void InstantiateCards() {
 
         }
+        #endregion
+
+
+        #region PrivateMethods
+
         #endregion
     }
 }

@@ -10,20 +10,18 @@ namespace Solitaire.Cards {
 
     [System.Serializable]
     public class CardData {
-
         #region Variables
         public short number;
-        public CardType cardType;
-        public CardColour cardColour;
+        public string suit;
+        public string color;
         #endregion
 
 
         #region Constructor
-        public CardData( short _number, CardType _cardType,
-                                    CardColour _cardColour ) {
+        public CardData( short _number, string _suit, string _cardColour ) {
             number = _number;
-            cardType = _cardType;
-            cardColour = _cardColour;
+            suit = _suit;
+            color = _cardColour;
         }
         #endregion
     }

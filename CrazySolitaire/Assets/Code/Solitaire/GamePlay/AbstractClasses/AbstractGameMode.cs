@@ -1,6 +1,6 @@
 ﻿/*
 * Author:	Iris Bermudez
-* Date:		08/07/2023
+* Date:		08/12/2023
 */
 
 
@@ -9,8 +9,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Solitaire.Cards;
-
-
+using Solitaire.Common;
 
 namespace Solitaire.Gameplay {
 
@@ -21,7 +20,7 @@ namespace Solitaire.Gameplay {
         [SerializeField]
         protected List<AbstractCardContainer> cardContainers;
         [SerializeField]
-        protected HashSet<string> suits;
+        protected HashSet<SuitData> suits;
         [SerializeField]
         protected short amountOfCardsPerSuit;
 
@@ -33,7 +32,11 @@ namespace Solitaire.Gameplay {
         #region Public methods
         public abstract void Initialize();
 
-        public abstract void SubscribeToOnGameClearedEvent( EventHandler eventHandler );
+        public abstract void SubscribeToOnGameClearedEvent( EventHandler _eventHandler );
+        #endregion
+
+
+        #region Protected methods
         #endregion
     }
 }

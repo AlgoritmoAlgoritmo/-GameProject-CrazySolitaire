@@ -15,7 +15,7 @@ namespace Solitaire.Gameplay {
 
     public abstract class AbstractCardContainer : MonoBehaviour {
         #region Variables
-        protected List<CardController> cards;
+        protected List<CardController> cards = new List<CardController>();
         #endregion
 
 

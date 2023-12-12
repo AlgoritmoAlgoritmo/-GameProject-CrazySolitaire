@@ -15,6 +15,11 @@ namespace Solitaire.Gameplay {
 
     public abstract class AbstractCardContainer : MonoBehaviour {
         #region Variables
+        [SerializeField]
+        protected Vector2 cardsOffset = Vector2.zero;
+        [SerializeField]
+        protected short initialCardsAmount = 0;
+
         protected List<CardController> cards = new List<CardController>();
         #endregion
 

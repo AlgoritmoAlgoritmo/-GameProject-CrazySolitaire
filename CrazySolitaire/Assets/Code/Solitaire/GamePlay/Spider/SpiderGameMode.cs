@@ -3,9 +3,9 @@
 * Date:		08/12/2023
 */
 
-using Solitaire.Cards;
+
+
 using System;
-using System.Collections.Generic;
 
 
 
@@ -16,18 +16,17 @@ namespace Solitaire.Gameplay {
         #endregion
 
 
-        #region MonoBehaviour methods
-
-        #endregion
-
-
         #region Public methods
         public override void Initialize() {
-            cards = new List<CardController>();
+            cards = deckController.InitializeCards( suits, amountOfEachSuit );
+
+            foreach( AbstractCardContainer auxCardContainer in cardContainers ) {
+                cards = auxCardContainer.Initialize( cards );
+            }
         }
 
         public override void SubscribeToOnGameClearedEvent(
-                                    EventHandler eventHandler) {
+                                        EventHandler eventHandler) {
             deckController.onCardsCleared += eventHandler;
         }
         #endregion

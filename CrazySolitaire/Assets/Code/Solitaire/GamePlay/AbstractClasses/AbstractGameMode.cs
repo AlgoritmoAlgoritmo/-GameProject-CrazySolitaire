@@ -20,9 +20,9 @@ namespace Solitaire.Gameplay {
         [SerializeField]
         protected List<AbstractCardContainer> cardContainers;
         [SerializeField]
-        protected HashSet<SuitData> suits;
+        protected List<BasicSuitData> suits;
         [SerializeField]
-        protected short amountOfCardsPerSuit;
+        protected short amountOfEachSuit;
 
 
         protected List<CardController> cards;

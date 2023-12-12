@@ -4,13 +4,13 @@
 */
 
 
-using System.Collections;
-using System.Collections.Generic;
+
+
 using UnityEngine;
 
 
-namespace Solitaire.Cards {
 
+namespace Solitaire.Cards {
     public class CardController : MonoBehaviour {
         #region Variables
         [SerializeField]
@@ -19,13 +19,13 @@ namespace Solitaire.Cards {
         private CardView cardView;
 
         private CardController childCard;
-        private CardController ChildCard {
+        public CardController ChildCard {
             get => childCard;
             set => childCard = value;
         }
 
         private CardController parentCard;
-        private CardController ParentCard {
+        public CardController ParentCard {
             get => parentCard;
             set => parentCard = value;
         }

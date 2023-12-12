@@ -19,7 +19,7 @@ namespace Solitaire.Common {
         public Sprite backSprite;
 
         [SerializeField]
-        public List<SuitData> suits = new List<SuitData>();        
+        public List<CompleteSuitData> suits = new List<CompleteSuitData>();        
         #endregion
 
 
@@ -30,9 +30,9 @@ namespace Solitaire.Common {
         }
 
 
-        public List<Sprite> GetSuitCardsSprites( SuitData _suitData ) {
-            foreach (SuitData auxSuit in suits) {
-                if( auxSuit == _suitData )
+        public List<Sprite> GetSuitCardsSprites( BasicSuitData _suitData ) {
+            foreach (CompleteSuitData auxSuit in suits) {
+                if( auxSuit.suitName.Equals( _suitData.suitName ) )
                     return auxSuit.sprites;
             }
 

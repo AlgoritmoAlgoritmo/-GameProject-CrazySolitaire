@@ -34,9 +34,13 @@ namespace Solitaire.Gameplay {
         #region Public methods
         public List<CardController> InitializeCards( List<BasicSuitData> _suits,
                                                     short _amountOfCardsPerSuit ) {
+            Debug.Log( $"inGamecards: {inGamecards.Count}" );
             InstantiateCards( _suits, _amountOfCardsPerSuit );
+            Debug.Log($"inGamecards: {inGamecards.Count}");
             ShuffleCards();
+            Debug.Log($"inGamecards: {inGamecards.Count}");
             Rendersorting();
+            Debug.Log($"inGamecards: {inGamecards.Count}");
 
             return inGamecards;
         }
@@ -80,8 +84,6 @@ namespace Solitaire.Gameplay {
  
 
         private CardController InstantiateCard() {
-            Debug.Log( "Instantiating card" );
-
             if( !cardParent )
                 throw new Exception( "Cards' parent Transform has not been asigned." );
 

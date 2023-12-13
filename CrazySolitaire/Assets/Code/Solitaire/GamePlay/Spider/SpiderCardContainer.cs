@@ -24,7 +24,7 @@ namespace Solitaire.Gameplay.Spider {
 
         #region Public methods
         public override List<CardController> Initialize( List<CardController> _cards ) {
-            if( _cards == null     ||     cards.Count == 0 ) {
+            if( _cards == null     ||     _cards.Count == 0 ) {
                 throw new System.Exception( "Cards list is empty." );
             }
 

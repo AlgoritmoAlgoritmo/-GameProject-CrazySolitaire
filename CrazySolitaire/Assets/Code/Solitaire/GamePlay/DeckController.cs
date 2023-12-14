@@ -34,13 +34,10 @@ namespace Solitaire.Gameplay {
         #region Public methods
         public List<CardController> InitializeCards( List<BasicSuitData> _suits,
                                                     short _amountOfCardsPerSuit ) {
-            Debug.Log( $"inGamecards: {inGamecards.Count}" );
+
             InstantiateCards( _suits, _amountOfCardsPerSuit );
-            Debug.Log($"inGamecards: {inGamecards.Count}");
             ShuffleCards();
-            Debug.Log($"inGamecards: {inGamecards.Count}");
             Rendersorting();
-            Debug.Log($"inGamecards: {inGamecards.Count}");
 
             return inGamecards;
         }
@@ -54,7 +51,6 @@ namespace Solitaire.Gameplay {
 
             // Iterating each suit
             foreach (BasicSuitData auxSuitKey in _suits) {
-                Debug.Log( $"Instantiating suit {auxSuitKey}." );
                 suitSprites = cardSprites.GetSuitCardsSprites( auxSuitKey );
 
                 // For each amount amount suit

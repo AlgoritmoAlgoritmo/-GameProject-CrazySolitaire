@@ -51,7 +51,7 @@ namespace Solitaire.Cards {
         public void FlipCard( bool _facingUp ) {
             if( frontImage  &&  backImage ) {
                 frontImage.gameObject.SetActive( _facingUp );
-                frontImage.gameObject.SetActive( !_facingUp );
+                backImage.gameObject.SetActive( !_facingUp );
             
             } else {
                 throw new System.Exception("Either frontImage or backImage reference is missing.");

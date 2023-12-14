@@ -9,7 +9,7 @@ using System;
 
 
 
-namespace Solitaire.Gameplay {
+namespace Solitaire.Gameplay.Spider {
     public class SpiderGameMode : AbstractGameMode {
         #region Variables
 

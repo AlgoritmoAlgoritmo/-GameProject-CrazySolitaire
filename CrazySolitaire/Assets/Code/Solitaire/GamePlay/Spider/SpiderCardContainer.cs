@@ -7,7 +7,6 @@
 
 using Solitaire.Cards;
 using System.Collections.Generic;
-using UnityEngine;
 
 
 
@@ -26,40 +25,43 @@ namespace Solitaire.Gameplay.Spider {
         public override List<CardController> Initialize( List<CardController> _cards ) {
             if( _cards == null     ||     _cards.Count == 0 ) {
                 throw new System.Exception( "Cards list is empty." );
+
+            } else if( _cards.Count < initialCardsAmount ) {
+                throw new System.Exception( "There aren't enough cards to initialize CardContainer." );
             }
 
-            Vector2 auxPosition = Vector2.zero;
+            SetCardsFacingDirection();
 
-            foreach( CardController auxCardController in _cards ) {
-                auxCardController.transform.SetParent( transform );
-                auxCardController.transform.localPosition = auxPosition;
 
-                auxPosition += cardsOffset;
-            }
-
-            return new List<CardController>();
+            return AddInitializationCards( _cards );
         }
 
 
-        public override bool AddCard(CardController _card) {
+        public override bool AddCard( CardController _card ) {
             throw new System.NotImplementedException();
         }
 
 
-        public override bool AddCards(List<CardController> _cards) {
+        public override bool AddCards( List<CardController> _cards ) {
             throw new System.NotImplementedException();
         }
 
 
-        public override CardController GetTopCard() {
-            throw new System.NotImplementedException();
-        }        
+        public override bool CandAddCards() {
+            return canAddCards;
+        }
         #endregion
 
 
-        #region Private methods
-
+        #region Protected methods
+        protected override void SetCardsFacingDirection() {
+            for( int i = 0; i <= cards.Count - 1; i++ ) {
+                if( i != cards.Count - 1)
+                    cards[i].FlipCard( false );
+                else
+                    cards[i].FlipCard( true );
+            }
+        }
         #endregion
-
     }
 }

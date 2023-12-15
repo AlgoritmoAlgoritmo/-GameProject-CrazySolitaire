@@ -22,31 +22,30 @@ namespace Solitaire.Gameplay {
         [SerializeField]
         protected bool canAddCards = true;
 
-        protected List<CardController> cards = new List<CardController>();
+        protected List<CardFacade> cards = new List<CardFacade>();
         #endregion
 
 
         #region Public methods
-        public abstract List<CardController> Initialize(List<CardController> _cards);
-        public abstract bool AddCards( List<CardController> _cards );
-        public abstract bool AddCard( CardController _card );
+        public abstract List<CardFacade> Initialize(List<CardFacade> _cards);
+        public abstract bool AddCards( List<CardFacade> _cards );
+        public abstract bool AddCard( CardFacade _card );
         public abstract bool CandAddCards();
         
-        public CardController GetTopCard() {
+        public CardFacade GetTopCard() {
             return cards[ cards.Count - 1 ];
         }
         #endregion
 
 
         #region Protected methods
-        protected List<CardController> AddInitializationCards( List<CardController> _cards ) {
-            List<CardController> auxCardList = _cards;
-            Vector2 auxPosition = Vector2.zero;
+        protected List<CardFacade> AddInitializationCards( List<CardFacade> _cards ) {
+            List<CardFacade> auxCardList = _cards;
+            Vector2 auxPosition = transform.position;
 
             for (int i = 0; i < initialCardsAmount; i++) {
                 cards.Add(auxCardList[0]);
-                cards[i].transform.SetParent(transform);
-                cards[i].transform.localPosition = auxPosition;
+                cards[i].transform.position = auxPosition;
                 auxCardList.RemoveAt(0);
 
                 auxPosition += cardsOffset;

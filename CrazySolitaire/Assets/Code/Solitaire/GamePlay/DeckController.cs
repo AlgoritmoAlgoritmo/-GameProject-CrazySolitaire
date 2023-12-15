@@ -18,7 +18,7 @@ namespace Solitaire.Gameplay {
     public class DeckController : MonoBehaviour {
         #region Variables
         [SerializeField]
-        private CardController cardPrefab;
+        private CardFacade cardPrefab;
         [SerializeField]
         private Transform cardParent;
         [SerializeField]
@@ -26,13 +26,13 @@ namespace Solitaire.Gameplay {
 
         public event EventHandler onCardsCleared;
 
-        private List<CardController> inGamecards = new List<CardController>();
-        private List<CardController> clearedCards;
+        private List<CardFacade> inGamecards = new List<CardFacade>();
+        private List<CardFacade> clearedCards;
         #endregion
 
 
         #region Public methods
-        public List<CardController> InitializeCards( List<BasicSuitData> _suits,
+        public List<CardFacade> InitializeCards( List<BasicSuitData> _suits,
                                                     short _amountOfCardsPerSuit ) {
 
             InstantiateCards( _suits, _amountOfCardsPerSuit );
@@ -45,7 +45,7 @@ namespace Solitaire.Gameplay {
 
 
         #region PrivateMethods
-        private List<CardController> InstantiateCards( List<BasicSuitData> _suits,
+        private List<CardFacade> InstantiateCards( List<BasicSuitData> _suits,
                                                     short _amountOfCardsPerSuit ) {
             List<Sprite> suitSprites;
 
@@ -64,13 +64,13 @@ namespace Solitaire.Gameplay {
                                                             auxSuitKey.suitName,
                                                             auxSuitKey.color );
 
-                        CardController auxCardController = InstantiateCard();
-                        auxCardController.SetCardData(auxCardData);
-                        auxCardController.SetBackSprite(cardSprites.backSprite);
-                        auxCardController.SetFrontSprite(
+                        CardFacade auxCardFacade = InstantiateCard();
+                        auxCardFacade.SetCardData(auxCardData);
+                        auxCardFacade.SetBackSprite(cardSprites.backSprite);
+                        auxCardFacade.SetFrontSprite(
                                         cardSprites.GetSuitCardsSprites(auxSuitKey)[spriteIndex] );
 
-                        inGamecards.Add(auxCardController);
+                        inGamecards.Add(auxCardFacade);
                     }
                 }
             }
@@ -79,11 +79,11 @@ namespace Solitaire.Gameplay {
         }
  
 
-        private CardController InstantiateCard() {
+        private CardFacade InstantiateCard() {
             if( !cardParent )
                 throw new Exception( "Cards' parent Transform has not been asigned." );
 
-            CardController cardInstance = Instantiate( cardPrefab, cardParent );
+            CardFacade cardInstance = Instantiate( cardPrefab, cardParent );
 
 
             return cardInstance;
@@ -91,7 +91,7 @@ namespace Solitaire.Gameplay {
         
         
         private void ShuffleCards() {
-            List<CardController> auxShuffledCardList = new List<CardController>();
+            List<CardFacade> auxShuffledCardList = new List<CardFacade>();
             int cardsAmount = inGamecards.Count;
             System.Random random = new System.Random();
             int randomCardIndex;
@@ -108,9 +108,9 @@ namespace Solitaire.Gameplay {
         
         
         private void Rendersorting() {
-            foreach( CardController auxCardController in inGamecards ) {
-                auxCardController.gameObject.transform.SetParent( transform );
-                auxCardController.gameObject.transform.SetParent( cardParent );
+            foreach( CardFacade auxCardFacade in inGamecards ) {
+                auxCardFacade.gameObject.transform.SetParent( transform );
+                auxCardFacade.gameObject.transform.SetParent( cardParent );
             }
         }
         #endregion

@@ -25,7 +25,7 @@ namespace Solitaire.Gameplay {
         protected short amountOfEachSuit;
 
 
-        protected List<CardController> cards;
+        protected List<CardFacade> cards;
         #endregion
 
 

@@ -1,6 +1,6 @@
 To do:
-- Cards dragging
 - Card dropping validation
+- Card stack dragging validation
 - Effects system
 - Audio effect
 - Flash effect

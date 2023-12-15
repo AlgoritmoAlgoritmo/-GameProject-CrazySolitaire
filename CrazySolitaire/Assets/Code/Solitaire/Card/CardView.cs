@@ -62,7 +62,10 @@ namespace Solitaire.Cards {
 
 
         public void RenderOnTop( Transform _transform ) {
-            _transform.SetSiblingIndex(-200);
+            Transform auxParent = _transform.parent;
+
+            _transform.SetParent( _transform.parent.parent );
+            _transform.SetParent( auxParent );
         }
         #endregion
     }

@@ -22,7 +22,7 @@ namespace Solitaire.Gameplay.Spider {
 
 
         #region Public methods
-        public override List<CardController> Initialize( List<CardController> _cards ) {
+        public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
             if( _cards == null     ||     _cards.Count == 0 ) {
                 throw new System.Exception( "Cards list is empty." );
 
@@ -37,12 +37,12 @@ namespace Solitaire.Gameplay.Spider {
         }
 
 
-        public override bool AddCard( CardController _card ) {
+        public override bool AddCard( CardFacade _card ) {
             throw new System.NotImplementedException();
         }
 
 
-        public override bool AddCards( List<CardController> _cards ) {
+        public override bool AddCards( List<CardFacade> _cards ) {
             throw new System.NotImplementedException();
         }
 

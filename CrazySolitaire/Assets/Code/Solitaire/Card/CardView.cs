@@ -4,8 +4,10 @@
 */
 
 
+
 using UnityEngine;
 using UnityEngine.UI;
+
 
 
 namespace Solitaire.Cards {
@@ -56,6 +58,11 @@ namespace Solitaire.Cards {
             } else {
                 throw new System.Exception("Either frontImage or backImage reference is missing.");
             }
+        }
+
+
+        public void RenderOnTop( Transform _transform ) {
+            _transform.SetSiblingIndex(-200);
         }
         #endregion
     }

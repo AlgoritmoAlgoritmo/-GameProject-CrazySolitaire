@@ -19,10 +19,8 @@ namespace Solitaire.Gameplay {
 
 
         #region MonoBehaviour methods
-        private void Update() {
-            if( Input.GetKeyUp( KeyCode.F1 ) ) {
-                StartGame();
-            }
+        private void Start() {
+            StartGame();
         }
         #endregion
 

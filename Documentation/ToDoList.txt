@@ -1,10 +1,10 @@
 To do:
-- Spider mode card containers
-- Cards physics
-- Containers validation
+- Cards dragging
+- Card dropping validation
 - Effects system
 - Audio effect
 - Flash effect
 - Post-processing effect
 - Camera shake effect
 - Slow time effect
+- Effects set up

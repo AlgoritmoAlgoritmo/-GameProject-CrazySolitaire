@@ -6,11 +6,10 @@
 
 
 using UnityEngine;
-
-
+using UnityEngine.EventSystems;
 
 namespace Solitaire.Cards {
-    public class CardController : MonoBehaviour {
+    public class CardController : MonoBehaviour, IBeginDragHandler, IDragHandler {
         #region Variables
         [SerializeField]
         private CardData cardData;
@@ -28,6 +27,8 @@ namespace Solitaire.Cards {
             get => parentCard;
             set => parentCard = value;
         }
+
+        private Vector3 offset = Vector2.zero;
         #endregion
 
 
@@ -50,6 +51,16 @@ namespace Solitaire.Cards {
 
         public void FlipCard( bool _facingUp ) {
             cardView.FlipCard( _facingUp );
+        }
+
+        public void OnBeginDrag( PointerEventData eventData ) {
+            Debug.Log( "Started dragging." );
+            cardView.RenderOnTop( transform );
+        }
+
+        public void OnDrag( PointerEventData eventData ) {
+            Debug.Log( "Dragging." );
+            transform.position += (Vector3)eventData.delta;
         }
         #endregion
     }

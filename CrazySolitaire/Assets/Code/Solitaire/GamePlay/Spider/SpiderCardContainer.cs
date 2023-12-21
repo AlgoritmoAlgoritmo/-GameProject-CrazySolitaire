@@ -30,8 +30,6 @@ namespace Solitaire.Gameplay.Spider {
                 throw new System.Exception( "There aren't enough cards to initialize CardContainer." );
             }
 
-            SetCardsFacingDirection();
-
 
             return AddInitializationCards( _cards );
         }
@@ -42,7 +40,16 @@ namespace Solitaire.Gameplay.Spider {
         }
 
 
+        public override void RemoveCard(CardFacade _card) {
+            throw new System.NotImplementedException();
+        }
+
+
         public override bool AddCards( List<CardFacade> _cards ) {
+            throw new System.NotImplementedException();
+        }
+
+        public override void RemoveCards(List<CardFacade> _cards) {
             throw new System.NotImplementedException();
         }
 
@@ -54,12 +61,21 @@ namespace Solitaire.Gameplay.Spider {
 
 
         #region Protected methods
-        protected override void SetCardsFacingDirection() {
+        protected override void SetUpStarterCards() {
             for( int i = 0; i <= cards.Count - 1; i++ ) {
-                if( i != cards.Count - 1)
+                if( i != cards.Count - 1) { 
                     cards[i].FlipCard( false );
-                else
+                    cards[i].SetCanBeDragged( false );
+                    cards[i].SetCollisionsActive( false );
+
+                    cards[i].ChildCard = cards[i + 1];
+                    cards[i + 1].ParentCard = cards[i];
+
+                } else { 
                     cards[i].FlipCard( true );
+                    cards[i].SetCanBeDragged( true );
+                    cards[i].SetCollisionsActive( true );
+                }
             }
         }
         #endregion

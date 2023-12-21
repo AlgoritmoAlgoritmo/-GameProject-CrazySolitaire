@@ -17,6 +17,8 @@ namespace Solitaire.Cards {
         private CardData cardData;
         [SerializeField]
         private CardView cardView;
+        [SerializeField]
+        private CardPhysics cardPhysics;
 
 
         private CardFacade childCard;
@@ -32,12 +34,37 @@ namespace Solitaire.Cards {
         }
 
 
-        public event Action<CardFacade, GameObject> onEndDragging;
+        public event Action<CardFacade> OnStartDrag;
+        public event Action<CardFacade> OnCardPlacedWithoutCollisions;
+        public event Action<CardFacade, CardFacade> OnCardPlacedWithCollisions;
         #endregion
 
 
+        #region MonoBehaviour Methods
+        private void Start() {
+            cardPhysics.OnStartDragging += InvokeOnStartDragEvent;
+            cardPhysics.OnCardPlacedWithCollisions += InvokeOnCardPlacedWithCollisions;
+            cardPhysics.OnCardPlacedWithoutCollisions += InvokeOnCardPlacedWithoutCollisions;
+        }
+        #endregion
+
 
         #region Public methods
+        public short GetCardNumber() {
+            return cardData.number;
+        }
+
+
+        public string GetSuit() {
+            return cardData.suit;
+        }
+
+
+        public string GetColor() {
+            return cardData.color;
+        }
+
+
         public void SetCardData( CardData _cardData ) {
             cardData = _cardData;
         }
@@ -55,6 +82,47 @@ namespace Solitaire.Cards {
 
         public void FlipCard( bool _facingUp ) {
             cardView.FlipCard( _facingUp );
+        }
+
+
+        public void SubscribeToOnStartDragging( Action<CardFacade> action ) {
+            cardView.RenderOnTop( transform );
+            OnStartDrag += action;
+        }
+
+
+        public void SubscribeToOnCardPlacedWithCollisions( Action<CardFacade, CardFacade> action ) {
+            OnCardPlacedWithCollisions += action;
+        }
+
+
+        public void SubscribeToOnCardPlacedWithoutCollisions(Action<CardFacade> action) {
+            OnCardPlacedWithoutCollisions += action;
+        }
+
+
+        public void InvokeOnStartDragEvent() {
+            OnStartDrag( this );
+        }
+
+
+        public void InvokeOnCardPlacedWithCollisions( GameObject _detectedGameObject ) {
+            OnCardPlacedWithCollisions( this, _detectedGameObject.GetComponent<CardFacade>() );
+        }
+
+
+        public void InvokeOnCardPlacedWithoutCollisions() {
+            OnCardPlacedWithoutCollisions( this );
+        }
+
+
+        public void SetCanBeDragged( bool _canBeDragged ) {
+            cardPhysics.SetCanBeDragged(_canBeDragged);
+        }
+
+
+        public void SetCollisionsActive( bool _active ) {
+            cardPhysics.ActivateCollisions( _active );
         }
         #endregion
     }

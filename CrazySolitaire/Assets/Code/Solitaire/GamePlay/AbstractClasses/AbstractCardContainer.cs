@@ -29,11 +29,24 @@ namespace Solitaire.Gameplay {
         #region Public methods
         public abstract List<CardFacade> Initialize(List<CardFacade> _cards);
         public abstract bool AddCards( List<CardFacade> _cards );
+        public abstract void RemoveCards( List<CardFacade> _cards );
         public abstract bool AddCard( CardFacade _card );
+        public abstract void RemoveCard( CardFacade _card );
         public abstract bool CandAddCards();
+
+
+        public Vector2 GetCardPosition( CardFacade _card ) {
+            int index = cards.IndexOf( _card );
+
+            return (Vector2) transform.position + ( cardsOffset * index );
+        }
+
+        public bool ContainsCard( CardFacade _card ) {
+            return cards.Contains( _card );
+        }
         
         public CardFacade GetTopCard() {
-            return cards[ cards.Count - 1 ];
+            return cards[cards.Count - 1];
         }
         #endregion
 
@@ -41,22 +54,19 @@ namespace Solitaire.Gameplay {
         #region Protected methods
         protected List<CardFacade> AddInitializationCards( List<CardFacade> _cards ) {
             List<CardFacade> auxCardList = _cards;
-            Vector2 auxPosition = transform.position;
 
             for (int i = 0; i < initialCardsAmount; i++) {
                 cards.Add(auxCardList[0]);
-                cards[i].transform.position = auxPosition;
+                cards[i].transform.position = GetCardPosition( cards[i] );
                 auxCardList.RemoveAt(0);
-
-                auxPosition += cardsOffset;
             }
 
-            SetCardsFacingDirection();
+            SetUpStarterCards();
 
             return auxCardList;
         }
 
-        protected abstract void SetCardsFacingDirection();
+        protected abstract void SetUpStarterCards();
         #endregion
     }
 }

@@ -27,7 +27,6 @@ namespace Solitaire.Gameplay {
         public event EventHandler onCardsCleared;
 
         private List<CardFacade> inGamecards = new List<CardFacade>();
-        private List<CardFacade> clearedCards;
         #endregion
 
 
@@ -37,9 +36,31 @@ namespace Solitaire.Gameplay {
 
             InstantiateCards( _suits, _amountOfCardsPerSuit );
             ShuffleCards();
-            Rendersorting();
+            RenderSorting();
 
             return inGamecards;
+        }
+
+
+        public void SubscribeToDragStartEvent( Action<CardFacade> action ) {
+            foreach( CardFacade auxCard in inGamecards ) {
+                auxCard.SubscribeToOnStartDragging( action );
+            }
+        }
+
+
+        public void SubscribeToCardPlacedEventWithCollision( Action<CardFacade,
+                                                            CardFacade> action ) {
+            foreach( CardFacade auxCard in inGamecards ) {
+                auxCard.SubscribeToOnCardPlacedWithCollisions( action );
+            }
+        }
+
+
+        public void SubscribeToCardPlacedEventWithoutCollision(Action<CardFacade> action) {
+            foreach (CardFacade auxCard in inGamecards) {
+                auxCard.SubscribeToOnCardPlacedWithoutCollisions( action );
+            }
         }
         #endregion
 
@@ -50,7 +71,7 @@ namespace Solitaire.Gameplay {
             List<Sprite> suitSprites;
 
             // Iterating each suit
-            foreach (BasicSuitData auxSuitKey in _suits) {
+            foreach( BasicSuitData auxSuitKey in _suits ) {
                 suitSprites = cardSprites.GetSuitCardsSprites( auxSuitKey );
 
                 // For each amount amount suit
@@ -107,7 +128,7 @@ namespace Solitaire.Gameplay {
         }
         
         
-        private void Rendersorting() {
+        private void RenderSorting() {
             foreach( CardFacade auxCardFacade in inGamecards ) {
                 auxCardFacade.gameObject.transform.SetParent( transform );
                 auxCardFacade.gameObject.transform.SetParent( cardParent );

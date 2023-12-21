@@ -28,7 +28,17 @@ namespace Solitaire.Gameplay.Spider {
         }
 
 
+        public override void RemoveCards(List<CardFacade> _cards) {
+            throw new System.NotImplementedException();
+        }
+
+
         public override bool AddCard( CardFacade _card ) {
+            throw new System.NotImplementedException();
+        }
+
+
+        public override void RemoveCard(CardFacade _card) {
             throw new System.NotImplementedException();
         }
 
@@ -40,9 +50,11 @@ namespace Solitaire.Gameplay.Spider {
 
 
         #region Protected methods
-        protected override void SetCardsFacingDirection() {
+        protected override void SetUpStarterCards() {
             for (int i = 0; i <= cards.Count - 1; i++) {
                 cards[i].FlipCard(false);
+                cards[i].SetCanBeDragged(false);
+                cards[i].SetCollisionsActive(false);
             }
         }
         #endregion

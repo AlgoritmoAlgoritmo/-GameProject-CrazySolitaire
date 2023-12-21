@@ -5,44 +5,92 @@
 
 
 
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 
 
 namespace Solitaire.Cards {
-    public class CardPhysics : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+    public class CardPhysics : MonoBehaviour, IBeginDragHandler,
+                                        IDragHandler, IEndDragHandler {
         #region Variables
-        private GameObject currentColidingObject;
+        public event Action OnStartDragging;
+        public event Action OnCardPlacedWithoutCollisions;
+        public event Action<GameObject> OnCardPlacedWithCollisions;
+
+        private bool canBeDragged;
+        private Collider2D attachedCollider2D;
+        private Collider2D detectedCollider;
         #endregion
 
 
 
-        #region Inherited methods
+        #region Inherited/Interface methods
+        private void Awake() {
+            attachedCollider2D = GetComponent<Collider2D>();
+        }
+
+
         public void OnBeginDrag( PointerEventData eventData ) {
-            throw new System.NotImplementedException();
-            // cardView.RenderOnTop(transform);
+            ActivateCollisions( true );
+            OnStartDragging();
         }
 
 
         public void OnDrag( PointerEventData eventData ) {
-            transform.position += (Vector3)eventData.delta;
+            if( canBeDragged ) {
+                transform.position += (Vector3)eventData.delta;
+            }
         }
 
 
         public void OnEndDrag( PointerEventData eventData ) {
-            throw new System.NotImplementedException();
+            if( canBeDragged ) {
+                InvokeOnCardPlacedAction();
+                ActivateCollisions( false );
+                // Invoke( "InvokeOnCardPlacedAction", Time.deltaTime * 2 );
+            }
         }
 
 
-        private void OnCollisionStay(Collision collision) {
-            throw new System.NotImplementedException();
+        private void OnTriggerEnter2D ( Collider2D collision) {
+            detectedCollider = collision;
+        }
+
+
+        private void OnTriggerExit2D( Collider2D collision ) {
+            
         }
         #endregion
 
 
-        #region Private methods
 
+        #region Public Methods
+        public void SetCanBeDragged( bool canBeDragged ) {
+            this.canBeDragged = canBeDragged;
+        }
+
+
+        public void ActivateCollisions( bool activate ) {
+            attachedCollider2D.isTrigger = activate;
+        }
+        #endregion
+
+
+
+        #region Private methods
+        private void InvokeOnCardPlacedAction() {
+            if( detectedCollider == null ) {
+                OnCardPlacedWithoutCollisions();
+
+            } else {
+                OnCardPlacedWithCollisions( detectedCollider.gameObject );
+            }
+            
+            ActivateCollisions( false );
+            detectedCollider = null;
+        }
         #endregion
     }
 }

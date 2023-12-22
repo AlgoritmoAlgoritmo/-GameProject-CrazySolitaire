@@ -87,6 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3ffa7bce3aad34f97310cf89ba482b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardsOffset: {x: 0, y: -10}
+  cardsOffset: {x: 0, y: -20}
   initialCardsAmount: 6
   canAddCards: 1

@@ -6,6 +6,7 @@
 
 
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,7 +22,7 @@ namespace Solitaire.Cards {
 
         private bool canBeDragged;
         private Collider2D attachedCollider2D;
-        private Collider2D detectedCollider;
+        private List<Collider2D> detectedColliders = new List<Collider2D>();
         #endregion
 
 
@@ -48,19 +49,22 @@ namespace Solitaire.Cards {
         public void OnEndDrag( PointerEventData eventData ) {
             if( canBeDragged ) {
                 InvokeOnCardPlacedAction();
-                ActivateCollisions( false );
+                // ActivateCollisions( true );
                 // Invoke( "InvokeOnCardPlacedAction", Time.deltaTime * 2 );
             }
         }
 
 
         private void OnTriggerEnter2D ( Collider2D collision) {
-            detectedCollider = collision;
+            Debug.Log( "OnTriggerEnter2D" );
+
+            detectedColliders.Add( collision );
         }
 
 
         private void OnTriggerExit2D( Collider2D collision ) {
-            
+            Debug.Log( "OnTriggerExit2D" );
+            detectedColliders.Remove( collision );
         }
         #endregion
 
@@ -81,15 +85,40 @@ namespace Solitaire.Cards {
 
         #region Private methods
         private void InvokeOnCardPlacedAction() {
-            if( detectedCollider == null ) {
+            if( detectedColliders.Count == 0 ) {
                 OnCardPlacedWithoutCollisions();
 
             } else {
-                OnCardPlacedWithCollisions( detectedCollider.gameObject );
+                // Pass closest collider object through Event
+                OnCardPlacedWithCollisions( GetClosestCollidingGameObject() );
             }
             
             ActivateCollisions( false );
-            detectedCollider = null;
+            detectedColliders.Clear();
+        }
+
+
+        private GameObject GetClosestCollidingGameObject() {
+            if( detectedColliders.Count == 1 ) {
+                return detectedColliders[0].gameObject;
+
+            } else {
+                GameObject closestObject = detectedColliders[0].gameObject;
+                float closestDistance = Vector3.Distance( transform.position,
+                                            closestObject.transform.position );
+
+                for( int i = 1; i < detectedColliders.Count; i++ ) {
+                    if( Vector3.Distance( transform.position,  
+                            detectedColliders[i].transform.position) <  closestDistance ) {
+
+                        closestObject = detectedColliders[i].gameObject;
+                        closestDistance = Vector3.Distance(transform.position,
+                                                    closestObject.transform.position);
+                    }
+                }
+
+                return closestObject;
+            }
         }
         #endregion
     }

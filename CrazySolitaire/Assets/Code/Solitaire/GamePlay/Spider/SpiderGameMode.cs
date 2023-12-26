@@ -47,19 +47,8 @@ namespace Solitaire.Gameplay.Spider {
         }
 
 
-        public void ValidateCardDragging( CardFacade cardFacade ) {
-            if( cardFacade.ChildCard == null ) {
-                cardFacade.SetCanBeDragged( true );
-
-            } else {
-                cardFacade.SetCanBeDragged( false );
-
-                /*
-                if( cardFacade.GetCardNumber() == 1
-                        ||  cardFacade.ChildCard.GetCardNumber() !=  cardFacade.GetCardNumber() - 1 ) {
-                    cardFacade.SetCanBeDragged( false );
-                }*/
-            }
+        public void ValidateCardDragging( CardFacade _card ) {
+            _card.SetCanBeDragged( CanBeDragged( _card ) );
         }
         #endregion
 
@@ -84,6 +73,10 @@ namespace Solitaire.Gameplay.Spider {
 
                 // 3- Add card to parent's card container
                 parentCardContainer.AddCard( _placedCard );
+
+                // 4- Setting card as new parent's child
+                _detectedCard.ChildCard = _placedCard;
+                _placedCard.ParentCard = _detectedCard;
             }
         }
 
@@ -96,6 +89,25 @@ namespace Solitaire.Gameplay.Spider {
 
         protected override bool CanBeChildOf( CardFacade _card, CardFacade _potentialParent ) {
             return _potentialParent.GetCardNumber() == _card.GetCardNumber() + 1;
+        }
+
+
+        protected override bool CanBeDragged( CardFacade _card ) {
+            if( !_card.ChildCard )
+                return true;
+
+
+            CardFacade auxCard = _card;
+
+            while( auxCard.ChildCard ) {
+                if( !CanBeChildOf( auxCard.ChildCard, auxCard ) ) {
+                    return false;
+                }
+
+                auxCard = auxCard.ChildCard;
+            }
+
+            return true;
         }
         #endregion
     }

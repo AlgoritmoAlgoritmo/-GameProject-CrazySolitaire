@@ -45,6 +45,7 @@ namespace Solitaire.Cards {
             cardPhysics.OnStartDragging += InvokeOnStartDragEvent;
             cardPhysics.OnCardPlacedWithCollisions += InvokeOnCardPlacedWithCollisions;
             cardPhysics.OnCardPlacedWithoutCollisions += InvokeOnCardPlacedWithoutCollisions;
+            cardPhysics.OnDragging += InvokeOnDragging;
         }
         #endregion
 
@@ -118,6 +119,13 @@ namespace Solitaire.Cards {
         }
 
 
+        public void InvokeOnDragging( Vector3 _newPosition ) {
+            Vector3 newPositionOffset = transform.position - _newPosition;
+
+            MoveToPosition( newPositionOffset );
+        }
+
+
         public void SetCanBeDragged( bool _canBeDragged ) {
             cardPhysics.SetCanBeDragged(_canBeDragged);
         }
@@ -125,6 +133,15 @@ namespace Solitaire.Cards {
 
         public void SetCollisionsActive( bool _active ) {
             cardPhysics.ActivateCollisions( _active );
+        }
+
+
+        public void MoveToPosition( Vector3 _newPositionOffset ) {
+            if( ChildCard ) {
+                ChildCard.MoveToPosition( _newPositionOffset );
+            }
+
+            transform.position += _newPositionOffset;
         }
         #endregion
     }

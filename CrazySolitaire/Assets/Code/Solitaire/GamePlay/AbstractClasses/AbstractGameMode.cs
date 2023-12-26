@@ -45,6 +45,8 @@ namespace Solitaire.Gameplay {
         protected abstract void ValidateCardPlacementWithoutCollison( CardFacade _card );
 
         protected abstract bool CanBeChildOf( CardFacade _card, CardFacade _potentialParent );
+
+        protected abstract bool CanBeDragged( CardFacade _card );
         #endregion
 
 

@@ -17,6 +17,7 @@ namespace Solitaire.Cards {
                                         IDragHandler, IEndDragHandler {
         #region Variables
         public event Action OnStartDragging;
+        public event Action<Vector3> OnDragging;
         public event Action OnCardPlacedWithoutCollisions;
         public event Action<GameObject> OnCardPlacedWithCollisions;
 
@@ -41,7 +42,8 @@ namespace Solitaire.Cards {
 
         public void OnDrag( PointerEventData eventData ) {
             if( canBeDragged ) {
-                transform.position += (Vector3)eventData.delta;
+                OnDragging( transform.position += (Vector3)eventData.delta );
+                // transform.position += (Vector3)eventData.delta;
             }
         }
 
@@ -56,14 +58,11 @@ namespace Solitaire.Cards {
 
 
         private void OnTriggerEnter2D ( Collider2D collision) {
-            Debug.Log( "OnTriggerEnter2D" );
-
             detectedColliders.Add( collision );
         }
 
 
         private void OnTriggerExit2D( Collider2D collision ) {
-            Debug.Log( "OnTriggerExit2D" );
             detectedColliders.Remove( collision );
         }
         #endregion

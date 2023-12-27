@@ -48,6 +48,10 @@ namespace Solitaire.Gameplay {
         public CardFacade GetTopCard() {
             return cards[cards.Count - 1];
         }
+
+        public List<CardFacade> GetCards() {
+            return cards;
+        }
         #endregion
 
 

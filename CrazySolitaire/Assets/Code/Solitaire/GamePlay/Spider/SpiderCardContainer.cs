@@ -43,6 +43,7 @@ namespace Solitaire.Gameplay.Spider {
 
         public override void RemoveCard(CardFacade _card) {
             cards.Remove( _card );
+            CheckAndFlipUpperCard();
         }
 
 
@@ -78,6 +79,16 @@ namespace Solitaire.Gameplay.Spider {
                     cards[i].SetCanBeDragged( true );
                     cards[i].SetCollisionsActive( true );
                 }
+            }
+        }
+        #endregion
+
+
+        #region Private methods
+        private void CheckAndFlipUpperCard() {
+            if( GetTopCard() ) {
+                GetTopCard().FlipCard( true );
+                GetTopCard().SetCollisionsActive( true );
             }
         }
         #endregion

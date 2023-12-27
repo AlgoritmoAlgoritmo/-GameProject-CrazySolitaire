@@ -24,7 +24,7 @@ namespace Solitaire.Cards {
         private CardFacade childCard;
         public CardFacade ChildCard {
             get => childCard;
-            set => childCard = value;
+            set => childCard = value;            
         }
 
         private CardFacade parentCard;
@@ -45,7 +45,7 @@ namespace Solitaire.Cards {
             cardPhysics.OnStartDragging += InvokeOnStartDragEvent;
             cardPhysics.OnCardPlacedWithCollisions += InvokeOnCardPlacedWithCollisions;
             cardPhysics.OnCardPlacedWithoutCollisions += InvokeOnCardPlacedWithoutCollisions;
-            cardPhysics.OnDragging += InvokeOnDragging;
+            cardPhysics.OnDragging += MoveToPosition;
         }
         #endregion
 
@@ -87,7 +87,6 @@ namespace Solitaire.Cards {
 
 
         public void SubscribeToOnStartDragging( Action<CardFacade> action ) {
-            cardView.RenderOnTop( transform );
             OnStartDrag += action;
         }
 
@@ -103,7 +102,7 @@ namespace Solitaire.Cards {
 
 
         public void InvokeOnStartDragEvent() {
-            cardView.RenderOnTop( transform );
+            RenderOnTop();
 
             OnStartDrag( this );
         }
@@ -119,15 +118,9 @@ namespace Solitaire.Cards {
         }
 
 
-        public void InvokeOnDragging( Vector3 _newPosition ) {
-            Vector3 newPositionOffset = transform.position - _newPosition;
-
-            MoveToPosition( newPositionOffset );
-        }
-
-
         public void SetCanBeDragged( bool _canBeDragged ) {
             cardPhysics.SetCanBeDragged(_canBeDragged);
+            cardView.SetInteractable( _canBeDragged );
         }
 
 
@@ -142,6 +135,14 @@ namespace Solitaire.Cards {
             }
 
             transform.position += _newPositionOffset;
+        }
+
+        public void RenderOnTop() {
+            cardView.RenderOnTop(transform);
+
+            if (ChildCard) {
+                ChildCard.RenderOnTop();
+            }
         }
         #endregion
     }

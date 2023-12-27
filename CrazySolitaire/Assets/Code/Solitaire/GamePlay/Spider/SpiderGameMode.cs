@@ -15,7 +15,6 @@ using Solitaire.Cards;
 namespace Solitaire.Gameplay.Spider {
     public class SpiderGameMode : AbstractGameMode {
         #region Variables
-
         #endregion
 
 
@@ -50,6 +49,28 @@ namespace Solitaire.Gameplay.Spider {
         public void ValidateCardDragging( CardFacade _card ) {
             _card.SetCanBeDragged( CanBeDragged( _card ) );
         }
+
+
+        public void DistributorCardsDistribution( AbstractCardContainer _cardContainer ) {
+            Debug.Log("Distributing cards.");
+
+            List<CardFacade> auxCardsToDistribute = _cardContainer.GetCards();
+
+            for( int i = auxCardsToDistribute.Count - 1; i >= 0; i-- ) {
+                auxCardsToDistribute[i].RenderOnTop();
+                auxCardsToDistribute[i].FlipCard( true );
+
+                // Setting up parenting
+                auxCardsToDistribute[i].ParentCard = cardContainers[i].GetTopCard();
+                cardContainers[i].GetTopCard().ChildCard = auxCardsToDistribute[i];
+
+                cardContainers[i].AddCard( auxCardsToDistribute[i] );
+                _cardContainer.RemoveCard( auxCardsToDistribute[i] );
+
+            }
+
+            Destroy( _cardContainer.gameObject );
+        }
         #endregion
 
 
@@ -65,25 +86,43 @@ namespace Solitaire.Gameplay.Spider {
 
             // Case: Card CAN be child of potential parent
             } else {
-                // 1- Get parent card container
-                AbstractCardContainer parentCardContainer = GetCardContainer( _detectedCard );
 
-                // 2- Remove card its card container
-                GetCardContainer( _placedCard ).RemoveCard( _placedCard );
-
-                // 3- Add card to parent's card container
-                parentCardContainer.AddCard( _placedCard );
-
-                // 4- Setting card as new parent's child
+                // 1- Setting card as new parent's child
                 _detectedCard.ChildCard = _placedCard;
                 _placedCard.ParentCard = _detectedCard;
+
+                // 2- Get parent card container
+                AbstractCardContainer parentCardContainer = GetCardContainer( _detectedCard );
+
+
+                // Recursively check childs
+                CardFacade auxCardFacade = _placedCard;
+
+                while( auxCardFacade != null ) {
+                    // 3- Remove card its card container
+                    GetCardContainer(auxCardFacade).RemoveCard(auxCardFacade);
+
+                    // 4- Add card to new card container
+                    parentCardContainer.AddCard(auxCardFacade);
+
+                    // 5- Set ChildCard as card to check on next loop
+                    auxCardFacade = auxCardFacade.ChildCard;
+                }
             }
         }
 
 
         protected override void ValidateCardPlacementWithoutCollison( CardFacade _card ) {
             // Logic to make card return to previous position
-            _card.transform.position = GetCardOriginalPositionInContainer( _card );            
+            _card.transform.position = GetCardOriginalPositionInContainer( _card );
+
+            if( _card.ChildCard ) {
+                CardFacade auxCard = _card.ChildCard;
+
+                while( auxCard ) {
+                    auxCard.transform.position = GetCardOriginalPositionInContainer(auxCard);
+                }
+            }
         }
 
 
@@ -100,7 +139,8 @@ namespace Solitaire.Gameplay.Spider {
             CardFacade auxCard = _card;
 
             while( auxCard.ChildCard ) {
-                if( !CanBeChildOf( auxCard.ChildCard, auxCard ) ) {
+                if( !CanBeChildOf( auxCard.ChildCard, auxCard )
+                            ||  !auxCard.GetSuit().Equals(auxCard.ChildCard.GetSuit() ) ) {
                     return false;
                 }
 

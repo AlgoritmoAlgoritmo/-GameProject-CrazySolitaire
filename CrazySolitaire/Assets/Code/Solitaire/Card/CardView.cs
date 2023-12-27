@@ -69,6 +69,12 @@ namespace Solitaire.Cards {
             _transform.SetParent( _transform.parent.parent );
             _transform.SetParent( auxParent );
         }
+
+
+        public void SetInteractable( bool _interactable) {
+            frontImage.raycastTarget = _interactable;
+            backImage.raycastTarget = _interactable;
+        }
         #endregion
     }
 }

@@ -42,7 +42,7 @@ namespace Solitaire.Cards {
 
         public void OnDrag( PointerEventData eventData ) {
             if( canBeDragged ) {
-                OnDragging( transform.position += (Vector3)eventData.delta );
+                OnDragging( (Vector3)eventData.delta );
                 // transform.position += (Vector3)eventData.delta;
             }
         }

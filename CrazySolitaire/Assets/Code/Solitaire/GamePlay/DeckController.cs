@@ -73,6 +73,7 @@ namespace Solitaire.Gameplay {
             // Iterating each suit
             foreach( BasicSuitData auxSuitKey in _suits ) {
                 suitSprites = cardSprites.GetSuitCardsSprites( auxSuitKey );
+                int generatedID = 0;
 
                 // For each amount amount suit
                 for (short suitAmountCouter = 0; suitAmountCouter < _amountOfCardsPerSuit;
@@ -82,8 +83,10 @@ namespace Solitaire.Gameplay {
                     for (int spriteIndex = 0; spriteIndex < suitSprites.Count; spriteIndex++) {
 
                         CardData auxCardData = new CardData( (short) (spriteIndex + 1),
+
                                                             auxSuitKey.suitName,
-                                                            auxSuitKey.color );
+                                                            auxSuitKey.color,
+                                                            generatedID.ToString() );
 
                         CardFacade auxCardFacade = InstantiateCard();
                         auxCardFacade.SetCardData(auxCardData);
@@ -92,6 +95,7 @@ namespace Solitaire.Gameplay {
                                         cardSprites.GetSuitCardsSprites(auxSuitKey)[spriteIndex] );
 
                         inGamecards.Add(auxCardFacade);
+                        generatedID++;
                     }
                 }
             }

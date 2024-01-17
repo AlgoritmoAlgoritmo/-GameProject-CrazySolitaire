@@ -7,8 +7,7 @@
 
 using Solitaire.Cards;
 using System.Collections.Generic;
-
-
+using UnityEngine;
 
 namespace Solitaire.Gameplay.Spider {
     public class SpiderCardContainer : AbstractCardContainer {
@@ -87,8 +86,11 @@ namespace Solitaire.Gameplay.Spider {
         #region Private methods
         private void CheckAndFlipUpperCard() {
             if( GetTopCard() ) {
+                Debug.Log("Flipping up card: " + GetTopCard().GetID());
+
                 GetTopCard().FlipCard( true );
-                GetTopCard().SetCollisionsActive( true );
+                GetTopCard().SetCollisionsActive(true);
+                GetTopCard().SetCanBeDragged( true );
             }
         }
         #endregion

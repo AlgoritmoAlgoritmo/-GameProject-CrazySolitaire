@@ -62,8 +62,6 @@ namespace Solitaire.Cards {
 
 
         public void RenderOnTop( Transform _transform ) {
-            Debug.Log( "RenderOnTop" );
-
             Transform auxParent = _transform.parent;
 
             _transform.SetParent( _transform.parent.parent );

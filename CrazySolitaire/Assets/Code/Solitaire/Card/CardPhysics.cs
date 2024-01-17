@@ -21,6 +21,7 @@ namespace Solitaire.Cards {
         public event Action OnCardPlacedWithoutCollisions;
         public event Action<GameObject> OnCardPlacedWithCollisions;
 
+        [SerializeField]
         private bool canBeDragged;
         private Collider2D attachedCollider2D;
         private List<Collider2D> detectedColliders = new List<Collider2D>();
@@ -43,7 +44,9 @@ namespace Solitaire.Cards {
         public void OnDrag( PointerEventData eventData ) {
             if( canBeDragged ) {
                 OnDragging( (Vector3)eventData.delta );
-                // transform.position += (Vector3)eventData.delta;
+
+            } else {
+                Debug.Log("Cannot be dragged");
             }
         }
 
@@ -51,8 +54,6 @@ namespace Solitaire.Cards {
         public void OnEndDrag( PointerEventData eventData ) {
             if( canBeDragged ) {
                 InvokeOnCardPlacedAction();
-                // ActivateCollisions( true );
-                // Invoke( "InvokeOnCardPlacedAction", Time.deltaTime * 2 );
             }
         }
 
@@ -70,14 +71,19 @@ namespace Solitaire.Cards {
 
 
         #region Public Methods
-        public void SetCanBeDragged( bool canBeDragged ) {
-            this.canBeDragged = canBeDragged;
+        public void SetCanBeDragged( bool _canBeDragged ) {
+            Debug.Log("Can be dragged " + _canBeDragged );
+            canBeDragged = _canBeDragged;
         }
 
 
-        public void ActivateCollisions( bool activate ) {
-            // attachedCollider2D.enabled = activate;
-            attachedCollider2D.isTrigger = activate;
+        public void ActivateCollisions( bool _activate ) {
+            attachedCollider2D.isTrigger = _activate;
+        }
+
+
+        public void ActivateCollider( bool _activate ) {
+            attachedCollider2D.enabled = _activate;
         }
         #endregion
 
@@ -93,7 +99,6 @@ namespace Solitaire.Cards {
                 OnCardPlacedWithCollisions( GetClosestCollidingGameObject() );
             }
             
-            ActivateCollisions( false );
             detectedColliders.Clear();
         }
 

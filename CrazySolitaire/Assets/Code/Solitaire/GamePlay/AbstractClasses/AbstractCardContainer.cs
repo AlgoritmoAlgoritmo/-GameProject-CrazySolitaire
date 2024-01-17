@@ -42,7 +42,13 @@ namespace Solitaire.Gameplay {
         }
 
         public bool ContainsCard( CardFacade _card ) {
-            return cards.Contains( _card );
+            foreach( var auxCard in cards ) {
+                if( _card == auxCard  ) {
+                    return true;
+                }
+            }
+
+            return false;
         }
         
         public CardFacade GetTopCard() {

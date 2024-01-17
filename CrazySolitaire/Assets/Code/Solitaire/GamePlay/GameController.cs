@@ -6,8 +6,7 @@
 
 
 using UnityEngine;
-
-
+using UnityEngine.SceneManagement;
 
 namespace Solitaire.Gameplay {
 
@@ -22,6 +21,17 @@ namespace Solitaire.Gameplay {
         private void Start() {
             StartGame();
         }
+
+
+        private void Update() {
+            #if UNITY_EDITOR
+            if( Input.GetKeyUp( KeyCode.R) ) {
+                SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex );
+            }
+            #endif
+        }
+
+
         #endregion
 
 

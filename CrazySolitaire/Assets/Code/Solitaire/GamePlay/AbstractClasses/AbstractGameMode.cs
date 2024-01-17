@@ -56,8 +56,8 @@ namespace Solitaire.Gameplay {
         }
 
 
-        protected AbstractCardContainer GetCardContainer(CardFacade _card) {
-            foreach (AbstractCardContainer auxCardContainer in cardContainers) {
+        protected AbstractCardContainer GetCardContainer(CardFacade _card) {            
+            foreach( AbstractCardContainer auxCardContainer in cardContainers) {
                 if (auxCardContainer.ContainsCard(_card)) {
                     return auxCardContainer;
                 }

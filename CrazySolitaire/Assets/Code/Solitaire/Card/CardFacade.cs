@@ -66,6 +66,11 @@ namespace Solitaire.Cards {
         }
 
 
+        public string GetID() {
+            return cardData.id;
+        }
+
+
         public void SetCardData( CardData _cardData ) {
             cardData = _cardData;
         }
@@ -119,7 +124,7 @@ namespace Solitaire.Cards {
 
 
         public void SetCanBeDragged( bool _canBeDragged ) {
-            cardPhysics.SetCanBeDragged(_canBeDragged);
+            cardPhysics.SetCanBeDragged( _canBeDragged );
             cardView.SetInteractable( _canBeDragged );
         }
 

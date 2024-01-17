@@ -77,17 +77,25 @@ namespace Solitaire.Gameplay.Spider {
         #region Protected methods
         protected override void ValidateCardPlacementWithCollison( CardFacade _placedCard,
                                                         CardFacade _detectedCard ) {
+            Debug.Log("ValidateCardPlacementWithCollison");
+
             // Logic to move card from one container to another
             // Case: Card CANNOT be child of potential parent
             if( !CanBeChildOf( _placedCard, _detectedCard ) ) {
+                Debug.Log("!CanBeChildOf");
                 _placedCard.transform.position = GetCardOriginalPositionInContainer( _placedCard );
 
 
 
             // Case: Card CAN be child of potential parent
             } else {
+                Debug.Log( "Card CAN be child of potential parent" );
 
-                // 1- Setting card as new parent's child
+                // 1- Removing from previous Parent and setting detected card as new parent's child
+                if( _placedCard.ParentCard != null ) {
+                    _placedCard.ParentCard.ChildCard = null;
+                }
+
                 _detectedCard.ChildCard = _placedCard;
                 _placedCard.ParentCard = _detectedCard;
 
@@ -116,12 +124,19 @@ namespace Solitaire.Gameplay.Spider {
             // Logic to make card return to previous position
             _card.transform.position = GetCardOriginalPositionInContainer( _card );
 
-            if( _card.ChildCard ) {
+            if( _card.ChildCard != null ) {
+                Debug.Log("Has a child");
                 CardFacade auxCard = _card.ChildCard;
 
-                while( auxCard ) {
+                while( auxCard != null ) {
+                    Debug.Log("Has multiple childs");
                     auxCard.transform.position = GetCardOriginalPositionInContainer(auxCard);
+
+                    auxCard = auxCard.ChildCard;
                 }
+
+            } else {
+                Debug.Log("Does not have a child");
             }
         }
 

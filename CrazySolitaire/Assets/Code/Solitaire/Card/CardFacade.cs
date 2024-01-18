@@ -134,6 +134,11 @@ namespace Solitaire.Cards {
         }
 
 
+        public void ActivatePhysics( bool _activate ) {
+            cardPhysics.ActivatePhysics( _activate );
+        }
+
+
         public void MoveToPosition( Vector3 _newPositionOffset ) {
             if( ChildCard ) {
                 ChildCard.MoveToPosition( _newPositionOffset );

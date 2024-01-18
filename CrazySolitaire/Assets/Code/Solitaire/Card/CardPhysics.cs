@@ -72,7 +72,6 @@ namespace Solitaire.Cards {
 
         #region Public Methods
         public void SetCanBeDragged( bool _canBeDragged ) {
-            Debug.Log("Can be dragged " + _canBeDragged );
             canBeDragged = _canBeDragged;
         }
 
@@ -82,7 +81,7 @@ namespace Solitaire.Cards {
         }
 
 
-        public void ActivateCollider( bool _activate ) {
+        public void ActivatePhysics( bool _activate ) {
             attachedCollider2D.enabled = _activate;
         }
         #endregion

@@ -47,7 +47,18 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public void ValidateCardDragging( CardFacade _card ) {
-            _card.SetCanBeDragged( CanBeDragged( _card ) );
+            bool canBeDragged = CanBeDragged(_card);
+
+            _card.SetCanBeDragged( canBeDragged );
+
+            if( canBeDragged ) {
+                var auxChild = _card.ChildCard;
+
+                while( auxChild ) {
+                    auxChild.ActivatePhysics( false );
+                    auxChild = auxChild.ChildCard;
+                }
+            }
         }
 
 
@@ -107,13 +118,16 @@ namespace Solitaire.Gameplay.Spider {
                 CardFacade auxCardFacade = _placedCard;
 
                 while( auxCardFacade != null ) {
-                    // 3- Remove card its card container
+                    // 3- Remove card from its card container
                     GetCardContainer(auxCardFacade).RemoveCard(auxCardFacade);
 
                     // 4- Add card to new card container
                     parentCardContainer.AddCard(auxCardFacade);
 
-                    // 5- Set ChildCard as card to check on next loop
+                    // 5- Re-activate child physics
+                    auxCardFacade.ActivatePhysics(true);
+
+                    // 6- Set ChildCard as card to check on next loop
                     auxCardFacade = auxCardFacade.ChildCard;
                 }
             }

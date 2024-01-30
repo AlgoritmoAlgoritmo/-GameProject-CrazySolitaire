@@ -2060,11 +2060,11 @@ MonoBehaviour:
   - {fileID: 585882754}
   - {fileID: 74819387}
   suits:
-  - suitName: HEARTS
-    color: RED
   - suitName: SPADES
     color: BLACK
-  amountOfEachSuit: 4
+  amountOfEachSuit: 8
+  cardsLayer: CARD
+  cardContainersLayer: CARD_CONTAINER
 --- !u!1001 &1586797051
 PrefabInstance:
   m_ObjectHideFlags: 0

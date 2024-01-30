@@ -122,5 +122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpiderCardContainer 5Cards  Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2011391895173401853, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf22647cc98f3c04a96e1bfbaa60eac3, type: 3}

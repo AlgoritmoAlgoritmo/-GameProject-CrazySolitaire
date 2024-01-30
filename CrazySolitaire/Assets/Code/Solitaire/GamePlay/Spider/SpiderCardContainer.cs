@@ -9,17 +9,9 @@ using Solitaire.Cards;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Solitaire.Gameplay.Spider {
     public class SpiderCardContainer : AbstractCardContainer {
-        #region Variables
-
-        #endregion
-
-
-        #region MonoBehaviour methods
-        #endregion
-
-
         #region Public methods
         public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
             if( _cards == null     ||     _cards.Count == 0 ) {
@@ -37,10 +29,11 @@ namespace Solitaire.Gameplay.Spider {
         public override void AddCard( CardFacade _card ) {
             cards.Add( _card );
             _card.transform.position = GetCardPosition( _card );
+            CheckAndFlipUpperCard();
         }
 
 
-        public override void RemoveCard(CardFacade _card) {
+        public override void RemoveCard( CardFacade _card ) {
             cards.Remove( _card );
             CheckAndFlipUpperCard();
         }
@@ -68,6 +61,7 @@ namespace Solitaire.Gameplay.Spider {
                 if( i != cards.Count - 1) { 
                     cards[i].FlipCard( false );
                     cards[i].SetCanBeDragged( false );
+                    cards[i].ActivatePhysics( false );
                     cards[i].SetCollisionsActive( false );
 
                     cards[i].ChildCard = cards[i + 1];
@@ -76,6 +70,7 @@ namespace Solitaire.Gameplay.Spider {
                 } else { 
                     cards[i].FlipCard( true );
                     cards[i].SetCanBeDragged( true );
+                    cards[i].ActivatePhysics( true );
                     cards[i].SetCollisionsActive( true );
                 }
             }
@@ -87,8 +82,9 @@ namespace Solitaire.Gameplay.Spider {
         private void CheckAndFlipUpperCard() {
             if( GetTopCard() ) {
                 GetTopCard().FlipCard( true );
-                GetTopCard().SetCollisionsActive(true);
+                GetTopCard().SetCollisionsActive( true );
                 GetTopCard().SetCanBeDragged( true );
+                GetTopCard().ActivatePhysics( true );
             }
         }
         #endregion

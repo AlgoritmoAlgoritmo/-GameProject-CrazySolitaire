@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - CardCollision
-  - 
+  - CARD
+  - CARD_CONTAINER
   - 
   - 
   - 

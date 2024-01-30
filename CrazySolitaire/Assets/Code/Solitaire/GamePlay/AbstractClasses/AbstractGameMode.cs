@@ -26,6 +26,11 @@ namespace Solitaire.Gameplay {
         [SerializeField]
         protected short amountOfEachSuit;
 
+        [SerializeField]
+        protected string cardsLayer = "CARD";
+        [SerializeField]
+        protected string cardContainersLayer = "CARD_CONTAINER";
+
 
         protected List<CardFacade> cards;
         #endregion
@@ -39,8 +44,8 @@ namespace Solitaire.Gameplay {
 
 
         #region Protected abstract methods
-        protected abstract void ValidateCardPlacementWithCollison( CardFacade placedCard,
-                                                            CardFacade detectedGameObject );
+        protected abstract void ValidateCardPlacementWithCollison( CardFacade _placedCard,
+                                                            GameObject _detectedGameObject );
 
         protected abstract void ValidateCardPlacementWithoutCollison( CardFacade _card );
 

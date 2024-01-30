@@ -36,7 +36,7 @@ namespace Solitaire.Cards {
 
         public event Action<CardFacade> OnStartDrag;
         public event Action<CardFacade> OnCardPlacedWithoutCollisions;
-        public event Action<CardFacade, CardFacade> OnCardPlacedWithCollisions;
+        public event Action<CardFacade, GameObject> OnCardPlacedWithCollisions;
         #endregion
 
 
@@ -96,7 +96,7 @@ namespace Solitaire.Cards {
         }
 
 
-        public void SubscribeToOnCardPlacedWithCollisions( Action<CardFacade, CardFacade> action ) {
+        public void SubscribeToOnCardPlacedWithCollisions( Action<CardFacade, GameObject> action ) {
             OnCardPlacedWithCollisions += action;
         }
 
@@ -114,7 +114,7 @@ namespace Solitaire.Cards {
 
 
         public void InvokeOnCardPlacedWithCollisions( GameObject _detectedGameObject ) {
-            OnCardPlacedWithCollisions( this, _detectedGameObject.GetComponent<CardFacade>() );
+            OnCardPlacedWithCollisions( this, _detectedGameObject );
         }
 
 
@@ -152,6 +152,15 @@ namespace Solitaire.Cards {
 
             if (ChildCard) {
                 ChildCard.RenderOnTop();
+            }
+        }
+
+        public void ActivateChildsPhysics( bool _activate ) {
+            var auxChild = ChildCard;
+
+            while (auxChild) {
+                auxChild.ActivatePhysics(_activate);
+                auxChild = auxChild.ChildCard;
             }
         }
         #endregion

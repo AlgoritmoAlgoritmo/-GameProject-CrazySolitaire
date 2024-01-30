@@ -52,12 +52,8 @@ namespace Solitaire.Gameplay.Spider {
             _card.SetCanBeDragged( canBeDragged );
 
             if( canBeDragged ) {
-                var auxChild = _card.ChildCard;
-
-                while( auxChild ) {
-                    auxChild.ActivatePhysics( false );
-                    auxChild = auxChild.ChildCard;
-                }
+                // Deactivating childs physics to avoid the parent to detect them during dragging
+                _card.ActivateChildsPhysics(false);
             }
         }
 
@@ -85,53 +81,134 @@ namespace Solitaire.Gameplay.Spider {
         #endregion
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         #region Protected methods
         protected override void ValidateCardPlacementWithCollison( CardFacade _placedCard,
-                                                        CardFacade _detectedCard ) {
-            Debug.Log("ValidateCardPlacementWithCollison");
+                                                        GameObject _detectedGameObject ) {           
 
-            // Logic to move card from one container to another
-            // Case: Card CANNOT be child of potential parent
-            if( !CanBeChildOf( _placedCard, _detectedCard ) ) {
-                Debug.Log("!CanBeChildOf");
-                _placedCard.transform.position = GetCardOriginalPositionInContainer( _placedCard );
+            if ( _detectedGameObject.layer == LayerMask.NameToLayer( cardsLayer ) ) {
+                CardFacade detectedCardFacade = _detectedGameObject.GetComponent<CardFacade>();
+
+                if ( !detectedCardFacade )
+                    throw new Exception($"The object {_detectedGameObject.name} doesn't have a "
+                                                                + $"CardFacade component.");
+
+                // Logic to move card from one container to another
+                // Case: Card CANNOT be child of potential parent                
+                if (!CanBeChildOf(_placedCard, detectedCardFacade)  
+                                        ||   _placedCard.ParentCard == detectedCardFacade ) {
+                    Debug.Log("!CanBeChildOf");
+                    _placedCard.transform.position = GetCardOriginalPositionInContainer(_placedCard);
 
 
+                    // Recursively set child cards to old position
+                    var auxCardChild = _placedCard;
 
-            // Case: Card CAN be child of potential parent
-            } else {
-                Debug.Log( "Card CAN be child of potential parent" );
+                    while (auxCardChild != null) {
+                        auxCardChild.transform.position = GetCardOriginalPositionInContainer(
+                                                                                        auxCardChild);
+                        auxCardChild = auxCardChild.ChildCard;
+                    }
+                    
+                   
+                // Case: Card CAN be child of potential parent
+                } else {
+                    // 1- Removing from previous Parent and setting detected card as new parent's child
+                    if (_placedCard.ParentCard != null) {
+                        _placedCard.ParentCard.ChildCard = null;
+                    }
 
-                // 1- Removing from previous Parent and setting detected card as new parent's child
-                if( _placedCard.ParentCard != null ) {
+                    detectedCardFacade.ChildCard = _placedCard;
+                    _placedCard.ParentCard = detectedCardFacade;
+
+                    // 2- Get parent card container
+                    AbstractCardContainer parentCardContainer = GetCardContainer( detectedCardFacade );
+
+                    // Recursively check childs
+                    var auxCardFacade = _placedCard;
+
+                    while (auxCardFacade != null) {
+                        // 3- Remove card from its card container
+                        GetCardContainer(auxCardFacade).RemoveCard(auxCardFacade);
+
+                        // 4- Add card to new card container
+                        parentCardContainer.AddCard(auxCardFacade);
+
+                        // 5- Set ChildCard as card to check on next loop
+                        auxCardFacade = auxCardFacade.ChildCard;
+                    }
+                }
+
+                // Activating droped card childs physics again after dragging ends
+
+
+            // Case: The detected GameObject is a CardContainer
+            } else if ( _detectedGameObject.layer == LayerMask.NameToLayer( cardContainersLayer ) ) {
+                var detectedCardContainer = _detectedGameObject
+                                                        .GetComponent<AbstractCardContainer>();
+
+                if( !detectedCardContainer )
+                    throw new Exception($"The object {_detectedGameObject.name} doesn't have an "
+                                                            + $"AbstractCardContainer component.");
+                
+                if(_placedCard.ParentCard )
                     _placedCard.ParentCard.ChildCard = null;
+
+                _placedCard.ParentCard = null;
+                GetCardContainer(_placedCard).RemoveCard(_placedCard);
+                detectedCardContainer.AddCard(_placedCard);                
+
+                var auxChild = _placedCard.ChildCard;
+
+                while( auxChild ) {
+                    GetCardContainer(auxChild).RemoveCard(auxChild);
+
+                    detectedCardContainer.AddCard( auxChild );
+                    auxChild = auxChild.ChildCard;
                 }
 
-                _detectedCard.ChildCard = _placedCard;
-                _placedCard.ParentCard = _detectedCard;
 
-                // 2- Get parent card container
-                AbstractCardContainer parentCardContainer = GetCardContainer( _detectedCard );
-
-
-                // Recursively check childs
-                CardFacade auxCardFacade = _placedCard;
-
-                while( auxCardFacade != null ) {
-                    // 3- Remove card from its card container
-                    GetCardContainer(auxCardFacade).RemoveCard(auxCardFacade);
-
-                    // 4- Add card to new card container
-                    parentCardContainer.AddCard(auxCardFacade);
-
-                    // 5- Re-activate child physics
-                    auxCardFacade.ActivatePhysics(true);
-
-                    // 6- Set ChildCard as card to check on next loop
-                    auxCardFacade = auxCardFacade.ChildCard;
-                }
+            } else {
+                throw new Exception($"The object {_detectedGameObject.name}'s layer ("
+                    + LayerMask.LayerToName( _detectedGameObject.layer ) + ") is not valid." );
+            
             }
+            
+            
+            _placedCard.ActivateChildsPhysics(true);
+            // CheckIfColumnWasCompleted(_placedCard);
+            
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         protected override void ValidateCardPlacementWithoutCollison( CardFacade _card ) {
@@ -152,6 +229,9 @@ namespace Solitaire.Gameplay.Spider {
             } else {
                 Debug.Log("Does not have a child");
             }
+
+            // Activating droped card childs physics again after dragging ends
+            _card.ActivateChildsPhysics( true );
         }
 
 
@@ -178,6 +258,84 @@ namespace Solitaire.Gameplay.Spider {
 
             return true;
         }
+        #endregion
+
+
+
+        #region Private methods
+        private void CheckIfColumnWasCompleted( CardFacade _placedCard ) {
+            Debug.Log("CheckIfColumnWasCompleted");
+            int auxCardNumber = _placedCard.GetCardNumber();
+            string placedCardSuit = _placedCard.GetSuit();
+
+
+            // Check parents one by one until finding a King or the column is
+            CardFacade auxCard = _placedCard.ParentCard;
+
+            while( auxCard ) {
+                if (auxCard.GetCardNumber() == 12) {
+                    auxCard = null;
+
+                } else if( auxCard.GetSuit().Equals( placedCardSuit )
+                            &&  auxCard.GetCardNumber() == auxCardNumber + 1  ) {
+                    auxCardNumber = auxCard.GetCardNumber();
+                    auxCard = auxCard.ParentCard;
+
+                } else {
+                    Debug.Log("CheckIfColumnWasCompleted: Invalid parent");
+                    Debug.Log($"Previous checked card number: {auxCardNumber}. "
+                            + $"Current card number: {auxCard.GetCardNumber()}. "
+                            + $"Expected number: {auxCardNumber + 1}.");
+
+                    return;
+                }
+            }
+
+            //  If greatest parent is not a king abort check up
+            if( auxCardNumber != 12 ) {
+                Debug.Log( "CheckIfColumnWasCompleted: biggest parent is " + auxCardNumber );
+
+                return;
+            }
+
+
+
+
+            // Check childs one by one
+            auxCardNumber = _placedCard.GetCardNumber();
+            auxCard = _placedCard.ChildCard;
+
+            while( auxCard ) {
+                if( auxCard.GetSuit().Equals( placedCardSuit )
+                            && auxCard.GetCardNumber() == auxCardNumber - 1 ) {
+                    auxCardNumber = auxCard.GetCardNumber();
+                    auxCard = auxCard.ChildCard;
+
+                } else {
+                    Debug.Log("CheckIfColumnWasCompleted: invalid child");
+                    Debug.Log("CheckIfColumnWasCompleted: Invalid parent");
+                    Debug.Log($"Previous checked card number: {auxCardNumber}. "
+                            + $"Current card number: {auxCard.GetCardNumber()}. "
+                            + $"Expected number: {auxCardNumber - 1}.");
+
+                    return;
+                }
+            }
+
+
+            //  If smallest child is not an as abort check up
+            if (auxCardNumber != 0) {
+                Debug.Log("CheckIfColumnWasCompleted: smallest child is not an as");
+
+                return;
+            }
+
+
+
+            // Move column from SpiderCardContainer to CompletedCardContainer
+            Debug.Log("Column completed.");
+        }
+
         #endregion
     }
 }

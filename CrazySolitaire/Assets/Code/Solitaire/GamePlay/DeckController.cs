@@ -50,7 +50,7 @@ namespace Solitaire.Gameplay {
 
 
         public void SubscribeToCardPlacedEventWithCollision( Action<CardFacade,
-                                                            CardFacade> action ) {
+                                                            GameObject> action ) {
             foreach( CardFacade auxCard in inGamecards ) {
                 auxCard.SubscribeToOnCardPlacedWithCollisions( action );
             }

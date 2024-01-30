@@ -42,29 +42,28 @@ namespace Solitaire.Cards {
 
 
         public void OnDrag( PointerEventData eventData ) {
-            if( canBeDragged ) {
+            if ( canBeDragged ) {
                 OnDragging( (Vector3)eventData.delta );
-
-            } else {
-                Debug.Log("Cannot be dragged");
             }
         }
 
 
         public void OnEndDrag( PointerEventData eventData ) {
-            if( canBeDragged ) {
+            if ( canBeDragged ) {
                 InvokeOnCardPlacedAction();
             }
         }
 
 
-        private void OnTriggerEnter2D ( Collider2D collision) {
-            detectedColliders.Add( collision );
+        private void OnTriggerEnter2D ( Collider2D collision ) {
+            if(canBeDragged)
+                detectedColliders.Add( collision );
         }
 
 
         private void OnTriggerExit2D( Collider2D collision ) {
-            detectedColliders.Remove( collision );
+            if (canBeDragged)
+                detectedColliders.Remove( collision );
         }
         #endregion
 

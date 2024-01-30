@@ -52,6 +52,9 @@ namespace Solitaire.Gameplay {
         }
         
         public CardFacade GetTopCard() {
+            if( cards.Count == 0 ) 
+                return null;
+
             return cards[cards.Count - 1];
         }
 

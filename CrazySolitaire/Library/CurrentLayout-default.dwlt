@@ -113,8 +113,8 @@ MonoBehaviour:
     y: 30
     width: 1280
     height: 587
-  m_MinSize: {x: 708, y: 492}
-  m_MaxSize: {x: 18003, y: 14042}
+  m_MinSize: {x: 679, y: 342}
+  m_MaxSize: {x: 12004, y: 8042}
   vertical: 0
   controlID: 82
 --- !u!114 &6
@@ -134,10 +134,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 333
+    width: 281
     height: 587
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -160,9 +160,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 333
+    x: 281
     y: 0
-    width: 242
+    width: 276
     height: 587
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -188,12 +188,12 @@ MonoBehaviour:
   - {fileID: 10}
   m_Position:
     serializedVersion: 2
-    x: 575
+    x: 557
     y: 0
-    width: 705
+    width: 723
     height: 587
-  m_MinSize: {x: 231, y: 492}
-  m_MaxSize: {x: 10001, y: 14042}
+  m_MinSize: {x: 201, y: 342}
+  m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
   controlID: 83
 --- !u!114 &9
@@ -213,8 +213,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 705
-    height: 316
+    width: 723
+    height: 408
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 12}
@@ -234,23 +234,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 316
-    width: 705
-    height: 271
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 18}
+    y: 408
+    width: 723
+    height: 179
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -273,17 +273,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 332
+    width: 448
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 524
-    splitterInitialOffset: 0
+    ID: 159
+    splitterInitialOffset: 334
     currentActiveSplitter: -1
-    realSizes: 740100007c000000
+    realSizes: 09010000e7000000
     relativeSizes:
-    - 0.75
-    - 0.25
+    - 0.5342742
+    - 0.46572578
     minSizes: 2000000020000000
     maxSizes: 0000000000000000
     lastTotalSize: 496
@@ -389,12 +389,12 @@ MonoBehaviour:
       categories: []
       parentId: 1007
       parentUniqueId: InterfacesTest.dll/Tests/EffectsSystem/[InterfacesTest][Tests.EffectsSystem.Interfaces][suite]
-    - id: 1002
-      uniqueId: InterfacesTest.dll/Tests/EffectsSystem/Interfaces/IEffectTest/[InterfacesTest][Tests.EffectsSystem.Interfaces.IEffectTest.IEffectPlayMethodIsSuccessfullyCalled]
-      name: IEffectPlayMethodIsSuccessfullyCalled
-      fullName: Tests.EffectsSystem.Interfaces.IEffectTest.IEffectPlayMethodIsSuccessfullyCalled
-      resultStatus: 1
-      duration: 0.0472173
+    - id: 1013
+      uniqueId: InterfacesTest.dll/Tests/EffectsSystem/Interfaces/IEffectTest/[InterfacesTest][Tests.EffectsSystem.Interfaces.IEffectTest.Play_CallingMethod_SwitchesBooleanFromFalseToTrue]
+      name: Play_CallingMethod_SwitchesBooleanFromFalseToTrue
+      fullName: Tests.EffectsSystem.Interfaces.IEffectTest.Play_CallingMethod_SwitchesBooleanFromFalseToTrue
+      resultStatus: 0
+      duration: 0
       messages: 
       output: 
       stacktrace: 
@@ -404,7 +404,24 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentId: 1001
+      parentId: 1011
+      parentUniqueId: InterfacesTest.dll/Tests/EffectsSystem/Interfaces/[InterfacesTest][Tests.EffectsSystem.Interfaces.IEffectTest][suite]
+    - id: 1012
+      uniqueId: InterfacesTest.dll/Tests/EffectsSystem/Interfaces/IEffectTest/[InterfacesTest][Tests.EffectsSystem.Interfaces.IEffectTest.Play_Instance_IsIEffect]
+      name: Play_Instance_IsIEffect
+      fullName: Tests.EffectsSystem.Interfaces.IEffectTest.Play_Instance_IsIEffect
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
       parentUniqueId: InterfacesTest.dll/Tests/EffectsSystem/Interfaces/[InterfacesTest][Tests.EffectsSystem.Interfaces.IEffectTest][suite]
     m_ResultText: IEffectPlayMethodIsSuccessfullyCalled (0,047s)
     m_ResultStacktrace: 
@@ -446,8 +463,8 @@ MonoBehaviour:
       uniqueId: '[CrazySolitaire][suite]'
       name: CrazySolitaire
       fullName: CrazySolitaire
-      resultStatus: 0
-      duration: 0
+      resultStatus: 1
+      duration: 0.5485261
       messages: 
       output: 
       stacktrace: 
@@ -462,8 +479,8 @@ MonoBehaviour:
       uniqueId: '[EffectsSystemTests.dll][suite]'
       name: EffectsSystemTests.dll
       fullName: C:/Users/Usuario/Documents/GitHub/CrazySolitaire/CrazySolitaire/Library/ScriptAssemblies/EffectsSystemTests.dll
-      resultStatus: 0
-      duration: 0
+      resultStatus: 1
+      duration: 0.3658806
       messages: 
       output: 
       stacktrace: 
@@ -478,8 +495,8 @@ MonoBehaviour:
       uniqueId: EffectsSystemTests.dll/[Tests][suite]
       name: Tests
       fullName: Tests
-      resultStatus: 0
-      duration: 0
+      resultStatus: 1
+      duration: 0.3433899
       messages: 
       output: 
       stacktrace: 
@@ -490,12 +507,12 @@ MonoBehaviour:
       categories: []
       parentId: 1004
       parentUniqueId: '[EffectsSystemTests.dll][suite]'
-    - id: 1006
-      uniqueId: EffectsSystemTests.dll/Tests/[EffectsSystemTests][Tests.EffectsSystem][suite]
+    - id: 1009
+      uniqueId: EffectsSystemTests.dll/Tests/[EffectsSystem][suite]
       name: EffectsSystem
       fullName: Tests.EffectsSystem
-      resultStatus: 0
-      duration: 0
+      resultStatus: 1
+      duration: 0.3401967
       messages: 
       output: 
       stacktrace: 
@@ -504,14 +521,130 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1005
+      parentId: 1008
       parentUniqueId: EffectsSystemTests.dll/[Tests][suite]
+    - id: 1010
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[Effects][suite]
+      name: Effects
+      fullName: Tests.EffectsSystem.Effects
+      resultStatus: 1
+      duration: 0.3310464
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1009
+      parentUniqueId: EffectsSystemTests.dll/Tests/[EffectsSystem][suite]
+    - id: 1011
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects][suite]
+      name: AudioEffects
+      fullName: Tests.EffectsSystem.Effects.AudioEffects
+      resultStatus: 1
+      duration: 0.3135737
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1010
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[Effects][suite]
+    - id: 1004
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/AudioEffects/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest][suite]
+      name: SoundEffectTest
+      fullName: Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest
+      resultStatus: 1
+      duration: 0.2913955
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1011
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects][suite]
+    - id: 1006
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/AudioEffects/SoundEffectTest/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest.Play_MethodCallWithAudioClip_AudioClipPlays]
+      name: Play_MethodCallWithAudioClip_AudioClipPlays
+      fullName: Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest.Play_MethodCallWithAudioClip_AudioClipPlays
+      resultStatus: 1
+      duration: 0.2260175
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/AudioEffects/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest][suite]
+    - id: 1005
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/AudioEffects/SoundEffectTest/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest.Play_MethodCallWithNoAudioClip_ThrowsNullReferenceException]
+      name: Play_MethodCallWithNoAudioClip_ThrowsNullReferenceException
+      fullName: Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest.Play_MethodCallWithNoAudioClip_ThrowsNullReferenceException
+      resultStatus: 1
+      duration: 0.0017441
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/AudioEffects/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest][suite]
+    - id: 1006
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/AudioEffects/SoundEffectTest/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest.SetAudioClip_AudioClipSetup_IsTheSameAsAudioSourceAudioClip]
+      name: SetAudioClip_AudioClipSetup_IsTheSameAsAudioSourceAudioClip
+      fullName: Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest.SetAudioClip_AudioClipSetup_IsTheSameAsAudioSourceAudioClip
+      resultStatus: 1
+      duration: 0.0019849
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/AudioEffects/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest][suite]
+    - id: 1005
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/AudioEffects/SoundEffectTest/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest.SoundEffectClass_IsInstanceOfsIEffect]
+      name: SoundEffectClass_IsInstanceOfsIEffect
+      fullName: Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest.SoundEffectClass_IsInstanceOfsIEffect
+      resultStatus: 1
+      duration: 0.0009757
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/AudioEffects/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest][suite]
     - id: 1001
       uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest][suite]
       name: EffectsManagerTest
       fullName: Tests.EffectsSystem.EffectsManagerTest
-      resultStatus: 0
-      duration: 0
+      resultStatus: 1
+      duration: 0.0852231
       messages: 
       output: 
       stacktrace: 
@@ -523,11 +656,11 @@ MonoBehaviour:
       parentId: 1006
       parentUniqueId: EffectsSystemTests.dll/Tests/[EffectsSystemTests][Tests.EffectsSystem][suite]
     - id: 1002
-      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/EffectsManagerTest/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest.EffectsManagerTestSimplePasses]
-      name: EffectsManagerTestSimplePasses
-      fullName: Tests.EffectsSystem.EffectsManagerTest.EffectsManagerTestSimplePasses
-      resultStatus: 0
-      duration: 0
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/EffectsManagerTest/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest.EffectsManager_IsInstanceOfIEffect_IsNotNull]
+      name: EffectsManager_IsInstanceOfIEffect_IsNotNull
+      fullName: Tests.EffectsSystem.EffectsManagerTest.EffectsManager_IsInstanceOfIEffect_IsNotNull
+      resultStatus: 1
+      duration: 0.0012315
       messages: 
       output: 
       stacktrace: 
@@ -540,11 +673,11 @@ MonoBehaviour:
       parentId: 1001
       parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest][suite]
     - id: 1003
-      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/EffectsManagerTest/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest.EffectsManagerTestWithEnumeratorPasses]
-      name: EffectsManagerTestWithEnumeratorPasses
-      fullName: Tests.EffectsSystem.EffectsManagerTest.EffectsManagerTestWithEnumeratorPasses
-      resultStatus: 0
-      duration: 0
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/EffectsManagerTest/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest.Play_CallingMethod_DoesNotThrowException]
+      name: Play_CallingMethod_DoesNotThrowException
+      fullName: Tests.EffectsSystem.EffectsManagerTest.Play_CallingMethod_DoesNotThrowException
+      resultStatus: 1
+      duration: 0.0011679
       messages: 
       output: 
       stacktrace: 
@@ -556,13 +689,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest][suite]
-    m_ResultText: 
+    m_ResultText: Play_MethodCallWithAudioClip_AudioClipPlays (0,226s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: a3910e89ffffff7f
+      m_SelectedIDs: 3ae64ddd
+      m_LastClickedID: -582097350
+      m_ExpandedIDs: 98358480a3910e8948c72d9f9cf062d9c743b2d97a06fbdac341e81764453d24ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -609,10 +742,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 575
+    x: 557
     y: 73
-    width: 704
-    height: 295
+    width: 722
+    height: 387
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
   m_SerializedViewValues: []
@@ -622,7 +755,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 487, y: 274}
+  m_TargetSize: {x: 651, y: 366}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -637,10 +770,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -243.5
-    m_HBaseRangeMax: 243.5
-    m_VBaseRangeMin: -137
-    m_VBaseRangeMax: 137
+    m_HBaseRangeMin: -325.5
+    m_HBaseRangeMax: 325.5
+    m_VBaseRangeMin: -183
+    m_VBaseRangeMax: 183
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -658,23 +791,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 704
-      height: 274
+      width: 722
+      height: 366
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 352, y: 137}
+    m_Translation: {x: 361, y: 183}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -352
-      y: -137
-      width: 704
-      height: 274
+      x: -361
+      y: -183
+      width: 722
+      height: 366
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 704, y: 295}
+  m_LastWindowPixelSize: {x: 722, y: 387}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 0
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -703,7 +836,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 332
+    width: 280
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0
@@ -717,7 +850,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 26
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -765,17 +898,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 333
+    x: 281
     y: 73
-    width: 240
+    width: 274
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 92350000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 1cf0ffff3af0ffffbaf0ffff3ef1ffff5cf1ffffe2f1ffff62fbffff
+      m_SelectedIDs: 9c4a0000
+      m_LastClickedID: 19100
+      m_ExpandedIDs: 7cdfffffacdfffff08e1ffff16e2ffff2ee3ffffe2e3ffffb2e4ffffe0e5ffff94e6ffff3ee7ffff9eecffffc6eeffff1ef0ffffdcf0ffffdcf6ffffe0f7ffff2ef9ffff62fbffff724a00009c4a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -999,9 +1132,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 575
+    x: 552
     y: 389
-    width: 704
+    width: 727
     height: 250
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
@@ -1017,20 +1150,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Tests/EffectsSystemTests/Interfaces
+    - Assets/Scripts/Tests/EffectsSystemTests/Effects/AudioEffects
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Tests/EffectsSystemTests/Interfaces
+  - Assets/Scripts/Tests/EffectsSystemTests/Effects/AudioEffects
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 122}
-    m_SelectedIDs: e4410000
-    m_LastClickedID: 16868
-    m_ExpandedIDs: 0000000056400000584000005a4000005c4000005e400000604000006e4000007040000072400000
+    scrollPos: {x: 0, y: 94}
+    m_SelectedIDs: 82400000
+    m_LastClickedID: 16514
+    m_ExpandedIDs: 0000000060400000624000006440000066400000684000006a4000006c4000006e40000070400000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1058,7 +1191,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000056400000584000005a4000005c4000005e40000060400000
+    m_ExpandedIDs: 0000000060400000624000006440000066400000684000006a4000006c4000006e40000070400000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1083,21 +1216,21 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 82400000
+    m_LastClickedInstanceID: 16514
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 90100100c21201004ed103001eb30300fa6f040026e2030000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Interfaces
-      m_OriginalName: Interfaces
+      m_Name: TestConstants
+      m_OriginalName: TestConstants
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 16868
+      m_UserData: 16996
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -1135,8 +1268,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 575
-    y: 389
-    width: 704
-    height: 250
+    x: 557
+    y: 481
+    width: 722
+    height: 158
   m_ViewDataDictionary: {fileID: 0}

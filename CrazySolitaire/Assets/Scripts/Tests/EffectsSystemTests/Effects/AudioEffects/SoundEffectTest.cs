@@ -4,20 +4,26 @@
 */
 
 
+
 using System;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.TestTools;
 using EffectsSystem.Interfaces;
 using EffectsSystem.Effects.AudioEffects;
-using Tests;
 using System.Collections;
-using UnityEngine.TestTools;
+
+
+
 
 namespace Tests.EffectsSystem.Effects.AudioEffects {
     public class SoundEffectTest {
         
         private const string AUDIO_FILE_PATH = "Assets/Scripts/Tests/" +
                         "EffectsSystemTests/Effects/AudioEffects/Cityscapes.wav";
+        private const string AUDIO_MIXER_PATH = "Assets/Scripts/Tests/" +
+                        "EffectsSystemTests/Effects/AudioEffects/MixerForTest.mixer";
         private SoundEffect soundEffect;
 
 
@@ -28,15 +34,12 @@ namespace Tests.EffectsSystem.Effects.AudioEffects {
         }
 
 
-        /*
-         *      La convención para nombres de funciones de testing es:
-         *      MethodName_WhenThisConditions_DoesWhat
-         */
+        
+
         [Test]
         public void SoundEffectClass_IsInstanceOfsIEffect() {
             Assert.IsInstanceOf(typeof(IEffect), soundEffect);       
         }
-
 
 
         [Test]
@@ -45,7 +48,6 @@ namespace Tests.EffectsSystem.Effects.AudioEffects {
 
             Assert.Throws<NullReferenceException>(() => soundEffect.Play());
         }
-
 
 
         [Test]
@@ -81,6 +83,23 @@ namespace Tests.EffectsSystem.Effects.AudioEffects {
                         
             Assert.AreSame( audioClip, soundEffect.GetAudioSource().clip );
             Assert.True( soundEffect.GetAudioSource().isPlaying );
+        }
+
+
+        [UnityTest]
+        public IEnumerator SetAudioMixerGroup_MixerGroupOverriding_IsTheSameAudioSourceMixerGroup() {
+            AudioMixer audioMixer = UnityEditor.AssetDatabase.LoadAssetAtPath(
+                                AUDIO_MIXER_PATH, typeof(AudioMixer) ) as AudioMixer;
+
+
+            soundEffect.SetAudioMixerGroup( audioMixer.outputAudioMixerGroup );
+            yield return null;
+            yield return null;
+
+
+            Assert.IsNotNull( audioMixer );
+            Assert.AreSame( audioMixer.outputAudioMixerGroup,
+                                        soundEffect.GetAudioSource().outputAudioMixerGroup );
         }
     }
 }

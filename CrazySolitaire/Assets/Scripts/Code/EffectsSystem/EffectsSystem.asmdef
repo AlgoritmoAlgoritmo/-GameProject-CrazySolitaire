@@ -1,3 +1,15 @@
-﻿{
-	"name": "EffectsSystem"
+{
+    "name": "EffectsSystem",
+    "references": [
+        "GUID:285d672dbf84e0d40abaca0203b12fea"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

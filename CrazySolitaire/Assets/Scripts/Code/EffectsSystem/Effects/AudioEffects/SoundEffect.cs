@@ -59,8 +59,9 @@ namespace EffectsSystem.Effects.AudioEffects {
             return audioSource;
         }
 
-        public void SetAudioMixer( AudioMixerGroup _audioMixer ) {
+        public void SetAudioMixerGroup( AudioMixerGroup _audioMixer ) {
             audioMixer = _audioMixer;
+
             audioSource.outputAudioMixerGroup = audioMixer;
         }
         #endregion

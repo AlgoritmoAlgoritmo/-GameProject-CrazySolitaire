@@ -238,7 +238,8 @@ namespace Solitaire.Gameplay.Spider {
         #region Private methods
         private void CheckIfColumnWasCompleted( CardFacade _placedCard ) {
             if( IsColumnCompleted( _placedCard ) )
-                MoveColumnToCompletedColumnContainer( _placedCard );
+                MoveColumnToCompletedColumnContainer(
+                                GetCardColumn( _placedCard ) );
         }
 
 

@@ -5,10 +5,8 @@
 
 
 using System;
-using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.TestTools;
 using EffectsSystem;
 using EffectsSystem.Interfaces;
 
@@ -28,11 +26,6 @@ namespace Tests.EffectsSystem {
         } 
 
 
-        
-        /*
-         *      La convención para nombres de funciones de testing es:
-         *      MethodName_WhenThisConditions_DoesWhat
-         */
         [Test]
         public void EffectsManager_IsInstanceOfIEffect_IsNotNull() {
             Assert.IsTrue( effectsManager is IEffect );
@@ -41,10 +34,19 @@ namespace Tests.EffectsSystem {
 
 
         [Test]
-        public void Play_CallingMethod_DoesNotThrowException () {
-            Action playAction = () => { effectsManager.Play(); };
+        public void Play_NoEffectsAdded_ThrowsNullReferenceException() {
+            Assert.Throws<NullReferenceException>(() => effectsManager.Play());
+        }
 
-            // Assert.Catch<Exception>( playAction );
+
+        [Test]
+        public void Play_AddEffects_EffectsAreSuccessfullyAdded() {
+            IEffect effect = new EffectImplementationForTesting();
+
+            effectsManager.AddEffect( effect );
+
+            Assert.AreEqual( effectsManager.GetEffectsAmount(), 1 );
+            effectsManager.Play();
         }
     }
 }

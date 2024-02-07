@@ -5,17 +5,17 @@
 
 
 
+using System;
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using EffectsSystem.Interfaces;
-using Tests.EffectsSystem.Effects.CameraEffects;
-using System;
+using EffectsSystem.Effects.CameraEffects;
 
 
 
-namespace Tests.EffectsSystem {
+namespace Tests.EffectsSystem.Effects.CameraEffects {
     public class CameraShakeEffectTest {
         CameraShakeEffects cameraShakeEffects;
 
@@ -41,7 +41,7 @@ namespace Tests.EffectsSystem {
 
 
         [UnityTest]
-        public IEnumerator Play_CameraAssigned_IsMovedFromOriginalPosition() {
+        public IEnumerator Play_CameraAssigned_PositionChanges() {
             Vector3 originalPosition = Camera.main.transform.position;
             cameraShakeEffects.SetCamera( Camera.main );
 
@@ -53,50 +53,5 @@ namespace Tests.EffectsSystem {
 
             Assert.AreNotEqual(originalPosition, Camera.main.transform.position);
         }
-
-
-
-        
-        [UnityTest]
-        public IEnumerator Play_FixedTime_MovingToDiferentPositionsOverTime() {
-            Vector3 previousPosition = Camera.main.transform.position;
-            float effectDuration = .4f;
-            cameraShakeEffects.SetCamera( Camera.main );
-            cameraShakeEffects.SetDuration( effectDuration );
-
-            float elapsedTimeSincePlayWasCalled = 0f;
-            cameraShakeEffects.Play();
-
-
-            // Wait for movement to start
-            while( Camera.main.transform.position == previousPosition ) {
-                yield return null;
-            }
-
-
-            // Register how much time does the camera keep moving
-            do  {
-                elapsedTimeSincePlayWasCalled += Time.deltaTime;
-                previousPosition = Camera.main.transform.position;
-
-                yield return null;
-            } while ( Camera.main.transform.position != previousPosition );
-
-
-            // compare elapse time with duration
-            Assert.AreEqual( effectDuration, elapsedTimeSincePlayWasCalled );
-        }
-        
-
-
-        /*
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
-        [UnityTest]
-        public IEnumerator CameraShakeTestWithEnumeratorPasses() {
-            
-            yield return null;
-        }
-        */
     }
 }

@@ -28,7 +28,7 @@ namespace Solitaire.Gameplay.Spider {
         }
 
 
-        public override void RemoveCards(List<CardFacade> _cards) {
+        public override void RemoveCards( List<CardFacade> _cards ) {
             throw new System.NotImplementedException();
         }
 

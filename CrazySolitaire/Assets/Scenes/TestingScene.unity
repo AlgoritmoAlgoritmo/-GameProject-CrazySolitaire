@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.AbstractCardContainer, Assembly-CSharp
+      value: Solitaire.Gameplay.AbstractCardContainer, Solitaire
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -1086,7 +1086,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.AbstractCardContainer, Assembly-CSharp
+      value: Solitaire.Gameplay.AbstractCardContainer, Solitaire
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -1871,7 +1871,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.AbstractCardContainer, Assembly-CSharp
+      value: Solitaire.Gameplay.AbstractCardContainer, Solitaire
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -2192,7 +2192,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.AbstractCardContainer, Assembly-CSharp
+      value: Solitaire.Gameplay.AbstractCardContainer, Solitaire
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -2676,7 +2676,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.AbstractCardContainer, Assembly-CSharp
+      value: Solitaire.Gameplay.AbstractCardContainer, Solitaire
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}

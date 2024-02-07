@@ -15,6 +15,8 @@ using Solitaire.Cards;
 namespace Solitaire.Gameplay.Spider {
     public class SpiderGameMode : AbstractGameMode {
         #region Variables
+        [SerializeField]
+        private List<AbstractCardContainer> completedColumnContainers; 
         #endregion
 
 
@@ -81,20 +83,6 @@ namespace Solitaire.Gameplay.Spider {
         #endregion
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         #region Protected methods
         protected override void ValidateCardPlacementWithCollison( CardFacade _placedCard,
                                                         GameObject _detectedGameObject ) {           
@@ -157,6 +145,8 @@ namespace Solitaire.Gameplay.Spider {
 
             // Case: The detected GameObject is a CardContainer
             } else if ( _detectedGameObject.layer == LayerMask.NameToLayer( cardContainersLayer ) ) {
+                Debug.Log("Adding card to Card container");
+                
                 var detectedCardContainer = _detectedGameObject
                                                         .GetComponent<AbstractCardContainer>();
 
@@ -189,25 +179,8 @@ namespace Solitaire.Gameplay.Spider {
             
             
             _placedCard.ActivateChildsPhysics(true);
-            // CheckIfColumnWasCompleted(_placedCard);
-            
+            CheckIfColumnWasCompleted( _placedCard );            
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -264,20 +237,29 @@ namespace Solitaire.Gameplay.Spider {
 
         #region Private methods
         private void CheckIfColumnWasCompleted( CardFacade _placedCard ) {
+            if( IsColumnCompleted( _placedCard ) )
+                MoveColumnToCompletedColumnContainer( _placedCard );
+        }
+
+
+        private bool IsColumnCompleted( CardFacade _card ) {
             Debug.Log("CheckIfColumnWasCompleted");
-            int auxCardNumber = _placedCard.GetCardNumber();
-            string placedCardSuit = _placedCard.GetSuit();
+            int auxCardNumber = _card.GetCardNumber();
+            string placedCardSuit = _card.GetSuit();
 
 
-            // Check parents one by one until finding a King or the column is
-            CardFacade auxCard = _placedCard.ParentCard;
+            /*
+            * Check parents one by one until finding a King or the column is
+            */
+            CardFacade auxCard = _card.ParentCard;
 
-            while( auxCard ) {
-                if (auxCard.GetCardNumber() == 12) {
+            while (auxCard) {
+                if (auxCard.GetCardNumber() == 13) {
+                    auxCardNumber = 13;
                     auxCard = null;
 
-                } else if( auxCard.GetSuit().Equals( placedCardSuit )
-                            &&  auxCard.GetCardNumber() == auxCardNumber + 1  ) {
+                } else if (auxCard.GetSuit().Equals(placedCardSuit)
+                            && auxCard.GetCardNumber() == auxCardNumber + 1) {
                     auxCardNumber = auxCard.GetCardNumber();
                     auxCard = auxCard.ParentCard;
 
@@ -287,27 +269,31 @@ namespace Solitaire.Gameplay.Spider {
                             + $"Current card number: {auxCard.GetCardNumber()}. "
                             + $"Expected number: {auxCardNumber + 1}.");
 
-                    return;
+                    return false;
                 }
             }
 
-            //  If greatest parent is not a king abort check up
-            if( auxCardNumber != 12 ) {
-                Debug.Log( "CheckIfColumnWasCompleted: biggest parent is " + auxCardNumber );
 
-                return;
+            /*
+            * If greatest parent is not a king abort check up
+            */
+            if (auxCardNumber != 13) {
+                Debug.Log("CheckIfColumnWasCompleted: biggest parent is "
+                                                                + auxCardNumber);
+
+                return false;
             }
 
 
+            /*
+            * Check childs one by one
+            */
+            auxCardNumber = _card.GetCardNumber();
+            auxCard = _card.ChildCard;
 
-
-            // Check childs one by one
-            auxCardNumber = _placedCard.GetCardNumber();
-            auxCard = _placedCard.ChildCard;
-
-            while( auxCard ) {
-                if( auxCard.GetSuit().Equals( placedCardSuit )
-                            && auxCard.GetCardNumber() == auxCardNumber - 1 ) {
+            while (auxCard) {
+                if (auxCard.GetSuit().Equals(placedCardSuit)
+                            && auxCard.GetCardNumber() == auxCardNumber - 1) {
                     auxCardNumber = auxCard.GetCardNumber();
                     auxCard = auxCard.ChildCard;
 
@@ -318,24 +304,64 @@ namespace Solitaire.Gameplay.Spider {
                             + $"Current card number: {auxCard.GetCardNumber()}. "
                             + $"Expected number: {auxCardNumber - 1}.");
 
-                    return;
+                    return false;
                 }
             }
 
 
-            //  If smallest child is not an as abort check up
-            if (auxCardNumber != 0) {
+            /*
+            *  If smallest child is not an as abort check up
+            */
+            if (auxCardNumber != 1) {
                 Debug.Log("CheckIfColumnWasCompleted: smallest child is not an as");
 
-                return;
+                return false;
             }
 
 
-
-            // Move column from SpiderCardContainer to CompletedCardContainer
-            Debug.Log("Column completed.");
+            /*
+            * Move column from SpiderCardContainer to CompletedCardContainer
+            */
+            return true;
+        }
+        
+        
+        private void MoveColumnToCompletedColumnContainer( List<CardFacade> _cards ) {
+            completedColumnContainers[completedColumnContainers.Count - 1]
+                                                                .AddCards( _cards );
+            completedColumnContainers.RemoveAt( completedColumnContainers.Count - 1 );
         }
 
+
+        private List<CardFacade> GetCardColumn( CardFacade _card ) {
+            List<CardFacade> columnOfCards = new List<CardFacade>();
+            CardFacade auxCard = _card;
+
+            while( auxCard ) {
+                if(  auxCard.GetCardNumber() + 1  
+                                    ==  auxCard.ParentCard.GetCardNumber()  ) {
+                    auxCard = auxCard.ParentCard;
+
+                } else {
+                    break;
+                }
+            }
+
+
+            while( auxCard ) {
+                if( auxCard.ChildCard != null  
+                                            &&  auxCard.GetCardNumber() + 1 == 
+                                                auxCard.ChildCard.GetCardNumber()  ) {
+                    columnOfCards.Add( auxCard );
+
+                } else {
+                    break;
+                }
+            }
+
+
+            return columnOfCards;
+        }
         #endregion
     }
 }

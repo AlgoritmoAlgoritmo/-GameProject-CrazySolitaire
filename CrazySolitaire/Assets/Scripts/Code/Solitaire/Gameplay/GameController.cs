@@ -8,6 +8,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 namespace Solitaire.Gameplay {
 
     public class GameController : MonoBehaviour {
@@ -30,8 +32,6 @@ namespace Solitaire.Gameplay {
             }
             #endif
         }
-
-
         #endregion
 
 

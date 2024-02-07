@@ -76,8 +76,8 @@ namespace Solitaire.Gameplay {
                 int generatedID = 0;
 
                 // For each amount amount suit
-                for (short suitAmountCouter = 0; suitAmountCouter < _amountOfCardsPerSuit;
-                                                                        suitAmountCouter++) {
+                for( short suitAmountCouter = 0; suitAmountCouter < _amountOfCardsPerSuit;
+                                                                    suitAmountCouter++) {
 
                     // Instantiating for each card sprite
                     for (int spriteIndex = 0; spriteIndex < suitSprites.Count; spriteIndex++) {

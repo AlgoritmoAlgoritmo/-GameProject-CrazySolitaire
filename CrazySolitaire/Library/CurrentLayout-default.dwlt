@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 521}
+  m_MinSize: {x: 875, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1280
     height: 637
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -113,10 +113,10 @@ MonoBehaviour:
     y: 30
     width: 1280
     height: 587
-  m_MinSize: {x: 532, y: 471}
-  m_MaxSize: {x: 18002, y: 14021}
+  m_MinSize: {x: 679, y: 342}
+  m_MaxSize: {x: 12004, y: 8042}
   vertical: 0
-  controlID: 55
+  controlID: 62
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -127,24 +127,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 395
+    width: 295
     height: 587
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 11}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
   - {fileID: 14}
   - {fileID: 11}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -160,12 +160,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 395
+    x: 295
     y: 0
-    width: 200
+    width: 237
     height: 587
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -188,14 +188,14 @@ MonoBehaviour:
   - {fileID: 10}
   m_Position:
     serializedVersion: 2
-    x: 595
+    x: 532
     y: 0
-    width: 685
+    width: 748
     height: 587
-  m_MinSize: {x: 231, y: 471}
-  m_MaxSize: {x: 10001, y: 14021}
+  m_MinSize: {x: 201, y: 342}
+  m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 56
+  controlID: 63
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -213,10 +213,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 685
+    width: 748
     height: 316
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 16}
@@ -234,23 +234,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 316
-    width: 685
+    width: 748
     height: 271
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -273,11 +273,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 394
+    width: 498
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 157
+    ID: 161
     splitterInitialOffset: 339
     currentActiveSplitter: -1
     realSizes: 10010000e0000000
@@ -298,7 +298,7 @@ MonoBehaviour:
       name: CrazySolitaire
       fullName: CrazySolitaire
       resultStatus: 1
-      duration: 0.6700183
+      duration: 0.5792053
       messages: 
       output: 
       stacktrace: 
@@ -314,7 +314,7 @@ MonoBehaviour:
       name: InterfacesTest.dll
       fullName: C:/Users/Usuario/Documents/GitHub/CrazySolitaire/CrazySolitaire/Library/ScriptAssemblies/InterfacesTest.dll
       resultStatus: 1
-      duration: 0.2628961
+      duration: 0.1878563
       messages: 
       output: 
       stacktrace: 
@@ -330,7 +330,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.2147482
+      duration: 0.1591315
       messages: 
       output: 
       stacktrace: 
@@ -346,7 +346,7 @@ MonoBehaviour:
       name: EffectsSystem
       fullName: Tests.EffectsSystem
       resultStatus: 1
-      duration: 0.180198
+      duration: 0.1440965
       messages: 
       output: 
       stacktrace: 
@@ -362,7 +362,7 @@ MonoBehaviour:
       name: Interfaces
       fullName: Tests.EffectsSystem.Interfaces
       resultStatus: 1
-      duration: 0.1567467
+      duration: 0.1278765
       messages: 
       output: 
       stacktrace: 
@@ -378,7 +378,7 @@ MonoBehaviour:
       name: IEffectTest
       fullName: Tests.EffectsSystem.Interfaces.IEffectTest
       resultStatus: 1
-      duration: 0.1297424
+      duration: 0.106802
       messages: 
       output: 
       stacktrace: 
@@ -393,8 +393,8 @@ MonoBehaviour:
       uniqueId: InterfacesTest.dll/Tests/EffectsSystem/Interfaces/IEffectTest/[InterfacesTest][Tests.EffectsSystem.Interfaces.IEffectTest.Play_CallingMethod_SwitchesBooleanFromFalseToTrue]
       name: Play_CallingMethod_SwitchesBooleanFromFalseToTrue
       fullName: Tests.EffectsSystem.Interfaces.IEffectTest.Play_CallingMethod_SwitchesBooleanFromFalseToTrue
-      resultStatus: 0
-      duration: 0
+      resultStatus: 1
+      duration: 0.0405868
       messages: 
       output: 
       stacktrace: 
@@ -410,8 +410,8 @@ MonoBehaviour:
       uniqueId: InterfacesTest.dll/Tests/EffectsSystem/Interfaces/IEffectTest/[InterfacesTest][Tests.EffectsSystem.Interfaces.IEffectTest.Play_Instance_IsIEffect]
       name: Play_Instance_IsIEffect
       fullName: Tests.EffectsSystem.Interfaces.IEffectTest.Play_Instance_IsIEffect
-      resultStatus: 0
-      duration: 0
+      resultStatus: 1
+      duration: 0.0011613
       messages: 
       output: 
       stacktrace: 
@@ -463,9 +463,9 @@ MonoBehaviour:
       uniqueId: '[CrazySolitaire][suite]'
       name: CrazySolitaire
       fullName: CrazySolitaire
-      resultStatus: 2
-      duration: 0.2941031
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.3963531
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -479,9 +479,9 @@ MonoBehaviour:
       uniqueId: '[EffectsSystemTests.dll][suite]'
       name: EffectsSystemTests.dll
       fullName: C:/Users/Usuario/Documents/GitHub/CrazySolitaire/CrazySolitaire/Library/ScriptAssemblies/EffectsSystemTests.dll
-      resultStatus: 2
-      duration: 0.1540037
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.2010319
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -495,9 +495,9 @@ MonoBehaviour:
       uniqueId: EffectsSystemTests.dll/[Tests][suite]
       name: Tests
       fullName: Tests
-      resultStatus: 2
-      duration: 0.1502778
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.1957713
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -507,29 +507,13 @@ MonoBehaviour:
       categories: []
       parentId: 1013
       parentUniqueId: '[EffectsSystemTests.dll][suite]'
-    - id: 1015
-      uniqueId: EffectsSystemTests.dll/Tests/[EffectsSystemTests][Tests.EffectsSystem][suite]
+    - id: 1016
+      uniqueId: EffectsSystemTests.dll/Tests/[EffectsSystem][suite]
       name: EffectsSystem
       fullName: Tests.EffectsSystem
-      resultStatus: 2
-      duration: 0.1459659
-      messages: One or more child tests had errors
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1014
-      parentUniqueId: EffectsSystemTests.dll/[Tests][suite]
-    - id: 1001
-      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.CameraShakeEffectTest][suite]
-      name: CameraShakeEffectTest
-      fullName: Tests.EffectsSystem.CameraShakeEffectTest
-      resultStatus: 2
-      duration: 0.1352081
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.1927631
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -538,89 +522,13 @@ MonoBehaviour:
       isSuite: 1
       categories: []
       parentId: 1015
-      parentUniqueId: EffectsSystemTests.dll/Tests/[EffectsSystemTests][Tests.EffectsSystem][suite]
-    - id: 1002
-      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/CameraShakeEffectTest/[EffectsSystemTests][Tests.EffectsSystem.CameraShakeEffectTest.CameraShakeEffectInstantiation_ImplementsIEffect]
-      name: CameraShakeEffectInstantiation_ImplementsIEffect
-      fullName: Tests.EffectsSystem.CameraShakeEffectTest.CameraShakeEffectInstantiation_ImplementsIEffect
-      resultStatus: 1
-      duration: 0.0570412
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.CameraShakeEffectTest][suite]
-    - id: 1004
-      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/CameraShakeEffectTest/[EffectsSystemTests][Tests.EffectsSystem.CameraShakeEffectTest.Play_CameraAssigned_IsMovedFromOriginalPosition]
-      name: Play_CameraAssigned_IsMovedFromOriginalPosition
-      fullName: Tests.EffectsSystem.CameraShakeEffectTest.Play_CameraAssigned_IsMovedFromOriginalPosition
-      resultStatus: 1
-      duration: 0.2226229
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.CameraShakeEffectTest][suite]
-    - id: 1005
-      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/CameraShakeEffectTest/[EffectsSystemTests][Tests.EffectsSystem.CameraShakeEffectTest.Play_FixedTime_MovingToDiferentPositionsOverTime]
-      name: Play_FixedTime_MovingToDiferentPositionsOverTime
-      fullName: Tests.EffectsSystem.CameraShakeEffectTest.Play_FixedTime_MovingToDiferentPositionsOverTime
-      resultStatus: 2
-      duration: 0.1295668
-      messages: "  Expected: not equal to (-1.1, 1.7, -9.9)\r\n  But was:  (-1.1,
-        1.7, -9.9)\r\n"
-      output: 
-      stacktrace: 'at Tests.EffectsSystem.CameraShakeEffectTest+<Play_FixedTime_MovingToDiferentPositionsOverTime>d__5.MoveNext
-        () [0x000dd] in C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire\Assets\Scripts\Tests\EffectsSystemTests\Effects\CameraEffects\CameraShakeEffectTest.cs:76
-
-        at
-        UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e]
-        in C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire\Library\PackageCache\com.unity.test-framework@1.1.33\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:46
-
-'
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.CameraShakeEffectTest][suite]
-    - id: 1003
-      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/CameraShakeEffectTest/[EffectsSystemTests][Tests.EffectsSystem.CameraShakeEffectTest.Play_NoCameraAssigned_NullReferenceException]
-      name: Play_NoCameraAssigned_NullReferenceException
-      fullName: Tests.EffectsSystem.CameraShakeEffectTest.Play_NoCameraAssigned_NullReferenceException
-      resultStatus: 1
-      duration: 0.0046255
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1001
-      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.CameraShakeEffectTest][suite]
+      parentUniqueId: EffectsSystemTests.dll/[Tests][suite]
     - id: 1010
       uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[Effects][suite]
       name: Effects
       fullName: Tests.EffectsSystem.Effects
       resultStatus: 1
-      duration: 0.6078648
+      duration: 0.7681846
       messages: 
       output: 
       stacktrace: 
@@ -748,12 +656,95 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1004
       parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/AudioEffects/[EffectsSystemTests][Tests.EffectsSystem.Effects.AudioEffects.SoundEffectTest][suite]
+    - id: 1018
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/[EffectsSystemTests][Tests.EffectsSystem.Effects.CameraEffects][suite]
+      name: CameraEffects
+      fullName: Tests.EffectsSystem.Effects.CameraEffects
+      resultStatus: 1
+      duration: 0.6531058
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1017
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[Effects][suite]
+    - id: 1004
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/CameraEffects/[EffectsSystemTests][Tests.EffectsSystem.Effects.CameraEffects.CameraShakeEffectTest][suite]
+      name: CameraShakeEffectTest
+      fullName: Tests.EffectsSystem.Effects.CameraEffects.CameraShakeEffectTest
+      resultStatus: 1
+      duration: 0.5374182
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1018
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/[EffectsSystemTests][Tests.EffectsSystem.Effects.CameraEffects][suite]
+    - id: 1005
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/CameraEffects/CameraShakeEffectTest/[EffectsSystemTests][Tests.EffectsSystem.Effects.CameraEffects.CameraShakeEffectTest.CameraShakeEffectInstantiation_ImplementsIEffect]
+      name: CameraShakeEffectInstantiation_ImplementsIEffect
+      fullName: Tests.EffectsSystem.Effects.CameraEffects.CameraShakeEffectTest.CameraShakeEffectInstantiation_ImplementsIEffect
+      resultStatus: 1
+      duration: 0.1051812
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/CameraEffects/[EffectsSystemTests][Tests.EffectsSystem.Effects.CameraEffects.CameraShakeEffectTest][suite]
+    - id: 1007
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/CameraEffects/CameraShakeEffectTest/[EffectsSystemTests][Tests.EffectsSystem.Effects.CameraEffects.CameraShakeEffectTest.Play_CameraAssigned_PositionChanges]
+      name: Play_CameraAssigned_PositionChanges
+      fullName: Tests.EffectsSystem.Effects.CameraEffects.CameraShakeEffectTest.Play_CameraAssigned_PositionChanges
+      resultStatus: 1
+      duration: 0.2672793
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/CameraEffects/[EffectsSystemTests][Tests.EffectsSystem.Effects.CameraEffects.CameraShakeEffectTest][suite]
+    - id: 1006
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/CameraEffects/CameraShakeEffectTest/[EffectsSystemTests][Tests.EffectsSystem.Effects.CameraEffects.CameraShakeEffectTest.Play_NoCameraAssigned_NullReferenceException]
+      name: Play_NoCameraAssigned_NullReferenceException
+      fullName: Tests.EffectsSystem.Effects.CameraEffects.CameraShakeEffectTest.Play_NoCameraAssigned_NullReferenceException
+      resultStatus: 1
+      duration: 0.0068878
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1004
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/Effects/CameraEffects/[EffectsSystemTests][Tests.EffectsSystem.Effects.CameraEffects.CameraShakeEffectTest][suite]
     - id: 1001
       uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest][suite]
       name: EffectsManagerTest
       fullName: Tests.EffectsSystem.EffectsManagerTest
       resultStatus: 1
-      duration: 0.0659384
+      duration: 0.1738023
       messages: 
       output: 
       stacktrace: 
@@ -781,12 +772,12 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest][suite]
-    - id: 1003
-      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/EffectsManagerTest/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest.Play_CallingMethod_DoesNotThrowException]
-      name: Play_CallingMethod_DoesNotThrowException
-      fullName: Tests.EffectsSystem.EffectsManagerTest.Play_CallingMethod_DoesNotThrowException
+    - id: 1004
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/EffectsManagerTest/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest.Play_AddEffects_EffectsAreSuccessfullyAdded]
+      name: Play_AddEffects_EffectsAreSuccessfullyAdded
+      fullName: Tests.EffectsSystem.EffectsManagerTest.Play_AddEffects_EffectsAreSuccessfullyAdded
       resultStatus: 1
-      duration: 0.0013934
+      duration: 0.1100499
       messages: 
       output: 
       stacktrace: 
@@ -798,24 +789,30 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest][suite]
-    m_ResultText: "Play_FixedTime_MovingToDiferentPositionsOverTime (0,130s)\n---\nExpected:
-      not equal to (-1.1, 1.7, -9.9)\r\n  But was:  (-1.1, 1.7, -9.9)\n---\nat Tests.EffectsSystem.CameraShakeEffectTest+<Play_FixedTime_MovingToDiferentPositionsOverTime>d__5.MoveNext
-      () [0x000dd] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\EffectsSystemTests\\Effects\\CameraEffects\\CameraShakeEffectTest.cs:76\r\nat
-      UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e] in
-      C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Library\\PackageCache\\com.unity.test-framework@1.1.33\\UnityEngine.TestRunner\\NUnitExtensions\\Attributes\\TestEnumerator.cs:46"
-    m_ResultStacktrace: 'at Tests.EffectsSystem.CameraShakeEffectTest+<Play_FixedTime_MovingToDiferentPositionsOverTime>d__5.MoveNext
-      () [0x000dd] in C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire\Assets\Scripts\Tests\EffectsSystemTests\Effects\CameraEffects\CameraShakeEffectTest.cs:76
-
-      at
-      UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e] in
-      C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire\Library\PackageCache\com.unity.test-framework@1.1.33\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:46
-
-'
+    - id: 1003
+      uniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/EffectsManagerTest/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest.Play_NoEffectsAdded_ThrowsNullReferenceException]
+      name: Play_NoEffectsAdded_ThrowsNullReferenceException
+      fullName: Tests.EffectsSystem.EffectsManagerTest.Play_NoEffectsAdded_ThrowsNullReferenceException
+      resultStatus: 1
+      duration: 0.141205
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EffectsSystemTests.dll/Tests/EffectsSystem/[EffectsSystemTests][Tests.EffectsSystem.EffectsManagerTest][suite]
+    m_ResultText: Play_AddEffects_EffectsAreSuccessfullyAdded (0,110s)
+    m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: aee62c16
-      m_LastClickedID: 372041390
-      m_ExpandedIDs: a3910e8948c72d9f7a06fbda64453d24adaa2a2c7934b04affffff7f
+      m_SelectedIDs: ce80649e
+      m_LastClickedID: -1637580594
+      m_ExpandedIDs: 98358480a3910e8948c72d9f7a06fbda64453d247934b04affffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -862,9 +859,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 595
+    x: 532
     y: 73
-    width: 684
+    width: 747
     height: 295
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
@@ -911,23 +908,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 684
+      width: 747
       height: 274
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 342, y: 137}
+    m_Translation: {x: 373.5, y: 137}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -342
+      x: -373.5
       y: -137
-      width: 684
+      width: 747
       height: 274
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 684, y: 295}
+  m_LastWindowPixelSize: {x: 747, y: 295}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 0
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -956,7 +953,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 314
+    width: 294
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0
@@ -1018,17 +1015,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 395
+    x: 295
     y: 73
-    width: 198
+    width: 235
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 42d0fffff8d0ffff4ed2ffff86d3ffffd8d4ffff90d5ffffa2d6ffff4cd7ffff20d8ffff70d9ffffa6daffff0edfffff32dfffffd6e0ffffdee2ffff82e4ffff76e5ffff80e9ffff74eaffff6aebffff0eecffff58edfffff2efffff96f1ffffd8f2ffff76f3ffffc8f4ffff62fbffffc03e0000
+      m_SelectedIDs: a43e0000
+      m_LastClickedID: 16036
+      m_ExpandedIDs: 62fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1073,10 +1070,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 487
+    x: 538
     y: 73
-    width: 792
-    height: 301
+    width: 741
+    height: 339
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
   m_WindowGUID: 83fa2cbf8fac5674fa5fd5b36ff662a6
@@ -1188,10 +1185,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 487
+    x: 538
     y: 73
-    width: 792
-    height: 301
+    width: 741
+    height: 339
   m_ViewDataDictionary: {fileID: 0}
   m_ViewTransforms:
     m_KeySerializationHelper:
@@ -1252,9 +1249,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 595
+    x: 532
     y: 389
-    width: 684
+    width: 747
     height: 250
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
@@ -1270,20 +1267,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Tests
+    - Assets/Scripts/Tests/EffectsSystemTests/Effects/CameraEffects
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Tests
+  - Assets/Scripts/Tests/EffectsSystemTests/Effects/CameraEffects
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 42}
-    m_SelectedIDs: 70400000
-    m_LastClickedID: 16496
-    m_ExpandedIDs: 0000000066400000684000006a4000006c4000006e40000070400000724000007440000076400000
+    scrollPos: {x: 0, y: 122}
+    m_SelectedIDs: 04410000
+    m_LastClickedID: 16644
+    m_ExpandedIDs: 00000000d83e0000da3e0000dc3e0000de3e0000e03e0000e23e0000e43e0000e63e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1311,7 +1308,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000066400000684000006a4000006c4000006e40000070400000724000007440000076400000
+    m_ExpandedIDs: 00000000d83e0000da3e0000dc3e0000de3e0000e03e0000e23e0000e43e0000e63e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1336,9 +1333,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: a43e0000
+    m_LastClickedInstanceID: 16036
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 90100100c21201004ed103001eb30300fa6f040026e2030000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1388,8 +1385,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 561
+    x: 532
     y: 389
-    width: 718
+    width: 747
     height: 250
   m_ViewDataDictionary: {fileID: 0}

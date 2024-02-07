@@ -5,7 +5,6 @@
 
 
 
-using System;
 using System.Collections;
 using UnityEngine;
 using EffectsSystem.Interfaces;
@@ -13,11 +12,22 @@ using Common;
 
 
 
-namespace Tests.EffectsSystem.Effects.CameraEffects {
+namespace EffectsSystem.Effects.CameraEffects {
+    [System.Serializable]
     public class CameraShakeEffects : IEffect {
         #region Variables
+        [SerializeField]
         private Camera camera;
+        [SerializeField]
         private float durationInSeconds = .3f;
+        [SerializeField]
+        private float amplitude = .5f;
+
+        private bool isPlaying = false;
+        public bool IsPlaying {
+            get;
+        }
+
         #endregion
 
 
@@ -25,9 +35,11 @@ namespace Tests.EffectsSystem.Effects.CameraEffects {
         #region Public methods
         public void Play() {
             if ( !camera )
-                throw new NullReferenceException( "No camera has been assigned." );
+                throw new System.NullReferenceException( "No camera has been assigned." );
 
-            CoroutineStarter.Instance.StartCoroutine( MoveCamera() );
+            if( !isPlaying ) { 
+                CoroutineStarter.Instance.StartCoroutine( MoveCamera() );
+            }
         }
 
 
@@ -39,22 +51,33 @@ namespace Tests.EffectsSystem.Effects.CameraEffects {
         public void SetDuration( float _durationInSeconds ) {
             durationInSeconds = _durationInSeconds;
         }
+
+
+        public void Stop() {
+            isPlaying = false;
+        }
         #endregion
 
         
         #region Task methods
         private IEnumerator MoveCamera() {
             float elapsedTime = 0f;
+            Vector3 originalLocalPosition = camera.transform.localPosition;
+            isPlaying = true;
 
-            while( elapsedTime <= durationInSeconds ) {
+            while( elapsedTime <= durationInSeconds    &&    isPlaying ) {
                 elapsedTime += Time.deltaTime;
-                camera.transform.position += new Vector3(
-                                                UnityEngine.Random.Range( 1f, -1f ),
-                                                UnityEngine.Random.Range( 1f, -1f ),
-                                                UnityEngine.Random.Range( 1f, -1f )
-                                            );
+                camera.transform.localPosition += new Vector3(
+                                Random.Range( amplitude, -amplitude ),
+                                Random.Range( amplitude, -amplitude ),
+                                Random.Range( amplitude, -amplitude )
+                            );
+
                 yield return null;
             }
+
+            camera.transform.localPosition = originalLocalPosition;
+            isPlaying = false;
         }
         #endregion
     }

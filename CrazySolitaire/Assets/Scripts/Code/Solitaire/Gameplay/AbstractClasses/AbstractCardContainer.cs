@@ -36,19 +36,13 @@ namespace Solitaire.Gameplay {
 
 
         public Vector2 GetCardPosition( CardFacade _card ) {
-            int index = cards.IndexOf( _card );
+            int index = GetCardIndex ( _card.GetID() );
 
             return (Vector2) transform.position + ( cardsOffset * index );
         }
 
         public bool ContainsCard( CardFacade _card ) {
-            foreach( var auxCard in cards ) {
-                if( _card == auxCard  ) {
-                    return true;
-                }
-            }
-
-            return false;
+            return GetCardIndex( _card.GetID() ) != -1;
         }
         
         public CardFacade GetTopCard() {
@@ -80,6 +74,19 @@ namespace Solitaire.Gameplay {
         }
 
         protected abstract void SetUpStarterCards();
+
+        protected int GetCardIndex( string _cardID ) {
+            int index = 0;
+
+            for ( ; index < cards.Count; index++ ) {
+                if ( _cardID.Equals( cards[index].GetID() )) {
+                    return index;
+                }
+            }
+
+
+            return -1;
+        }
         #endregion
     }
 }

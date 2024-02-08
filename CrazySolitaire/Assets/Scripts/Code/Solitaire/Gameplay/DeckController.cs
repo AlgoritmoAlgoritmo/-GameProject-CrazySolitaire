@@ -62,6 +62,23 @@ namespace Solitaire.Gameplay {
                 auxCard.SubscribeToOnCardPlacedWithoutCollisions( action );
             }
         }
+        
+        
+        
+        public void RemoveCardsFromGame( List<CardFacade> _cards ) {
+            Debug.Log( $"Current cards amount is {inGamecards.Count}." );
+
+            foreach( CardFacade auxCard in _cards ) {
+                inGamecards.Remove( auxCard );
+            }
+
+            if( inGamecards.Count == 0 ) {
+                onCardsCleared.Invoke( this, EventArgs.Empty );
+            }
+
+            Debug.Log($"Amount of cards after column completition is"
+                                                    + $"{inGamecards.Count}.");
+        }
         #endregion
 
 

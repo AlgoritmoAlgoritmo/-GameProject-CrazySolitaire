@@ -30,10 +30,10 @@ namespace Solitaire.Gameplay {
         }
 
         public override bool AddCards( List<CardFacade> _cards ) {
-            foreach( CardFacade auxCard in _cards ) {
-                _cards.Add( auxCard );
+            for( int i = _cards.Count - 1; i >= 0; i--  ) {
+                cards.Add( _cards[i] );
 
-                auxCard.transform.position = new Vector3(
+                _cards[i].transform.position = new Vector3(
                                         transform.position.x + cardsOffset.x,
                                         transform.position.y + cardsOffset.y,
                                         transform.position.z

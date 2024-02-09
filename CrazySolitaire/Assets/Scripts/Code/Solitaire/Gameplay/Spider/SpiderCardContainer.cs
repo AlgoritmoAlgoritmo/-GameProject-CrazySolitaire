@@ -64,8 +64,8 @@ namespace Solitaire.Gameplay.Spider {
                     cards[i].ActivatePhysics( false );
                     cards[i].SetCollisionsActive( false );
 
-                    cards[i].ChildCard = cards[i + 1];
-                    cards[i + 1].ParentCard = cards[i];
+                    cards[i].SetChildCard( cards[i + 1] );
+                    cards[i + 1].SetParentCard( cards[i] );
 
                 } else { 
                     cards[i].FlipCard( true );

@@ -1,0 +1,16 @@
+{
+    "name": "_Solitaire.GameplayAssembly",
+    "references": [
+        "_CardAssembly",
+        "_CommonAssembly"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

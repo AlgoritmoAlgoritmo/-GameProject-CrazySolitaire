@@ -16,10 +16,12 @@ namespace Solitaire.Common {
                                 menuName = "Solitaire/Card Sprites")]
     public class CardSpritesScriptableObject : ScriptableObject {
         #region Variables
-        public Sprite backSprite;
+        [SerializeField]
+        private Sprite backSprite;
+        public Sprite BackSprite { get; }
 
         [SerializeField]
-        public List<CompleteSuitData> suits = new List<CompleteSuitData>();        
+        private List<CompleteSuitData> suits = new List<CompleteSuitData>();        
         #endregion
 
 

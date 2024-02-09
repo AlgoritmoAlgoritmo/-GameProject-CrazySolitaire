@@ -67,10 +67,10 @@ namespace Solitaire.Gameplay.Spider {
                 auxCardsToDistribute[i].FlipCard( true );
 
                 // Setting up parenting
-                auxCardsToDistribute[i].ParentCard = cardContainers[i].GetTopCard();
+                auxCardsToDistribute[i].SetParentCard( cardContainers[i].GetTopCard() );
 
                 if( cardContainers[i].GetTopCard() )
-                    cardContainers[i].GetTopCard().ChildCard = auxCardsToDistribute[i];
+                    cardContainers[i].GetTopCard().SetChildCard( auxCardsToDistribute[i] );
 
                 cardContainers[i].AddCard( auxCardsToDistribute[i] );
                 _cardContainer.RemoveCard( auxCardsToDistribute[i] );
@@ -114,11 +114,11 @@ namespace Solitaire.Gameplay.Spider {
                 } else {
                     // 1- Removing from previous Parent and setting detected card as new parent's child
                     if (_placedCard.ParentCard != null) {
-                        _placedCard.ParentCard.ChildCard = null;
+                        _placedCard.ParentCard.SetChildCard( null );
                     }
 
-                    detectedCardFacade.ChildCard = _placedCard;
-                    _placedCard.ParentCard = detectedCardFacade;
+                    detectedCardFacade.SetChildCard( _placedCard );
+                    _placedCard.SetParentCard( detectedCardFacade );
 
                     // 2- Get parent card container
                     AbstractCardContainer parentCardContainer = GetCardContainer( detectedCardFacade );
@@ -128,10 +128,10 @@ namespace Solitaire.Gameplay.Spider {
 
                     while (auxCardFacade != null) {
                         // 3- Remove card from its card container
-                        GetCardContainer(auxCardFacade).RemoveCard(auxCardFacade);
+                        GetCardContainer( auxCardFacade ).RemoveCard( auxCardFacade );
 
                         // 4- Add card to new card container
-                        parentCardContainer.AddCard(auxCardFacade);
+                        parentCardContainer.AddCard( auxCardFacade );
 
                         // 5- Set ChildCard as card to check on next loop
                         auxCardFacade = auxCardFacade.ChildCard;
@@ -142,7 +142,8 @@ namespace Solitaire.Gameplay.Spider {
 
 
             // Case: The detected GameObject is a CardContainer
-            } else if ( _detectedGameObject.layer == LayerMask.NameToLayer( cardContainersLayer ) ) {
+            } else if ( _detectedGameObject.layer == LayerMask.NameToLayer( 
+                                                                        cardContainersLayer ) ) {
                 Debug.Log("Adding card to Card container");
                 
                 var detectedCardContainer = _detectedGameObject
@@ -153,9 +154,9 @@ namespace Solitaire.Gameplay.Spider {
                                                             + $"AbstractCardContainer component.");
                 
                 if(_placedCard.ParentCard )
-                    _placedCard.ParentCard.ChildCard = null;
+                    _placedCard.ParentCard.SetChildCard( null );
 
-                _placedCard.ParentCard = null;
+                _placedCard.SetParentCard( null );
                 GetCardContainer(_placedCard).RemoveCard(_placedCard);
                 detectedCardContainer.AddCard(_placedCard);                
 

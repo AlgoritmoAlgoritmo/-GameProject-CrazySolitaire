@@ -29,14 +29,14 @@ namespace Solitaire.Cards {
 
 
 
-        #region Inherited/Interface methods
+        #region MonoBehaviour/Dragging methods
         private void Awake() {
             attachedCollider2D = GetComponent<Collider2D>();
         }
 
 
         public void OnBeginDrag( PointerEventData eventData ) {
-            ActivateCollisions( true );
+            ActivateCollisionDetection( true );
             OnStartDragging();
         }
 
@@ -56,13 +56,13 @@ namespace Solitaire.Cards {
 
 
         private void OnTriggerEnter2D ( Collider2D collision ) {
-            if(canBeDragged)
+            if( canBeDragged )
                 detectedColliders.Add( collision );
         }
 
 
         private void OnTriggerExit2D( Collider2D collision ) {
-            if (canBeDragged)
+            if( canBeDragged )
                 detectedColliders.Remove( collision );
         }
         #endregion
@@ -75,7 +75,7 @@ namespace Solitaire.Cards {
         }
 
 
-        public void ActivateCollisions( bool _activate ) {
+        public void ActivateCollisionDetection( bool _activate ) {
             attachedCollider2D.isTrigger = _activate;
         }
 

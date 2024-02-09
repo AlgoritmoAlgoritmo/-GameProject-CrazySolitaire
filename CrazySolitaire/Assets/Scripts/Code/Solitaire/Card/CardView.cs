@@ -21,7 +21,9 @@ namespace Solitaire.Cards {
         private Image backImage;
 
         private bool isFacingUp;
-        public bool IsFacingUp => isFacingUp;
+        public bool IsFacingUp {
+            get;
+        }
         #endregion
 
 
@@ -54,7 +56,8 @@ namespace Solitaire.Cards {
             if( frontImage  &&  backImage ) {
                 frontImage.gameObject.SetActive( _facingUp );
                 backImage.gameObject.SetActive( !_facingUp );
-            
+                isFacingUp = _facingUp;
+
             } else {
                 throw new System.Exception("Either frontImage or backImage reference is missing.");
             }

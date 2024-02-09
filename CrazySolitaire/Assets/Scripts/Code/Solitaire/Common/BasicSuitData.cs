@@ -5,10 +5,6 @@
 
 
 
-using System.Collections.Generic;
-using UnityEngine;
-
-
 namespace Solitaire.Common {
     [System.Serializable]
     public class BasicSuitData {

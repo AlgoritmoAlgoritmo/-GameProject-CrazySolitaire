@@ -106,8 +106,8 @@ namespace Solitaire.Gameplay {
                                                             generatedID.ToString() );
 
                         CardFacade auxCardFacade = InstantiateCard();
-                        auxCardFacade.SetCardData(auxCardData);
-                        auxCardFacade.SetBackSprite(cardSprites.backSprite);
+                        auxCardFacade.SetCardData( auxCardData );
+                        auxCardFacade.SetBackSprite( cardSprites.BackSprite );
                         auxCardFacade.SetFrontSprite(
                                         cardSprites.GetSuitCardsSprites(auxSuitKey)[spriteIndex] );
 

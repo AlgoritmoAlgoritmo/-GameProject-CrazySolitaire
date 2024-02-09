@@ -1,6 +1,10 @@
 {
     "name": "Solitaire",
-    "references": [],
+    "references": [
+        "_CardAssembly",
+        "_CommonAssembly",
+        "_Solitaire.GameplayAssembly"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [
         "GameCoreXboxOne"

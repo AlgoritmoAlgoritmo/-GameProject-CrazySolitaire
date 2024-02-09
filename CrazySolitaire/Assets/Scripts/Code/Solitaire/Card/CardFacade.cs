@@ -23,14 +23,12 @@ namespace Solitaire.Cards {
 
         private CardFacade childCard;
         public CardFacade ChildCard {
-            get => childCard;
-            set => childCard = value;            
+            get => childCard;     
         }
 
         private CardFacade parentCard;
         public CardFacade ParentCard {
             get => parentCard;
-            set => parentCard = value;
         }
 
 
@@ -135,7 +133,7 @@ namespace Solitaire.Cards {
 
 
         public void SetCollisionsActive( bool _active ) {
-            cardPhysics.ActivateCollisions( _active );
+            cardPhysics.ActivateCollisionDetection( _active );
         }
 
 
@@ -166,6 +164,34 @@ namespace Solitaire.Cards {
             while (auxChild) {
                 auxChild.ActivatePhysics(_activate);
                 auxChild = auxChild.ChildCard;
+            }
+        }
+        #endregion
+
+
+        #region Setters
+        public void SetChildCard( CardFacade _newChild ) {
+            if( childCard ) {
+                childCard.parentCard = null;
+            }
+
+            childCard = _newChild;
+
+            if( childCard ) {
+                childCard.parentCard = this;
+            }
+        }
+
+
+        public void SetParentCard( CardFacade _newParent ) {
+            if( parentCard ) {
+                parentCard.childCard = null;
+            }
+
+            parentCard = _newParent;
+
+            if( parentCard ) {
+                parentCard.childCard = this;
             }
         }
         #endregion

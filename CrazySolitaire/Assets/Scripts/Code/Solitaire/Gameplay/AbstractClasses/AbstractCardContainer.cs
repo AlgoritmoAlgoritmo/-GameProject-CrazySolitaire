@@ -27,7 +27,7 @@ namespace Solitaire.Gameplay {
 
 
         #region Public methods
-        public abstract List<CardFacade> Initialize(List<CardFacade> _cards);
+        public abstract List<CardFacade> Initialize( List<CardFacade> _cards );
         public abstract bool AddCards( List<CardFacade> _cards );
         public abstract void RemoveCards( List<CardFacade> _cards );
         public abstract void AddCard( CardFacade _card );

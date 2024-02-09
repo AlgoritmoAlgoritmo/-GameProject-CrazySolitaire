@@ -71,6 +71,11 @@ namespace Solitaire.Cards {
         }
 
 
+        public bool IsFacingUp() {
+            return cardView.IsFacingUp;
+        }
+
+
         public void SetCardData( CardData _cardData ) {
             cardData = _cardData;
         }

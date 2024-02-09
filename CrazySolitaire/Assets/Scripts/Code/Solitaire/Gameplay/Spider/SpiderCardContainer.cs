@@ -29,7 +29,7 @@ namespace Solitaire.Gameplay.Spider {
         public override void AddCard( CardFacade _card ) {
             cards.Add( _card );
             _card.transform.position = GetCardPosition( _card );
-            CheckAndFlipUpperCard();
+            CheckAndFlipUpperCards();
         }
 
 
@@ -79,6 +79,20 @@ namespace Solitaire.Gameplay.Spider {
 
 
         #region Private methods
+        private void CheckAndFlipUpperCards() {
+            if( cards.Count > 2 ) {
+                for( int i = cards.Count - 2; i >= 0; i-- ) {
+                    if( cards[i].IsFacingUp()  &&  cards[i].GetSuit().Equals( cards[i+1] )
+                                &&  cards[i].GetCardNumber() - 1  == cards[i+1].GetCardNumber() ) {
+                        cards[i].SetCanBeDragged( true );
+                    }
+                }
+            }
+
+            CheckAndFlipUpperCard();
+        }
+
+
         private void CheckAndFlipUpperCard() {
             if( GetTopCard() ) {
                 GetTopCard().FlipCard( true );

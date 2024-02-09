@@ -37,7 +37,9 @@ namespace Solitaire.Gameplay {
 
         #region Public methods
         public void EndClearedGame( object _object, System.EventArgs _args ) {
+            Debug.Log( "---------------------------" );
             Debug.Log( "Game cleared." );
+            Debug.Log( "---------------------------" );
         }
         #endregion
 

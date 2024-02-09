@@ -76,7 +76,7 @@ namespace Solitaire.Gameplay {
                 onCardsCleared.Invoke( this, EventArgs.Empty );
             }
 
-            Debug.Log($"Amount of cards after column completition is"
+            Debug.Log($"Amount of cards after column completition is "
                                                     + $"{inGamecards.Count}.");
         }
         #endregion

@@ -42,8 +42,7 @@ namespace Solitaire.Gameplay.Spider {
         }
 
 
-        public override void SubscribeToOnGameClearedEvent(
-                                                    EventHandler eventHandler) {
+        public override void SubscribeToOnGameClearedEvent( EventHandler eventHandler ) {
             deckController.onCardsCleared += eventHandler;
         }
 
@@ -61,8 +60,6 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public void DistributorCardsDistribution( AbstractCardContainer _cardContainer ) {
-            Debug.Log("Distributing cards.");
-
             List<CardFacade> auxCardsToDistribute = _cardContainer.GetCards();
 
             for( int i = auxCardsToDistribute.Count - 1; i >= 0; i-- ) {
@@ -71,7 +68,9 @@ namespace Solitaire.Gameplay.Spider {
 
                 // Setting up parenting
                 auxCardsToDistribute[i].ParentCard = cardContainers[i].GetTopCard();
-                cardContainers[i].GetTopCard().ChildCard = auxCardsToDistribute[i];
+
+                if( cardContainers[i].GetTopCard() )
+                    cardContainers[i].GetTopCard().ChildCard = auxCardsToDistribute[i];
 
                 cardContainers[i].AddCard( auxCardsToDistribute[i] );
                 _cardContainer.RemoveCard( auxCardsToDistribute[i] );
@@ -98,7 +97,6 @@ namespace Solitaire.Gameplay.Spider {
                 // Case: Card CANNOT be child of potential parent                
                 if (!CanBeChildOf(_placedCard, detectedCardFacade)  
                                         ||   _placedCard.ParentCard == detectedCardFacade ) {
-                    Debug.Log("!CanBeChildOf");
                     _placedCard.transform.position = GetCardOriginalPositionInContainer(_placedCard);
 
 
@@ -173,7 +171,7 @@ namespace Solitaire.Gameplay.Spider {
 
             } else {
                 throw new Exception($"The object {_detectedGameObject.name}'s layer ("
-                    + LayerMask.LayerToName( _detectedGameObject.layer ) + ") is not valid." );
+                        + LayerMask.LayerToName( _detectedGameObject.layer ) + ") is not valid." );
             
             }
             
@@ -188,18 +186,16 @@ namespace Solitaire.Gameplay.Spider {
             _card.transform.position = GetCardOriginalPositionInContainer( _card );
 
             if( _card.ChildCard != null ) {
-                Debug.Log("Has a child");
                 CardFacade auxCard = _card.ChildCard;
 
                 while( auxCard != null ) {
-                    Debug.Log("Has multiple childs");
                     auxCard.transform.position = GetCardOriginalPositionInContainer(auxCard);
 
                     auxCard = auxCard.ChildCard;
                 }
 
             } else {
-                Debug.Log("Does not have a child");
+                
             }
 
             // Activating droped card childs physics again after dragging ends

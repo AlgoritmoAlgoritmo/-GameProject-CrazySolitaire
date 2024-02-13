@@ -23,7 +23,6 @@ namespace Solitaire.Gameplay.Spider {
         #region Public methods
         public override void Initialize() {
             cards = deckController.InitializeCards(suits, amountOfEachSuit);
-
             List<CardFacade> auxCards = new List<CardFacade>();
 
             foreach (CardFacade auxCard in cards) {
@@ -48,7 +47,8 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public void ValidateCardDragging( CardFacade _card ) {
-            bool canBeDragged = CanBeDragged(_card);
+            bool canBeDragged = CanBeDragged( _card );
+            Debug.Log( "canBeDragged " + canBeDragged );
 
             _card.SetCanBeDragged( canBeDragged );
 
@@ -212,7 +212,6 @@ namespace Solitaire.Gameplay.Spider {
             if( !_card.ChildCard )
                 return true;
 
-
             CardFacade auxCard = _card;
 
             while( auxCard.ChildCard ) {
@@ -250,6 +249,7 @@ namespace Solitaire.Gameplay.Spider {
         
         private void MoveColumnToCompletedColumnContainer( List<CardFacade> _cards ) {
             AbstractCardContainer auxCardContainer = GetCardContainer( _cards[0] );
+            _cards[0].SetParentCard( null );
 
             foreach ( CardFacade auxCard in _cards ) {
                 auxCard.ActivatePhysics(false);

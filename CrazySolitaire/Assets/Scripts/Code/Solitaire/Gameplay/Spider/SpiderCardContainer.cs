@@ -34,7 +34,6 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public override void RemoveCard( CardFacade _card ) {
-            Debug.Log("Removing card from SpiderCardContainer");
             cards.Remove( _card );
             UpdateCards();
         }
@@ -87,10 +86,8 @@ namespace Solitaire.Gameplay.Spider {
         private void UpdateCards() {
             if( GetTopCard() ) {
                 if( !GetTopCard().IsFacingUp() ) {
-                    Debug.Log("Top card is not facing up");
                     CheckAndFlipUpperCard();
                 } else {
-                    Debug.Log("Top card is facing up");
                     CheckFacingUpCards();
                 }
             }
@@ -98,23 +95,18 @@ namespace Solitaire.Gameplay.Spider {
 
 
         private void CheckFacingUpCards() {
-            Debug.Log("CheckFacingUpCards");
             if( cards.Count >= 2 ) {
                 GetTopCard().SetCanBeDragged(true);
 
-                Debug.Log("cards.Count >= 2");
                 for( int i = cards.Count - 2; i >= 0; i-- ) {
-                    Debug.Log( "Is facing up: " + cards[i].IsFacingUp() );
-                    Debug.Log( $"Numbers: {cards[i].GetCardNumber()} " +
-                                                    $"{cards[i+1].GetCardNumber()}" );
-                    Debug.Log( $"Suits: {cards[i].GetSuit()} {cards[i+1].GetSuit()}" );
-
-
-                    if ( cards[i].IsFacingUp()  &&  cards[i].GetSuit().Equals( cards[i+1] )
+                    if ( cards[i].IsFacingUp()  &&  cards[i].GetSuit().Equals(
+                                                                cards[i+1].GetSuit() )
                                         &&  cards[i].GetCardNumber() - 1  == cards[i+1]
                                                                      .GetCardNumber() ) {
-                        Debug.Log( "Setting card draggable." );
-                        cards[i].SetCanBeDragged( true );
+                       cards[i].SetCanBeDragged( true );
+
+                    } else {
+                        break;
                     }
                 }
             }

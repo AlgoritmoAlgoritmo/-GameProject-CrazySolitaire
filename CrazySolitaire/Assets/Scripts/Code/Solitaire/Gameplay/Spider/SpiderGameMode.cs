@@ -74,7 +74,6 @@ namespace Solitaire.Gameplay.Spider {
 
                 cardContainers[i].AddCard( auxCardsToDistribute[i] );
                 _cardContainer.RemoveCard( auxCardsToDistribute[i] );
-
             }
 
             Destroy( _cardContainer.gameObject );
@@ -250,12 +249,14 @@ namespace Solitaire.Gameplay.Spider {
         
         
         private void MoveColumnToCompletedColumnContainer( List<CardFacade> _cards ) {
-            foreach( CardFacade auxCard in _cards ) {
-                GetCardContainer( auxCard ).RemoveCard( auxCard );
+            AbstractCardContainer auxCardContainer = GetCardContainer( _cards[0] );
+
+            foreach ( CardFacade auxCard in _cards ) {
                 auxCard.ActivatePhysics(false);
                 auxCard.SetCanBeDragged(false);
             }
 
+            auxCardContainer.RemoveCards( _cards );
 
             completedColumnContainers[completedColumnContainers.Count - 1]
                                                                 .AddCards( _cards );

@@ -18,7 +18,9 @@ namespace Solitaire.Common {
         #region Variables
         [SerializeField]
         private Sprite backSprite;
-        public Sprite BackSprite { get; }
+        public Sprite BackSprite {
+            get => backSprite;
+        }
 
         [SerializeField]
         private List<CompleteSuitData> suits = new List<CompleteSuitData>();        

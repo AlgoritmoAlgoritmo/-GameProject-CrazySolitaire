@@ -66,8 +66,6 @@ namespace Solitaire.Gameplay {
         
         
         public void RemoveCardsFromGame( List<CardFacade> _cards ) {
-            Debug.Log( $"Current cards amount is {inGamecards.Count}." );
-
             foreach( CardFacade auxCard in _cards ) {
                 inGamecards.Remove( auxCard );
             }
@@ -75,9 +73,6 @@ namespace Solitaire.Gameplay {
             if( inGamecards.Count == 0 ) {
                 onCardsCleared.Invoke( this, EventArgs.Empty );
             }
-
-            Debug.Log($"Amount of cards after column completition is "
-                                                    + $"{inGamecards.Count}.");
         }
         #endregion
 
@@ -100,7 +95,6 @@ namespace Solitaire.Gameplay {
                     for (int spriteIndex = 0; spriteIndex < suitSprites.Count; spriteIndex++) {
 
                         CardData auxCardData = new CardData( (short) (spriteIndex + 1),
-
                                                             auxSuitKey.suitName,
                                                             auxSuitKey.color,
                                                             generatedID.ToString() );

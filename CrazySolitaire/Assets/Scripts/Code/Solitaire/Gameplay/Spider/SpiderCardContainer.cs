@@ -9,7 +9,6 @@ using Solitaire.Cards;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace Solitaire.Gameplay.Spider {
     public class SpiderCardContainer : AbstractCardContainer {
         #region Public methods
@@ -29,13 +28,15 @@ namespace Solitaire.Gameplay.Spider {
         public override void AddCard( CardFacade _card ) {
             cards.Add( _card );
             _card.transform.position = GetCardPosition( _card );
-            CheckAndFlipUpperCards();
+
+            CheckFacingUpCards();
         }
 
 
         public override void RemoveCard( CardFacade _card ) {
+            Debug.Log("Removing card from SpiderCardContainer");
             cards.Remove( _card );
-            CheckAndFlipUpperCard();
+            UpdateCards();
         }
 
 
@@ -45,7 +46,11 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public override void RemoveCards( List<CardFacade> _cards ) {
-            throw new System.NotImplementedException();
+            for( int i = _cards.Count - 1; i >= 0; i-- ) {
+                cards.Remove( _cards[i] );
+            }
+
+            UpdateCards();
         }
 
 
@@ -79,11 +84,36 @@ namespace Solitaire.Gameplay.Spider {
 
 
         #region Private methods
-        private void CheckAndFlipUpperCards() {
-            if( cards.Count > 2 ) {
+        private void UpdateCards() {
+            if( GetTopCard() ) {
+                if( !GetTopCard().IsFacingUp() ) {
+                    Debug.Log("Top card is not facing up");
+                    CheckAndFlipUpperCard();
+                } else {
+                    Debug.Log("Top card is facing up");
+                    CheckFacingUpCards();
+                }
+            }
+        }
+
+
+        private void CheckFacingUpCards() {
+            Debug.Log("CheckFacingUpCards");
+            if( cards.Count >= 2 ) {
+                GetTopCard().SetCanBeDragged(true);
+
+                Debug.Log("cards.Count >= 2");
                 for( int i = cards.Count - 2; i >= 0; i-- ) {
-                    if( cards[i].IsFacingUp()  &&  cards[i].GetSuit().Equals( cards[i+1] )
-                                &&  cards[i].GetCardNumber() - 1  == cards[i+1].GetCardNumber() ) {
+                    Debug.Log( "Is facing up: " + cards[i].IsFacingUp() );
+                    Debug.Log( $"Numbers: {cards[i].GetCardNumber()} " +
+                                                    $"{cards[i+1].GetCardNumber()}" );
+                    Debug.Log( $"Suits: {cards[i].GetSuit()} {cards[i+1].GetSuit()}" );
+
+
+                    if ( cards[i].IsFacingUp()  &&  cards[i].GetSuit().Equals( cards[i+1] )
+                                        &&  cards[i].GetCardNumber() - 1  == cards[i+1]
+                                                                     .GetCardNumber() ) {
+                        Debug.Log( "Setting card draggable." );
                         cards[i].SetCanBeDragged( true );
                     }
                 }

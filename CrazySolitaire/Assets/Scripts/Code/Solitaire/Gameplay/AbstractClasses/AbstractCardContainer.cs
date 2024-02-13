@@ -35,15 +35,18 @@ namespace Solitaire.Gameplay {
         public abstract bool CandAddCards();
 
 
+
         public Vector2 GetCardPosition( CardFacade _card ) {
             int index = GetCardIndex ( _card.GetID() );
 
             return (Vector2) transform.position + ( cardsOffset * index );
         }
 
+
         public bool ContainsCard( CardFacade _card ) {
             return GetCardIndex( _card.GetID() ) != -1;
         }
+
         
         public CardFacade GetTopCard() {
             if( cards.Count == 0 ) 
@@ -51,6 +54,7 @@ namespace Solitaire.Gameplay {
 
             return cards[cards.Count - 1];
         }
+
 
         public List<CardFacade> GetCards() {
             return cards;
@@ -62,7 +66,7 @@ namespace Solitaire.Gameplay {
         protected List<CardFacade> AddInitializationCards( List<CardFacade> _cards ) {
             List<CardFacade> auxCardList = _cards;
 
-            for (int i = 0; i < initialCardsAmount; i++) {
+            for( int i = 0; i < initialCardsAmount; i++ ) {
                 cards.Add(auxCardList[0]);
                 cards[i].transform.position = GetCardPosition( cards[i] );
                 auxCardList.RemoveAt(0);
@@ -73,13 +77,15 @@ namespace Solitaire.Gameplay {
             return auxCardList;
         }
 
+
         protected abstract void SetUpStarterCards();
+
 
         protected int GetCardIndex( string _cardID ) {
             int index = 0;
 
             for ( ; index < cards.Count; index++ ) {
-                if ( _cardID.Equals( cards[index].GetID() )) {
+                if ( _cardID.Equals( cards[index].GetID() ) ) {
                     return index;
                 }
             }

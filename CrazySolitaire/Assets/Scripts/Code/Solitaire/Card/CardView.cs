@@ -22,7 +22,7 @@ namespace Solitaire.Cards {
 
         private bool isFacingUp;
         public bool IsFacingUp {
-            get;
+            get => isFacingUp;
         }
         #endregion
 

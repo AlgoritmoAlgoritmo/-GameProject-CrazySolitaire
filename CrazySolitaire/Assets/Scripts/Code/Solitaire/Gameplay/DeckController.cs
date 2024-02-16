@@ -8,8 +8,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Solitaire.Cards;
-using Solitaire.Common;
+using Solitaire.Gameplay.Cards;
+using Solitaire.Gameplay.Common;
 
 
 

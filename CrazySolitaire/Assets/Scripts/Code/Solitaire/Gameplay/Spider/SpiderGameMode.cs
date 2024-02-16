@@ -8,7 +8,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Solitaire.Cards;
+using Solitaire.Gameplay.Cards;
+using Solitaire.Gameplay.CardContainers;
 
 
 
@@ -48,7 +49,6 @@ namespace Solitaire.Gameplay.Spider {
 
         public void ValidateCardDragging( CardFacade _card ) {
             bool canBeDragged = CanBeDragged( _card );
-            Debug.Log( "canBeDragged " + canBeDragged );
 
             _card.SetCanBeDragged( canBeDragged );
 

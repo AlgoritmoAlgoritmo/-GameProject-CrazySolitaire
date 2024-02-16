@@ -5,9 +5,11 @@
 
 
 
-using Solitaire.Cards;
 using System.Collections.Generic;
-using UnityEngine;
+using Solitaire.Gameplay.Cards;
+using Solitaire.Gameplay.CardContainers;
+
+
 
 namespace Solitaire.Gameplay.Spider {
     public class SpiderCardContainer : AbstractCardContainer {

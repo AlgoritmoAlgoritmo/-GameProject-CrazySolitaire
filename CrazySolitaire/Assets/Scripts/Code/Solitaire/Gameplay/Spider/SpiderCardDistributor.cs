@@ -5,8 +5,9 @@
 
 
 
-using Solitaire.Cards;
 using System.Collections.Generic;
+using Solitaire.Gameplay.Cards;
+using Solitaire.Gameplay.CardContainers;
 
 
 

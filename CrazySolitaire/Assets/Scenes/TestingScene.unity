@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.AbstractCardContainer, _Solitaire.GameplayAssembly
+      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.GameplayAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -759,7 +759,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1136855513}
+    m_TransformParent: {fileID: 1567498240}
     m_Modifications:
     - target: {fileID: 400804126178097473, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
@@ -854,7 +854,7 @@ PrefabInstance:
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 309.22568
       objectReference: {fileID: 0}
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
@@ -1112,7 +1112,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1136855513}
+    m_TransformParent: {fileID: 1567498240}
     m_Modifications:
     - target: {fileID: 400804126178097473, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
@@ -1207,7 +1207,7 @@ PrefabInstance:
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 309.22568
       objectReference: {fileID: 0}
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
@@ -1247,7 +1247,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1136855513}
+    m_TransformParent: {fileID: 1567498240}
     m_Modifications:
     - target: {fileID: 2011391895173401841, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
@@ -1342,7 +1342,7 @@ PrefabInstance:
     - target: {fileID: 2011391895173401852, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 309.22568
       objectReference: {fileID: 0}
     - target: {fileID: 2011391895173401852, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
@@ -1382,7 +1382,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1136855513}
+    m_TransformParent: {fileID: 1567498240}
     m_Modifications:
     - target: {fileID: 2011391895173401841, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
@@ -1477,7 +1477,7 @@ PrefabInstance:
     - target: {fileID: 2011391895173401852, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 309.22568
       objectReference: {fileID: 0}
     - target: {fileID: 2011391895173401852, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
@@ -1542,7 +1542,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.AbstractCardContainer, _Solitaire.GameplayAssembly
+      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.GameplayAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -1747,7 +1747,7 @@ RectTransform:
   - {fileID: 585882753}
   - {fileID: 74819386}
   m_Father: {fileID: 1136855513}
-  m_RootOrder: 10
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1802,6 +1802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMode: {fileID: 1515941281}
+  deckController: {fileID: 1515941280}
 --- !u!82 &694382712
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2253,16 +2254,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 65516181}
-  - {fileID: 1323300604}
-  - {fileID: 485602759}
-  - {fileID: 583721552}
-  - {fileID: 2141113171555223983}
-  - {fileID: 1642126854}
-  - {fileID: 1290288309}
-  - {fileID: 391845612}
-  - {fileID: 256894498}
-  - {fileID: 1618023472}
+  - {fileID: 1567498240}
   - {fileID: 661522919}
   - {fileID: 1953898060}
   m_Father: {fileID: 146951982}
@@ -2373,7 +2365,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1136855513}
+    m_TransformParent: {fileID: 1567498240}
     m_Modifications:
     - target: {fileID: 400804126178097473, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
@@ -2468,7 +2460,7 @@ PrefabInstance:
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 309.22568
       objectReference: {fileID: 0}
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
@@ -2508,7 +2500,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1136855513}
+    m_TransformParent: {fileID: 1567498240}
     m_Modifications:
     - target: {fileID: 2011391895173401841, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
@@ -2603,7 +2595,7 @@ PrefabInstance:
     - target: {fileID: 2011391895173401852, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 309.22568
       objectReference: {fileID: 0}
     - target: {fileID: 2011391895173401852, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
@@ -2668,7 +2660,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.AbstractCardContainer, _Solitaire.GameplayAssembly
+      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.GameplayAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -3088,7 +3080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a1b1ba78a17824ebdfb6f1265ed890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckController: {fileID: 1515941280}
   cardContainers:
   - {fileID: 65516184}
   - {fileID: 1392449338}
@@ -3111,15 +3102,18 @@ MonoBehaviour:
   amountOfEachSuit: 8
   cardsLayer: CARD
   cardContainersLayer: CARD_CONTAINER
+  OnCardsCleared:
+    m_PersistentCalls:
+      m_Calls: []
   completedColumnContainers:
-  - {fileID: 5430424964912610469}
-  - {fileID: 1552299798}
-  - {fileID: 911254127}
-  - {fileID: 285093886}
-  - {fileID: 991717705}
-  - {fileID: 250681688}
-  - {fileID: 103443501}
   - {fileID: 1403439966}
+  - {fileID: 103443501}
+  - {fileID: 250681688}
+  - {fileID: 991717705}
+  - {fileID: 285093886}
+  - {fileID: 911254127}
+  - {fileID: 1552299798}
+  - {fileID: 5430424964912610469}
 --- !u!1001 &1552299796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3272,6 +3266,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65760c8bd9759974a93dcd527ce31a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1567498239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1567498240}
+  m_Layer: 5
+  m_Name: MainCardContainers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1567498240
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567498239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 65516181}
+  - {fileID: 1323300604}
+  - {fileID: 485602759}
+  - {fileID: 583721552}
+  - {fileID: 2141113171555223983}
+  - {fileID: 1642126854}
+  - {fileID: 1290288309}
+  - {fileID: 391845612}
+  - {fileID: 256894498}
+  - {fileID: 1618023472}
+  m_Father: {fileID: 1136855513}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1586797051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3302,7 +3341,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.AbstractCardContainer, _Solitaire.GameplayAssembly
+      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.GameplayAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -3479,7 +3518,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1136855513}
+    m_TransformParent: {fileID: 1567498240}
     m_Modifications:
     - target: {fileID: 400804126178097473, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
@@ -3574,7 +3613,7 @@ PrefabInstance:
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 309.22568
       objectReference: {fileID: 0}
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
@@ -3614,7 +3653,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1136855513}
+    m_TransformParent: {fileID: 1567498240}
     m_Modifications:
     - target: {fileID: 400804126178097473, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
@@ -3709,7 +3748,7 @@ PrefabInstance:
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 309.22568
       objectReference: {fileID: 0}
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
@@ -3792,7 +3831,7 @@ RectTransform:
   - {fileID: 103443500}
   - {fileID: 1403439965}
   m_Father: {fileID: 1136855513}
-  m_RootOrder: 11
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3829,7 +3868,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.AbstractCardContainer, _Solitaire.GameplayAssembly
+      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.GameplayAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -4000,7 +4039,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1136855513}
+    m_TransformParent: {fileID: 1567498240}
     m_Modifications:
     - target: {fileID: 2011391895173401841, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
@@ -4095,7 +4134,7 @@ PrefabInstance:
     - target: {fileID: 2011391895173401852, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 309.22568
       objectReference: {fileID: 0}
     - target: {fileID: 2011391895173401852, guid: cf22647cc98f3c04a96e1bfbaa60eac3,
         type: 3}
@@ -4129,7 +4168,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1136855513}
+    m_TransformParent: {fileID: 1567498240}
     m_Modifications:
     - target: {fileID: 400804126178097473, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
@@ -4224,7 +4263,7 @@ PrefabInstance:
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 309.22568
       objectReference: {fileID: 0}
     - target: {fileID: 400804126178097484, guid: 447a43d7e45de2745aa746fe226eec5b,
         type: 3}

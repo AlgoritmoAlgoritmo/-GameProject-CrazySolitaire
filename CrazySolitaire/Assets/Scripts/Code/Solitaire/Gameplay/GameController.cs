@@ -16,6 +16,8 @@ namespace Solitaire.Gameplay {
         #region Variables
         [SerializeField]
         private AbstractGameMode gameMode;
+        [SerializeField]
+        private DeckController deckController;
         #endregion
 
 
@@ -46,8 +48,13 @@ namespace Solitaire.Gameplay {
 
         #region Private methods
         private void StartGame() {
-            gameMode.SubscribeToOnGameClearedEvent( EndClearedGame );
-            gameMode.Initialize();
+            deckController.onCardsCleared += EndClearedGame;
+            gameMode.OnCardsCleared.AddListener( 
+                                            deckController.RemoveCardsFromGame );
+            gameMode.Initialize( deckController.InitializeCards(
+                                            gameMode.Suits,
+                                            gameMode.AmountOfEachSuit
+                                ) );
         }
         #endregion
     }

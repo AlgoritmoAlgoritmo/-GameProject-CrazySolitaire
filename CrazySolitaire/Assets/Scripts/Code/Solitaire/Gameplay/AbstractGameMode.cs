@@ -15,32 +15,34 @@ using Solitaire.Gameplay.CardContainers;
 
 
 namespace Solitaire.Gameplay {
-
     public abstract class AbstractGameMode : MonoBehaviour {
         #region Variables
-        [SerializeField]
-        protected DeckController deckController;
         [SerializeField]
         protected List<AbstractCardContainer> cardContainers;
         [SerializeField]
         protected List<BasicSuitData> suits;
+        public List<BasicSuitData> Suits {
+            get => suits;
+        }
+
         [SerializeField]
         protected short amountOfEachSuit;
+        public short AmountOfEachSuit {
+            get => amountOfEachSuit;
+        }
+
 
         [SerializeField]
         protected string cardsLayer = "CARD";
         [SerializeField]
         protected string cardContainersLayer = "CARD_CONTAINER";
 
-
-        protected List<CardFacade> cards;
+        public CardsEvent OnCardsCleared = new CardsEvent();
         #endregion
 
 
         #region Public abstract methods
-        public abstract void Initialize();
-
-        public abstract void SubscribeToOnGameClearedEvent( EventHandler _eventHandler );
+        public abstract void Initialize( List<CardFacade> _cards );
         #endregion
 
 

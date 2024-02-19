@@ -32,8 +32,7 @@ namespace Solitaire.Gameplay {
 
         #region Public methods
         public List<CardFacade> InitializeCards( List<BasicSuitData> _suits,
-                                                    short _amountOfCardsPerSuit ) {
-
+                                                short _amountOfCardsPerSuit ) {
             InstantiateCards( _suits, _amountOfCardsPerSuit );
             ShuffleCards();
             RenderSorting();
@@ -41,29 +40,6 @@ namespace Solitaire.Gameplay {
             return inGamecards;
         }
 
-
-        public void SubscribeToDragStartEvent( Action<CardFacade> action ) {
-            foreach( CardFacade auxCard in inGamecards ) {
-                auxCard.SubscribeToOnStartDragging( action );
-            }
-        }
-
-
-        public void SubscribeToCardPlacedEventWithCollision( Action<CardFacade,
-                                                            GameObject> action ) {
-            foreach( CardFacade auxCard in inGamecards ) {
-                auxCard.SubscribeToOnCardPlacedWithCollisions( action );
-            }
-        }
-
-
-        public void SubscribeToCardPlacedEventWithoutCollision(Action<CardFacade> action) {
-            foreach (CardFacade auxCard in inGamecards) {
-                auxCard.SubscribeToOnCardPlacedWithoutCollisions( action );
-            }
-        }
-        
-        
         
         public void RemoveCardsFromGame( List<CardFacade> _cards ) {
             foreach( CardFacade auxCard in _cards ) {
@@ -79,7 +55,7 @@ namespace Solitaire.Gameplay {
 
         #region PrivateMethods
         private List<CardFacade> InstantiateCards( List<BasicSuitData> _suits,
-                                                    short _amountOfCardsPerSuit ) {
+                                                short _amountOfCardsPerSuit ) {
             List<Sprite> suitSprites;
 
             // Iterating each suit

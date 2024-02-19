@@ -22,28 +22,21 @@ namespace Solitaire.Gameplay.Spider {
 
 
         #region Public methods
-        public override void Initialize() {
-            cards = deckController.InitializeCards(suits, amountOfEachSuit);
+        public override void Initialize( List<CardFacade> _cards ) {
             List<CardFacade> auxCards = new List<CardFacade>();
 
-            foreach (CardFacade auxCard in cards) {
+            foreach( CardFacade auxCard in _cards ) {
                 auxCards.Add(auxCard);
+                auxCard.SubscribeToOnStartDragging( ValidateCardDragging );
+                auxCard.SubscribeToOnCardPlacedWithCollisions(
+                                        ValidateCardPlacementWithCollison );
+                auxCard.SubscribeToOnCardPlacedWithoutCollisions(
+                                        ValidateCardPlacementWithoutCollison );
             }
 
-            foreach (AbstractCardContainer auxCardContainer in cardContainers) {
+            foreach( AbstractCardContainer auxCardContainer in cardContainers ) {
                 auxCards = auxCardContainer.Initialize(auxCards);
             }
-
-            deckController.SubscribeToDragStartEvent( ValidateCardDragging );
-            deckController.SubscribeToCardPlacedEventWithCollision( 
-                                                ValidateCardPlacementWithCollison );
-            deckController.SubscribeToCardPlacedEventWithoutCollision( 
-                                                ValidateCardPlacementWithoutCollison );
-        }
-
-
-        public override void SubscribeToOnGameClearedEvent( EventHandler eventHandler ) {
-            deckController.onCardsCleared += eventHandler;
         }
 
 
@@ -143,30 +136,30 @@ namespace Solitaire.Gameplay.Spider {
             // Case: The detected GameObject is a CardContainer
             } else if ( _detectedGameObject.layer == LayerMask.NameToLayer( 
                                                                         cardContainersLayer ) ) {
-                Debug.Log("Adding card to Card container");
+                    Debug.Log("Adding card to Card container");
                 
-                var detectedCardContainer = _detectedGameObject
-                                                        .GetComponent<AbstractCardContainer>();
+                    var detectedCardContainer = _detectedGameObject
+                                                            .GetComponent<AbstractCardContainer>();
 
-                if( !detectedCardContainer )
-                    throw new Exception($"The object {_detectedGameObject.name} doesn't have an "
-                                                            + $"AbstractCardContainer component.");
+                    if( !detectedCardContainer )
+                        throw new Exception($"The object {_detectedGameObject.name} doesn't have an "
+                                                                + $"AbstractCardContainer component.");
                 
-                if(_placedCard.ParentCard )
-                    _placedCard.ParentCard.SetChildCard( null );
+                    if(_placedCard.ParentCard )
+                        _placedCard.ParentCard.SetChildCard( null );
 
-                _placedCard.SetParentCard( null );
-                GetCardContainer(_placedCard).RemoveCard(_placedCard);
-                detectedCardContainer.AddCard(_placedCard);                
+                    _placedCard.SetParentCard( null );
+                    GetCardContainer(_placedCard).RemoveCard(_placedCard);
+                    detectedCardContainer.AddCard(_placedCard);                
 
-                var auxChild = _placedCard.ChildCard;
+                    var auxChild = _placedCard.ChildCard;
 
-                while( auxChild ) {
-                    GetCardContainer(auxChild).RemoveCard(auxChild);
+                    while( auxChild ) {
+                        GetCardContainer(auxChild).RemoveCard(auxChild);
 
-                    detectedCardContainer.AddCard( auxChild );
-                    auxChild = auxChild.ChildCard;
-                }
+                        detectedCardContainer.AddCard( auxChild );
+                        auxChild = auxChild.ChildCard;
+                    }
 
 
             } else {
@@ -235,7 +228,7 @@ namespace Solitaire.Gameplay.Spider {
 
             if ( IsColumnCompleted( columnOfCards ) ) {
                 MoveColumnToCompletedColumnContainer( columnOfCards );
-                deckController.RemoveCardsFromGame( columnOfCards );
+                OnCardsCleared.Invoke( columnOfCards );
             }
         }
 

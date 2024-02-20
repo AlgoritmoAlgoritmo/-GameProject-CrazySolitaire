@@ -28,9 +28,14 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public override void AddCard( CardFacade _card ) {
+            _card.RenderOnTop();
+            _card.SetParentCard( GetTopCard() );
+            GetTopCard()?.SetChildCard( _card );
+
             cards.Add( _card );
             _card.transform.position = GetCardPosition( _card );
 
+            CheckAndFlipUpperCard();
             CheckFacingUpCards();
         }
 

@@ -10,7 +10,6 @@ using UnityEngine;
 
 
 
-
 namespace Solitaire.Gameplay.Common {
     [System.Serializable]
     public class CardThemeSpritesData {

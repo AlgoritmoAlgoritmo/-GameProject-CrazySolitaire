@@ -41,32 +41,23 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public void ValidateCardDragging( CardFacade _card ) {
-            bool canBeDragged = CanBeDragged( _card );
-
+            bool canBeDragged = CanCardBeDragged( _card );
             _card.SetCanBeDragged( canBeDragged );
 
             if( canBeDragged ) {
-                // Deactivating childs physics to avoid the parent to detect them during dragging
-                _card.ActivateChildsPhysics(false);
+                // Deactivating childs physics to avoid the parent to detect them
+                // during dragging
+                _card.ActivateChildsPhysics( false );
             }
         }
 
 
-        public void DistributorCardsDistribution( AbstractCardContainer _cardContainer ) {
+        public void DistributeCardsBetweenCardContainers( 
+                                            AbstractCardContainer _cardContainer ) {
             List<CardFacade> auxCardsToDistribute = _cardContainer.GetCards();
 
             for( int i = auxCardsToDistribute.Count - 1; i >= 0; i-- ) {
-                auxCardsToDistribute[i].RenderOnTop();
-                auxCardsToDistribute[i].FlipCard( true );
-
-                // Setting up parenting
-                auxCardsToDistribute[i].SetParentCard( cardContainers[i].GetTopCard() );
-
-                if( cardContainers[i].GetTopCard() )
-                    cardContainers[i].GetTopCard().SetChildCard( auxCardsToDistribute[i] );
-
                 cardContainers[i].AddCard( auxCardsToDistribute[i] );
-                _cardContainer.RemoveCard( auxCardsToDistribute[i] );
             }
 
             Destroy( _cardContainer.gameObject );
@@ -76,100 +67,47 @@ namespace Solitaire.Gameplay.Spider {
 
         #region Protected methods
         protected override void ValidateCardPlacementWithCollison( CardFacade _placedCard,
-                                                        GameObject _detectedGameObject ) {           
-
+                                                        GameObject _detectedGameObject ) {
+                        
             if ( _detectedGameObject.layer == LayerMask.NameToLayer( cardsLayer ) ) {
-                CardFacade detectedCardFacade = _detectedGameObject.GetComponent<CardFacade>();
-
+                CardFacade detectedCardFacade = _detectedGameObject
+                                                            .GetComponent<CardFacade>();
                 if ( !detectedCardFacade )
-                    throw new Exception($"The object {_detectedGameObject.name} doesn't have a "
-                                                                + $"CardFacade component.");
+                    throw new Exception( $"The object {_detectedGameObject.name} doesn't"
+                                                + $" have a CardFacade component." );
 
                 // Logic to move card from one container to another
                 // Case: Card CANNOT be child of potential parent                
-                if (!CanBeChildOf(_placedCard, detectedCardFacade)  
-                                        ||   _placedCard.ParentCard == detectedCardFacade ) {
-                    _placedCard.transform.position = GetCardOriginalPositionInContainer(_placedCard);
-
-
-                    // Recursively set child cards to old position
-                    var auxCardChild = _placedCard;
-
-                    while (auxCardChild != null) {
-                        auxCardChild.transform.position = GetCardOriginalPositionInContainer(
-                                                                                        auxCardChild);
-                        auxCardChild = auxCardChild.ChildCard;
-                    }
-                    
+                if ( !CanBeChildOf( _placedCard, detectedCardFacade )  
+                                    ||   _placedCard.ParentCard == detectedCardFacade ) {
+                    ReturnCardAndChildsToContainerPosition( _placedCard );                    
                    
                 // Case: Card CAN be child of potential parent
                 } else {
-                    // 1- Removing from previous Parent and setting detected card as new parent's child
-                    if (_placedCard.ParentCard != null) {
-                        _placedCard.ParentCard.SetChildCard( null );
-                    }
-
-                    detectedCardFacade.SetChildCard( _placedCard );
-                    _placedCard.SetParentCard( detectedCardFacade );
-
-                    // 2- Get parent card container
-                    AbstractCardContainer parentCardContainer = GetCardContainer( detectedCardFacade );
-
-                    // Recursively check childs
-                    var auxCardFacade = _placedCard;
-
-                    while (auxCardFacade != null) {
-                        // 3- Remove card from its card container
-                        GetCardContainer( auxCardFacade ).RemoveCard( auxCardFacade );
-
-                        // 4- Add card to new card container
-                        parentCardContainer.AddCard( auxCardFacade );
-
-                        // 5- Set ChildCard as card to check on next loop
-                        auxCardFacade = auxCardFacade.ChildCard;
-                    }
+                    MoveCardToNewContainer( _placedCard, 
+                                                GetCardContainer( detectedCardFacade ) );
                 }
-
-                // Activating droped card childs physics again after dragging ends
 
 
             // Case: The detected GameObject is a CardContainer
             } else if ( _detectedGameObject.layer == LayerMask.NameToLayer( 
-                                                                        cardContainersLayer ) ) {
-                    Debug.Log("Adding card to Card container");
-                
+                                                                cardContainersLayer ) ) {                
                     var detectedCardContainer = _detectedGameObject
-                                                            .GetComponent<AbstractCardContainer>();
-
+                                                    .GetComponent<AbstractCardContainer>();
                     if( !detectedCardContainer )
-                        throw new Exception($"The object {_detectedGameObject.name} doesn't have an "
-                                                                + $"AbstractCardContainer component.");
+                        throw new Exception($"The object {_detectedGameObject.name} "
+                                    + $"doesn't have an AbstractCardContainer component.");
                 
-                    if(_placedCard.ParentCard )
-                        _placedCard.ParentCard.SetChildCard( null );
-
-                    _placedCard.SetParentCard( null );
-                    GetCardContainer(_placedCard).RemoveCard(_placedCard);
-                    detectedCardContainer.AddCard(_placedCard);                
-
-                    var auxChild = _placedCard.ChildCard;
-
-                    while( auxChild ) {
-                        GetCardContainer(auxChild).RemoveCard(auxChild);
-
-                        detectedCardContainer.AddCard( auxChild );
-                        auxChild = auxChild.ChildCard;
-                    }
-
+                    MoveCardToNewContainer( _placedCard, detectedCardContainer );
 
             } else {
                 throw new Exception($"The object {_detectedGameObject.name}'s layer ("
-                        + LayerMask.LayerToName( _detectedGameObject.layer ) + ") is not valid." );
-            
+                                + LayerMask.LayerToName( _detectedGameObject.layer ) 
+                                + ") is not valid." );            
             }
             
             
-            _placedCard.ActivateChildsPhysics(true);
+            _placedCard.ActivateChildsPhysics( true );
             CheckIfColumnWasCompleted( _placedCard );            
         }
 
@@ -201,7 +139,7 @@ namespace Solitaire.Gameplay.Spider {
         }
 
 
-        protected override bool CanBeDragged( CardFacade _card ) {
+        protected override bool CanCardBeDragged( CardFacade _card ) {
             if( !_card.ChildCard )
                 return true;
 
@@ -223,6 +161,40 @@ namespace Solitaire.Gameplay.Spider {
 
 
         #region Private methods
+        private void ReturnCardAndChildsToContainerPosition( CardFacade _card ) {
+            _card.transform.position = GetCardOriginalPositionInContainer( _card );
+
+
+            // Recursively set child cards to old position
+            var auxCardChild = _card;
+
+            while (auxCardChild != null) {
+                auxCardChild.transform.position =
+                                        GetCardOriginalPositionInContainer(
+                                                                    auxCardChild);
+                auxCardChild = auxCardChild.ChildCard;
+            }
+        }
+
+
+        private void MoveCardToNewContainer( CardFacade _card,
+                                                AbstractCardContainer _cardContainer ) {
+            // Recursively check childs
+            var auxCardFacade = _card;
+
+            while( auxCardFacade != null ) {
+                // 1- Remove card from its card container
+                GetCardContainer( auxCardFacade ).RemoveCard( auxCardFacade );
+
+                // 2- Add card to new card container
+                _cardContainer.AddCard( auxCardFacade );
+
+                // 3- Set ChildCard as card to check on next loop
+                auxCardFacade = auxCardFacade.ChildCard;
+            }
+        }
+
+
         private void CheckIfColumnWasCompleted( CardFacade _placedCard ) {
             List<CardFacade> columnOfCards = GetCardColumn(_placedCard);
 

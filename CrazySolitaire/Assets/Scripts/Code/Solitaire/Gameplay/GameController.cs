@@ -48,12 +48,10 @@ namespace Solitaire.Gameplay {
         #region Private methods
         private void StartGame() {
             deckController.onCardsCleared += EndClearedGame;
-            gameMode.OnCardsCleared.AddListener( 
-                                            deckController.RemoveCardsFromGame );
-            gameMode.Initialize( deckController.InitializeCards(
-                                            gameMode.Suits,
-                                            gameMode.AmountOfEachSuit
-                                ) );
+            gameMode.OnCardsCleared.AddListener( deckController.RemoveCardsFromGame );
+            gameMode.Initialize( deckController.InitializeCards( gameMode.Suits,
+                                                                gameMode.AmountOfEachSuit )
+                                                        );
         }
         #endregion
     }

@@ -42,11 +42,6 @@ namespace Solitaire.Gameplay.Spider {
         public override void RemoveCard(CardFacade _card) {
             cards.Remove( _card );
         }
-
-
-        public override bool CandAddCards() {
-            return canAddCards;
-        }
         #endregion
 
 

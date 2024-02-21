@@ -70,11 +70,6 @@ namespace Solitaire.Gameplay.Spider {
             UpdateCards();
             collider.enabled = cards.Count < 1;
         }
-
-
-        public override bool CandAddCards() {
-            return canAddCards;
-        }
         #endregion
 
 

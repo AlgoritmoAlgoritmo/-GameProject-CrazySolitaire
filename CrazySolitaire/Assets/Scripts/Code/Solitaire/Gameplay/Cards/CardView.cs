@@ -28,7 +28,7 @@ namespace Solitaire.Gameplay.Cards {
 
 
         #region Constructors
-        public CardView() {  }
+        public CardView() {}
         #endregion
 
 

@@ -21,6 +21,9 @@ namespace Solitaire.Gameplay.CardContainers {
         protected short initialCardsAmount = 0;
         [SerializeField]
         protected bool canAddCards = true;
+        public bool CanAddCards {
+            get => canAddCards;
+        }
 
         protected List<CardFacade> cards = new List<CardFacade>();
         #endregion
@@ -28,12 +31,12 @@ namespace Solitaire.Gameplay.CardContainers {
 
         #region Public methods
         public abstract List<CardFacade> Initialize( List<CardFacade> _cards );
-        public abstract bool AddCards( List<CardFacade> _cards );
-        public abstract void RemoveCards( List<CardFacade> _cards );
         public abstract void AddCard( CardFacade _card );
+        public abstract bool AddCards( List<CardFacade> _cards );
         public abstract void RemoveCard( CardFacade _card );
-        public abstract bool CandAddCards();
+        public abstract void RemoveCards( List<CardFacade> _cards );
         
+
         public bool ContainsCard( CardFacade _card ) {
             return GetCardIndex( _card.GetID() ) != -1;
         }
@@ -60,6 +63,9 @@ namespace Solitaire.Gameplay.CardContainers {
 
 
         #region Protected methods
+        protected abstract void SetUpStarterCards();
+
+
         protected List<CardFacade> AddInitializationCards( List<CardFacade> _cards ) {
             List<CardFacade> auxCardList = _cards;
 
@@ -74,10 +80,8 @@ namespace Solitaire.Gameplay.CardContainers {
             return auxCardList;
         }
         
-        protected abstract void SetUpStarterCards();
-
         protected int GetCardIndex( string _cardID ) {
-            for ( int index = 0 ; index < cards.Count; index++ ) {
+            for( int index = 0 ; index < cards.Count; index++ ) {
                 if ( _cardID.Equals( cards[index].GetID() ) ) {
                     return index;
                 }

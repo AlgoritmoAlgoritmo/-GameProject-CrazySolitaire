@@ -58,84 +58,67 @@ namespace Solitaire.Gameplay.Cards {
             return cardData.number;
         }
 
-
         public string GetSuit() {
             return cardData.suit;
         }
-
 
         public string GetColor() {
             return cardData.color;
         }
 
-
         public string GetID() {
             return cardData.id;
         }
-
 
         public bool IsFacingUp() {
             return cardView.IsFacingUp;
         }
 
-
         public void SetCardData( CardData _cardData ) {
             cardData = _cardData;
         }
-
 
         public void SetFrontSprite( Sprite frontSprite ) {
             cardView?.SetFrontSprite( frontSprite );
         }
 
-
         public void SetBackSprite( Sprite backtSprite ) {
             cardView?.SetBackSprite( backtSprite );
         }
-
 
         public void FlipCard( bool _facingUp ) {
             cardView.FlipCard( _facingUp );
         }
 
-
         public void SubscribeToOnStartDragging( Action<CardFacade> action ) {
             OnStartDrag += action;
         }
-
 
         public void SubscribeToCardEvent( Action<CardFacade, GameObject> action ) {
             OnCardEvent += action;
         }
 
-
         public void InvokeOnStartDragEvent() {
             RenderOnTop();
-
             OnStartDrag( this );
         }
-
 
         public void InvokeOnCardEvent( GameObject _detectedGameObject ) {
             OnCardEvent( this, _detectedGameObject );
         }
-
 
         public void SetCanBeDragged( bool _canBeDragged ) {
             cardPhysics.SetCanBeDragged( _canBeDragged );
             cardView.SetInteractable( _canBeDragged );
         }
 
-
         public void ActivateParentDetection( bool _active ) {
             cardPhysics.ActivateParentDetection( _active );
         }
 
-
         public void ActivatePhysics( bool _activate ) {
             cardPhysics.ActivatePhysicsInteractions( _activate );
         }
-
 
         public void MoveToPosition( Vector3 _newPositionOffset ) {
             if( ChildCard ) {
@@ -156,7 +139,7 @@ namespace Solitaire.Gameplay.Cards {
         public void ActivateChildsPhysics( bool _activate ) {
             var auxChild = ChildCard;
 
-            while (auxChild) {
+            while( auxChild ) {
                 auxChild.ActivatePhysics( _activate );
                 auxChild = auxChild.ChildCard;
             }

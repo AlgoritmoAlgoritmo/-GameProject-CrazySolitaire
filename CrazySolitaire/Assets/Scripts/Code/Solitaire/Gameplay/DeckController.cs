@@ -96,7 +96,6 @@ namespace Solitaire.Gameplay {
 
             CardFacade cardInstance = Instantiate( cardPrefab, cardParent );
 
-
             return cardInstance;
         }
 

@@ -13,17 +13,17 @@ using UnityEngine.EventSystems;
 
 
 namespace Solitaire.Gameplay.Cards {
-    public class CardPhysics : MonoBehaviour, IBeginDragHandler,
-                                        IDragHandler, IEndDragHandler {
+    public class CardPhysics : MonoBehaviour, IBeginDragHandler, IDragHandler,
+                                                                    IEndDragHandler {
         #region Variables
-        public event Action OnStartDragging;
-        public event Action<Vector3> OnDragging;
-        public event Action<GameObject> OnCardEvent;
-
         [SerializeField]
         private bool canBeDragged;
         private Collider2D attachedCollider2D;
         private List<Collider2D> detectedColliders = new List<Collider2D>();
+
+        public event Action OnStartDragging;
+        public event Action<Vector3> OnDragging;
+        public event Action<GameObject> OnCardEvent;
         #endregion
 
 
@@ -32,7 +32,6 @@ namespace Solitaire.Gameplay.Cards {
         private void Awake() {
             attachedCollider2D = GetComponent<Collider2D>();
         }
-
 
         public void OnBeginDrag( PointerEventData eventData ) {
             ActivateParentDetection( true );
@@ -89,36 +88,44 @@ namespace Solitaire.Gameplay.Cards {
         #region Private methods
         private void InvokeOnCardPlacedAction() {            
             // Pass closest collider object through Event
-            OnCardEvent( GetClosestCollidingGameObject() );
-            
+            OnCardEvent( GetClosestCollidingGameObject() );            
             detectedColliders.Clear();
         }
 
 
         private GameObject GetClosestCollidingGameObject() {
-            if (detectedColliders.Count == 0) {
+            //  If there's no object detected, return null
+            if( detectedColliders.Count == 0 ) {
                 return null;
 
+            //  If there's only 1 detected object, return it
             } else if( detectedColliders.Count == 1 ) {
                 return detectedColliders[0].gameObject;
 
+
+            //  If there are multiple detected objects, return the closest one
             } else {
-                GameObject closestObject = detectedColliders[0].gameObject;
-                float closestDistance = Vector3.Distance( transform.position,
-                                            closestObject.transform.position );
-
-                for( int i = 1; i < detectedColliders.Count; i++ ) {
-                    if( Vector3.Distance( transform.position,  
-                            detectedColliders[i].transform.position) <  closestDistance ) {
-
-                        closestObject = detectedColliders[i].gameObject;
-                        closestDistance = Vector3.Distance(transform.position,
-                                                    closestObject.transform.position);
-                    }
-                }
-
-                return closestObject;
+                return GetClosestDetectedObject();
             }
+        }
+
+
+        private GameObject GetClosestDetectedObject(  ) {
+            GameObject closestObject = detectedColliders[0].gameObject;
+            float closestDistance = Vector3.Distance(transform.position,
+                                        closestObject.transform.position);
+
+            for( int i = 1; i < detectedColliders.Count; i++ ) {
+                if (Vector3.Distance(transform.position,
+                        detectedColliders[i].transform.position) < closestDistance) {
+
+                    closestObject = detectedColliders[i].gameObject;
+                    closestDistance = Vector3.Distance(transform.position,
+                                                closestObject.transform.position);
+                }
+            }
+
+            return closestObject;
         }
         #endregion
     }

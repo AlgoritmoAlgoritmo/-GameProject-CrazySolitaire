@@ -21,10 +21,5 @@ namespace Solitaire.Gameplay.Common {
             sprites = _sprites;
         }
         #endregion
-
-
-        #region Public methods
-
-        #endregion
     }
 }

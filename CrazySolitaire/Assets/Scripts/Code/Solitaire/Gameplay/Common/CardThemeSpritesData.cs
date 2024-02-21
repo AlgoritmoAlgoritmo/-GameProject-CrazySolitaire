@@ -33,9 +33,5 @@ namespace Solitaire.Gameplay.Common {
             suits = new List<CompleteSuitData>();
         }
         #endregion
-
-
-        #region Public methods
-        #endregion
     }
 }

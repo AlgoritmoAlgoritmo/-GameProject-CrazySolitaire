@@ -13,19 +13,13 @@ using UnityEngine;
 
 namespace Solitaire.Gameplay.CardContainers {
     public class BasicCardContainer : AbstractCardContainer {
-        #region Variables
-
-        #endregion
-
-
-        #region MonoBehaviour methods
-
-        #endregion
-
-
         #region Public methods
         public override void AddCard( CardFacade _card ) {
-            throw new System.NotImplementedException();
+            cards.Add( _card );
+            _card.transform.position = new Vector3( transform.position.x + cardsOffset.x,
+                                                    transform.position.y + cardsOffset.y,
+                                                    transform.position.z
+                                    );
         }
 
         public override bool AddCards( List<CardFacade> _cards ) {
@@ -40,10 +34,6 @@ namespace Solitaire.Gameplay.CardContainers {
             }
 
             return true;
-        }
-
-        public override bool CandAddCards() {
-            throw new System.NotImplementedException();
         }
 
         public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
@@ -64,11 +54,6 @@ namespace Solitaire.Gameplay.CardContainers {
         protected override void SetUpStarterCards() {
             throw new System.NotImplementedException();
         }
-        #endregion
-
-
-        #region Private methods
-
         #endregion
     }
 }

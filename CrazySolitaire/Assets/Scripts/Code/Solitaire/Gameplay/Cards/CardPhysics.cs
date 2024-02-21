@@ -18,8 +18,7 @@ namespace Solitaire.Gameplay.Cards {
         #region Variables
         public event Action OnStartDragging;
         public event Action<Vector3> OnDragging;
-        public event Action OnCardPlacedWithoutCollisions;
-        public event Action<GameObject> OnCardPlacedWithCollisions;
+        public event Action<GameObject> OnCardEvent;
 
         [SerializeField]
         private bool canBeDragged;
@@ -36,7 +35,7 @@ namespace Solitaire.Gameplay.Cards {
 
 
         public void OnBeginDrag( PointerEventData eventData ) {
-            ActivateCollisionDetection( true );
+            ActivateParentDetection( true );
             OnStartDragging();
         }
 
@@ -75,12 +74,12 @@ namespace Solitaire.Gameplay.Cards {
         }
 
 
-        public void ActivateCollisionDetection( bool _activate ) {
+        public void ActivateParentDetection( bool _activate ) {
             attachedCollider2D.isTrigger = _activate;
         }
 
 
-        public void ActivatePhysics( bool _activate ) {
+        public void ActivatePhysicsInteractions( bool _activate ) {
             attachedCollider2D.enabled = _activate;
         }
         #endregion
@@ -88,21 +87,19 @@ namespace Solitaire.Gameplay.Cards {
 
 
         #region Private methods
-        private void InvokeOnCardPlacedAction() {
-            if( detectedColliders.Count == 0 ) {
-                OnCardPlacedWithoutCollisions();
-
-            } else {
-                // Pass closest collider object through Event
-                OnCardPlacedWithCollisions( GetClosestCollidingGameObject() );
-            }
+        private void InvokeOnCardPlacedAction() {            
+            // Pass closest collider object through Event
+            OnCardEvent( GetClosestCollidingGameObject() );
             
             detectedColliders.Clear();
         }
 
 
         private GameObject GetClosestCollidingGameObject() {
-            if( detectedColliders.Count == 1 ) {
+            if (detectedColliders.Count == 0) {
+                return null;
+
+            } else if( detectedColliders.Count == 1 ) {
                 return detectedColliders[0].gameObject;
 
             } else {

@@ -47,10 +47,8 @@ namespace Solitaire.Gameplay {
 
 
         #region Protected abstract methods
-        protected abstract void ValidateCardPlacementWithCollison( CardFacade _placedCard,
+        protected abstract void ManageCardEvent( CardFacade _placedCard,
                                                         GameObject _detectedGameObject );
-
-        protected abstract void ValidateCardPlacementWithoutCollison( CardFacade _card );
 
         protected abstract bool CanBeChildOf( CardFacade _card,
                                                             CardFacade _potentialParent );
@@ -60,11 +58,6 @@ namespace Solitaire.Gameplay {
 
 
         #region Protected methods
-        protected Vector3 GetCardOriginalPositionInContainer( CardFacade _card ) {
-            return GetCardContainer(_card).GetCardPosition(_card);
-        }
-
-
         protected AbstractCardContainer GetCardContainer( CardFacade _card ) {            
             foreach( AbstractCardContainer auxCardContainer in cardContainers) {
                 if( auxCardContainer.ContainsCard(_card) ) {

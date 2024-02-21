@@ -53,9 +53,9 @@ namespace Solitaire.Gameplay.Spider {
         #region Protected methods
         protected override void SetUpStarterCards() {
             for (int i = 0; i <= cards.Count - 1; i++) {
-                cards[i].FlipCard(false);
-                cards[i].SetCanBeDragged(false);
-                cards[i].SetCollisionsActive(false);
+                cards[i].FlipCard( false );
+                cards[i].SetCanBeDragged( false );
+                cards[i].ActivateParentDetection( false );
             }
         }
         #endregion

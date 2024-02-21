@@ -13,15 +13,22 @@ using Solitaire.Gameplay.CardContainers;
 
 namespace Solitaire.Gameplay.Spider {
     public class SpiderCardContainer : AbstractCardContainer {
+        #region Variables
+        private UnityEngine.Collider2D collider;
+        #endregion
+
+
         #region Public methods
         public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
-            if( _cards == null     ||     _cards.Count == 0 ) {
+            collider = GetComponent<UnityEngine.Collider2D>();
+            collider.enabled = false;
+
+            if ( _cards == null     ||     _cards.Count == 0 ) {
                 throw new System.Exception( "Cards list is empty." );
 
             } else if( _cards.Count < initialCardsAmount ) {
                 throw new System.Exception( "There aren't enough cards to initialize CardContainer." );
             }
-
 
             return AddInitializationCards( _cards );
         }
@@ -33,21 +40,25 @@ namespace Solitaire.Gameplay.Spider {
             GetTopCard()?.SetChildCard( _card );
 
             cards.Add( _card );
-            _card.transform.position = GetCardPosition( _card );
+            _card.transform.position = GetCardPosition( cards.Count - 1 );
 
             CheckAndFlipUpperCard();
-            CheckFacingUpCards();
+            CheckUpCards();
+
+            collider.enabled = cards.Count < 1;
+        }
+        
+
+        public override bool AddCards( List<CardFacade> _cards ) {
+            throw new System.NotImplementedException();
         }
 
 
         public override void RemoveCard( CardFacade _card ) {
-            cards.Remove( _card );
+            cards.Remove(_card);
             UpdateCards();
-        }
 
-
-        public override bool AddCards( List<CardFacade> _cards ) {
-            throw new System.NotImplementedException();
+            collider.enabled = cards.Count < 1;
         }
 
 
@@ -57,6 +68,7 @@ namespace Solitaire.Gameplay.Spider {
             }
 
             UpdateCards();
+            collider.enabled = cards.Count < 1;
         }
 
 
@@ -73,7 +85,7 @@ namespace Solitaire.Gameplay.Spider {
                     cards[i].FlipCard( false );
                     cards[i].SetCanBeDragged( false );
                     cards[i].ActivatePhysics( false );
-                    cards[i].SetCollisionsActive( false );
+                    cards[i].ActivateParentDetection( false );
 
                     cards[i].SetChildCard( cards[i + 1] );
                     cards[i + 1].SetParentCard( cards[i] );
@@ -82,7 +94,7 @@ namespace Solitaire.Gameplay.Spider {
                     cards[i].FlipCard( true );
                     cards[i].SetCanBeDragged( true );
                     cards[i].ActivatePhysics( true );
-                    cards[i].SetCollisionsActive( true );
+                    cards[i].ActivateParentDetection( true );
                 }
             }
         }
@@ -95,22 +107,24 @@ namespace Solitaire.Gameplay.Spider {
                 if( !GetTopCard().IsFacingUp() ) {
                     CheckAndFlipUpperCard();
                 } else {
-                    CheckFacingUpCards();
+                    CheckUpCards();
                 }
-            }
+            }        
         }
 
 
-        private void CheckFacingUpCards() {
+        private void CheckUpCards() {
             if( cards.Count >= 2 ) {
                 GetTopCard().SetCanBeDragged(true);
 
                 for( int i = cards.Count - 2; i >= 0; i-- ) {
-                    if ( cards[i].IsFacingUp()  &&  cards[i].GetSuit().Equals(
-                                                                cards[i+1].GetSuit() )
-                                        &&  cards[i].GetCardNumber() - 1  == cards[i+1]
+                    cards[i].ActivatePhysics( false );
+
+                    if ( cards[i].IsFacingUp()  
+                                &&  cards[i].GetSuit().Equals( cards[i+1].GetSuit() )
+                                &&  cards[i].GetCardNumber() - 1  == cards[i+1]
                                                                      .GetCardNumber() ) {
-                       cards[i].SetCanBeDragged( true );
+                        cards[i].SetCanBeDragged( true );
 
                     } else {
                         break;
@@ -125,7 +139,7 @@ namespace Solitaire.Gameplay.Spider {
         private void CheckAndFlipUpperCard() {
             if( GetTopCard() ) {
                 GetTopCard().FlipCard( true );
-                GetTopCard().SetCollisionsActive( true );
+                GetTopCard().ActivateParentDetection( true );
                 GetTopCard().SetCanBeDragged( true );
                 GetTopCard().ActivatePhysics( true );
             }

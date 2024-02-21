@@ -33,14 +33,7 @@ namespace Solitaire.Gameplay.CardContainers {
         public abstract void AddCard( CardFacade _card );
         public abstract void RemoveCard( CardFacade _card );
         public abstract bool CandAddCards();
-
-
-        public Vector2 GetCardPosition( CardFacade _card ) {
-            int index = GetCardIndex ( _card.GetID() );
-
-            return (Vector2) transform.position + ( cardsOffset * index );
-        }
-
+        
         public bool ContainsCard( CardFacade _card ) {
             return GetCardIndex( _card.GetID() ) != -1;
         }
@@ -55,6 +48,14 @@ namespace Solitaire.Gameplay.CardContainers {
         public List<CardFacade> GetCards() {
             return cards;
         }
+        
+        public void Refresh() {
+            if( cards.Count > 0 ) {
+                for( int i = 0; i < cards.Count; i++ ) {
+                    cards[i].transform.position = GetCardPosition( i );
+                }
+            }
+        }
         #endregion
 
 
@@ -64,7 +65,7 @@ namespace Solitaire.Gameplay.CardContainers {
 
             for( int i = 0; i < initialCardsAmount; i++ ) {
                 cards.Add(auxCardList[0]);
-                cards[i].transform.position = GetCardPosition( cards[i] );
+                cards[i].transform.position = GetCardPosition( i );
                 auxCardList.RemoveAt(0);
             }
 
@@ -83,6 +84,10 @@ namespace Solitaire.Gameplay.CardContainers {
             }
 
             return -1;
+        }
+
+        protected Vector2 GetCardPosition( int _index ) {
+            return (Vector2) transform.position + ( cardsOffset * _index );
         }
         #endregion
     }

@@ -76,11 +76,10 @@ namespace Solitaire.Gameplay {
                                                             generatedID.ToString() );
 
                         CardFacade auxCardFacade = InstantiateCard();
-                        auxCardFacade.SetCardData( auxCardData );
-                        auxCardFacade.SetBackSprite( cardSprites.BackSprite );
-                        auxCardFacade.SetFrontSprite(
-                                        cardSprites.GetSuitCardsSprites(auxSuitKey)[spriteIndex] );
-
+                        auxCardFacade.ConfigureCard( auxCardData, cardSprites.BackSprite,
+                                  cardSprites.GetSuitCardsSprites(auxSuitKey)[spriteIndex]
+                                );
+                        
                         inGamecards.Add(auxCardFacade);
                         generatedID++;
                     }
@@ -100,8 +99,8 @@ namespace Solitaire.Gameplay {
 
             return cardInstance;
         }
-        
-        
+
+
         private void ShuffleCards() {
             List<CardFacade> auxShuffledCardList = new List<CardFacade>();
             int cardsAmount = inGamecards.Count;

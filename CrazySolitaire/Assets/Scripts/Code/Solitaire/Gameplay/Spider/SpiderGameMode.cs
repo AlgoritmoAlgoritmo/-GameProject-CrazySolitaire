@@ -31,7 +31,7 @@ namespace Solitaire.Gameplay.Spider {
                 auxCard.SubscribeToCardEvent(ManageCardEvent);
             }
 
-            foreach (AbstractCardContainer auxCardContainer in cardContainers) {
+            foreach( AbstractCardContainer auxCardContainer in cardContainers ) {
                 auxCards = auxCardContainer.Initialize(auxCards);
             }
         }
@@ -71,17 +71,15 @@ namespace Solitaire.Gameplay.Spider {
                                                         GameObject _detectedGameObject) {
             //  CASE: no object colliding
             if (_detectedGameObject is null) {
-                GetCardContainer(_placedCard).Refresh();
+                GetCardContainer( _placedCard ).Refresh();
 
-                // Activating droped card childs physics again after dragging ends
-                _placedCard.ActivateChildsPhysics(true);
 
 
             //  CASE: colliding object is a Card
             } else if (_detectedGameObject.layer == LayerMask.NameToLayer(cardsLayer)) {
                 CardFacade detectedCardFacade = _detectedGameObject
                                                             .GetComponent<CardFacade>();
-                if (!detectedCardFacade)
+                if( !detectedCardFacade )
                     throw new Exception($"The object {_detectedGameObject.name} doesn't"
                                                 + $" have a CardFacade component.");
 
@@ -91,23 +89,25 @@ namespace Solitaire.Gameplay.Spider {
                                     || _placedCard.ParentCard == detectedCardFacade) {
                     GetCardContainer(_placedCard).Refresh();
 
-                    // Case: Card CAN be child of potential parent
+                // Case: Card CAN be child of potential parent
                 } else {
                     MoveCardToNewContainer(_placedCard,
                                                 GetCardContainer(detectedCardFacade));
                 }
 
 
+
             //  CASE:  detected object is a CardContainer
-            } else if (_detectedGameObject.layer == LayerMask.NameToLayer(
+            } else if ( _detectedGameObject.layer == LayerMask.NameToLayer(
                                                                 cardContainersLayer)) {
                    var detectedCardContainer = _detectedGameObject
                                                     .GetComponent<AbstractCardContainer>();
-                   if (!detectedCardContainer)
+                   if( !detectedCardContainer )
                         throw new Exception($"The object {_detectedGameObject.name} "
                                     + $"doesn't have an AbstractCardContainer component.");
 
                    MoveCardToNewContainer(_placedCard, detectedCardContainer);
+
 
 
             //  CASE: detected object isn't a Card nor a CardContainer
@@ -116,7 +116,6 @@ namespace Solitaire.Gameplay.Spider {
                                     + LayerMask.LayerToName(_detectedGameObject.layer)
                                     + ") is not valid.");
             }
-
 
 
             _placedCard.ActivateChildsPhysics( true );
@@ -131,20 +130,17 @@ namespace Solitaire.Gameplay.Spider {
 
 
         protected override bool CanCardBeDragged( CardFacade _card ) {
-            Debug.Log( "Card to validate " +  _card.GetCardNumber() );
-
             if ( !_card.ChildCard ) {
-                Debug.Log( "Card doesn't have a child." );
                 return true;
             }
 
+            // Check every single child card
             CardFacade auxCard = _card;
 
             while( auxCard.ChildCard ) {
-                Debug.Log( "Card has a child." );
+                // Check if card number and suit are incorrect
                 if( !CanBeChildOf(auxCard.ChildCard, auxCard)
                             || !auxCard.GetSuit().Equals(auxCard.ChildCard.GetSuit()) ) {
-                    Debug.Log($"Child {auxCard.ChildCard.GetCardNumber()} is not valid.");
 
                     return false;
                 }
@@ -152,7 +148,7 @@ namespace Solitaire.Gameplay.Spider {
                 auxCard = auxCard.ChildCard;
             }
 
-
+            // Passed child checking so return true
             return true;
         }
         #endregion
@@ -167,10 +163,10 @@ namespace Solitaire.Gameplay.Spider {
 
             while (auxCardFacade != null) {
                 // 1- Remove card from its card container
-                GetCardContainer(auxCardFacade).RemoveCard(auxCardFacade);
+                GetCardContainer( auxCardFacade ).RemoveCard(auxCardFacade);
 
                 // 2- Add card to new card container
-                _cardContainer.AddCard(auxCardFacade);
+                _cardContainer.AddCard( auxCardFacade );
 
                 // 3- Set ChildCard as card to check on next loop
                 auxCardFacade = auxCardFacade.ChildCard;
@@ -178,17 +174,17 @@ namespace Solitaire.Gameplay.Spider {
         }
 
 
-        private void CheckIfColumnWasCompleted(CardFacade _placedCard) {
+        private void CheckIfColumnWasCompleted( CardFacade _placedCard ) {
             List<CardFacade> columnOfCards = GetCardColumn(_placedCard);
 
             if (IsColumnCompleted(columnOfCards)) {
                 MoveColumnToCompletedColumnContainer(columnOfCards);
-                OnCardsCleared.Invoke(columnOfCards);
+                OnCardsCleared.Invoke( columnOfCards );
             }
         }
 
 
-        private bool IsColumnCompleted(List<CardFacade> _columnOfCards) {
+        private bool IsColumnCompleted( List<CardFacade> _columnOfCards ) {
             return _columnOfCards.Count == 13
                     && _columnOfCards[0].GetCardNumber() == 13
                     && _columnOfCards[12].GetCardNumber() == 1;
@@ -206,8 +202,7 @@ namespace Solitaire.Gameplay.Spider {
 
             auxCardContainer.RemoveCards(_cards);
 
-            completedColumnContainers[completedColumnContainers.Count - 1]
-                                                                .AddCards(_cards);
+            completedColumnContainers[completedColumnContainers.Count - 1].AddCards(_cards);
             completedColumnContainers.RemoveAt(completedColumnContainers.Count - 1);
         }
 
@@ -216,8 +211,10 @@ namespace Solitaire.Gameplay.Spider {
             List<CardFacade> columnOfCards = new List<CardFacade>();
             CardFacade auxCard = _card;
 
+            // Checking if parent numbers are consecutive
+            // And if there's a king at the end of them
             while (auxCard) {
-                if (auxCard.ParentCard
+                if ( auxCard.ParentCard
                             && auxCard.GetCardNumber() != 13
                             && auxCard.GetCardNumber() + 1 == auxCard.ParentCard.
                                                                 GetCardNumber()) {
@@ -228,7 +225,8 @@ namespace Solitaire.Gameplay.Spider {
                 }
             }
 
-
+            // Checking if child numbers are consecutive
+            // And if there's an as at the end of them
             while (auxCard) {
                 if (auxCard.GetCardNumber() == 1) {
                     columnOfCards.Add(auxCard);

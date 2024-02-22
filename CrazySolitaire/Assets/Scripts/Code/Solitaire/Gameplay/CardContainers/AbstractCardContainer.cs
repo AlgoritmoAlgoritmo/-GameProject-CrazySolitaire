@@ -52,7 +52,7 @@ namespace Solitaire.Gameplay.CardContainers {
             return cards;
         }
         
-        public void Refresh() {
+        public virtual void Refresh() {
             if( cards.Count > 0 ) {
                 for( int i = 0; i < cards.Count; i++ ) {
                     cards[i].transform.position = GetCardPosition( i );

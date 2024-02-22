@@ -51,6 +51,7 @@ namespace Solitaire.Gameplay.Spider {
                 cards[i].FlipCard( false );
                 cards[i].SetCanBeDragged( false );
                 cards[i].ActivateParentDetection( false );
+                cards[i].SetCanBeInteractable( false );
             }
         }
         #endregion

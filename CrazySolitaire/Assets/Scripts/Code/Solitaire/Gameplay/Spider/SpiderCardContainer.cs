@@ -27,7 +27,8 @@ namespace Solitaire.Gameplay.Spider {
                 throw new System.Exception( "Cards list is empty." );
 
             } else if( _cards.Count < initialCardsAmount ) {
-                throw new System.Exception( "There aren't enough cards to initialize CardContainer." );
+                throw new System.Exception( "There aren't enough cards "
+                                            + "to initialize CardContainer." );
             }
 
             return AddInitializationCards( _cards );
@@ -38,14 +39,8 @@ namespace Solitaire.Gameplay.Spider {
             _card.RenderOnTop();
             _card.SetParentCard( GetTopCard() );
             GetTopCard()?.SetChildCard( _card );
-
             cards.Add( _card );
-            _card.transform.position = GetCardPosition( cards.Count - 1 );
-
-            CheckAndFlipUpperCard();
-            CheckUpCards();
-
-            collider.enabled = cards.Count < 1;
+            Refresh();
         }
         
 
@@ -56,9 +51,7 @@ namespace Solitaire.Gameplay.Spider {
 
         public override void RemoveCard( CardFacade _card ) {
             cards.Remove(_card);
-            UpdateCards();
-
-            collider.enabled = cards.Count < 1;
+            Refresh();            
         }
 
 
@@ -67,8 +60,7 @@ namespace Solitaire.Gameplay.Spider {
                 cards.Remove( _cards[i] );
             }
 
-            UpdateCards();
-            collider.enabled = cards.Count < 1;
+            Refresh();
         }
         #endregion
 
@@ -78,7 +70,6 @@ namespace Solitaire.Gameplay.Spider {
             for( int i = 0; i <= cards.Count - 1; i++ ) {
                 if( i != cards.Count - 1) { 
                     cards[i].FlipCard( false );
-                    cards[i].SetCanBeDragged( false );
                     cards[i].ActivatePhysics( false );
                     cards[i].ActivateParentDetection( false );
 
@@ -87,7 +78,6 @@ namespace Solitaire.Gameplay.Spider {
 
                 } else { 
                     cards[i].FlipCard( true );
-                    cards[i].SetCanBeDragged( true );
                     cards[i].ActivatePhysics( true );
                     cards[i].ActivateParentDetection( true );
                 }
@@ -97,45 +87,29 @@ namespace Solitaire.Gameplay.Spider {
 
 
         #region Private methods
-        private void UpdateCards() {
-            if( GetTopCard() ) {
-                if( !GetTopCard().IsFacingUp() ) {
-                    CheckAndFlipUpperCard();
-                } else {
-                    CheckUpCards();
-                }
-            }        
-        }
+        public override void Refresh() {
+            base.Refresh();
 
-
-        private void CheckUpCards() {
-            if( cards.Count >= 2 ) {
-                GetTopCard().SetCanBeDragged(true);
-
-                for( int i = cards.Count - 2; i >= 0; i-- ) {
-                    cards[i].ActivatePhysics( false );
-
-                    if ( cards[i].IsFacingUp()  
-                                &&  cards[i].GetSuit().Equals( cards[i+1].GetSuit() )
-                                &&  cards[i].GetCardNumber() - 1  == cards[i+1]
-                                                                     .GetCardNumber() ) {
-                        cards[i].SetCanBeDragged( true );
-
-                    } else {
-                        break;
-                    }
-                }
+            
+            // Deactivate physics from cards
+            foreach( CardFacade auxCard in cards ) {
+                auxCard.ActivatePhysics( false );
             }
 
+
+            // Flip up top card 
             CheckAndFlipUpperCard();
+
+
+            //  If there aren't any cards left, activate collider
+            //  so it can be detected by cards
+            collider.enabled = cards.Count < 1;
         }
 
 
         private void CheckAndFlipUpperCard() {
             if( GetTopCard() ) {
                 GetTopCard().FlipCard( true );
-                GetTopCard().ActivateParentDetection( true );
-                GetTopCard().SetCanBeDragged( true );
                 GetTopCard().ActivatePhysics( true );
             }
         }

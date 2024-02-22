@@ -38,8 +38,9 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public void ValidateCardDragging( CardFacade _card ) {
-            bool canBeDragged = CanCardBeDragged(_card);
-            _card.SetCanBeDragged(canBeDragged);
+            bool canBeDragged = CanCardBeDragged( _card );
+            Debug.Log("canBeDragged " + canBeDragged);
+            _card.SetCanBeDragged( canBeDragged );
 
             if( canBeDragged ) {
                 Debug.Log( "Deactivating childs physics." );
@@ -55,8 +56,9 @@ namespace Solitaire.Gameplay.Spider {
                                             AbstractCardContainer _cardContainer) {
             List<CardFacade> auxCardsToDistribute = _cardContainer.GetCards();
 
-            for (int i = auxCardsToDistribute.Count - 1; i >= 0; i--) {
-                cardContainers[i].AddCard(auxCardsToDistribute[i]);
+            for( int i = auxCardsToDistribute.Count - 1; i >= 0; i-- ) {
+                auxCardsToDistribute[i].SetCanBeInteractable( true );
+                cardContainers[i].AddCard( auxCardsToDistribute[i] );
             }
 
             Destroy(_cardContainer.gameObject);
@@ -124,23 +126,26 @@ namespace Solitaire.Gameplay.Spider {
 
         protected override bool CanBeChildOf( CardFacade _card,
                                                 CardFacade _potentialParent ) {
-            Debug.Log( "CanBeChildOf " + _card.GetCardNumber() 
-                        + " " + _potentialParent.GetCardNumber() );
-
             return _potentialParent.GetCardNumber() == _card.GetCardNumber() + 1;
         }
 
 
         protected override bool CanCardBeDragged( CardFacade _card ) {
+            Debug.Log( "Card to validate " +  _card.GetCardNumber() );
+
             if ( !_card.ChildCard ) {
+                Debug.Log( "Card doesn't have a child." );
                 return true;
             }
 
             CardFacade auxCard = _card;
 
-            while (auxCard.ChildCard) {
+            while( auxCard.ChildCard ) {
+                Debug.Log( "Card has a child." );
                 if( !CanBeChildOf(auxCard.ChildCard, auxCard)
-                            || !auxCard.GetSuit().Equals(auxCard.ChildCard.GetSuit())) {
+                            || !auxCard.GetSuit().Equals(auxCard.ChildCard.GetSuit()) ) {
+                    Debug.Log($"Child {auxCard.ChildCard.GetCardNumber()} is not valid.");
+
                     return false;
                 }
 
@@ -155,8 +160,8 @@ namespace Solitaire.Gameplay.Spider {
 
 
         #region Private methods
-        private void MoveCardToNewContainer(CardFacade _card,
-                                                AbstractCardContainer _cardContainer) {
+        private void MoveCardToNewContainer( CardFacade _card,
+                                                AbstractCardContainer _cardContainer ) {
             // Recursively check childs
             var auxCardFacade = _card;
 

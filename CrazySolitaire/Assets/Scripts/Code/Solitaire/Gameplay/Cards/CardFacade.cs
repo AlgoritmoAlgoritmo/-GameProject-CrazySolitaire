@@ -109,7 +109,10 @@ namespace Solitaire.Gameplay.Cards {
 
         public void SetCanBeDragged( bool _canBeDragged ) {
             cardPhysics.SetCanBeDragged( _canBeDragged );
-            cardView.SetInteractable( _canBeDragged );
+        }
+
+        public void SetCanBeInteractable( bool _isInteractable ) {
+            cardView.SetInteractable( _isInteractable );
         }
 
         public void ActivateParentDetection( bool _active ) {

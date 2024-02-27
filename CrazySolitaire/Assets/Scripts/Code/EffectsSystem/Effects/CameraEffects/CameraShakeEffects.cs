@@ -7,8 +7,8 @@
 
 using System.Collections;
 using UnityEngine;
-using EffectsSystem.Interfaces;
 using Common;
+using EffectsSystem.Utils;
 
 
 

@@ -5,9 +5,9 @@
 
 
 
-using UnityEngine;
-using EffectsSystem.Interfaces;
 using System.Collections.Generic;
+using UnityEngine;
+using EffectsSystem.Utils;
 
 
 
@@ -19,9 +19,6 @@ namespace EffectsSystem {
         private List<IEffect> effects = new List<IEffect>();
         #endregion
 
-
-        #region MonoBehaviour methods
-        #endregion
 
 
         #region Public methods
@@ -43,11 +40,6 @@ namespace EffectsSystem {
         public int GetEffectsAmount() {
             return effects.Count;
         }
-        #endregion
-
-
-        #region Private methods
-
         #endregion
     }
 }

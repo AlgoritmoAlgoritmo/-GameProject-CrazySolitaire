@@ -1,5 +1,5 @@
 {
-    "name": "InterfacesTest",
+    "name": "UtilsTest",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",

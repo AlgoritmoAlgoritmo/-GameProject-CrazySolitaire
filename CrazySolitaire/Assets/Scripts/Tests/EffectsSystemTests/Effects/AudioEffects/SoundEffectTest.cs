@@ -6,14 +6,13 @@
 
 
 using System;
+using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.TestTools;
-using EffectsSystem.Interfaces;
+using EffectsSystem.Utils;
 using EffectsSystem.Effects.AudioEffects;
-using System.Collections;
-
 
 
 

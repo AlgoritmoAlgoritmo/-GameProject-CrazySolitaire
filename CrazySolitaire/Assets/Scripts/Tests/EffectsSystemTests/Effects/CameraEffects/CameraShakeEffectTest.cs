@@ -10,7 +10,7 @@ using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using EffectsSystem.Interfaces;
+using EffectsSystem.Utils;
 using EffectsSystem.Effects.CameraEffects;
 
 
@@ -20,12 +20,10 @@ namespace Tests.EffectsSystem.Effects.CameraEffects {
         CameraShakeEffects cameraShakeEffects;
 
 
-
         [SetUp]
         public void Setup () {
             cameraShakeEffects = new CameraShakeEffects();
         }
-
 
 
         [Test]
@@ -45,11 +43,9 @@ namespace Tests.EffectsSystem.Effects.CameraEffects {
             Vector3 originalPosition = Camera.main.transform.position;
             cameraShakeEffects.SetCamera( Camera.main );
 
-
             cameraShakeEffects.Play();
             yield return null;
             yield return null;
-
 
             Assert.AreNotEqual(originalPosition, Camera.main.transform.position);
         }

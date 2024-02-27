@@ -5,12 +5,11 @@
 
 
 using NUnit.Framework;
-
-using EffectsSystem.Interfaces;
-
+using EffectsSystem.Utils;
 
 
-namespace Tests.EffectsSystem.Interfaces {
+
+namespace Tests.EffectsSystem.Utils {
     public partial class IEffectTest {
         private ImplementationOfIEffectForTesting auxEffectImplementation;
 

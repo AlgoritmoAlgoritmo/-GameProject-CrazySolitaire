@@ -4,11 +4,12 @@
 */
 
 
+
 using System;
 using NUnit.Framework;
 using UnityEngine;
 using EffectsSystem;
-using EffectsSystem.Interfaces;
+using EffectsSystem.Utils;
 
 
 

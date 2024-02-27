@@ -5,9 +5,7 @@
 
 
 
-
-namespace EffectsSystem.Interfaces {
-
+namespace EffectsSystem.Utils {
     public interface IEffect {
         void Play();
     }

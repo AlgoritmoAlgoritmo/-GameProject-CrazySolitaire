@@ -4,13 +4,12 @@
 */
 
 
-using EffectsSystem.Interfaces;
+
+using EffectsSystem.Utils;
 
 
 
-namespace Tests.EffectsSystem.Interfaces {
-
-
+namespace Tests.EffectsSystem.Utils {
     public partial class IEffectTest {
         private class ImplementationOfIEffectForTesting : IEffect {
             public bool hasPlayMethodBeenExcecuted;
@@ -19,6 +18,5 @@ namespace Tests.EffectsSystem.Interfaces {
                 hasPlayMethodBeenExcecuted = true;
             }
         }
-
     }
 }

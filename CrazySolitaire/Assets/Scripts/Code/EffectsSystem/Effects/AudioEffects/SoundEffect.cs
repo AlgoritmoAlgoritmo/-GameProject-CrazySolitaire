@@ -4,12 +4,11 @@
 */
 
 
+
 using System;
 using UnityEngine;
 using UnityEngine.Audio;
-using EffectsSystem.Interfaces;
-
-
+using EffectsSystem.Utils;
 
 
 
@@ -25,14 +24,13 @@ namespace EffectsSystem.Effects.AudioEffects {
         private AudioSource audioSource;
         #endregion
 
+
         #region Constructors
         public SoundEffect() {
             audioSource = GameObject.Instantiate(new GameObject()).
                                         AddComponent(typeof(AudioSource)) as AudioSource;
         }
         #endregion
-
-
 
 
         #region Public methods

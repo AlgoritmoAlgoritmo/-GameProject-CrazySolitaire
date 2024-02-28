@@ -1,0 +1,15 @@
+{
+    "name": "EffectsSystem.Utils",
+    "references": [
+        "GUID:f343a37442f3d064ea18d7a74a367977"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

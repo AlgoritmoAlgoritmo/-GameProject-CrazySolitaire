@@ -42,7 +42,7 @@ namespace Tests.EffectsSystem {
 
         [Test]
         public void Play_AddEffects_EffectsAreSuccessfullyAdded() {
-            IEffect effect = new EffectImplementationForTesting();
+            BasicEffect effect = new EffectImplementationForTesting();
 
             effectsManager.AddEffect( effect );
 

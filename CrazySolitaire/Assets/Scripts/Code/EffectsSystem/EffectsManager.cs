@@ -16,14 +16,14 @@ namespace EffectsSystem {
     public class EffectsManager : MonoBehaviour, IEffect {
         #region Variables
         [SerializeField]
-        private List<IEffect> effects = new List<IEffect>();
+        private List<BasicEffect> effects = new List<BasicEffect>();
         #endregion
 
 
 
         #region Public methods
         public void Play() {
-            if( effects == null   &&   effects.Count < 1 )
+            if( effects == null   ||   effects.Count < 1 )
                 throw new System.NullReferenceException("No effect has been added.");
 
             foreach( IEffect auxEffect in effects ) {
@@ -32,7 +32,7 @@ namespace EffectsSystem {
         }
 
 
-        public void AddEffect( IEffect _effect ) {
+        public void AddEffect( BasicEffect _effect ) {
             effects.Add( _effect );
         }
 

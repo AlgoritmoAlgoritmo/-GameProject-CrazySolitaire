@@ -10,8 +10,8 @@ using EffectsSystem.Utils;
 
 
 namespace Tests.EffectsSystem {
-    public class EffectImplementationForTesting : IEffect {
-        public void Play() {
+    public class EffectImplementationForTesting : BasicEffect {
+        public override void Play() {
             
         }
     }

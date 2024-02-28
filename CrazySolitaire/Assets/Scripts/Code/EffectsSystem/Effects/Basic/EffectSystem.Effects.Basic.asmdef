@@ -1,0 +1,15 @@
+{
+    "name": "EffectSystem.Effects.Basic",
+    "references": [
+        "GUID:327a4cf2a863c374883ea3cca9feeeb9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

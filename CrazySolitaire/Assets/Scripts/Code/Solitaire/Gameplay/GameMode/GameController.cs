@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 
 
 
-namespace Solitaire.Gameplay {
+namespace Solitaire.Gameplay.GameMode {
     public class GameController : MonoBehaviour {
         #region Variables
         [SerializeField]

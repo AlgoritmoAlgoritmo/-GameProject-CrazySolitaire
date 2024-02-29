@@ -31,12 +31,6 @@ namespace Solitaire.Gameplay {
             get => amountOfEachSuit;
         }
 
-
-        [SerializeField]
-        protected string cardsLayer = "CARD";
-        [SerializeField]
-        protected string cardContainersLayer = "CARD_CONTAINER";
-
         public CardsEvent OnCardsCleared = new CardsEvent();
         #endregion
 

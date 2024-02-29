@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Solitaire.Gameplay.Cards;
+using Solitaire.Gameplay.Common;
 using Solitaire.Gameplay.CardContainers;
 
 
@@ -76,11 +77,11 @@ namespace Solitaire.Gameplay.Spider {
 
 
             //  CASE: colliding object is a Card
-            } else if (_detectedGameObject.layer == LayerMask.NameToLayer(cardsLayer)) {
+            } else if (_detectedGameObject.layer == LayerMask.NameToLayer(Constants.CARDS_LAYER_NAME)) {
                 CardFacade detectedCardFacade = _detectedGameObject
                                                             .GetComponent<CardFacade>();
                 if( !detectedCardFacade )
-                    throw new Exception($"The object {_detectedGameObject.name} doesn't"
+                    throw new Exception( $"The object {_detectedGameObject.name} doesn't"
                                                 + $" have a CardFacade component.");
 
                 // Logic to move card from one container to another
@@ -99,7 +100,7 @@ namespace Solitaire.Gameplay.Spider {
 
             //  CASE:  detected object is a CardContainer
             } else if ( _detectedGameObject.layer == LayerMask.NameToLayer(
-                                                                cardContainersLayer)) {
+                                                                Constants.CARD_CONTAINERS_LAYER_NAME)) {
                    var detectedCardContainer = _detectedGameObject
                                                     .GetComponent<AbstractCardContainer>();
                    if( !detectedCardContainer )

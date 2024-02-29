@@ -13,8 +13,7 @@ using Solitaire.Gameplay.Common;
 
 
 
-namespace Solitaire.Gameplay {
-
+namespace Solitaire.Gameplay.GameMode {
     public class DeckController : MonoBehaviour {
         #region Variables
         [SerializeField]

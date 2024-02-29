@@ -65,7 +65,8 @@ namespace Solitaire.Gameplay.CardContainers {
         #region Protected methods
         protected abstract void SetUpStarterCards();
 
-
+        ///<summary> Adds X amount of cards from the given CardFacade list and returns 
+        ///the rest of them, where X is the initial card amount. </summary>
         protected List<CardFacade> AddInitializationCards( List<CardFacade> _cards ) {
             List<CardFacade> auxCardList = _cards;
 

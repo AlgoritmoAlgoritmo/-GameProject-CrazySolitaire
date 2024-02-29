@@ -14,7 +14,7 @@ using Solitaire.Gameplay.CardContainers;
 namespace Solitaire.Gameplay.Spider {
     public class SpiderCardContainer : AbstractCardContainer {
         #region Variables
-        private UnityEngine.Collider2D collider;
+        private new UnityEngine.Collider2D collider;
         #endregion
 
 

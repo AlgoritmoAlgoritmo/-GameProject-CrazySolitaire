@@ -8,8 +8,7 @@
 using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay.Cards;
 using System.Collections.Generic;
-
-
+using UnityEngine;
 
 namespace Tests.Solitaire.Gameplay.CardContainers {
     public class AbstractCardContainerMock : AbstractCardContainer {
@@ -28,14 +27,14 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
         }
 
 
+        public void SetOffset( Vector2 _offset ) {
+            cardsOffset = _offset;
+        }
 
 
-
-
-
-
-
-
+        public Vector3 GetCardPosition_MockPublicAccess( int _index ) {
+            return GetCardPosition( _index );
+        }
 
 
 

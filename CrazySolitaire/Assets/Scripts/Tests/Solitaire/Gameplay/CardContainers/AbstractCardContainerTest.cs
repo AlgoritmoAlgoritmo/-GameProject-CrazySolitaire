@@ -44,7 +44,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
 
 
         [UnityTest]
-        public IEnumerator WhenCheckingIfContainsACard_ReturnsIfContainsItOrNot() {
+        public IEnumerator WhenCheckingIfContainsACard_ThenReturnsIfContainsItOrNot() {
             // Initializing
             GameObject cardContainerObject = GameObject.Instantiate( new GameObject() );
             CardFacade card0 = cardContainerObject.AddComponent<CardFacade>();
@@ -68,9 +68,9 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
 
 
         [UnityTest]
-        public IEnumerator WhenGettingTopCard_ReturnLastAddedCard() {
+        public IEnumerator WhenGettingTopCard_ThenReturnLastAddedCard() {
             // Initialization
-            GameObject cardContainerObject = GameObject.Instantiate(new GameObject());
+            GameObject cardContainerObject = GameObject.Instantiate( new GameObject() );
             CardFacade card0 = cardContainerObject.AddComponent<CardFacade>();
             CardFacade card1 = cardContainerObject.AddComponent<CardFacade>();
 
@@ -83,11 +83,43 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
 
             yield return null;
         }
-        #endregion
 
 
-        #region Private methods
+ 
+        static Vector3[] offsetPosition = { Vector3.zero,
+                                            new Vector3(-10, 5, 3),
+                                            new Vector3( 200, -80, -67 ) };
+        [UnityTest]
+        public IEnumerator WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(
+                                            [ValueSource("offsetPosition")] Vector3 _offset ) {
+            // Set up
+            abstractCardContainerObject.transform.position = new Vector3( Random.Range( -100, 100 ),
+                                                                            Random.Range(-100, 100),
+                                                                            Random.Range(-100, 100)
+                                                                        );
+            // Setup
+            Vector3 expectedPosition = abstractCardContainerObject.transform.position;
+            expectedPosition.z = 0;  // Must always be 0
+            GameObject cardContainerObject = GameObject.Instantiate( new GameObject() );
+            CardFacade card0 = cardContainerObject.AddComponent<CardFacade>();
+            
+            abstractCardContainerMock.SetOffset( _offset );
+            abstractCardContainerMock.AddCard( card0 );
+            cardContainerObject.transform.position = abstractCardContainerMock
+                                                                        .GetCardPosition_MockPublicAccess(0)
+                                                    + new Vector3( 1, 1, 1 );
 
+            // Check position to avoid false positive
+            Assert.AreNotEqual( expectedPosition, cardContainerObject.transform.position );
+
+            // Call refresh function
+            abstractCardContainerMock.Refresh();
+
+            // Assert position
+            Assert.AreEqual( expectedPosition, cardContainerObject.transform.position );
+
+            yield return null;
+        }
         #endregion
     }
 }

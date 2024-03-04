@@ -38,7 +38,7 @@ namespace Solitaire.Gameplay.CardContainers {
         
 
         public bool ContainsCard( CardFacade _card ) {
-            return GetCardIndex( _card.GetID() ) != -1;
+            return cards.Contains( _card );
         }
                 
         public CardFacade GetTopCard() {

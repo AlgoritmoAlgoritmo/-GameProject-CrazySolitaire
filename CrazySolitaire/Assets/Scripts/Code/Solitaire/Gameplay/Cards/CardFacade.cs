@@ -39,9 +39,11 @@ namespace Solitaire.Gameplay.Cards {
 
         #region MonoBehaviour Methods
         private void Start() {
-            cardPhysics.OnStartDragging += InvokeOnStartDragEvent;
-            cardPhysics.OnCardEvent += InvokeOnCardEvent;
-            cardPhysics.OnDragging += MoveToPosition;
+            if( cardPhysics ) {
+                cardPhysics.OnStartDragging += InvokeOnStartDragEvent;
+                cardPhysics.OnCardEvent += InvokeOnCardEvent;
+                cardPhysics.OnDragging += MoveToPosition;
+            }
         }
         #endregion
 

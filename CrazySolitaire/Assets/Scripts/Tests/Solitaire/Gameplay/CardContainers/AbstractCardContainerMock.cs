@@ -5,23 +5,39 @@
 
 
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay.Cards;
+using System.Collections.Generic;
 
 
 
 namespace Tests.Solitaire.Gameplay.CardContainers {
     public class AbstractCardContainerMock : AbstractCardContainer {
+
         public override void AddCard(CardFacade _card) {
-            throw new System.NotImplementedException();
+            cards.Add(_card);
         }
 
+
         public override bool AddCards(List<CardFacade> _cards) {
-            throw new System.NotImplementedException();
+            foreach( CardFacade auxCard in _cards ) {
+                cards.Add( auxCard );
+            }
+
+            return true;
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
         public override List<CardFacade> Initialize(List<CardFacade> _cards) {
             throw new System.NotImplementedException();

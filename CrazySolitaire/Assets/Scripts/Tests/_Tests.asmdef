@@ -2,7 +2,11 @@
     "name": "_Tests",
     "references": [
         "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner"
+        "UnityEditor.TestRunner",
+        "_Solitaire.Gameplay.CardContainers",
+        "_Solitaire.Gameplay.Cards",
+        "_Solitaire.Gameplay.Common",
+        "_Solitaire.Gameplay.GameMode"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

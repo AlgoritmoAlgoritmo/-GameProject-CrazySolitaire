@@ -43,6 +43,37 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
         }
 
 
+        static Vector2[] initializeTestValues = { new Vector2(2, 5),
+                                                new Vector2(4, 7),
+                                                new Vector2(3, 3),
+                                                new Vector2(10, 11)
+                                            };
+        [UnityTest]
+        public IEnumerator WhenInitialize_ThenReturnNoAddedCards(
+                                    [ValueSource("initializeTestValues")] Vector2 _cardAmounts ) {
+            // Instantiate cards
+            GameObject cardGameObject = GameObject.Instantiate( new GameObject() );
+            List<CardFacade> cardsList = new List<CardFacade>();
+            for ( int i = 0; i <= _cardAmounts.y; i++ ) {
+                cardsList.Add( cardGameObject.AddComponent<CardFacade>() );
+            }
+
+            // Set up
+            abstractCardContainerMock.SetInitialCardsAmount( (short) _cardAmounts.x );            
+
+            // Check there aren't previous cards
+            Assert.IsTrue( abstractCardContainerMock.GetCards().Count < 1 );
+
+            // Pass array of cards for AbstractCardContainerInitialization
+            cardsList = abstractCardContainerMock.Initialize( cardsList );
+
+            // Assertions
+            Assert.IsTrue( abstractCardContainerMock.GetCards().Count == _cardAmounts.x );
+
+            yield return null;
+        }
+
+
         [UnityTest]
         public IEnumerator WhenCheckingIfContainsACard_ThenReturnsIfContainsItOrNot() {
             // Initializing
@@ -83,7 +114,6 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
 
             yield return null;
         }
-
 
  
         static Vector3[] offsetPosition = { Vector3.zero,

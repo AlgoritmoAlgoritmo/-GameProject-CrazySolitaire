@@ -17,7 +17,6 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             cards.Add(_card);
         }
 
-
         public override bool AddCards(List<CardFacade> _cards) {
             foreach( CardFacade auxCard in _cards ) {
                 cards.Add( auxCard );
@@ -26,21 +25,26 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             return true;
         }
 
-
         public void SetOffset( Vector2 _offset ) {
             cardsOffset = _offset;
         }
-
 
         public Vector3 GetCardPosition_MockPublicAccess( int _index ) {
             return GetCardPosition( _index );
         }
 
-
+        public void SetInitialCardsAmount( short _initialCardAmount ) {
+            initialCardsAmount = _initialCardAmount;
+        }
 
         public override List<CardFacade> Initialize(List<CardFacade> _cards) {
-            throw new System.NotImplementedException();
+            return AddInitializationCards( _cards );
         }
+
+
+
+
+
 
         public override void RemoveCard(CardFacade _card) {
             throw new System.NotImplementedException();
@@ -51,7 +55,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
         }
 
         protected override void SetUpStarterCards() {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

@@ -45,17 +45,20 @@ namespace Solitaire.Gameplay.CardContainers {
         }
 
         public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
-            throw new System.NotImplementedException();
+            if( _cards.Contains( null ) ) {
+                throw new System.NullReferenceException("There's a null element in the list of cards"
+                                                        + " passed for initialization.");
+            }
+
+            return AddInitializationCards(_cards);
         }
-
-
-
-
-
 
         public override void RemoveCard( CardFacade _card ) {
             throw new System.NotImplementedException();
         }
+
+
+
 
         public override void RemoveCards( List<CardFacade> _cards ) {
             throw new System.NotImplementedException();
@@ -66,7 +69,6 @@ namespace Solitaire.Gameplay.CardContainers {
 
         #region Protected
         protected override void SetUpStarterCards() {
-            throw new System.NotImplementedException();
         }
         #endregion
     }

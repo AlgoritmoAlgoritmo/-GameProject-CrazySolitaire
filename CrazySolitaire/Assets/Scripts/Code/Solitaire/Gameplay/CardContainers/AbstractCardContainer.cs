@@ -37,6 +37,10 @@ namespace Solitaire.Gameplay.CardContainers {
         public abstract void RemoveCards( List<CardFacade> _cards );
         
 
+        public void SetDefaultAmountOfCards( short _defaultAmountOfCards ) {
+            initialCardsAmount = _defaultAmountOfCards;
+        }
+
         public bool ContainsCard( CardFacade _card ) {
             return cards.Contains( _card );
         }

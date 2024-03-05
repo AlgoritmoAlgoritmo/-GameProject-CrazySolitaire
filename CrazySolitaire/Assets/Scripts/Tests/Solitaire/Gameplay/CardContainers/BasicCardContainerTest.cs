@@ -122,6 +122,73 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             Assert.Zero( basicCardContainer.GetCards().Count,
                             "At leas one card has been added to basicCardContainer when it shouldn't.");
         }
+        
+        
+
+        [Test]
+        public void WhenInitializing_ThenAddOnlyTheRightAmountOfCards() {
+            // Create list of cards to add
+            short defaultAmountOfCards = (short) Random.Range(1, 50);
+            int amountOfCardsToAdd = Random.Range(defaultAmountOfCards, 50);
+            basicCardContainer.SetDefaultAmountOfCards(defaultAmountOfCards);
+            GameObject cardsGameObject = GameObject.Instantiate( new GameObject() );
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>();
+            for( int i = 0; i < amountOfCardsToAdd; i++ ) {
+                listOfCardsToAdd.Add( cardsGameObject.AddComponent<CardFacade>() );
+            }
+
+
+            // Check there aren't any cards already to avoid false positive
+            Assert.Zero( basicCardContainer.GetCards().Count,
+                        "basicCardContainer shouldn't contain any cards but it does.");
+
+            // Initialize basicCardContainer
+            List<CardFacade> remainingCards = basicCardContainer.Initialize(listOfCardsToAdd);
+
+            // Check cards have been added successfully
+            Assert.AreEqual( defaultAmountOfCards, basicCardContainer.GetCards().Count,
+                            $"basicCardContainer should contain {amountOfCardsToAdd} "
+                                    + $"but it has {basicCardContainer.GetCards().Count} instead");
+            Assert.AreEqual( (amountOfCardsToAdd - basicCardContainer.GetCards().Count),
+                                remainingCards.Count,
+                                $"The remaining cards should be " +
+                                $"{amountOfCardsToAdd - basicCardContainer.GetCards().Count} "
+                                + $"but there are {remainingCards.Count} instead.");
+
+        }
+
+        [Test]
+        public void WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard() {
+            // Create list of cards
+            GameObject cardsGameObject = GameObject.Instantiate( new GameObject() );
+            List<CardFacade> listForInitialization = new List<CardFacade>() {
+                                                        cardsGameObject.AddComponent<CardFacade>(),
+                                                        null,
+                                                        cardsGameObject.AddComponent<CardFacade>()
+                                                    };
+            int amountOfCardsToAddForInitialization = listForInitialization.Count;
+
+            // Check basic card container doesn't have any cards to avoid false positive
+            Assert.Zero( basicCardContainer.GetCards().Count,
+                        "casicCardContainer shouldn't contain any card but it does.");
+
+            // Assert initialization
+            Assert.Throws<System.NullReferenceException>( () => 
+                                                    basicCardContainer.Initialize(listForInitialization),
+                                                    "basicCardContainer should have thrown a "
+                                                    + "NullReferenceException error since at least one of "
+                                                    + "the elements of the list is null.");
+
+            // Check no card was added
+            Assert.Zero( basicCardContainer.GetCards().Count,
+                        "Cards have been added to basicCardContainer when they shouldn't.");
+            Assert.AreEqual( amountOfCardsToAddForInitialization,
+                            listForInitialization.Count,
+                            "listForInitialization amount of elements should be "
+                            + $"{amountOfCardsToAddForInitialization} but it's "
+                            + $"{listForInitialization.Count} instead."
+                        );
+        }
         #endregion
     }
 }

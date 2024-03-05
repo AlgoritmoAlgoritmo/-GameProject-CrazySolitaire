@@ -69,6 +69,33 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             Assert.Zero( basicCardContainer.GetCards().Count,
                         "Null object was added when it shouldn't.");
         }
+        
+        
+        [Test]
+        public void WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer() {
+            // Instantiate cards
+            int amountOfCardsToSpawn = Random.Range(0, 100);
+            GameObject cardGameObject = GameObject.Instantiate(new GameObject());
+            List<CardFacade> cardsToAdd = new List<CardFacade>();
+            for (int i = 0; i < amountOfCardsToSpawn; i++) {
+                cardsToAdd.Add( cardGameObject.AddComponent<CardFacade>() );
+            }
+
+            // Check to avoid false positive
+            Assert.Zero( basicCardContainer.GetCards().Count,
+                            "basicCardContainer shouldn't contain any cards");
+
+            // Add cards to BasicCardContainer
+            basicCardContainer.AddCards( cardsToAdd );
+
+            // Assert the amount of cards added is the same the BasicaCardContainer's contain
+            Assert.True( amountOfCardsToSpawn == basicCardContainer.GetCards().Count,
+                            $"basicCardContainer cards has {basicCardContainer.GetCards().Count} "
+                            + $"when it should have {amountOfCardsToSpawn} cards" );
+        }
+
+
+
         #endregion
     }
 }

@@ -26,9 +26,6 @@ namespace Solitaire.Gameplay.CardContainers {
                                     );
         }
 
-
-
-
         public override bool AddCards( List<CardFacade> _cards ) {
             for( int i = _cards.Count - 1; i >= 0; i--  ) {
                 cards.Add( _cards[i] );
@@ -42,6 +39,12 @@ namespace Solitaire.Gameplay.CardContainers {
 
             return true;
         }
+
+
+
+
+
+
 
         public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
             throw new System.NotImplementedException();

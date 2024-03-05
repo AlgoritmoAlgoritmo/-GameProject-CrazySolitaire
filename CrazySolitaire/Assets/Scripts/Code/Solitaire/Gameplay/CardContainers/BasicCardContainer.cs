@@ -15,6 +15,9 @@ namespace Solitaire.Gameplay.CardContainers {
     public class BasicCardContainer : AbstractCardContainer {
         #region Public methods
         public override void AddCard( CardFacade _card ) {
+            if( !_card )
+                throw new System.NullReferenceException("The card intended to be added is null.");
+
             cards.Add( _card );
             _card.transform.position = new Vector3( 
                                             transform.position.x + cardsOffset.x,

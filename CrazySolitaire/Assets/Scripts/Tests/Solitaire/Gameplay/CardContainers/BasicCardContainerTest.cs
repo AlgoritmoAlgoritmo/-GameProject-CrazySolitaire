@@ -45,7 +45,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             GameObject cardGameObject = GameObject.Instantiate( new GameObject() );
 
             // Check to avoid false positive
-            Assert.True ( 0 == basicCardContainer.GetCards().Count,
+            Assert.Zero ( basicCardContainer.GetCards().Count,
                             "basicCardContainer shouldn't contain any cards");
 
             //  Add cards to BasicCardContainer
@@ -57,6 +57,17 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             Assert.True(  amountOfCardsToSpawn == basicCardContainer.GetCards().Count,
                             $"basicCardContainer cards has {basicCardContainer.GetCards().Count} "
                             + $"when it should have {amountOfCardsToSpawn} cards" );
+        }
+
+
+        [Test]
+        public void WhenAddingNullObjectToBasicCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt() {
+            // Test to avoid false positive
+            Assert.Zero( basicCardContainer.GetCards().Count,
+                        "There was an alement in basicCardContainer before the null object was added.");
+            Assert.Throws<System.NullReferenceException>( () => basicCardContainer.AddCard( null ) );
+            Assert.Zero( basicCardContainer.GetCards().Count,
+                        "Null object was added when it shouldn't.");
         }
         #endregion
     }

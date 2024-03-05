@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -113,10 +113,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 635
-  m_MinSize: {x: 504, y: 342}
-  m_MaxSize: {x: 12004, y: 8042}
+  m_MinSize: {x: 501, y: 342}
+  m_MaxSize: {x: 12001, y: 8042}
   vertical: 0
-  controlID: 960
+  controlID: 92
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,10 +134,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 530
+    width: 430
     height: 635
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 12}
@@ -160,12 +160,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 530
+    x: 430
     y: 0
-    width: 202
+    width: 238
     height: 635
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -188,14 +188,14 @@ MonoBehaviour:
   - {fileID: 10}
   m_Position:
     serializedVersion: 2
-    x: 732
+    x: 668
     y: 0
-    width: 634
+    width: 698
     height: 635
   m_MinSize: {x: 201, y: 342}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 913
+  controlID: 38
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -213,7 +213,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 634
+    width: 698
     height: 364
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
@@ -241,10 +241,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 364
-    width: 634
+    width: 698
     height: 271
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 18}
@@ -272,9 +272,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 732
+    x: 668
     y: 73
-    width: 633
+    width: 697
     height: 343
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
@@ -321,23 +321,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 633
+      width: 697
       height: 322
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 316.5, y: 161}
+    m_Translation: {x: 348.5, y: 161}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -316.5
+      x: -348.5
       y: -161
-      width: 633
+      width: 697
       height: 322
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 633, y: 343}
+  m_LastWindowPixelSize: {x: 697, y: 343}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 0
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -403,11 +403,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 529
+    width: 429
     height: 614
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 980
+    ID: 141
     splitterInitialOffset: 339
     currentActiveSplitter: -1
     realSizes: 2a010000f6000000
@@ -428,7 +428,7 @@ MonoBehaviour:
       name: CrazySolitaire
       fullName: CrazySolitaire
       resultStatus: 1
-      duration: 1.7541184
+      duration: 1.1855348
       messages: 
       output: 
       stacktrace: 
@@ -444,7 +444,7 @@ MonoBehaviour:
       name: _Tests.dll
       fullName: C:/Users/Usuario/Documents/GitHub/CrazySolitaire/CrazySolitaire/Library/ScriptAssemblies/_Tests.dll
       resultStatus: 1
-      duration: 0.9128555
+      duration: 0.6522208
       messages: 
       output: 
       stacktrace: 
@@ -460,7 +460,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.8638778
+      duration: 0.6243741
       messages: 
       output: 
       stacktrace: 
@@ -476,7 +476,7 @@ MonoBehaviour:
       name: Solitaire
       fullName: Tests.Solitaire
       resultStatus: 1
-      duration: 0.8466759
+      duration: 0.6068079
       messages: 
       output: 
       stacktrace: 
@@ -492,7 +492,7 @@ MonoBehaviour:
       name: Gameplay
       fullName: Tests.Solitaire.Gameplay
       resultStatus: 1
-      duration: 0.8166432
+      duration: 0.5861747
       messages: 
       output: 
       stacktrace: 
@@ -508,7 +508,7 @@ MonoBehaviour:
       name: CardContainers
       fullName: Tests.Solitaire.Gameplay.CardContainers
       resultStatus: 1
-      duration: 0.7880712
+      duration: 0.5636432
       messages: 
       output: 
       stacktrace: 
@@ -524,7 +524,7 @@ MonoBehaviour:
       name: AbstractCardContainerTest
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest
       resultStatus: 1
-      duration: 0.7110319
+      duration: 0.5431156
       messages: 
       output: 
       stacktrace: 
@@ -586,6 +586,98 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest][suite]
+    - id: 1007
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards][suite]
+      name: WhenInitialize_ThenReturnNoAddedCards
+      fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards
+      resultStatus: 1
+      duration: 0.4872032
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1001
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest][suite]
+    - id: 1003
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/WhenInitialize_ThenReturnNoAddedCards/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards((2.0,
+        5.0))]
+      name: WhenInitialize_ThenReturnNoAddedCards((2.0, 5.0))
+      fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards((2.0,
+        5.0))
+      resultStatus: 1
+      duration: 0.1324662
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards][suite]
+    - id: 1004
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/WhenInitialize_ThenReturnNoAddedCards/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards((4.0,
+        7.0))]
+      name: WhenInitialize_ThenReturnNoAddedCards((4.0, 7.0))
+      fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards((4.0,
+        7.0))
+      resultStatus: 1
+      duration: 0.114371
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards][suite]
+    - id: 1005
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/WhenInitialize_ThenReturnNoAddedCards/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards((3.0,
+        3.0))]
+      name: WhenInitialize_ThenReturnNoAddedCards((3.0, 3.0))
+      fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards((3.0,
+        3.0))
+      resultStatus: 1
+      duration: 0.0790868
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards][suite]
+    - id: 1006
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/WhenInitialize_ThenReturnNoAddedCards/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards((10.0,
+        11.0))]
+      name: WhenInitialize_ThenReturnNoAddedCards((10.0, 11.0))
+      fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards((10.0,
+        11.0))
+      resultStatus: 1
+      duration: 0.0575056
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards][suite]
     - id: 1009
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding][suite]
       name: WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding
@@ -662,14 +754,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1008
       parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding][suite]
-    m_ResultText: WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding((200.0,
-      -80.0, -67.0)) (0.349s)
+    m_ResultText: WhenInitialize_ThenReturnNoAddedCards (0.487s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: de9fa63a
-      m_LastClickedID: 983998430
-      m_ExpandedIDs: a3910e89d6cd2f8ddec2a494cf517c9e727195a5848ce6a6d022b3a7f71059aea9ef0db21d5efbb28e7773bc7dcfdfccea07aed6f6d17ddfc49cc5e02a1999e2e268c1eebae7def01c2f29f257d1e5f29677d7184412e425c52af9310be85349aa33dd715c71d074ffffff7f
+      m_SelectedIDs: e04ad134
+      m_LastClickedID: 886131424
+      m_ExpandedIDs: a3910e89d6cd2f8ddec2a494cf517c9e727195a5848ce6a6d022b3a7f71059ae1d5efbb28e7773bc7dcfdfccea07aed6f6d17ddfc49cc5e02a1999e2e268c1eebae7def01c2f29f257d1e5f29677d7184412e425c52af9310be85349aa33dd715c71d074ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -807,9 +898,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 530
+    x: 430
     y: 73
-    width: 200
+    width: 236
     height: 614
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
@@ -817,7 +908,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 7aa7ffff98a7ffff2ca8ffff86a9ffffa4a9ffff54aaffffb4abffffd2abffff82acffff88adffffa6adffff56aeffff5eafffff7cafffff2cb0ffff3eb1ffff5cb1ffff0cb2ffffc6b4ffffe4b4ffffccb5ffffeeb7ffff0cb8ffff84b8ffff6abaffff88baffff00bbffffaebeffffccbeffffaebfffffe2c6ffff00c7ffffc6c7ffffc0c9ffffdec9ffff74caffff28cbffff46cbffffdccbffff2cceffff4aceffffd4ceffff94d2ffffb2d2ffff48d3ffffdad5fffff8d5ffff8ed6ffff10d9ffff2ed9ffffd6d9ffff56edffff74edfffffeedffff06efffff24efffffaeefffff88f2ffffa6f2ffff6ef3ffff02f6ffff20f6ffffe8f6ffff12f9ffff30f9ffff00faffff62fbffff
+      m_ExpandedIDs: aaeaffffc8eaffffe4ebffffb6edffffd4edffff70eeffff7aefffff98efffff34f0ffffecf1ffff0af2ffffa6f2ffff5af3ffff78f3ffff14f4ffffc4f5ffffe2f5ffff84f6ffff62fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1041,9 +1132,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 494
+    x: 564
     y: 437
-    width: 871
+    width: 801
     height: 250
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
@@ -1070,9 +1161,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 158}
-    m_SelectedIDs: 66460000
-    m_LastClickedID: 18022
-    m_ExpandedIDs: 00000000384600003a4600003c4600003e46000040460000424600004446000046460000484600004a4600004c4600004e460000504600005246000054460000564600006446000094460000
+    m_SelectedIDs: 76460000
+    m_LastClickedID: 18038
+    m_ExpandedIDs: 000000003446000036460000384600003a4600003c4600003e46000040460000424600004446000046460000484600004a4600004c4600004e46000050460000524600005446000056460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1100,7 +1191,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000384600003a4600003c4600003e46000040460000424600004446000046460000484600004a4600004c4600004e4600005046000052460000544600005646000094460000
+    m_ExpandedIDs: 000000003446000036460000384600003a4600003c4600003e46000040460000424600004446000046460000484600004a4600004c4600004e46000050460000524600005446000056460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1125,8 +1216,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ca340000
-    m_LastClickedInstanceID: 13514
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 90100100c21201004ed103001eb30300fa6f040026e2030000000000
     m_RenameOverlay:
@@ -1177,8 +1268,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 732
+    x: 668
     y: 437
-    width: 633
+    width: 697
     height: 250
   m_ViewDataDictionary: {fileID: 0}

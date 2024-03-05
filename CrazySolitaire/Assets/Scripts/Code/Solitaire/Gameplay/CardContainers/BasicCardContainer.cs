@@ -16,11 +16,15 @@ namespace Solitaire.Gameplay.CardContainers {
         #region Public methods
         public override void AddCard( CardFacade _card ) {
             cards.Add( _card );
-            _card.transform.position = new Vector3( transform.position.x + cardsOffset.x,
-                                                    transform.position.y + cardsOffset.y,
-                                                    transform.position.z
+            _card.transform.position = new Vector3( 
+                                            transform.position.x + cardsOffset.x,
+                                            transform.position.y + cardsOffset.y,
+                                            transform.position.z
                                     );
         }
+
+
+
 
         public override bool AddCards( List<CardFacade> _cards ) {
             for( int i = _cards.Count - 1; i >= 0; i--  ) {
@@ -48,6 +52,7 @@ namespace Solitaire.Gameplay.CardContainers {
             throw new System.NotImplementedException();
         }
         #endregion
+
 
 
         #region Protected

@@ -13,6 +13,8 @@ using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay.Cards;
 using System.Collections.Generic;
 
+
+
 namespace Tests.Solitaire.Gameplay.CardContainers {
     public class AbstractCardContainerTest {
         #region Variables
@@ -31,125 +33,122 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
 
 
         #region Tests
-        [UnityTest]
-        public IEnumerator AbstractCardContainerMock_IsAbstractCardContainer() {
-            yield return null;
-            yield return null;
-
-            Assert.IsNotNull( abstractCardContainerObject, "abstractCardContainer is Null");
-            Assert.IsNotNull( abstractCardContainerMock, "abstractCardContainerMock is Null");
-            Assert.IsInstanceOf( typeof(AbstractCardContainer), abstractCardContainerMock,
+        [Test]
+        public void AbstractCardContainerMock_IsAbstractCardContainer() {
+            Assert.IsNotNull(abstractCardContainerObject, "abstractCardContainer is Null");
+            Assert.IsNotNull(abstractCardContainerMock, "abstractCardContainerMock is Null");
+            Assert.IsInstanceOf(typeof(AbstractCardContainer), abstractCardContainerMock,
                     "AbstractCardContainerMock does not inherit from AbstractCardContainer.");
         }
 
-
-        static Vector2[] initializeTestValues = { new Vector2(2, 5),
-                                                new Vector2(4, 7),
-                                                new Vector2(3, 3),
-                                                new Vector2(10, 11)
-                                            };
-        [UnityTest]
-        public IEnumerator WhenInitialize_ThenReturnNoAddedCards(
-                                    [ValueSource("initializeTestValues")] Vector2 _cardAmounts ) {
+        
+        [TestCase( 2, 5 )]
+        [TestCase( 4, 7 )]
+        [TestCase( 3, 3 )]
+        [TestCase( 10, 11 )]
+        [Test]
+        public void WhenInitialize_ThenReturnNoAddedCards( int _initialCardsAmount,
+                                                            int _amountOfCardsToInstantiate) {
             // Instantiate cards
-            GameObject cardGameObject = GameObject.Instantiate( new GameObject() );
+            GameObject cardGameObject = GameObject.Instantiate(new GameObject());
             List<CardFacade> cardsList = new List<CardFacade>();
-            for ( int i = 0; i <= _cardAmounts.y; i++ ) {
-                cardsList.Add( cardGameObject.AddComponent<CardFacade>() );
+            for (int i = 0; i <= _amountOfCardsToInstantiate; i++) {
+                cardsList.Add(cardGameObject.AddComponent<CardFacade>());
             }
 
             // Set up
-            abstractCardContainerMock.SetInitialCardsAmount( (short) _cardAmounts.x );            
+            abstractCardContainerMock.SetInitialCardsAmount((short)_initialCardsAmount);
 
             // Check there aren't previous cards
-            Assert.IsTrue( abstractCardContainerMock.GetCards().Count < 1 );
+            Assert.IsTrue(abstractCardContainerMock.GetCards().Count < 1);
 
             // Pass array of cards for AbstractCardContainerInitialization
-            cardsList = abstractCardContainerMock.Initialize( cardsList );
+            cardsList = abstractCardContainerMock.Initialize(cardsList);
 
             // Assertions
-            Assert.IsTrue( abstractCardContainerMock.GetCards().Count == _cardAmounts.x );
-
-            yield return null;
+            Assert.IsTrue(abstractCardContainerMock.GetCards().Count == _initialCardsAmount);
         }
 
 
-        [UnityTest]
-        public IEnumerator WhenCheckingIfContainsACard_ThenReturnsIfContainsItOrNot() {
+        [Test]
+        public void WhenCheckingIfContainsACard_ThenReturnsIfContainsItOrNot() {
             // Initializing
-            GameObject cardContainerObject = GameObject.Instantiate( new GameObject() );
+            GameObject cardContainerObject = GameObject.Instantiate(new GameObject());
             CardFacade card0 = cardContainerObject.AddComponent<CardFacade>();
             CardFacade card1 = cardContainerObject.AddComponent<CardFacade>();
 
             // Test against false positive
-            Assert.IsTrue( abstractCardContainerMock.GetCards().Count == 0,
+            Assert.IsTrue(abstractCardContainerMock.GetCards().Count == 0,
                             "abstractCardContainerMock shouldn't containe any card.");
 
             // Add card
-            abstractCardContainerMock.AddCard( card0 );
+            abstractCardContainerMock.AddCard(card0);
 
             // Do actual test
-            Assert.IsTrue( abstractCardContainerMock.ContainsCard( card0 ),
-                            "card0 wasn't added to abstractCardContainerMock" );
-            Assert.IsFalse( abstractCardContainerMock.ContainsCard( card1 ),
-                            "card1 wasn't added to abstractCardContainerMock" );
-
-            yield return null;
+            Assert.IsTrue( abstractCardContainerMock.ContainsCard(card0),
+                            "card0 wasn't added to abstractCardContainerMock");
+            Assert.IsFalse( abstractCardContainerMock.ContainsCard(card1),
+                            "card1 wasn't added to abstractCardContainerMock");
         }
 
 
-        [UnityTest]
-        public IEnumerator WhenGettingTopCard_ThenReturnLastAddedCard() {
+        [Test]
+        public void WhenGettingTopCard_ThenReturnLastAddedCard() {
             // Initialization
-            GameObject cardContainerObject = GameObject.Instantiate( new GameObject() );
+            GameObject cardContainerObject = GameObject.Instantiate(new GameObject());
             CardFacade card0 = cardContainerObject.AddComponent<CardFacade>();
             CardFacade card1 = cardContainerObject.AddComponent<CardFacade>();
 
             // Add cards
-            abstractCardContainerMock.AddCard( card0 );
-            abstractCardContainerMock.AddCard( card1 );
+            abstractCardContainerMock.AddCard(card0);
+            abstractCardContainerMock.AddCard(card1);
 
             // Check last card is last added card
-            Assert.AreSame( card1, abstractCardContainerMock.GetTopCard() );
-
-            yield return null;
+            Assert.AreSame(card1, abstractCardContainerMock.GetTopCard());
         }
 
- 
-        static Vector3[] offsetPosition = { Vector3.zero,
-                                            new Vector3(-10, 5, 3),
-                                            new Vector3( 200, -80, -67 ) };
-        [UnityTest]
-        public IEnumerator WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(
-                                            [ValueSource("offsetPosition")] Vector3 _offset ) {
+
+        [TestCase(0f, 0f, 0f)]
+        [TestCase(-10f, 5f, 3f)]
+        [TestCase(200f, -80f, -67f )]
+        [Test]
+        public void WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(
+                                                        float _xOffset, float _yOffset, float _zOffset ) {
             // Set up
-            abstractCardContainerObject.transform.position = new Vector3( Random.Range( -100, 100 ),
+            abstractCardContainerObject.transform.position = new Vector3(   Random.Range(-100, 100),
                                                                             Random.Range(-100, 100),
                                                                             Random.Range(-100, 100)
                                                                         );
             // Setup
             Vector3 expectedPosition = abstractCardContainerObject.transform.position;
             expectedPosition.z = 0;  // Must always be 0
-            GameObject cardContainerObject = GameObject.Instantiate( new GameObject() );
+            GameObject cardContainerObject = GameObject.Instantiate(new GameObject());
             CardFacade card0 = cardContainerObject.AddComponent<CardFacade>();
-            
-            abstractCardContainerMock.SetOffset( _offset );
-            abstractCardContainerMock.AddCard( card0 );
+
+            abstractCardContainerMock.SetOffset( new Vector3( _xOffset, _yOffset, _zOffset ));
+            abstractCardContainerMock.AddCard(card0);
             cardContainerObject.transform.position = abstractCardContainerMock
                                                                         .GetCardPosition_MockPublicAccess(0)
-                                                    + new Vector3( 1, 1, 1 );
+                                                    + new Vector3(1, 1, 1);
 
             // Check position to avoid false positive
-            Assert.AreNotEqual( expectedPosition, cardContainerObject.transform.position );
+            Assert.AreNotEqual(expectedPosition, cardContainerObject.transform.position);
 
             // Call refresh function
             abstractCardContainerMock.Refresh();
 
             // Assert position
-            Assert.AreEqual( expectedPosition, cardContainerObject.transform.position );
-
-            yield return null;
+            Assert.AreEqual(expectedPosition, cardContainerObject.transform.position);
         }
+
+
+
+
+        /*        
+        static Vector3[] offsetPosition = { Vector3.zero,
+                                            new Vector3(-10, 5, 3),
+                                            new Vector3( 200, -80, -67 ) };
+        */
         #endregion
     }
 }

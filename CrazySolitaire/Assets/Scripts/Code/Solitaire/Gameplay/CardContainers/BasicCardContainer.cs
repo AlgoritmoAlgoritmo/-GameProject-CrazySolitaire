@@ -54,8 +54,10 @@ namespace Solitaire.Gameplay.CardContainers {
         }
 
         public override void RemoveCard( CardFacade _card ) {
-            throw new System.NotImplementedException();
+            cards.Remove( _card );
         }
+
+
 
 
 

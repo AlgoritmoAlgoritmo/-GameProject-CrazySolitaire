@@ -189,6 +189,40 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
                             + $"{listForInitialization.Count} instead."
                         );
         }
+        
+        
+        [Test]
+        public void WhenCallingRemoveCardMethod_ThenEliminateItFromBasicCardContainerCards() {
+            //  Instantiate cards to add
+            GameObject cardsGameObject = GameObject.Instantiate(new GameObject());
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                                                        cardsGameObject.AddComponent<CardFacade>(),
+                                                        cardsGameObject.AddComponent<CardFacade>(),
+                                                        cardsGameObject.AddComponent<CardFacade>(),
+                                                        cardsGameObject.AddComponent<CardFacade>()
+                                                    };
+
+            //  Check BasicCardContainer doesn't have cards already
+            Assert.Zero(basicCardContainer.GetCards().Count,
+                        "casicCardContainer shouldn't contain any card but it does.");
+
+            //  Add cards  to BasicCardContainer
+            basicCardContainer.AddCards(listOfCardsToAdd);
+
+            //  Remove card
+            int indexOfTheCardToBeRemoved = Random.Range(0, listOfCardsToAdd.Count - 1);
+            basicCardContainer.RemoveCard(listOfCardsToAdd[indexOfTheCardToBeRemoved]);
+
+            //  Assert container doesn't have that card anymore and that the amount of cards is correct
+            Assert.False( basicCardContainer.GetCards().Contains(listOfCardsToAdd[indexOfTheCardToBeRemoved]),
+                        "basicCardContainer still  has the card that should have been removed.");
+            Assert.AreEqual( listOfCardsToAdd.Count - 1,
+                            basicCardContainer.GetCards().Count,
+                            "The amount of cards in basicCardContainer should be "
+                            + $"{listOfCardsToAdd.Count - 1} instead of {basicCardContainer.GetCards().Count} ");
+        }
+
+
         #endregion
     }
 }

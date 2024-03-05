@@ -95,7 +95,33 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
         }
 
 
+        [Test]
+        public void WhenAddingCardListWithNullObjectToBasicCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt () {
+            //  Create list of cards
+            GameObject cardsGameObject = GameObject.Instantiate(new GameObject());
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                                                cardsGameObject.AddComponent<CardFacade>(),
+                                                cardsGameObject.AddComponent<CardFacade>(),
+                                                null,
+                                                cardsGameObject.AddComponent<CardFacade>()
+                                            };
 
+            //  Check basicCardcontainer has 0 cards
+            Assert.Zero( basicCardContainer.GetCards().Count,
+                            "basicCardContainer shouldn't contain any cards but it does." );
+
+            //  Assert list contains null object
+            Assert.True( listOfCardsToAdd.Contains(null),
+                        "listOfCardsToAdd should contain a null element, but it does not.");
+
+            //  Assert mutltiple card addition error
+            Assert.Throws<System.NullReferenceException>(
+                                                    () => basicCardContainer.AddCards(listOfCardsToAdd));
+
+            //  Check no card was added
+            Assert.Zero( basicCardContainer.GetCards().Count,
+                            "At leas one card has been added to basicCardContainer when it shouldn't.");
+        }
         #endregion
     }
 }

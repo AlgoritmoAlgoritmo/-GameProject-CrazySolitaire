@@ -27,6 +27,10 @@ namespace Solitaire.Gameplay.CardContainers {
         }
 
         public override bool AddCards( List<CardFacade> _cards ) {
+            if (_cards.Contains(null))
+                throw new System.NullReferenceException("The list of cards that is intended to be added "
+                                                        + "contains at least one null element.");
+
             for( int i = _cards.Count - 1; i >= 0; i--  ) {
                 cards.Add( _cards[i] );
 
@@ -40,15 +44,14 @@ namespace Solitaire.Gameplay.CardContainers {
             return true;
         }
 
-
-
-
-
-
-
         public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
             throw new System.NotImplementedException();
         }
+
+
+
+
+
 
         public override void RemoveCard( CardFacade _card ) {
             throw new System.NotImplementedException();

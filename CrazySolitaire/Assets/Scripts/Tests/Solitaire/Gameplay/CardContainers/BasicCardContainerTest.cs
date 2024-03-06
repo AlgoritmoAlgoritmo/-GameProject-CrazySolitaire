@@ -122,9 +122,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             Assert.Zero( basicCardContainer.GetCards().Count,
                             "At leas one card has been added to basicCardContainer when it shouldn't.");
         }
-        
-        
-
+             
         [Test]
         public void WhenInitializing_ThenAddOnlyTheRightAmountOfCards() {
             // Create list of cards to add
@@ -189,8 +187,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
                             + $"{listForInitialization.Count} instead."
                         );
         }
-        
-        
+                
         [Test]
         public void WhenCallingRemoveCardMethod_ThenEliminateItFromBasicCardContainerCards() {
             //  Instantiate cards to add
@@ -222,7 +219,16 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
                             + $"{listOfCardsToAdd.Count - 1} instead of {basicCardContainer.GetCards().Count} ");
         }
 
+        [Test]
+        public void WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException() {
+            // Assert null reference
+            Assert.Throws<System.NullReferenceException>( () => basicCardContainer.RemoveCard(null) );
+        }
 
+        [Test]
+        public void WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards() {
+
+        }
         #endregion
     }
 }

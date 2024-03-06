@@ -32,7 +32,7 @@ namespace Solitaire.Gameplay.Common {
 
         public List<Sprite> GetSuitCardsSprites( BasicSuitData _suitData ) {
             foreach( CompleteSuitData auxSuit in cardThemeData.Suits ) {
-                if( auxSuit.suitName.Equals( _suitData.suitName ) )
+                if( auxSuit.suitName.ToUpper().Equals( _suitData.suitName.ToUpper() ) )
                     return auxSuit.sprites;
             }
 

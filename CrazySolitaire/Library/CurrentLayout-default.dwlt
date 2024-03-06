@@ -20,11 +20,37 @@ MonoBehaviour:
     height: 685
   m_ShowMode: 4
   m_Title: 
-  m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 392}
+  m_RootView: {fileID: 3}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: SceneHierarchyWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 304
+    y: 0
+    width: 202
+    height: 635
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 15}
+  m_Panes:
+  - {fileID: 15}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,9 +63,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 3}
-  - {fileID: 5}
   - {fileID: 4}
+  - {fileID: 6}
+  - {fileID: 5}
   m_Position:
     serializedVersion: 2
     x: 0
@@ -48,7 +74,7 @@ MonoBehaviour:
     height: 685
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
---- !u!114 &3
+--- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,7 +96,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &4
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +117,7 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &5
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,19 +130,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 6}
   - {fileID: 7}
+  - {fileID: 2}
+  - {fileID: 8}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 30
     width: 1366
     height: 635
-  m_MinSize: {x: 302, y: 342}
-  m_MaxSize: {x: 8002, y: 8042}
+  m_MinSize: {x: 709, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 44
---- !u!114 &6
+  controlID: 329
+--- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,26 +153,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 425
+    width: 304
     height: 635
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
-  - {fileID: 11}
   - {fileID: 12}
-  - {fileID: 14}
   - {fileID: 13}
-  m_Selected: 1
-  m_LastSelected: 2
---- !u!114 &7
+  - {fileID: 14}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,19 +184,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 8}
   - {fileID: 9}
+  - {fileID: 10}
   m_Position:
     serializedVersion: 2
-    x: 425
+    x: 506
     y: 0
-    width: 941
+    width: 860
     height: 635
-  m_MinSize: {x: 201, y: 342}
-  m_MaxSize: {x: 4001, y: 8042}
+  m_MinSize: {x: 231, y: 492}
+  m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 45
---- !u!114 &8
+  controlID: 97
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,18 +213,18 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 941
+    width: 860
     height: 364
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 10}
+  m_ActualView: {fileID: 11}
   m_Panes:
-  - {fileID: 15}
   - {fileID: 16}
-  - {fileID: 10}
+  - {fileID: 17}
+  - {fileID: 11}
   m_Selected: 2
   m_LastSelected: 2
---- !u!114 &9
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,24 +234,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 364
-    width: 941
+    width: 860
     height: 271
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 17}
   - {fileID: 18}
-  m_Selected: 1
-  m_LastSelected: 0
---- !u!114 &10
+  - {fileID: 19}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,9 +272,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 425
+    x: 506
     y: 73
-    width: 940
+    width: 859
     height: 343
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
@@ -295,29 +321,29 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 940
+      width: 859
       height: 322
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 470, y: 161}
+    m_Translation: {x: 429.5, y: 161}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -470
+      x: -429.5
       y: -161
-      width: 940
+      width: 859
       height: 322
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 940, y: 343}
+  m_LastWindowPixelSize: {x: 859, y: 343}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 0
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &11
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,7 +366,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 443
+    width: 303
     height: 614
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0
@@ -355,7 +381,7 @@ MonoBehaviour:
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
---- !u!114 &12
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,17 +403,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 424
+    width: 303
     height: 614
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 122
-    splitterInitialOffset: 339
+    ID: 138
+    splitterInitialOffset: 484
     currentActiveSplitter: -1
-    realSizes: 2a010000f6000000
+    realSizes: 9e01000082000000
     relativeSizes:
-    - 0.5483871
-    - 0.4516129
+    - 0.7610294
+    - 0.23897058
     minSizes: 2000000020000000
     maxSizes: 0000000000000000
     lastTotalSize: 544
@@ -395,14 +421,14 @@ MonoBehaviour:
     xOffset: 0
   m_TestTypeToolbarIndex: 0
   m_PlayModeTestListGUI:
-    m_Window: {fileID: 12}
+    m_Window: {fileID: 13}
     m_NewResultList:
     - id: 1004
       uniqueId: '[CrazySolitaire][suite]'
       name: CrazySolitaire
       fullName: CrazySolitaire
       resultStatus: 1
-      duration: 0.8293915
+      duration: 1.1646975
       messages: 
       output: 
       stacktrace: 
@@ -418,7 +444,7 @@ MonoBehaviour:
       name: _Tests.dll
       fullName: C:/Users/Usuario/Documents/GitHub/CrazySolitaire/CrazySolitaire/Library/ScriptAssemblies/_Tests.dll
       resultStatus: 1
-      duration: 0.2785366
+      duration: 0.325601
       messages: 
       output: 
       stacktrace: 
@@ -429,12 +455,12 @@ MonoBehaviour:
       categories: []
       parentId: 1000
       parentUniqueId: '[CrazySolitaire][suite]'
-    - id: 1022
+    - id: 1030
       uniqueId: _Tests.dll/[Tests][suite]
       name: Tests
       fullName: Tests
-      resultStatus: 1
-      duration: 0.2567337
+      resultStatus: 0
+      duration: 0
       messages: 
       output: 
       stacktrace: 
@@ -443,14 +469,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1021
+      parentId: 1029
       parentUniqueId: '[_Tests.dll][suite]'
     - id: 1023
       uniqueId: _Tests.dll/Tests/[Solitaire][suite]
       name: Solitaire
       fullName: Tests.Solitaire
       resultStatus: 1
-      duration: 0.2350312
+      duration: 0.250399
       messages: 
       output: 
       stacktrace: 
@@ -466,7 +492,7 @@ MonoBehaviour:
       name: Gameplay
       fullName: Tests.Solitaire.Gameplay
       resultStatus: 1
-      duration: 0.2127696
+      duration: 0.2193044
       messages: 
       output: 
       stacktrace: 
@@ -482,7 +508,7 @@ MonoBehaviour:
       name: CardContainers
       fullName: Tests.Solitaire.Gameplay.CardContainers
       resultStatus: 1
-      duration: 0.1889524
+      duration: 0.1883312
       messages: 
       output: 
       stacktrace: 
@@ -716,7 +742,7 @@ MonoBehaviour:
       name: BasicCardContainerTest
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest
       resultStatus: 1
-      duration: 0.1649054
+      duration: 0.164487
       messages: 
       output: 
       stacktrace: 
@@ -829,12 +855,63 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1014
       parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest][suite]
+    - id: 1024
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/BasicCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards]
+      name: WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards
+      fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards
+      resultStatus: 1
+      duration: 0.2008129
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest][suite]
     - id: 1020
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/BasicCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenInitializing_ThenAddOnlyTheRightAmountOfCards]
       name: WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       resultStatus: 1
       duration: 0.1789588
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest][suite]
+    - id: 1025
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/BasicCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException]
+      name: WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
+      fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
+      resultStatus: 1
+      duration: 0.0647983
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1014
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest][suite]
+    - id: 1023
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/BasicCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException]
+      name: WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
+      fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
+      resultStatus: 1
+      duration: 0.1094775
       messages: 
       output: 
       stacktrace: 
@@ -863,14 +940,63 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1014
       parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest][suite]
-    m_ResultText: WhenCallingRemoveCardMethod_ThenEliminateItFromBasicCardContainerCards
-      (0.070s)
+    - id: 1033
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/[_Tests][Tests.Solitaire.Gameplay.GameMode][suite]
+      name: GameMode
+      fullName: Tests.Solitaire.Gameplay.GameMode
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1032
+      parentUniqueId: _Tests.dll/Tests/Solitaire/[Gameplay][suite]
+    - id: 1001
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/GameMode/[_Tests][Tests.Solitaire.Gameplay.GameMode.DeckControllerTest][suite]
+      name: DeckControllerTest
+      fullName: Tests.Solitaire.Gameplay.GameMode.DeckControllerTest
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1033
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/[_Tests][Tests.Solitaire.Gameplay.GameMode][suite]
+    - id: 1002
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/GameMode/DeckControllerTest/[_Tests][Tests.Solitaire.Gameplay.GameMode.DeckControllerTest.DeckControllerTestSimplePasses]
+      name: DeckControllerTestSimplePasses
+      fullName: Tests.Solitaire.Gameplay.GameMode.DeckControllerTest.DeckControllerTestSimplePasses
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/GameMode/[_Tests][Tests.Solitaire.Gameplay.GameMode.DeckControllerTest][suite]
+    m_ResultText: WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
+      (0.065s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8e52e475
-      m_LastClickedID: 1977897614
-      m_ExpandedIDs: a3910e89dec2a494cf517c9e727195a5848ce6a6d022b3a7f71059ae1d5efbb28e7773bc7dcfdfccea07aed6f6d17ddfc49cc5e02a1999e2e268c1eebae7def01c2f29f257d1e5f29677d7184412e425c52af9310be85349aa33dd715c71d074f292677bffffff7f
+      m_SelectedIDs: 676b109b
+      m_LastClickedID: -1693422745
+      m_ExpandedIDs: a3910e89dec2a494cf517c9e848ce6a6d022b3a7f71059ae1d5efbb28e7773bc7dcfdfccea07aed6f6d17ddfc49cc5e01c26e9e02a1999e2e268c1eebae7def01c2f29f257d1e5f29677d7184412e425c52af9310be85349aa33dd715c71d074ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -898,7 +1024,7 @@ MonoBehaviour:
       - Uncategorized
     m_SelectedOption: 0
   m_EditModeTestListGUI:
-    m_Window: {fileID: 12}
+    m_Window: {fileID: 13}
     m_NewResultList:
     - id: 1000
       uniqueId: '[CrazySolitaire][suite]'
@@ -961,7 +1087,7 @@ MonoBehaviour:
       selectedCategoryMask: 0
       availableCategories:
       - Uncategorized
---- !u!114 &13
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -987,7 +1113,7 @@ MonoBehaviour:
     width: 340
     height: 614
   m_ViewDataDictionary: {fileID: 0}
---- !u!114 &14
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1008,17 +1134,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: 304
     y: 73
-    width: 433
+    width: 200
     height: 614
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 06e3ffff24e3ffffbce3ffffcae4ffffe8e4ffff80e5ffff3ae9ffff58e9ffffece9ffff0cebffff2aebffffbeebffff4cedffff6aedfffffeedffff10efffff2eefffffc2efffff1cf2ffff3af2fffffaf2ffff0af4ffff28f4ffff9ef7ffff14fbffff
+      m_SelectedIDs: 60f7ffff
+      m_LastClickedID: -2208
+      m_ExpandedIDs: 62fbffff5e440000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1034,7 +1160,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 2}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1042,7 +1168,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 6ccd2c825b5969b42a5edd932a14f3cd
---- !u!114 &15
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1157,7 +1283,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &16
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1221,7 +1347,7 @@ MonoBehaviour:
   m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &17
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1242,9 +1368,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 553
-    y: 445
-    width: 804
+    x: 506
+    y: 437
+    width: 859
     height: 250
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
@@ -1260,20 +1386,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Tests/Solitaire/Gameplay/CardContainers
+    - Assets/Prefabs/Gameplay
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Tests/Solitaire/Gameplay/CardContainers
+  - Assets/Prefabs/Gameplay
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 76460000
-    m_LastClickedID: 18038
-    m_ExpandedIDs: 00000000384500003a4500003c4500003e45000040450000424500004445000046450000484500004a4500004c4500004e45000050450000524500005445000056450000584500005a450000
+    m_SelectedIDs: da4a0000
+    m_LastClickedID: 19162
+    m_ExpandedIDs: 000000003446000036460000384600003a4600003e46000040460000424600004446000046460000484600004a4600004c4600004e460000504600005246000054460000564600005c460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1289,7 +1415,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 9}
+      m_ClientGUIView: {fileID: 10}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -1301,7 +1427,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000384500003a4500003c4500003e45000040450000424500004445000046450000484500004a4500004c4500004e45000050450000524500005445000056450000584500005a450000
+    m_ExpandedIDs: 000000003446000036460000384600003a4600003c4600003e46000040460000424600004446000046460000484600004a4600004c4600004e46000050460000524600005446000056460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1328,24 +1454,24 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 90100100c21201004ed103001eb30300fa6f040026e2030000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: DeckController
+      m_OriginalName: DeckController
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 19880
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 9}
+      m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1357,7 +1483,7 @@ MonoBehaviour:
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 221
---- !u!114 &18
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}

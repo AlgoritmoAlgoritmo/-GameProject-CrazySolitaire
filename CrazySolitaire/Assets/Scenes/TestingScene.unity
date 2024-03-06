@@ -583,7 +583,7 @@ RectTransform:
   - {fileID: 383518591}
   - {fileID: 1136855513}
   m_Father: {fileID: 694382710}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1785,6 +1785,7 @@ Transform:
   m_Children:
   - {fileID: 1269586035}
   - {fileID: 1515941279}
+  - {fileID: 1540813991}
   - {fileID: 146951982}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1802,7 +1803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMode: {fileID: 1515941281}
-  deckController: {fileID: 1515941280}
+  deckController: {fileID: 0}
 --- !u!82 &694382712
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3030,7 +3031,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1515941279}
   - component: {fileID: 1515941281}
-  - component: {fileID: 1515941280}
   m_Layer: 0
   m_Name: GameMode
   m_TagString: Untagged
@@ -3052,22 +3052,6 @@ Transform:
   m_Father: {fileID: 694382710}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1515941280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515941278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7bbeb013e3cb17419b3113cf1dbdbff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 2846747137655090033, guid: e2bbd79abafb6ac4e9fbd8f1a7fe820b,
-    type: 3}
-  cardParent: {fileID: 146951982}
-  cardSprites: {fileID: 11400000, guid: 56a86fd392b80f54b906bb05c5cff92d, type: 2}
 --- !u!114 &1515941281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3100,8 +3084,6 @@ MonoBehaviour:
   - suitName: SPADES
     color: BLACK
   amountOfEachSuit: 8
-  cardsLayer: CARD
-  cardContainersLayer: CARD_CONTAINER
   OnCardsCleared:
     m_PersistentCalls:
       m_Calls: []
@@ -3114,6 +3096,12 @@ MonoBehaviour:
   - {fileID: 911254127}
   - {fileID: 1552299798}
   - {fileID: 5430424964912610469}
+--- !u!4 &1540813991 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3527218475916705149}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1552299796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4298,6 +4286,80 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2141113171555223982}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3527218475916705149
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 694382710}
+    m_Modifications:
+    - target: {fileID: 3527218477119261141, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: cardParent
+      value: 
+      objectReference: {fileID: 146951982}
+    - target: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527218477119261146, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527218477119261147, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+        type: 3}
+      propertyPath: m_Name
+      value: DeckController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4ad1261687ed1e40a87c4f978b5a34b, type: 3}
 --- !u!1001 &5430424964912610467
 PrefabInstance:
   m_ObjectHideFlags: 0

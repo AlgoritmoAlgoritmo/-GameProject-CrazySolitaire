@@ -63,7 +63,9 @@ namespace Solitaire.Gameplay.CardContainers {
 
 
         public override void RemoveCards( List<CardFacade> _cards ) {
-            throw new System.NotImplementedException();
+            foreach( var auxCard in _cards ) {
+                cards.Remove(auxCard);
+            }
         }
         #endregion
 

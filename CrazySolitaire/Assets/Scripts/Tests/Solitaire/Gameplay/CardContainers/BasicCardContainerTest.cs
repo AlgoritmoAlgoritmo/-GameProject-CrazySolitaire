@@ -227,7 +227,47 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
 
         [Test]
         public void WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards() {
+            //  Instantiate cards to add
+            GameObject cardsObject = GameObject.Instantiate( new GameObject() );
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                    cardsObject.AddComponent<CardFacade>(),
+                    cardsObject.AddComponent<CardFacade>(),
+                    cardsObject.AddComponent<CardFacade>(),
+                    cardsObject.AddComponent<CardFacade>(),
+                    cardsObject.AddComponent<CardFacade>(),
+                    cardsObject.AddComponent<CardFacade>()
+            };
 
+            //  Add cards to containner
+            basicCardContainer.AddCards( listOfCardsToAdd );
+
+            //  Save amount of cards
+            int amountOfCardsAfterAddition = basicCardContainer.GetCards().Count;
+
+            //  Create list of cards to remove
+            List<CardFacade> listOfCardsToRemove = new List<CardFacade>() {
+                listOfCardsToAdd[1],
+                listOfCardsToAdd[3],
+                listOfCardsToAdd[5]
+            };
+
+            //  Remove multiple cards
+            basicCardContainer.RemoveCards(listOfCardsToRemove);
+
+            //  Assert the remaining amount of cards in container is correct
+            Assert.AreEqual(amountOfCardsAfterAddition - listOfCardsToRemove.Count,
+                            basicCardContainer.GetCards().Count,
+                            $"The container has {basicCardContainer.GetCards().Count} "
+                                    + "when it was expected it to have "
+                                    + $"{amountOfCardsAfterAddition - listOfCardsToRemove.Count}.");
+
+            //  Assert cards for removal are not referenced by container
+            foreach(var auxCard in listOfCardsToRemove ) {
+                Assert.False( basicCardContainer.GetCards().Contains( auxCard ),
+                            "At least one of the cards from listOfCardsToRemove "
+                                    + "wasn't successfully removed."
+                    );
+            }
         }
         #endregion
     }

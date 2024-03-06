@@ -269,6 +269,36 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
                     );
             }
         }
+
+        [Test]
+        public void WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException () {
+            //  Create list of cards
+            GameObject cardsObject = GameObject.Instantiate(new GameObject());
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                    cardsObject.AddComponent<CardFacade>(),
+                    cardsObject.AddComponent<CardFacade>(),
+                    cardsObject.AddComponent<CardFacade>(),
+                    cardsObject.AddComponent<CardFacade>(),
+                    cardsObject.AddComponent<CardFacade>(),
+                    cardsObject.AddComponent<CardFacade>()
+            };
+
+            //  Add cards to container
+            basicCardContainer.AddCards(listOfCardsToAdd);
+
+            //  Create list of cards to remove with a null element in it
+            List<CardFacade> listOfCardsToRemove = new List<CardFacade>() {
+                listOfCardsToAdd[1],
+                null,
+                listOfCardsToAdd[5]
+            };
+
+            //  Assert remove method
+            Assert.Throws<System.NullReferenceException>(
+                                () => basicCardContainer.RemoveCards(listOfCardsToRemove)
+                            );
+
+        }
         #endregion
     }
 }

@@ -63,6 +63,11 @@ namespace Solitaire.Gameplay.CardContainers {
 
 
         public override void RemoveCards( List<CardFacade> _cards ) {
+            if( _cards.Contains( null ) ) {
+                throw new System.NullReferenceException("At least one of the card intended to be "
+                                                        + "removed is null.");
+            }
+
             foreach( var auxCard in _cards ) {
                 cards.Remove(auxCard);
             }

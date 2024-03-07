@@ -84,6 +84,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
                             + $"when it should have {amountOfCardsToSpawn} cards");
         }
 
+
         [Test]
         public void WhenAddingNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt() {
             // Test to avoid false positive
@@ -93,6 +94,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
             Assert.Zero(spiderCardContainer.GetCards().Count,
                         "Null object was added when it shouldn't.");
         }
+
 
         [Test]
         public void WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer() {
@@ -116,6 +118,34 @@ namespace Tests.Solitaire.Gameplay.Spider {
             Assert.True(amountOfCardsToSpawn == spiderCardContainer.GetCards().Count,
                         $"spiderCardContainer cards has {spiderCardContainer.GetCards().Count} "
                             + $"when it should have {amountOfCardsToSpawn} cards");
+        }
+
+
+        [Test]
+        public void WhenAddingCardListWithNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt() {
+            //  Create list of cards
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                    null,
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
+                                };
+
+            //  Check spiderCardContainer has 0 cards
+            Assert.Zero(spiderCardContainer.GetCards().Count,
+                            "spiderCardContainer shouldn't contain any cards but it does.");
+
+            //  Assert list contains null object
+            Assert.True(listOfCardsToAdd.Contains(null),
+                        "listOfCardsToAdd should contain a null element, but it does not.");
+
+            //  Assert mutltiple card addition error
+            Assert.Throws<NullReferenceException>( () => spiderCardContainer.AddCards(listOfCardsToAdd));
+
+            //  Check no card was added
+            Assert.Zero(spiderCardContainer.GetCards().Count,
+                            "At least one card has been added to spiderCardContainer when it shouldn't.");
         }
         #endregion
     }

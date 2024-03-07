@@ -54,6 +54,11 @@ namespace Solitaire.Gameplay.Spider {
         
 
         public override bool AddCards( List<CardFacade> _cards ) {
+            if( _cards.Contains(null) ) {
+                throw new System.NullReferenceException("At least one of the "
+                            + "elements from the list of cards passed is null.");
+            }
+
             foreach( var auxCard in _cards ) {
                 auxCard.RenderOnTop();
                 auxCard.SetParentCard(GetTopCard());

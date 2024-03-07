@@ -120,9 +120,10 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
 
             //  Check no card was added
             Assert.Zero( basicCardContainer.GetCards().Count,
-                            "At leas one card has been added to basicCardContainer when it shouldn't.");
+                            "At least one card has been added to basicCardContainer when it shouldn't.");
         }
-             
+        
+
         [Test]
         public void WhenInitializing_ThenAddOnlyTheRightAmountOfCards() {
             // Create list of cards to add

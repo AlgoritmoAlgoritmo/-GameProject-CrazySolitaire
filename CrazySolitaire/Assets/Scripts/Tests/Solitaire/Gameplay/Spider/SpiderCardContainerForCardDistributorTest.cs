@@ -4,6 +4,7 @@
 */
 
 
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -85,6 +86,33 @@ namespace Tests.Solitaire.Gameplay.Spider {
                             + $"when it should have 0 cards");
         }
 
+
+        [Test]
+        public void WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer() {
+            // Instantiate cards
+            int amountOfCardsToSpawn = UnityEngine.Random.Range(0, 100);
+            GameObject cardGameObject = GameObject.Instantiate(new GameObject());
+            List<CardFacade> cardsToAdd = new List<CardFacade>();
+            for (int i = 0; i < amountOfCardsToSpawn; i++) {
+                cardsToAdd.Add(cardGameObject.AddComponent<CardFacade>());
+            }
+
+            // Check to avoid false positive
+            Assert.Zero(spiderCardContainerForCardDistributor.GetCards().Count,
+                            "spiderCardContainerForCardDistributor shouldn't contain any cards");
+
+            // Assert addition of multiple cards
+            Assert.Throws<NotImplementedException>( () => 
+                                                    spiderCardContainerForCardDistributor.AddCards(cardsToAdd),
+                                                    "he addition of multiple cards should throw a "
+                                                        + "NotImplementedException.");
+
+            // Assert the amount of cards added is the same the BasicaCardContainer's contain
+            Assert.Zero( spiderCardContainerForCardDistributor.GetCards().Count,
+                        $"spiderCardContainerForCardDistributor cards has "
+                                + $"{spiderCardContainerForCardDistributor.GetCards().Count} "
+                                + $"when it should have 0 cards");
+        }
         #endregion
     }
 }

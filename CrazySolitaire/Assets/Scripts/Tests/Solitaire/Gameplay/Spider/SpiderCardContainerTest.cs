@@ -246,6 +246,13 @@ namespace Tests.Solitaire.Gameplay.Spider {
                             "The amount of cards in spiderCardContainer should be "
                             + $"{listOfCardsToAdd.Count - 1} instead of {spiderCardContainer.GetCards().Count} ");
         }
+
+
+        [Test]
+        public void WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException() {
+            // Assert null reference
+            Assert.Throws<NullReferenceException>(() => spiderCardContainer.RemoveCard(null));
+        }
         #endregion
     }
 }

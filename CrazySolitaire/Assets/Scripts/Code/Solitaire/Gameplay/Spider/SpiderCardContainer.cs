@@ -77,6 +77,11 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public override void RemoveCard( CardFacade _card ) {
+            if( !_card ) {
+                throw new System.NullReferenceException("The card intended to be removed is "
+                                                            + "null.");
+            }
+
             cards.Remove(_card);
             Refresh();            
         }

@@ -13,8 +13,7 @@ using Solitaire.Gameplay.Spider;
 using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay.Cards;
 using UnityEditor;
-
-
+using System.Collections.Generic;
 
 namespace Tests.Solitaire.Gameplay.Spider {
     public class SpiderCardContainerTest {
@@ -90,9 +89,33 @@ namespace Tests.Solitaire.Gameplay.Spider {
             // Test to avoid false positive
             Assert.Zero(spiderCardContainer.GetCards().Count,
                         "There was an alement in spiderCardContainer before the null object was added.");
-            Assert.Throws<System.NullReferenceException>(() => spiderCardContainer.AddCard(null));
+            Assert.Throws<NullReferenceException>(() => spiderCardContainer.AddCard(null));
             Assert.Zero(spiderCardContainer.GetCards().Count,
                         "Null object was added when it shouldn't.");
+        }
+
+        [Test]
+        public void WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer() {
+            // Instantiate cards
+            int amountOfCardsToSpawn = UnityEngine.Random.Range(0, 100);
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+
+            List<CardFacade> cardsToAdd = new List<CardFacade>();
+            for (int i = 0; i < amountOfCardsToSpawn; i++) {
+                cardsToAdd.Add( GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>() );
+            }
+
+            // Check to avoid false positive
+            Assert.Zero( spiderCardContainer.GetCards().Count,
+                        "spiderCardContainer shouldn't contain any cards");
+
+            // Add cards to spiderCardContainer
+            spiderCardContainer.AddCards(cardsToAdd);
+
+            // Assert the amount of cards added is the same the BasicaCardContainer's contain
+            Assert.True(amountOfCardsToSpawn == spiderCardContainer.GetCards().Count,
+                        $"spiderCardContainer cards has {spiderCardContainer.GetCards().Count} "
+                            + $"when it should have {amountOfCardsToSpawn} cards");
         }
         #endregion
     }

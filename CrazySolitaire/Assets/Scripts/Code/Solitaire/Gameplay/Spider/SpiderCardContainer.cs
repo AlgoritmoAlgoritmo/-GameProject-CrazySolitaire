@@ -54,7 +54,16 @@ namespace Solitaire.Gameplay.Spider {
         
 
         public override bool AddCards( List<CardFacade> _cards ) {
-            throw new System.NotImplementedException();
+            foreach( var auxCard in _cards ) {
+                auxCard.RenderOnTop();
+                auxCard.SetParentCard(GetTopCard());
+                GetTopCard()?.SetChildCard(auxCard);
+                cards.Add(auxCard);
+            }
+            
+            Refresh();
+
+            return true;
         }
 
 

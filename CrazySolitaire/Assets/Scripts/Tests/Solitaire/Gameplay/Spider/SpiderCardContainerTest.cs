@@ -84,6 +84,16 @@ namespace Tests.Solitaire.Gameplay.Spider {
                             $"spiderCardContainer cards has {spiderCardContainer.GetCards().Count} "
                             + $"when it should have {amountOfCardsToSpawn} cards");
         }
+
+        [Test]
+        public void WhenAddingNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt() {
+            // Test to avoid false positive
+            Assert.Zero(spiderCardContainer.GetCards().Count,
+                        "There was an alement in spiderCardContainer before the null object was added.");
+            Assert.Throws<System.NullReferenceException>(() => spiderCardContainer.AddCard(null));
+            Assert.Zero(spiderCardContainer.GetCards().Count,
+                        "Null object was added when it shouldn't.");
+        }
         #endregion
     }
 }

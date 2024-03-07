@@ -40,6 +40,11 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public override void AddCard( CardFacade _card ) {
+            if( !_card ) {
+                throw new System.NullReferenceException("The card intended to be added "
+                                                        + "is null.");
+            }
+
             _card.RenderOnTop();
             _card.SetParentCard( GetTopCard() );
             GetTopCard()?.SetChildCard( _card );

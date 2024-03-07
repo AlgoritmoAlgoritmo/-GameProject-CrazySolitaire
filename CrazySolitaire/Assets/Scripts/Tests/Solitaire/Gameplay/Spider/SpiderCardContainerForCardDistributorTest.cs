@@ -57,8 +57,34 @@ namespace Tests.Solitaire.Gameplay.Spider {
             Assert.IsInstanceOf( typeof(AbstractCardContainer),
                                 spiderCardContainerForCardDistributor,
                                 "SpiderCardContainerForCardDistributor must inherit from "
-                                + "AbstractCardContainer");
+                                    + "AbstractCardContainer");
         }
+
+
+        [Test]
+        public void WhenAddingACard_ThenThrowsNotImplementedException() {
+            //  Instantiate cards
+            int amountOfCardsToSpawn = UnityEngine.Random.Range(0, 50);
+            GameObject cardGameObject = GameObject.Instantiate(new GameObject());
+
+            // Check to avoid false positive
+            Assert.Zero(spiderCardContainerForCardDistributor.GetCards().Count,
+                            "spiderCardContainerForCardDistributor shouldn't contain any cards");
+
+            //  Assert addition of card
+            for (int i = 0; i < amountOfCardsToSpawn; i++) {
+                Assert.Throws<System.NotImplementedException>( 
+                                                () => spiderCardContainerForCardDistributor
+                                                    .AddCard(cardGameObject.AddComponent<CardFacade>()));
+            }
+
+            // Assert the amount of cards added is the same the BasicaCardContainer's contain
+            Assert.Zero( spiderCardContainerForCardDistributor.GetCards().Count,
+                        $"spiderCardContainerForCardDistributor cards has "
+                            + $"{spiderCardContainerForCardDistributor.GetCards().Count} "
+                            + $"when it should have 0 cards");
+        }
+
         #endregion
     }
 }

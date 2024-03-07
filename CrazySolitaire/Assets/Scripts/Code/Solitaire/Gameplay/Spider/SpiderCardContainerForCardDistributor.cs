@@ -24,17 +24,17 @@ namespace Solitaire.Gameplay.Spider {
         }
 
 
+        public override void AddCard( CardFacade _card ) {
+            throw new System.NotImplementedException();
+        }
+
+
         public override bool AddCards( List<CardFacade> _cards ) {
             throw new System.NotImplementedException();
         }
 
 
         public override void RemoveCards( List<CardFacade> _cards ) {
-            throw new System.NotImplementedException();
-        }
-
-
-        public override void AddCard( CardFacade _card ) {
             throw new System.NotImplementedException();
         }
 

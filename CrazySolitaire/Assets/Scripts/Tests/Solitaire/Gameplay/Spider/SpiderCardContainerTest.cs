@@ -163,7 +163,6 @@ namespace Tests.Solitaire.Gameplay.Spider {
                 listOfCardsToAdd.Add( GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>());
             }
 
-
             // Check there aren't any cards already to avoid false positive
             Assert.Zero( spiderCardContainer.GetCards().Count,
                         "spiderCardContainer shouldn't contain any cards but it does.");
@@ -180,6 +179,39 @@ namespace Tests.Solitaire.Gameplay.Spider {
                                 $"The remaining cards should be " +
                                 $"{amountOfCardsToAdd - spiderCardContainer.GetCards().Count} "
                                 + $"but there are {remainingCards.Count} instead.");
+        }
+
+
+        [Test]
+        public void WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard() {
+            // Create list of cards
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            List<CardFacade> listForInitialization = new List<CardFacade>() {
+                                                        cardFacadePrefab.GetComponent<CardFacade>(),
+                                                        null,
+                                                        cardFacadePrefab.GetComponent<CardFacade>() };
+            int amountOfCardsToAddForInitialization = listForInitialization.Count;
+
+            // Check basic card container doesn't have any cards to avoid false positive
+            Assert.Zero(spiderCardContainer.GetCards().Count,
+                        "casicCardContainer shouldn't contain any card but it does.");
+
+            // Assert initialization
+            Assert.Throws<System.NullReferenceException>(() =>
+                                                   spiderCardContainer.Initialize(listForInitialization),
+                                                    "spiderCardContainer should have thrown a "
+                                                    + "NullReferenceException error since at least one of "
+                                                    + "the elements of the list is null.");
+
+            // Check no card was added
+            Assert.Zero(spiderCardContainer.GetCards().Count,
+                        "Cards have been added to spiderCardContainer when they shouldn't.");
+            Assert.AreEqual(amountOfCardsToAddForInitialization,
+                            listForInitialization.Count,
+                            "listForInitialization amount of elements should be "
+                            + $"{amountOfCardsToAddForInitialization} but it's "
+                            + $"{listForInitialization.Count} instead."
+                        );
         }
         #endregion
     }

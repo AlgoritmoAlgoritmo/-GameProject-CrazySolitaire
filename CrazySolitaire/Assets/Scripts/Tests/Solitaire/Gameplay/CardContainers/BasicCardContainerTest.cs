@@ -151,7 +151,6 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
                                 $"The remaining cards should be " +
                                 $"{amountOfCardsToAdd - basicCardContainer.GetCards().Count} "
                                 + $"but there are {remainingCards.Count} instead.");
-
         }
 
         [Test]

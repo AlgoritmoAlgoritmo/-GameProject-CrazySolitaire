@@ -27,12 +27,16 @@ namespace Solitaire.Gameplay.Spider {
 
         #region Public methods
         public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
-            if ( _cards == null     ||     _cards.Count == 0 ) {
-                throw new System.Exception( "Cards list is empty." );
+            if (_cards == null || _cards.Count == 0) {
+                throw new System.Exception("Cards list is empty.");
 
-            } else if( _cards.Count < initialCardsAmount ) {
-                throw new System.Exception( "There aren't enough cards "
-                                            + "to initialize CardContainer." );
+            } else if (_cards.Contains( null ) ) {
+                throw new System.NullReferenceException("There's a null element in the list of cards"
+                                                        + " passed for initialization.");
+            
+            } else if (_cards.Count < initialCardsAmount) {
+                throw new System.Exception("There aren't enough cards "
+                                            + "to initialize CardContainer.");
             }
 
             return AddInitializationCards( _cards );

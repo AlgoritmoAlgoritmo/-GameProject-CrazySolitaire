@@ -17,12 +17,16 @@ namespace Solitaire.Gameplay.Spider {
         private new UnityEngine.Collider2D collider;
         #endregion
 
+        #region MonoBehaviour methods
+        private void Awake() {
+            collider = GetComponent<UnityEngine.Collider2D>();
+            collider.enabled = false;
+        }
+        #endregion
+
 
         #region Public methods
         public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
-            collider = GetComponent<UnityEngine.Collider2D>();
-            collider.enabled = false;
-
             if ( _cards == null     ||     _cards.Count == 0 ) {
                 throw new System.Exception( "Cards list is empty." );
 

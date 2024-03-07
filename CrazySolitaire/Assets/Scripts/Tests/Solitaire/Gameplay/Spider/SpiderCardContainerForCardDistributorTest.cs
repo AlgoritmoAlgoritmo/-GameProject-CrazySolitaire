@@ -24,8 +24,8 @@ namespace Tests.Solitaire.Gameplay.Spider {
         private SpiderCardContainerForCardDistributor spiderCardContainerForCardDistributor;
 
         private const string CARD_PREFAB_PATH = "Assets/Prefabs/Gameplay/Card Prefab.prefab";
-        private const string SPIDER_CARDCONTAINER_FORCARDDISTRIBUTION_PREFAB_PATH = "Assets/Prefabs/Gameplay/Spider"
-                                                + "/CardDistributor.prefab";
+        private const string SPIDER_CARDCONTAINER_FORCARDDISTRIBUTION_PREFAB_PATH = "Assets/Prefabs/Gameplay/"
+                                                    + "Spider/CardDistributor.prefab";
         #endregion
 
 
@@ -148,6 +148,41 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
 
         [Test]
+        public void WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard() {
+            // Create list of cards
+            GameObject cardsGameObject = GameObject.Instantiate(new GameObject());
+            List<CardFacade> listForInitialization = new List<CardFacade>() {
+                                                        cardsGameObject.AddComponent<CardFacade>(),
+                                                        null,
+                                                        cardsGameObject.AddComponent<CardFacade>()
+                                                    };
+            int amountOfCardsToAddForInitialization = listForInitialization.Count;
+
+            // Check basic card container doesn't have any cards to avoid false positive
+            Assert.Zero(spiderCardContainerForCardDistributor.GetCards().Count,
+                        "casicCardContainer shouldn't contain any card but it does.");
+
+            // Assert initialization
+            Assert.Throws<System.NullReferenceException>(() =>
+                                                        spiderCardContainerForCardDistributor.Initialize(
+                                                                listForInitialization),
+                                                    "basicCardContainer should have thrown a "
+                                                            + "NullReferenceException error since at least one of "
+                                                            + "the elements of the list is null.");
+
+            // Check no card was added
+            Assert.Zero(spiderCardContainerForCardDistributor.GetCards().Count,
+                        "Cards have been added to basicCardContainer when they shouldn't.");
+            Assert.AreEqual(amountOfCardsToAddForInitialization,
+                            listForInitialization.Count,
+                            "listForInitialization amount of elements should be "
+                            + $"{amountOfCardsToAddForInitialization} but it's "
+                            + $"{listForInitialization.Count} instead."
+                        );
+        }
+
+
+        [Test]
         public void WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards() {
             //  Instantiate cards to add
             GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
@@ -188,6 +223,9 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
 
         }
+
+
+
         #endregion
     }
 }

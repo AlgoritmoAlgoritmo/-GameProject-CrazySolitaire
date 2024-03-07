@@ -20,6 +20,12 @@ namespace Solitaire.Gameplay.Spider {
 
         #region Public methods
         public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
+            if( _cards.Contains(null) ) {
+                throw new System.NullReferenceException("There's a null element in the list of cards"
+                                                                + " passed for initialization.");
+            }
+
+
             return AddInitializationCards( _cards );
         }
 

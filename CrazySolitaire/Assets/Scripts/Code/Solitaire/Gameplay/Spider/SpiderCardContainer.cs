@@ -88,6 +88,13 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public override void RemoveCards( List<CardFacade> _cards ) {
+            if (_cards.Contains(null)) {
+                throw new System.NullReferenceException("At least one of the "
+                                            + "elements in the list of cards passed "
+                                            + "for multiple card removal is null.");
+            }
+
+
             for( int i = _cards.Count - 1; i >= 0; i-- ) {
                 cards.Remove( _cards[i] );
             }
@@ -121,17 +128,14 @@ namespace Solitaire.Gameplay.Spider {
         #region Private methods
         public override void Refresh() {
             base.Refresh();
-
             
             // Deactivate physics from cards
             foreach( CardFacade auxCard in cards ) {
                 auxCard.ActivatePhysics( false );
             }
 
-
             // Flip up top card 
             CheckAndFlipUpperCard();
-
 
             //  If there aren't any cards left, activate collider
             //  so it can be detected by cards

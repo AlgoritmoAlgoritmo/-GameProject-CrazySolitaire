@@ -299,6 +299,35 @@ namespace Tests.Solitaire.Gameplay.Spider {
                     );
             }
         }
+
+
+        [Test]
+        public void WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException() {
+            //  Create list of cards
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
+            };
+
+            //  Add cards to container
+            spiderCardContainer.AddCards(listOfCardsToAdd);
+
+            //  Create list of cards to remove with a null element in it
+            List<CardFacade> listOfCardsToRemove = new List<CardFacade>() {
+                listOfCardsToAdd[1],
+                null,
+                listOfCardsToAdd[5]
+            };
+
+            //  Assert remove method
+            Assert.Throws<NullReferenceException>(() => spiderCardContainer.RemoveCards(
+                                                                    listOfCardsToRemove));
+        }
         #endregion
     }
 }

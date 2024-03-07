@@ -8,12 +8,13 @@
 using System;
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.TestTools;
 using Solitaire.Gameplay.Spider;
 using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay.Cards;
 using UnityEditor;
 using System.Collections.Generic;
+
+
 
 namespace Tests.Solitaire.Gameplay.Spider {
     public class SpiderCardContainerTest {
@@ -146,6 +147,39 @@ namespace Tests.Solitaire.Gameplay.Spider {
             //  Check no card was added
             Assert.Zero(spiderCardContainer.GetCards().Count,
                             "At least one card has been added to spiderCardContainer when it shouldn't.");
+        }
+
+
+        [Test]
+        public void WhenInitializing_ThenAddOnlyTheRightAmountOfCards() {
+            // Create list of cards to add
+            short defaultAmountOfCards = (short)UnityEngine.Random.Range(1, 50);
+            int amountOfCardsToAdd = UnityEngine.Random.Range(defaultAmountOfCards, 50);
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+
+            spiderCardContainer.SetDefaultAmountOfCards(defaultAmountOfCards);
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>();
+            for (int i = 0; i < amountOfCardsToAdd; i++) {
+                listOfCardsToAdd.Add( GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>());
+            }
+
+
+            // Check there aren't any cards already to avoid false positive
+            Assert.Zero( spiderCardContainer.GetCards().Count,
+                        "spiderCardContainer shouldn't contain any cards but it does.");
+
+            // Initialize spiderCardContainer
+            List<CardFacade> remainingCards = spiderCardContainer.Initialize(listOfCardsToAdd);
+
+            // Check cards have been added successfully
+            Assert.AreEqual(defaultAmountOfCards, spiderCardContainer.GetCards().Count,
+                            $"spiderCardContainer should contain {amountOfCardsToAdd} "
+                                    + $"but it has {spiderCardContainer.GetCards().Count} instead");
+            Assert.AreEqual((amountOfCardsToAdd - spiderCardContainer.GetCards().Count),
+                                remainingCards.Count,
+                                $"The remaining cards should be " +
+                                $"{amountOfCardsToAdd - spiderCardContainer.GetCards().Count} "
+                                + $"but there are {remainingCards.Count} instead.");
         }
         #endregion
     }

@@ -253,6 +253,52 @@ namespace Tests.Solitaire.Gameplay.Spider {
             // Assert null reference
             Assert.Throws<NullReferenceException>(() => spiderCardContainer.RemoveCard(null));
         }
+
+
+        [Test]
+        public void WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards() {
+            //  Instantiate cards to add
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
+            };
+
+            //  Add cards to containner
+            spiderCardContainer.AddCards(listOfCardsToAdd);
+
+            //  Save amount of cards
+            int amountOfCardsAfterAddition = spiderCardContainer.GetCards().Count;
+
+            //  Create list of cards to remove
+            List<CardFacade> listOfCardsToRemove = new List<CardFacade>() {
+                listOfCardsToAdd[1],
+                listOfCardsToAdd[3],
+                listOfCardsToAdd[5]
+            };
+
+            //  Remove multiple cards
+            spiderCardContainer.RemoveCards(listOfCardsToRemove);
+
+            //  Assert the remaining amount of cards in container is correct
+            Assert.AreEqual(amountOfCardsAfterAddition - listOfCardsToRemove.Count,
+                            spiderCardContainer.GetCards().Count,
+                            $"The container has {spiderCardContainer.GetCards().Count} "
+                                    + "when it was expected it to have "
+                                    + $"{amountOfCardsAfterAddition - listOfCardsToRemove.Count}.");
+
+            //  Assert cards for removal are not referenced by container
+            foreach (var auxCard in listOfCardsToRemove) {
+                Assert.False(spiderCardContainer.GetCards().Contains(auxCard),
+                            "At least one of the cards from listOfCardsToRemove "
+                                    + "wasn't successfully removed."
+                    );
+            }
+        }
         #endregion
     }
 }

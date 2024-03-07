@@ -187,9 +187,10 @@ namespace Tests.Solitaire.Gameplay.Spider {
             // Create list of cards
             GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
             List<CardFacade> listForInitialization = new List<CardFacade>() {
-                                                        cardFacadePrefab.GetComponent<CardFacade>(),
-                                                        null,
-                                                        cardFacadePrefab.GetComponent<CardFacade>() };
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                                null,
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
+                                            };
             int amountOfCardsToAddForInitialization = listForInitialization.Count;
 
             // Check basic card container doesn't have any cards to avoid false positive
@@ -209,9 +210,41 @@ namespace Tests.Solitaire.Gameplay.Spider {
             Assert.AreEqual(amountOfCardsToAddForInitialization,
                             listForInitialization.Count,
                             "listForInitialization amount of elements should be "
-                            + $"{amountOfCardsToAddForInitialization} but it's "
-                            + $"{listForInitialization.Count} instead."
+                                    + $"{amountOfCardsToAddForInitialization} but it's "
+                                    + $"{listForInitialization.Count} instead."
                         );
+        }
+
+
+        [Test]
+        public void WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards() {
+            //  Instantiate cards to add
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
+                                            };
+
+            //  Check spiderCardContainer doesn't have cards already
+            Assert.Zero(spiderCardContainer.GetCards().Count,
+                        "casicCardContainer shouldn't contain any card but it does.");
+
+            //  Add cards  to spiderCardContainer
+            spiderCardContainer.AddCards(listOfCardsToAdd);
+
+            //  Remove card
+            int indexOfTheCardToBeRemoved = UnityEngine.Random.Range(0, listOfCardsToAdd.Count - 1);
+            spiderCardContainer.RemoveCard(listOfCardsToAdd[indexOfTheCardToBeRemoved]);
+
+            //  Assert container doesn't have that card anymore and that the amount of cards is correct
+            Assert.False(spiderCardContainer.GetCards().Contains(listOfCardsToAdd[indexOfTheCardToBeRemoved]),
+                        "spiderCardContainer still  has the card that should have been removed.");
+            Assert.AreEqual(listOfCardsToAdd.Count - 1,
+                            spiderCardContainer.GetCards().Count,
+                            "The amount of cards in spiderCardContainer should be "
+                            + $"{listOfCardsToAdd.Count - 1} instead of {spiderCardContainer.GetCards().Count} ");
         }
         #endregion
     }

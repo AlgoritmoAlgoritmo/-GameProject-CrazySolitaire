@@ -225,7 +225,12 @@ namespace Tests.Solitaire.Gameplay.Spider {
         }
 
 
-
+        [Test]
+        public void WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException() {
+            // Assert null reference
+            Assert.Throws<NullReferenceException>(() => spiderCardContainerForCardDistributor
+                                                                                .RemoveCard(null));
+        }
         #endregion
     }
 }

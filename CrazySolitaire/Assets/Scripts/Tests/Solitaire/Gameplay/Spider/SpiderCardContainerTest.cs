@@ -6,13 +6,13 @@
 
 
 using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEditor;
 using Solitaire.Gameplay.Spider;
 using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay.Cards;
-using UnityEditor;
-using System.Collections.Generic;
 
 
 

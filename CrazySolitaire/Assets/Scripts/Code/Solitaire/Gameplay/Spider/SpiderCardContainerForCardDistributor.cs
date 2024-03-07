@@ -34,13 +34,13 @@ namespace Solitaire.Gameplay.Spider {
         }
 
 
-        public override void RemoveCards( List<CardFacade> _cards ) {
-            throw new System.NotImplementedException();
+        public override void RemoveCard(CardFacade _card) {
+            cards.Remove( _card );
         }
 
 
-        public override void RemoveCard(CardFacade _card) {
-            cards.Remove( _card );
+        public override void RemoveCards( List<CardFacade> _cards ) {
+            throw new System.NotImplementedException();
         }
         #endregion
 

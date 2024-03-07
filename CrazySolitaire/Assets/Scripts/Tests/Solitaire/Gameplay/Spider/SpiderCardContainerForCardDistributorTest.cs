@@ -145,7 +145,49 @@ namespace Tests.Solitaire.Gameplay.Spider {
                                 $"{amountOfCardsToAdd - spiderCardContainerForCardDistributor.GetCards().Count} "
                                 + $"but there are {remainingCards.Count} instead.");
         }
-    
+
+
+        [Test]
+        public void WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards() {
+            //  Instantiate cards to add
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
+                                };
+            int amountOfCardsToAdd = listOfCardsToAdd.Count;
+            spiderCardContainerForCardDistributor.SetDefaultAmountOfCards((short)amountOfCardsToAdd);
+            int indexOfTheCardToBeRemoved = UnityEngine.Random.Range(0, listOfCardsToAdd.Count - 1);
+            CardFacade cardToRemove = listOfCardsToAdd[indexOfTheCardToBeRemoved];
+
+            //  Check spiderCardContainer doesn't have cards already
+            Assert.Zero(spiderCardContainerForCardDistributor.GetCards().Count,
+                        "casicCardContainer shouldn't contain any card but it does.");
+
+            //  Initialize spiderCardContainer
+            spiderCardContainerForCardDistributor.Initialize( listOfCardsToAdd );
+
+            //  Remove card
+            spiderCardContainerForCardDistributor.RemoveCard(cardToRemove);
+
+            //  Assert container doesn't have that card anymore and that the amount of cards is correct
+            Assert.False(spiderCardContainerForCardDistributor.GetCards().Contains(cardToRemove),
+                        "spiderCardContainer still  has the card that should have been removed.");
+
+            Assert.False(spiderCardContainerForCardDistributor.GetCards().Contains(null),
+                            "spiderCardContainerForCardDistributor contains a null element in "
+                                    + "its list of cards.");
+
+            Assert.AreEqual( amountOfCardsToAdd -1,
+                            spiderCardContainerForCardDistributor.GetCards().Count,
+                            "The amount of cards in spiderCardContainerForCardDistributor should be "
+                                    + $"{amountOfCardsToAdd - 1} instead of "
+                                    + $"{spiderCardContainerForCardDistributor.GetCards().Count} ");
+
+
+        }
         #endregion
     }
 }

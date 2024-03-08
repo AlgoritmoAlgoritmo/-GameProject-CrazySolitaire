@@ -166,13 +166,13 @@ namespace Tests.Solitaire.Gameplay.Spider {
             Assert.Throws<System.NullReferenceException>(() =>
                                                         spiderCardContainerForCardDistributor.Initialize(
                                                                 listForInitialization),
-                                                    "basicCardContainer should have thrown a "
+                                                    "spiderCardContainerForCardDistributor should have thrown a "
                                                             + "NullReferenceException error since at least one of "
                                                             + "the elements of the list is null.");
 
             // Check no card was added
             Assert.Zero(spiderCardContainerForCardDistributor.GetCards().Count,
-                        "Cards have been added to basicCardContainer when they shouldn't.");
+                        "Cards have been added to spiderCardContainerForCardDistributor when they shouldn't.");
             Assert.AreEqual(amountOfCardsToAddForInitialization,
                             listForInitialization.Count,
                             "listForInitialization amount of elements should be "
@@ -230,6 +230,49 @@ namespace Tests.Solitaire.Gameplay.Spider {
             // Assert null reference
             Assert.Throws<NullReferenceException>(() => spiderCardContainerForCardDistributor
                                                                                 .RemoveCard(null));
+        }
+
+
+        [Test]
+        public void WhenCallMethodForMultipleCardRemoval_ThenThrowNotImplementedException() {
+            //  Instantiate cards to add
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
+                                };
+            int amountOfCardsToAdd = listOfCardsToAdd.Count;
+            spiderCardContainerForCardDistributor.SetDefaultAmountOfCards((short)amountOfCardsToAdd);
+
+            //  Create list of cards to remove
+            List<CardFacade> listOfCardsToRemove = new List<CardFacade>() {
+                listOfCardsToAdd[1],
+                listOfCardsToAdd[3],
+                listOfCardsToAdd[5]
+            };
+
+            //  Add cards to containner
+            spiderCardContainerForCardDistributor.Initialize(listOfCardsToAdd);
+
+            //  Save amount of cards
+            int amountOfCardsAfterAddition = spiderCardContainerForCardDistributor.GetCards().Count;
+
+            //  Assert ramoval of multiple cards
+            Assert.Throws<NotImplementedException>( () =>
+                                    spiderCardContainerForCardDistributor.RemoveCards(listOfCardsToRemove),
+                                    "spiderCardContainerForCardDistributor.RemoveCards must throw a "
+                                            + "NotImplementedException."
+                                );
+
+            //  Assert the remaining amount of cards in container is correct
+            Assert.AreEqual(amountOfCardsAfterAddition,
+                            spiderCardContainerForCardDistributor.GetCards().Count,
+                            $"The container has {spiderCardContainerForCardDistributor.GetCards().Count} "
+                                    + $"when it was expected it to have {amountOfCardsToAdd}.");
         }
         #endregion
     }

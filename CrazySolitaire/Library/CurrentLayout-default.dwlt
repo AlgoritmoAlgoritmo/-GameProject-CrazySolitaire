@@ -16,8 +16,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 43
-    width: 1366
-    height: 685
+    width: 1600
+    height: 817
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
@@ -44,8 +44,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1366
-    height: 685
+    width: 1600
+    height: 817
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
@@ -65,7 +65,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1366
+    width: 1600
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -86,8 +86,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 665
-    width: 1366
+    y: 797
+    width: 1600
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -110,12 +110,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1366
-    height: 635
+    width: 1600
+    height: 767
   m_MinSize: {x: 332, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 63
+  controlID: 113
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,8 +133,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 471
-    height: 635
+    width: 552
+    height: 767
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 10}
@@ -162,14 +162,14 @@ MonoBehaviour:
   - {fileID: 9}
   m_Position:
     serializedVersion: 2
-    x: 471
+    x: 552
     y: 0
-    width: 895
-    height: 635
+    width: 1048
+    height: 767
   m_MinSize: {x: 231, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 64
+  controlID: 19
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,8 +187,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 895
-    height: 364
+    width: 1048
+    height: 440
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
@@ -214,9 +214,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 364
-    width: 895
-    height: 271
+    y: 440
+    width: 1048
+    height: 327
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 17}
@@ -247,20 +247,20 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 470
-    height: 614
+    width: 551
+    height: 746
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 122
-    splitterInitialOffset: 322
+    ID: 143
+    splitterInitialOffset: 373
     currentActiveSplitter: -1
-    realSizes: ff00000021010000
+    realSizes: 7a0100002a010000
     relativeSizes:
-    - 0.46875
-    - 0.53125
+    - 0.5588235
+    - 0.44117647
     minSizes: 2000000020000000
     maxSizes: 0000000000000000
-    lastTotalSize: 544
+    lastTotalSize: 676
     splitSize: 6
     xOffset: 0
   m_TestTypeToolbarIndex: 0
@@ -272,7 +272,7 @@ MonoBehaviour:
       name: CrazySolitaire
       fullName: CrazySolitaire
       resultStatus: 1
-      duration: 1.36689
+      duration: 1.0536213
       messages: 
       output: 
       stacktrace: 
@@ -288,7 +288,7 @@ MonoBehaviour:
       name: _Tests.dll
       fullName: C:/Users/Usuario/Documents/GitHub/CrazySolitaire/CrazySolitaire/Library/ScriptAssemblies/_Tests.dll
       resultStatus: 1
-      duration: 0.5743492
+      duration: 0.4701177
       messages: 
       output: 
       stacktrace: 
@@ -304,7 +304,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.5293123
+      duration: 0.4460815
       messages: 
       output: 
       stacktrace: 
@@ -320,7 +320,7 @@ MonoBehaviour:
       name: Solitaire
       fullName: Tests.Solitaire
       resultStatus: 1
-      duration: 0.4903051
+      duration: 0.4165542
       messages: 
       output: 
       stacktrace: 
@@ -336,7 +336,7 @@ MonoBehaviour:
       name: Gameplay
       fullName: Tests.Solitaire.Gameplay
       resultStatus: 1
-      duration: 0.4658798
+      duration: 0.3855867
       messages: 
       output: 
       stacktrace: 
@@ -838,7 +838,7 @@ MonoBehaviour:
       name: Spider
       fullName: Tests.Solitaire.Gameplay.Spider
       resultStatus: 1
-      duration: 0.4379063
+      duration: 0.3585572
       messages: 
       output: 
       stacktrace: 
@@ -854,7 +854,7 @@ MonoBehaviour:
       name: SpiderCardContainerForCardDistributorTest
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributorTest
       resultStatus: 1
-      duration: 0.3950183
+      duration: 0.3287657
       messages: 
       output: 
       stacktrace: 
@@ -922,6 +922,23 @@ MonoBehaviour:
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributorTest.WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards
       resultStatus: 1
       duration: 0.2017448
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributorTest][suite]
+    - id: 1009
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderCardContainerForCardDistributorTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributorTest.WhenCallMethodForMultipleCardRemoval_ThenThrowNotImplementedException]
+      name: WhenCallMethodForMultipleCardRemoval_ThenThrowNotImplementedException
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributorTest.WhenCallMethodForMultipleCardRemoval_ThenThrowNotImplementedException
+      resultStatus: 1
+      duration: 0.2030228
       messages: 
       output: 
       stacktrace: 
@@ -1187,13 +1204,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1006
       parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest][suite]
-    m_ResultText: WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
-      (0.206s)
+    m_ResultText: WhenCallMethodForMultipleCardRemoval_ThenThrowNotImplementedException
+      (0.203s)
     m_ResultStacktrace: 
     m_TestListState:
-      scrollPos: {x: 0, y: 21}
-      m_SelectedIDs: 81ed1d1c
-      m_LastClickedID: 471723393
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 96879516
+      m_LastClickedID: 378898326
       m_ExpandedIDs: a3910e89dec2a494cf517c9e848ce6a6d022b3a7f71059aea508d4ae1d5efbb28e7773bc7dcfdfccea07aed6f6d17ddfc49cc5e01c26e9e02a1999e2e268c1eebae7def01c2f29f257d1e5f2f5b10cfd9677d7180cae45254412e425c52af9310be85349d6af7253e163206caa33dd715c71d074ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -1380,7 +1397,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 26aeffff44aeffffc6aeffffdaaffffff8afffff78b0ffff44b1ffff62b1ffffe2b1fffffcb2ffff1ab3ffffa6b3fffff0b4ffff0eb5ffffa4b5ffff1cb7ffff3ab7ffff34b8ffff4ab9ffff68b9ffff6cbaffff7ebbffff9abbffffb8bbffff84bcffffa2bcffff9cbdffffeabeffff08bfffff02c0ffffc0c0ffffdec0ffffd8c1ffff2ec3ffff4cc3ffff46c4ffff58c5ffff76c5ffff70c6ffff2ac7ffff48c7ffff42c8ffff5ec9ffff7cc9ffff76caffff88cbffffa6cbffffa0ccffff6cceffff8aceffff8ecfffffa0d0ffffbed0ffffbad1ffffd2d2fffff0d2ffffead3ffffeed5ffff0cd6ffff42f9ffff14fbffff
+      m_ExpandedIDs: 52ddffff70ddffffa6deffffc0dfffffdedfffff14e1ffff2ae2ffff48e2ffff7ee3ffffd6e4fffff4e4ffff2ae6ffff36e7ffff54e7ffff8ae8ffff46e9ffff64e9ffff9aeaffffbcebffffdaebffff10edffffc8edffffe6edffff1cefffff64f0ffff82f0ffff16f1ffff52f3ffff70f3ffff04f4ffffc0f4ffffdef4ffff72f5ffff18f7ffff36f7ffffcaf7ffffdaf8fffff8f8ffff92f9ffff62fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1604,10 +1621,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 471
+    x: 552
     y: 73
-    width: 894
-    height: 343
+    width: 1047
+    height: 419
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
   m_SerializedViewValues: []
@@ -1617,7 +1634,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 572, y: 322}
+  m_TargetSize: {x: 708, y: 398}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1632,10 +1649,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -286
-    m_HBaseRangeMax: 286
-    m_VBaseRangeMin: -161
-    m_VBaseRangeMax: 161
+    m_HBaseRangeMin: -354
+    m_HBaseRangeMax: 354
+    m_VBaseRangeMin: -199
+    m_VBaseRangeMax: 199
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -1653,23 +1670,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 894
-      height: 322
+      width: 1047
+      height: 398
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 447, y: 161}
+    m_Translation: {x: 523.5, y: 199}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -447
-      y: -161
-      width: 894
-      height: 322
+      x: -523.5
+      y: -199
+      width: 1047
+      height: 398
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 894, y: 343}
+  m_LastWindowPixelSize: {x: 1047, y: 419}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 0
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -1696,10 +1713,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 471
-    y: 437
-    width: 894
-    height: 250
+    x: 552
+    y: 513
+    width: 1047
+    height: 306
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -1714,20 +1731,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Tests/Solitaire/Gameplay/CardContainers
+    - Assets/Scripts/Tests/Solitaire/Gameplay/Spider
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Tests/Solitaire/Gameplay/CardContainers
+  - Assets/Scripts/Tests/Solitaire/Gameplay/Spider
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 54}
-    m_SelectedIDs: 88470000
-    m_LastClickedID: 18312
-    m_ExpandedIDs: 0000000046460000484600004a4600004c4600004e46000050460000524600005446000056460000584600005a4600005c4600005e46000060460000624600006646000068460000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 78460000
+    m_LastClickedID: 18040
+    m_ExpandedIDs: 000000004446000046460000484600004a4600004c4600004e46000050460000524600005446000056460000584600005a4600005c4600005e460000604600006246000064460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1755,7 +1772,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000046460000484600004a4600004c4600004e46000050460000524600005446000056460000584600005a4600005c4600005e4600006046000062460000644600006646000068460000
+    m_ExpandedIDs: 000000004446000046460000484600004a4600004c4600004e46000050460000524600005446000056460000584600005a4600005c4600005e460000604600006246000064460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -58,7 +58,6 @@ namespace Tests.Solitaire.Gameplay.Spider {
                                 "SpiderGameModeMock must inherit from SpiderGameMode instance.");
         }
 
-
         [Test]
         public void SpiderGameMode_InheritsFromAbstractGameMode() {
             // Instantiate SpiderGameMode object
@@ -69,7 +68,6 @@ namespace Tests.Solitaire.Gameplay.Spider {
             Assert.IsInstanceOf(typeof(AbstractGameMode), spiderGameMode,
                                 "spiderGameMode must be a AbstractGameMode instance.");
         }
-
 
         [Test]
         public void WhenInitializing_ThenDistributeCardsToContainersPropperly() {
@@ -102,7 +100,6 @@ namespace Tests.Solitaire.Gameplay.Spider {
                                     + $"instead of {spiderGameModeMock.GetAmountOfDistributedCards()}.");
         }
 
-
         [Test]
         public void WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException() {
             List<CardFacade> listOfCards = new List<CardFacade>();
@@ -122,7 +119,6 @@ namespace Tests.Solitaire.Gameplay.Spider {
                                     + $"{currentAmountOfCardsBeforeInitialization} instead of "
                                     + $"{spiderGameModeMock.GetAmountOfDistributedCards()}." );
         }
-
 
         [Test]
         public void WhenInitializingListWithNullElement_ThenThrowNullReferenceException() {
@@ -168,6 +164,25 @@ namespace Tests.Solitaire.Gameplay.Spider {
                                     + $"{currentAmountOfCardsBeforeInitialization} instead of "
                                     + $"{spiderGameModeMock.GetAmountOfDistributedCards()}.");
         }
+
+        [Test]
+        public void WhenCardIsFacingDown_ThenDeactivateDragging() {
+            // Create facing down card
+            CardFacade card = SpawnNewCard();
+
+            // Set card facing down
+            card.FlipCard(false);
+
+            // Set card can bedragging to true
+            card.SetCanBeDragged(true);
+
+            // Validate card dragging
+            spiderGameModeMock.ValidateCardDragging(card);
+
+            // Assert cannot be dragged
+            Assert.IsFalse(card.gameObject.GetComponent<CardPhysics>().CanBeDragged,
+                            "card shouldn't be draggable." );
+        }
         #endregion
 
 
@@ -197,6 +212,14 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
             return listOfSpawnedCards;
         }        
+
+        private CardFacade SpawnNewCard() {
+            GameObject cardFacadePrefabGameObject = GameObject.Instantiate(AssetDatabase
+                                                        .LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH));
+            CardFacade cardFacadePrefab = cardFacadePrefabGameObject.GetComponent<CardFacade>();
+            
+            return GameObject.Instantiate(cardFacadePrefabGameObject ).GetComponent<CardFacade>();
+        }
         #endregion
     }
 }

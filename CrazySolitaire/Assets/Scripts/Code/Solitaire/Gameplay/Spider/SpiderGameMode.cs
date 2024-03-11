@@ -140,6 +140,10 @@ namespace Solitaire.Gameplay.Spider {
 
 
         protected override bool CanCardBeDragged( CardFacade _card ) {
+            if(  !_card.IsFacingUp() ) {
+                return false;
+            }
+
             if ( !_card.ChildCard ) {
                 return true;
             }

@@ -18,6 +18,10 @@ namespace Solitaire.Gameplay.Cards {
         #region Variables
         [SerializeField]
         private bool canBeDragged;
+        public bool CanBeDragged {
+            get => canBeDragged;
+        }
+
         private Collider2D attachedCollider2D;
         private List<Collider2D> detectedColliders = new List<Collider2D>();
 

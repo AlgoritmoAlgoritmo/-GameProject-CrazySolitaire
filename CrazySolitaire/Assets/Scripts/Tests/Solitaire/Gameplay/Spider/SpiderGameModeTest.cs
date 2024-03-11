@@ -73,43 +73,21 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
         [Test]
         public void WhenInitializing_ThenDistributeCardsToContainersPropperly() {
+            int amountOfAbstractCardContainersToSpawn = 2;
+            int amountOfCardsToSpawn = 26;
+
             // Instantiate CardContainers and add them to spiderGameModeMock
-            GameObject spiderCardContaierPrefabInstance = GameObject.Instantiate(
-                                                            AssetDatabase.LoadAssetAtPath<GameObject>(
-                                                                SPIDERCARDCONTAINERM_PREFAB_PATH));
-            List<AbstractCardContainer> listOfCardContainersToAdd = new List<AbstractCardContainer>() {
-                                                GameObject.Instantiate(spiderCardContaierPrefabInstance)
-                                                                    .GetComponent<AbstractCardContainer>(),
-                                                GameObject.Instantiate(spiderCardContaierPrefabInstance)
-                                                                    .GetComponent<AbstractCardContainer>()
-                                        };            
-            
+            List<AbstractCardContainer> listOfCardContainersToAdd = SpawnTheFollowingAmountOfAbstractCardContainers(
+                                                                                amountOfAbstractCardContainersToSpawn);
             // Set up amount of cards to spawn
-            spiderGameModeMock.SetAmountPerSuit(2);
+            spiderGameModeMock.SetAmountPerSuit((short)amountOfAbstractCardContainersToSpawn);
             foreach( var auxContainer in listOfCardContainersToAdd ) {
-                auxContainer.SetDefaultAmountOfCards((short) (26 / listOfCardContainersToAdd.Count));
+                auxContainer.SetDefaultAmountOfCards((short) (amountOfCardsToSpawn / listOfCardContainersToAdd.Count));
             }
             spiderGameModeMock.SetCardContainers(listOfCardContainersToAdd);
 
             // Create list of cards for SpiderGameMode initialization
-            GameObject cardFacadePrefabGameObject = GameObject.Instantiate( AssetDatabase
-                                                        .LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH) );
-            CardFacade cardFacadePrefab = cardFacadePrefabGameObject.GetComponent<CardFacade>();
-            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
-                                        GameObject.Instantiate( cardFacadePrefabGameObject )
-                                                                    .GetComponent<CardFacade>(),
-                                        GameObject.Instantiate( cardFacadePrefabGameObject )
-                                                                    .GetComponent<CardFacade>(),
-                                        GameObject.Instantiate( cardFacadePrefabGameObject )
-                                                                    .GetComponent<CardFacade>(),
-                                        GameObject.Instantiate( cardFacadePrefabGameObject )
-                                                                    .GetComponent<CardFacade>(),
-                                        GameObject.Instantiate( cardFacadePrefabGameObject )
-                                                                    .GetComponent<CardFacade>(),
-                                        GameObject.Instantiate( cardFacadePrefabGameObject )
-                                                                    .GetComponent<CardFacade>()
-                                    };
-            int amountOfCardsToBeAdded = listOfCardsToAdd.Count;
+            List<CardFacade> listOfCardsToAdd = SpawnTheFollowingamountOfCards(amountOfCardsToSpawn);
 
             // Check amount of cards before initialization
             Assert.Zero( spiderGameModeMock.GetAmountOfDistributedCards(),
@@ -119,10 +97,42 @@ namespace Tests.Solitaire.Gameplay.Spider {
             spiderGameModeMock.Initialize(listOfCardsToAdd);
 
             // Check amount of distributed cards after initialization
-            Assert.AreEqual(amountOfCardsToBeAdded, spiderGameModeMock.GetAmountOfDistributedCards(),
-                            $"spiderGameModeMock should contain {amountOfCardsToBeAdded} "
+            Assert.AreEqual(amountOfCardsToSpawn, spiderGameModeMock.GetAmountOfDistributedCards(),
+                            $"spiderGameModeMock should contain {amountOfCardsToSpawn} "
                                     + $"instead of {spiderGameModeMock.GetAmountOfDistributedCards()}.");
         }
+
+
+
+        #endregion
+
+
+        #region Private methods 
+        private List<AbstractCardContainer> SpawnTheFollowingAmountOfAbstractCardContainers( int _amount) {
+            GameObject spiderCardContaierPrefabInstance = GameObject.Instantiate(
+                            AssetDatabase.LoadAssetAtPath<GameObject>(SPIDERCARDCONTAINERM_PREFAB_PATH));
+            List<AbstractCardContainer> listOfCardContainersToAdd = new List<AbstractCardContainer>();
+
+            for (int i = 0; i < _amount; i++) {
+                listOfCardContainersToAdd.Add(GameObject.Instantiate(spiderCardContaierPrefabInstance)
+                                                                .GetComponent<AbstractCardContainer>());
+            }
+
+            return listOfCardContainersToAdd;
+        }
+
+        private List<CardFacade> SpawnTheFollowingamountOfCards( int _amountOfCards ) {
+            GameObject cardFacadePrefabGameObject = GameObject.Instantiate(AssetDatabase
+                                                        .LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH));
+            CardFacade cardFacadePrefab = cardFacadePrefabGameObject.GetComponent<CardFacade>();
+            List<CardFacade> listOfSpawnedCards = new List<CardFacade>();
+            for (int i = 0; i < _amountOfCards; i++) {
+                listOfSpawnedCards.Add(GameObject.Instantiate(cardFacadePrefabGameObject)
+                                                                .GetComponent<CardFacade>());
+            }
+
+            return listOfSpawnedCards;
+        }        
         #endregion
     }
 }

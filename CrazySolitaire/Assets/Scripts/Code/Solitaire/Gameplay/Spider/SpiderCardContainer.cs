@@ -35,8 +35,9 @@ namespace Solitaire.Gameplay.Spider {
                                                         + " passed for initialization.");
             
             } else if (_cards.Count < initialCardsAmount) {
-                throw new System.Exception("There aren't enough cards "
-                                            + "to initialize CardContainer.");
+                throw new System.Exception("There aren't enough cards to initialize CardContainer. "
+                                            + $"It was expected to {initialCardsAmount} but received"
+                                            + $" {_cards.Count} instead. ");
             }
 
             return AddInitializationCards( _cards );

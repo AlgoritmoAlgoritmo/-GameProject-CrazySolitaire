@@ -287,6 +287,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
         }
 
 
+        // Add other test values
         [Test]
         public void WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer() {
             int amountOfCardsToSpawn = 3;
@@ -325,9 +326,26 @@ namespace Tests.Solitaire.Gameplay.Spider {
                                     + $"instead of {cardContainersForSpiderGameModeMock[i].GetCards().Count}.");
 
                 Assert.IsTrue(cardsToDistribute[i].IsFacingUp(),
-                                "Card should be facing up.");
+                                "Card should be facing up." );
             }
+        }
 
+
+        [Test]
+        public void WhenReceivesNullObjectForCardDistribution_ThenThrowNullReferenceException() {
+            int amountOfCardContainers = 3;
+
+            // Create card containers for SpiderGameModeMock
+            List<AbstractCardContainer> cardContainersForSpiderGameModeMock
+                            = SpawnTheFollowingAmountOfAbstractCardContainers(amountOfCardContainers);
+
+            // Add card containers to SpiderGameModeMock
+            spiderGameModeMock.SetCardContainers( cardContainersForSpiderGameModeMock );
+
+            // Distribute cards
+            Assert.Throws<NullReferenceException>(() =>
+                            spiderGameModeMock.DistributeCardsBetweenCardContainers(null),
+                            "Check the passed object was null.");
         }
         #endregion
 

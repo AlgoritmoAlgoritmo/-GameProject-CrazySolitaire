@@ -187,7 +187,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
         [Test]
         public void WhenCardIsFacingUpWithNoChild_ThenActivateDragging() {
-            // Create facing down card
+            // Create card to validate
             CardFacade card = SpawnNewCard();
 
             // Set card facing up without child
@@ -203,6 +203,32 @@ namespace Tests.Solitaire.Gameplay.Spider {
             // Assert cannot be dragged
             Assert.IsTrue( card.gameObject.GetComponent<CardPhysics>().CanBeDragged,
                             "card should be draggable.");
+        }
+
+
+        [Test]
+        public void WhenCardIsFacingUpWithValidChild_ThenActivateDragging() {
+            // Create card to validate
+            CardFacade cardToValidate = SpawnNewCard();
+            cardToValidate.SetCardData(new CardData(5, "SPADES", "BLACK", "PARENT"));
+
+            // Create calid child card
+            CardFacade childCard = SpawnNewCard();
+            childCard.SetCardData(new CardData(4, "SPADES", "BLACK", "CHILD"));
+
+            // Set prent facing up and child card
+            cardToValidate.FlipCard(true);
+            cardToValidate.SetChildCard(childCard);
+
+            // Set card can bedragging to false
+            cardToValidate.SetCanBeDragged(false);
+
+            // Validate card dragging
+            spiderGameModeMock.ValidateCardDragging(cardToValidate);
+
+            // Assert cannot be dragged
+            Assert.IsTrue(cardToValidate.gameObject.GetComponent<CardPhysics>().CanBeDragged,
+                            "card should be draggable. Check its child card is valid.");
         }
         #endregion
 

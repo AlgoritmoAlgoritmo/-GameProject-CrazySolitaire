@@ -24,7 +24,11 @@ namespace Solitaire.Gameplay.Spider {
 
         #region Public methods
         public override void Initialize(List<CardFacade> _cards) {
-            if( cardContainers.Count < 1 ) {
+            if( _cards.Contains(null) ) {
+                throw new NullReferenceException("The list of cards passed for "
+                                        + "initialization contains a null element.");
+
+            } else if( _cards.Count < 1 ) {
                 throw new IndexOutOfRangeException("The list of cards passed for "
                                                     + "initialization is empty.");
             }

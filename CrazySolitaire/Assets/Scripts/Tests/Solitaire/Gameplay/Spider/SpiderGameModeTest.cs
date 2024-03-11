@@ -104,7 +104,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
 
         [Test]
-        public void WhenInitializingEmptyListOfCards_ThenThrowException() {
+        public void WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException() {
             List<CardFacade> listOfCards = new List<CardFacade>();
             int currentAmountOfCardsBeforeInitialization = spiderGameModeMock.GetAmountOfDistributedCards();
 
@@ -121,6 +121,33 @@ namespace Tests.Solitaire.Gameplay.Spider {
                             "spiderGameModeMock amount of cards changed: it should have "
                                     + $"{currentAmountOfCardsBeforeInitialization} instead of "
                                     + $"{spiderGameModeMock.GetAmountOfDistributedCards()}." );
+        }
+
+
+        [Test]
+        public void WhenInitializingListWithNullElement_ThenThrowException() {
+            // Create list of cards
+            List<CardFacade> listOfCards = SpawnTheFollowingamountOfCards(10);
+            int currentAmountOfCardsBeforeInitialization = spiderGameModeMock.GetAmountOfDistributedCards();
+
+
+            // Add null element to list
+            listOfCards[UnityEngine.Random.Range(0, listOfCards.Count - 1)] = null;
+
+
+            // Assert addition of list of cards with null element
+            Assert.Throws<NullReferenceException>( () => spiderGameModeMock.Initialize(listOfCards),
+                            "spiderGameModeMock didn't throw NullReferenceException as expected. "
+                                    + "Check if the list contains a null element."
+            );
+
+
+            // Assert the amount of cards from spiderGameModeMock didn't change
+            Assert.AreEqual(currentAmountOfCardsBeforeInitialization,
+                            spiderGameModeMock.GetAmountOfDistributedCards(),
+                            "spiderGameModeMock amount of cards changed: it should have "
+                                    + $"{currentAmountOfCardsBeforeInitialization} instead of "
+                                    + $"{spiderGameModeMock.GetAmountOfDistributedCards()}.");
         }
         #endregion
 

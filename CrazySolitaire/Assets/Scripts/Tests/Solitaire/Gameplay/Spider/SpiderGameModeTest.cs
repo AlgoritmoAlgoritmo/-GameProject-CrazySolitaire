@@ -206,6 +206,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
         }
 
 
+        // Add other test values
         [Test]
         public void WhenCardIsFacingUpWithValidChild_ThenActivateDragging() {
             // Create card to validate
@@ -232,6 +233,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
         }
 
 
+        // Add other test values
         [Test]
         public void WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging() {
             // Create card to validate
@@ -258,6 +260,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
         }
 
 
+        // Add other test values
         [Test]
         public void WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging() {
             // Create card to validate
@@ -282,11 +285,55 @@ namespace Tests.Solitaire.Gameplay.Spider {
             Assert.IsFalse(cardToValidate.gameObject.GetComponent<CardPhysics>().CanBeDragged,
                             "card should not be draggable. Check its child card is invalid.");
         }
+
+
+        [Test]
+        public void WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer() {
+            int amountOfCardsToSpawn = 3;
+
+            // Create list of cards to distribute
+            List<CardFacade> cardsToDistribute = SpawnTheFollowingamountOfCards(amountOfCardsToSpawn);
+
+            // Create card container for distribution
+            AbstractCardContainer cardContainerForDistribution = SpawnTheFollowingAmountOfAbstractCardContainers(1)[0];
+
+            // Add cards to card container
+            cardContainerForDistribution.AddCards(cardsToDistribute);
+
+            // Create card containers for SpiderGameModeMock
+            List<AbstractCardContainer> cardContainersForSpiderGameModeMock
+                            = SpawnTheFollowingAmountOfAbstractCardContainers(amountOfCardsToSpawn);
+
+            // Add card containers to SpiderGameModeMock
+            spiderGameModeMock.SetCardContainers(cardContainersForSpiderGameModeMock);
+
+            // Check amount of cards per container before distribution
+            List<int> amountOfCardsPerContainer = new List<int>();
+            foreach( AbstractCardContainer auxContainer in cardContainersForSpiderGameModeMock) {
+                amountOfCardsPerContainer.Add(auxContainer.GetCards().Count);
+            }
+
+            // Distribute cards
+            spiderGameModeMock.DistributeCardsBetweenCardContainers(cardContainerForDistribution);
+
+            // Check amount of cards per container after distribution
+            for( int i = 0; i < cardContainersForSpiderGameModeMock.Count; i++ ) {
+                Assert.AreEqual( amountOfCardsPerContainer[i] + 1,
+                                cardContainersForSpiderGameModeMock[i].GetCards().Count,
+                                "At least one of the containers should have doesn't have the correct "
+                                    + $"amount of cards. (Itshould have {amountOfCardsPerContainer[i] + 1} "
+                                    + $"instead of {cardContainersForSpiderGameModeMock[i].GetCards().Count}.");
+
+                Assert.IsTrue(cardsToDistribute[i].IsFacingUp(),
+                                "Card should be facing up.");
+            }
+
+        }
         #endregion
 
 
         #region Private methods 
-        private List<AbstractCardContainer> SpawnTheFollowingAmountOfAbstractCardContainers( int _amount) {
+        private List<AbstractCardContainer> SpawnTheFollowingAmountOfAbstractCardContainers( int _amount ) {
             GameObject spiderCardContaierPrefabInstance = GameObject.Instantiate(
                             AssetDatabase.LoadAssetAtPath<GameObject>(SPIDERCARDCONTAINERM_PREFAB_PATH));
             List<AbstractCardContainer> listOfCardContainersToAdd = new List<AbstractCardContainer>();

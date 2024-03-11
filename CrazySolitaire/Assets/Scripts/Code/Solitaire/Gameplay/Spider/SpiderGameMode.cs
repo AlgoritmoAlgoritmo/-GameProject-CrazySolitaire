@@ -62,8 +62,7 @@ namespace Solitaire.Gameplay.Spider {
         }
 
 
-        public void DistributeCardsBetweenCardContainers(
-                                            AbstractCardContainer _cardContainer) {
+        public void DistributeCardsBetweenCardContainers(AbstractCardContainer _cardContainer) {
             List<CardFacade> auxCardsToDistribute = _cardContainer.GetCards();
 
             for( int i = auxCardsToDistribute.Count - 1; i >= 0; i-- ) {

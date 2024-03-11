@@ -125,7 +125,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
 
         [Test]
-        public void WhenInitializingListWithNullElement_ThenThrowException() {
+        public void WhenInitializingListWithNullElement_ThenThrowNullReferenceException() {
             // Create list of cards
             List<CardFacade> listOfCards = SpawnTheFollowingamountOfCards(10);
             int currentAmountOfCardsBeforeInitialization = spiderGameModeMock.GetAmountOfDistributedCards();
@@ -139,6 +139,25 @@ namespace Tests.Solitaire.Gameplay.Spider {
             Assert.Throws<NullReferenceException>( () => spiderGameModeMock.Initialize(listOfCards),
                             "spiderGameModeMock didn't throw NullReferenceException as expected. "
                                     + "Check if the list contains a null element."
+            );
+
+
+            // Assert the amount of cards from spiderGameModeMock didn't change
+            Assert.AreEqual(currentAmountOfCardsBeforeInitialization,
+                            spiderGameModeMock.GetAmountOfDistributedCards(),
+                            "spiderGameModeMock amount of cards changed: it should have "
+                                    + $"{currentAmountOfCardsBeforeInitialization} instead of "
+                                    + $"{spiderGameModeMock.GetAmountOfDistributedCards()}.");
+        }
+
+        [Test]
+        public void WhenInitializingWithNullObject_ThenThrowNullReferenceException() {
+            int currentAmountOfCardsBeforeInitialization = spiderGameModeMock.GetAmountOfDistributedCards();
+
+            // Assert addition of list of cards with null element
+            Assert.Throws<NullReferenceException>(() => spiderGameModeMock.Initialize(null),
+                            "spiderGameModeMock didn't throw NullReferenceException as expected. "
+                                    + "Check if the object is actually null."
             );
 
 

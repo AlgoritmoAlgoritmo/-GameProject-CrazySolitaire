@@ -12,7 +12,7 @@ using Solitaire.Gameplay.CardContainers;
 
 
 namespace Solitaire.Gameplay.Spider {
-    public class SpiderCardContainerForCardDistributor : AbstractCardContainer {
+    public class SpiderCardContainerForCardDistribution : AbstractCardContainer {
         #region Variables
 
         #endregion

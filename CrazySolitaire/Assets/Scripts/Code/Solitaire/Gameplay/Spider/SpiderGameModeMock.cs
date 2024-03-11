@@ -5,10 +5,12 @@
 
 
 
-using Solitaire.Gameplay.Spider;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Solitaire.Gameplay.CardContainers;
+using Solitaire.Gameplay.Common;
+using Solitaire.Gameplay.Spider;
 
 
 
@@ -19,8 +21,26 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
 
         #region Public methods
-        public void SetSpiderGameMode(SpiderGameMode _spiderGameMode) {
+        public int GetAmountOfDistributedCards() {
+            int amountOfCards = 0;
 
+            foreach( var auxContainer in cardContainers ) {
+                amountOfCards += auxContainer.GetCards().Count;
+            }
+
+            return amountOfCards;
+        }
+
+        public void SetCardContainers( List<AbstractCardContainer> _containersList ) {
+            cardContainers = _containersList;
+        }
+
+        public void SetSuits(List<BasicSuitData> _suits) {
+            suits = _suits;
+        }
+
+        public void SetAmountPerSuit(short _amountPerSuit ) {
+            amountOfEachSuit = _amountPerSuit;
         }
         #endregion
 

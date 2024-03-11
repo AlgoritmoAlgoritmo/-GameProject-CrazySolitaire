@@ -6,7 +6,6 @@
 
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEditor;
@@ -14,6 +13,7 @@ using UnityEngine;
 using Solitaire.Gameplay.Spider;
 using Solitaire.Gameplay;
 using Solitaire.Gameplay.Cards;
+using Solitaire.Gameplay.CardContainers;
 
 
 
@@ -73,9 +73,27 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
         [Test]
         public void WhenInitializing_ThenDistributeCardsToContainersPropperly() {
+            // Instantiate CardContainers and add them to spiderGameModeMock
+            GameObject spiderCardContaierPrefabInstance = GameObject.Instantiate(
+                                                            AssetDatabase.LoadAssetAtPath<GameObject>(
+                                                                SPIDERCARDCONTAINERM_PREFAB_PATH));
+            List<AbstractCardContainer> listOfCardContainersToAdd = new List<AbstractCardContainer>() {
+                                                GameObject.Instantiate(spiderCardContaierPrefabInstance)
+                                                                    .GetComponent<AbstractCardContainer>(),
+                                                GameObject.Instantiate(spiderCardContaierPrefabInstance)
+                                                                    .GetComponent<AbstractCardContainer>()
+                                        };            
+            
+            // Set up amount of cards to spawn
+            spiderGameModeMock.SetAmountPerSuit(2);
+            foreach( var auxContainer in listOfCardContainersToAdd ) {
+                auxContainer.SetDefaultAmountOfCards((short) (26 / listOfCardContainersToAdd.Count));
+            }
+            spiderGameModeMock.SetCardContainers(listOfCardContainersToAdd);
+
             // Create list of cards for SpiderGameMode initialization
-            GameObject cardFacadePrefabGameObject = GameObject.Instantiate(
-                                AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH) );
+            GameObject cardFacadePrefabGameObject = GameObject.Instantiate( AssetDatabase
+                                                        .LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH) );
             CardFacade cardFacadePrefab = cardFacadePrefabGameObject.GetComponent<CardFacade>();
             List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
                                         GameObject.Instantiate( cardFacadePrefabGameObject )
@@ -94,14 +112,16 @@ namespace Tests.Solitaire.Gameplay.Spider {
             int amountOfCardsToBeAdded = listOfCardsToAdd.Count;
 
             // Check amount of cards before initialization
-
+            Assert.Zero( spiderGameModeMock.GetAmountOfDistributedCards(),
+                        "spiderGameModeMock shouldn't have any card.");
 
             // Initialize SpiderGameMode
-
+            spiderGameModeMock.Initialize(listOfCardsToAdd);
 
             // Check amount of distributed cards after initialization
-
-
+            Assert.AreEqual(amountOfCardsToBeAdded, spiderGameModeMock.GetAmountOfDistributedCards(),
+                            $"spiderGameModeMock should contain {amountOfCardsToBeAdded} "
+                                    + $"instead of {spiderGameModeMock.GetAmountOfDistributedCards()}.");
         }
         #endregion
     }

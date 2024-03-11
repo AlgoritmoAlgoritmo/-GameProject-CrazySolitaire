@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.GameplayAssembly
+      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.Gameplay.CardContainers
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -1542,7 +1542,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.GameplayAssembly
+      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.Gameplay.CardContainers
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -1803,7 +1803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMode: {fileID: 1515941281}
-  deckController: {fileID: 0}
+  deckController: {fileID: 1679957047}
 --- !u!82 &694382712
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2661,7 +2661,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.GameplayAssembly
+      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.Gameplay.CardContainers
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -3272,7 +3272,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.GameplayAssembly
+      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.Gameplay.CardContainers
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -3714,6 +3714,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1642126853}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1679957047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3527218477119261141, guid: b4ad1261687ed1e40a87c4f978b5a34b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3527218475916705149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7bbeb013e3cb17419b3113cf1dbdbff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1778614669 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 400804126178097473, guid: 447a43d7e45de2745aa746fe226eec5b,
@@ -3799,7 +3811,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.GameplayAssembly
+      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.Gameplay.CardContainers
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -4464,16 +4476,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5707071701543839184, guid: 434f072e3caf5c84690e8d07f79fe487,
         type: 3}
-      propertyPath: amountOfEachSuit
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5707071701543839184, guid: 434f072e3caf5c84690e8d07f79fe487,
-        type: 3}
-      propertyPath: cardContainers.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5707071701543839184, guid: 434f072e3caf5c84690e8d07f79fe487,
-        type: 3}
       propertyPath: cardContainers.Array.data[0]
       value: 
       objectReference: {fileID: 65516184}
@@ -4556,42 +4558,42 @@ PrefabInstance:
         type: 3}
       propertyPath: completedColumnContainers.Array.data[0]
       value: 
-      objectReference: {fileID: 5430424964912610469}
+      objectReference: {fileID: 1403439966}
     - target: {fileID: 5707071701543839184, guid: 434f072e3caf5c84690e8d07f79fe487,
         type: 3}
       propertyPath: completedColumnContainers.Array.data[1]
       value: 
-      objectReference: {fileID: 1552299798}
+      objectReference: {fileID: 103443501}
     - target: {fileID: 5707071701543839184, guid: 434f072e3caf5c84690e8d07f79fe487,
         type: 3}
       propertyPath: completedColumnContainers.Array.data[2]
       value: 
-      objectReference: {fileID: 911254127}
+      objectReference: {fileID: 250681688}
     - target: {fileID: 5707071701543839184, guid: 434f072e3caf5c84690e8d07f79fe487,
         type: 3}
       propertyPath: completedColumnContainers.Array.data[3]
       value: 
-      objectReference: {fileID: 285093886}
+      objectReference: {fileID: 991717705}
     - target: {fileID: 5707071701543839184, guid: 434f072e3caf5c84690e8d07f79fe487,
         type: 3}
       propertyPath: completedColumnContainers.Array.data[4]
       value: 
-      objectReference: {fileID: 991717705}
+      objectReference: {fileID: 285093886}
     - target: {fileID: 5707071701543839184, guid: 434f072e3caf5c84690e8d07f79fe487,
         type: 3}
       propertyPath: completedColumnContainers.Array.data[5]
       value: 
-      objectReference: {fileID: 250681688}
+      objectReference: {fileID: 911254127}
     - target: {fileID: 5707071701543839184, guid: 434f072e3caf5c84690e8d07f79fe487,
         type: 3}
       propertyPath: completedColumnContainers.Array.data[6]
       value: 
-      objectReference: {fileID: 103443501}
+      objectReference: {fileID: 1552299798}
     - target: {fileID: 5707071701543839184, guid: 434f072e3caf5c84690e8d07f79fe487,
         type: 3}
       propertyPath: completedColumnContainers.Array.data[7]
       value: 
-      objectReference: {fileID: 1403439966}
+      objectReference: {fileID: 5430424964912610469}
     - target: {fileID: 5707071701543839214, guid: 434f072e3caf5c84690e8d07f79fe487,
         type: 3}
       propertyPath: m_RootOrder

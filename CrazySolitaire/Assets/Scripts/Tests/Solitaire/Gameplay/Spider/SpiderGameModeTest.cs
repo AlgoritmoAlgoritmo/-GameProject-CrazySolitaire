@@ -103,7 +103,25 @@ namespace Tests.Solitaire.Gameplay.Spider {
         }
 
 
+        [Test]
+        public void WhenInitializingEmptyListOfCards_ThenThrowException() {
+            List<CardFacade> listOfCards = new List<CardFacade>();
+            int currentAmountOfCardsBeforeInitialization = spiderGameModeMock.GetAmountOfDistributedCards();
 
+
+            Assert.Throws<IndexOutOfRangeException>(() => spiderGameModeMock.Initialize(
+                                listOfCards),
+                        "spiderGameModeMock didn't throw IndexOutOfRangeException as expected. "
+                                + "Check if the list passed is empty."
+            );
+
+            // Assert the amount of cards from spiderGameModeMock didn't change
+            Assert.AreEqual(currentAmountOfCardsBeforeInitialization,
+                            spiderGameModeMock.GetAmountOfDistributedCards(),
+                            "spiderGameModeMock amount of cards changed: it should have "
+                                    + $"{currentAmountOfCardsBeforeInitialization} instead of "
+                                    + $"{spiderGameModeMock.GetAmountOfDistributedCards()}." );
+        }
         #endregion
 
 

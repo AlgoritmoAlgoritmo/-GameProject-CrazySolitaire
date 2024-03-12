@@ -206,16 +206,21 @@ namespace Tests.Solitaire.Gameplay.Spider {
         }
 
 
-        // Add other test values
+        [TestCase(12, "HEARTS", "RED")]
+        [TestCase(1, "SPADES", "BLACK")]
+        [TestCase(7, "DIAMONDS", "RED")]
+        [TestCase(4, "CLOVER", "BLACK")]
         [Test]
-        public void WhenCardIsFacingUpWithValidChild_ThenActivateDragging() {
+        public void WhenCardIsFacingUpWithValidChild_ThenActivateDragging(
+                        short _cardNumber, string _cardSuit, string _cardColor ) {
             // Create card to validate
             CardFacade cardToValidate = SpawnNewCard();
-            cardToValidate.SetCardData(new CardData(5, "SPADES", "BLACK", "PARENT"));
+            cardToValidate.SetCardData(new CardData(_cardNumber, _cardSuit, _cardColor, "PARENT"));
 
             // Create calid child card
             CardFacade childCard = SpawnNewCard();
-            childCard.SetCardData(new CardData(4, "SPADES", "BLACK", "CHILD"));
+            childCard.SetCardData(new CardData((short)(_cardNumber - 1), _cardSuit, _cardColor,
+                                                                                        "CHILD"));
 
             // Set prent facing up and child card
             cardToValidate.FlipCard(true);
@@ -233,16 +238,17 @@ namespace Tests.Solitaire.Gameplay.Spider {
         }
 
 
-        // Add other test values
+        
         [Test]
-        public void WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging() {
+        public void WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(
+                        short _cardNumber, string _cardSuit, string _cardColor, string _cardID ) {
             // Create card to validate
             CardFacade cardToValidate = SpawnNewCard();
-            cardToValidate.SetCardData(new CardData(5, "SPADES", "BLACK", "PARENT"));
+            cardToValidate.SetCardData(new CardData(_cardNumber, "SPADES", "BLACK", "PARENT"));
 
             // Create calid child card
             CardFacade childCard = SpawnNewCard();
-            childCard.SetCardData(new CardData(4, "CLOVER", "BLACK", "CHILD"));
+            childCard.SetCardData(new CardData((short)(_cardNumber - 1), "CLOVER", "BLACK", "CHILD"));
 
             // Set prent facing up and child card
             cardToValidate.FlipCard(true);
@@ -262,7 +268,8 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
         // Add other test values
         [Test]
-        public void WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging() {
+        public void WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(
+                        int _cardNumber, string _cardSuit, string _cardColor, string _cardID ) {
             // Create card to validate
             CardFacade cardToValidate = SpawnNewCard();
             cardToValidate.SetCardData(new CardData(5, "HEARTS", "RED", "PARENT"));

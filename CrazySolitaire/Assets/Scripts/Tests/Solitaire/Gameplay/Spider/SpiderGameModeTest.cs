@@ -238,17 +238,21 @@ namespace Tests.Solitaire.Gameplay.Spider {
         }
 
 
-        
+        [TestCase(6, "SPADES", "BLACK", 5, "CLOVER", "BLACK" )]
+        [TestCase(8, "HEARTS", "RED", 8, "DIAMONDS", "RED")]
+        [TestCase(1, "CLOVER", "BLACK", 3, "HEARTS", "RED")]
+        [TestCase(13, "DIAMONDS", "RED", 1, "SPADES", "BLACK")]
         [Test]
         public void WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(
-                        short _cardNumber, string _cardSuit, string _cardColor, string _cardID ) {
+                                    short _parentCardNumber, string _parentCardSuit, string _parentCardColor,
+                                    short _childCardNumber, string _childCardSuit, string _childCardColor ) {
             // Create card to validate
             CardFacade cardToValidate = SpawnNewCard();
-            cardToValidate.SetCardData(new CardData(_cardNumber, "SPADES", "BLACK", "PARENT"));
+            cardToValidate.SetCardData(new CardData(_parentCardNumber, _parentCardSuit, _parentCardColor, "PARENT"));
 
             // Create calid child card
             CardFacade childCard = SpawnNewCard();
-            childCard.SetCardData(new CardData((short)(_cardNumber - 1), "CLOVER", "BLACK", "CHILD"));
+            childCard.SetCardData(new CardData((short)(_childCardNumber), _childCardSuit, _childCardColor, "CHILD"));
 
             // Set prent facing up and child card
             cardToValidate.FlipCard(true);

@@ -269,7 +269,6 @@ namespace Tests.Solitaire.Gameplay.Spider {
                             "card should not be draggable. Check its child card is invalid.");
         }
 
-
         
         [TestCase( 1, 2, "CLOVER", "BLACK" ) ]
         [TestCase(12, 12, "HEARTS", "RED")]
@@ -302,13 +301,14 @@ namespace Tests.Solitaire.Gameplay.Spider {
         }
 
 
-        // Add other test values
+        [TestCase(12)]
+        [TestCase(2)]
+        [TestCase(5)]
         [Test]
-        public void WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer() {
-            int amountOfCardsToSpawn = 3;
-
+        public void WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(
+                                    int _amountOfCardsAndContainersToSpawn ) {
             // Create list of cards to distribute
-            List<CardFacade> cardsToDistribute = SpawnTheFollowingamountOfCards(amountOfCardsToSpawn);
+            List<CardFacade> cardsToDistribute = SpawnTheFollowingamountOfCards( _amountOfCardsAndContainersToSpawn );
 
             // Create card container for distribution
             AbstractCardContainer cardContainerForDistribution = SpawnTheFollowingAmountOfAbstractCardContainers(1)[0];
@@ -318,7 +318,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
             // Create card containers for SpiderGameModeMock
             List<AbstractCardContainer> cardContainersForSpiderGameModeMock
-                            = SpawnTheFollowingAmountOfAbstractCardContainers(amountOfCardsToSpawn);
+                            = SpawnTheFollowingAmountOfAbstractCardContainers( _amountOfCardsAndContainersToSpawn );
 
             // Add card containers to SpiderGameModeMock
             spiderGameModeMock.SetCardContainers(cardContainersForSpiderGameModeMock);

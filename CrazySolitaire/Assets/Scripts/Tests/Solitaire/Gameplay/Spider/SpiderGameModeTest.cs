@@ -10,8 +10,8 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
-using Solitaire.Gameplay.Spider;
 using Solitaire.Gameplay;
+using Solitaire.Gameplay.Spider;
 using Solitaire.Gameplay.Cards;
 using Solitaire.Gameplay.CardContainers;
 
@@ -346,6 +346,51 @@ namespace Tests.Solitaire.Gameplay.Spider {
             Assert.Throws<NullReferenceException>(() =>
                             spiderGameModeMock.DistributeCardsBetweenCardContainers(null),
                             "Check the passed object was null.");
+        }
+
+
+        [Test]
+        public void WhenReceivesCardContainerForCardDistributionWithANullElementInCardList_ThenThrowNullReferenceExceptionWithoutChangingContainersCardsAmount() {
+            int amountOfCardsToSpawn = 5;
+
+            // Create list of cards
+            List<CardFacade> cardsForDistribution = SpawnTheFollowingamountOfCards(amountOfCardsToSpawn);
+
+            // Randomly add null element to list of cards
+            cardsForDistribution[UnityEngine.Random.Range(0, cardsForDistribution.Count - 1)] = null;
+
+            // Create CardContainer for distribution
+            GameObject cardContainerforDistributionGameObject = GameObject.Instantiate(new GameObject());
+            CardContainerMock cardContaineForDistribution = cardContainerforDistributionGameObject
+                                                                    .AddComponent<CardContainerMock>();
+
+            // Add list of cards to card container for distribution
+            cardContaineForDistribution.AddCards(cardsForDistribution);
+
+            // Create list of card containers for SpiderGameMode
+            List<AbstractCardContainer> cardContainersForSpiderGameModeMock =
+                                        SpawnTheFollowingAmountOfAbstractCardContainers(amountOfCardsToSpawn);
+
+            // Add list of card containers to SpiderGameMode
+            spiderGameModeMock.SetCardContainers(cardContainersForSpiderGameModeMock);
+
+            // Save amount of cards before card distribution
+            List<int> amountOfCardsPerContainerBeforeDistributionAssertion = new List<int>();
+            foreach( AbstractCardContainer auxCardContainer in cardContainersForSpiderGameModeMock ) {
+                amountOfCardsPerContainerBeforeDistributionAssertion.Add( auxCardContainer.GetCards().Count );
+            }
+
+            // Assert card distribution exception
+            Assert.Throws<NullReferenceException>( () => spiderGameModeMock.DistributeCardsBetweenCardContainers(
+                                                        cardContaineForDistribution),
+                                                "Check cardsForDistribution List containes a null element.");
+
+            // Assert containers amount of cards didn't change
+            for( int i = 0; i < amountOfCardsPerContainerBeforeDistributionAssertion.Count; i++ ) {
+                Assert.AreEqual( amountOfCardsPerContainerBeforeDistributionAssertion[i],
+                                cardContainersForSpiderGameModeMock[i].GetCards().Count,
+                                "The amount of cards changed in one of the containers." );
+            }
         }
         #endregion
 

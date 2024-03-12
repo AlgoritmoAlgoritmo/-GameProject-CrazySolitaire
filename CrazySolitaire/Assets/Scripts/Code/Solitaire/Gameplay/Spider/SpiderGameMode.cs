@@ -63,6 +63,11 @@ namespace Solitaire.Gameplay.Spider {
 
 
         public void DistributeCardsBetweenCardContainers(AbstractCardContainer _cardContainer) {
+            if( _cardContainer.GetCards().Contains( null ) ) {
+                throw new NullReferenceException("There is a null element in the CardContainer "
+                                                    + "passed for distribution.");
+            }
+            
             List<CardFacade> auxCardsToDistribute = _cardContainer.GetCards();
 
             for( int i = auxCardsToDistribute.Count - 1; i >= 0; i-- ) {
@@ -185,7 +190,6 @@ namespace Solitaire.Gameplay.Spider {
                 auxCardFacade = auxCardFacade.ChildCard;
             }
         }
-
 
         private void CheckIfColumnWasCompleted( CardFacade _placedCard ) {
             List<CardFacade> columnOfCards = GetCardColumn(_placedCard);

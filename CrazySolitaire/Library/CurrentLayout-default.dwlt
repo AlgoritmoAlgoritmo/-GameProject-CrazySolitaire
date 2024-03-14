@@ -8,6 +8,30 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PixelRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1600
+    height: 860
+  m_ShowMode: 0
+  m_Title: 
+  m_RootView: {fileID: 4}
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
+  m_Maximized: 1
+--- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -20,11 +44,61 @@ MonoBehaviour:
     height: 637
   m_ShowMode: 4
   m_Title: 
-  m_RootView: {fileID: 2}
+  m_RootView: {fileID: 5}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
---- !u!114 &2
+--- !u!114 &3
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: VFXViewWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1600
+    height: 860
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
+  m_ActualView: {fileID: 14}
+  m_Panes:
+  - {fileID: 14}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &4
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 3}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1600
+    height: 860
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
+  vertical: 0
+  controlID: 509
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,18 +111,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 3}
-  - {fileID: 5}
-  - {fileID: 4}
+  - {fileID: 6}
+  - {fileID: 8}
+  - {fileID: 7}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1280
     height: 637
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
---- !u!114 &3
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &4
+--- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +165,7 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &5
+--- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,20 +178,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 6}
-  - {fileID: 7}
-  - {fileID: 8}
+  - {fileID: 9}
+  - {fileID: 10}
+  - {fileID: 11}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 30
     width: 1280
     height: 587
-  m_MinSize: {x: 606, y: 492}
-  m_MaxSize: {x: 18001, y: 14042}
+  m_MinSize: {x: 709, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 2765
---- !u!114 &6
+  controlID: 426
+--- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,25 +201,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: SceneHierarchyWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 356
+    width: 201
     height: 587
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 14}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 15}
   m_Panes:
-  - {fileID: 12}
-  - {fileID: 13}
-  - {fileID: 14}
-  m_Selected: 2
-  m_LastSelected: 1
---- !u!114 &7
+  - {fileID: 15}
+  - {fileID: 16}
+  - {fileID: 17}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,18 +234,18 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 356
+    x: 201
     y: 0
-    width: 275
+    width: 277
     height: 587
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 15}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 15}
+  - {fileID: 18}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &8
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,19 +258,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 9}
-  - {fileID: 10}
+  - {fileID: 12}
+  - {fileID: 13}
   m_Position:
     serializedVersion: 2
-    x: 631
+    x: 478
     y: 0
-    width: 649
+    width: 802
     height: 587
   m_MinSize: {x: 231, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 2766
---- !u!114 &9
+  controlID: 427
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,25 +280,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 649
-    height: 315
+    width: 802
+    height: 316
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 11}
+  m_ActualView: {fileID: 19}
   m_Panes:
-  - {fileID: 16}
-  - {fileID: 17}
-  - {fileID: 11}
-  m_Selected: 2
+  - {fileID: 19}
+  - {fileID: 20}
+  - {fileID: 21}
+  - {fileID: 22}
+  m_Selected: 0
   m_LastSelected: 2
---- !u!114 &10
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,110 +315,18 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 315
-    width: 649
-    height: 272
+    y: 316
+    width: 802
+    height: 271
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 18}
+  m_ActualView: {fileID: 23}
   m_Panes:
-  - {fileID: 18}
-  - {fileID: 19}
+  - {fileID: 23}
+  - {fileID: 24}
   m_Selected: 0
   m_LastSelected: 1
---- !u!114 &11
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Game
-    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000,
-      type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: -649
-    y: 73
-    width: 648
-    height: 294
-  m_ViewDataDictionary: {fileID: 0}
-  m_SerializedViewNames: []
-  m_SerializedViewValues: []
-  m_SerializedCustomFieldsNames: []
-  m_SerializedCustomFieldsValues: []
-  m_PlayModeViewName: GameView
-  m_ShowGizmos: 0
-  m_TargetDisplay: 0
-  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 485, y: 273}
-  m_TextureFilterMode: 0
-  m_TextureHideFlags: 61
-  m_RenderIMGUI: 1
-  m_MaximizeOnPlay: 0
-  m_UseMipMap: 0
-  m_VSyncEnabled: 0
-  m_Gizmos: 0
-  m_Stats: 0
-  m_SelectedSizes: 05000000000000000000000000000000000000000000000000000000000000000000000000000000
-  m_ZoomArea:
-    m_HRangeLocked: 0
-    m_VRangeLocked: 0
-    hZoomLockedByDefault: 0
-    vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -242.5
-    m_HBaseRangeMax: 242.5
-    m_VBaseRangeMin: -136.5
-    m_VBaseRangeMax: 136.5
-    m_HAllowExceedBaseRangeMin: 1
-    m_HAllowExceedBaseRangeMax: 1
-    m_VAllowExceedBaseRangeMin: 1
-    m_VAllowExceedBaseRangeMax: 1
-    m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
-    m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
-    m_EnableSliderZoomHorizontal: 0
-    m_EnableSliderZoomVertical: 0
-    m_UniformScale: 1
-    m_UpDirection: 1
-    m_DrawArea:
-      serializedVersion: 2
-      x: 0
-      y: 21
-      width: 648
-      height: 273
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 324, y: 136.5}
-    m_MarginLeft: 0
-    m_MarginRight: 0
-    m_MarginTop: 0
-    m_MarginBottom: 0
-    m_LastShownAreaInsideMargins:
-      serializedVersion: 2
-      x: -324
-      y: -136.5
-      width: 648
-      height: 273
-    m_MinimalGUI: 1
-  m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 648, y: 294}
-  m_ClearInEditMode: 1
-  m_NoCameraWarning: 0
-  m_LowResolutionForAspectRatios: 01000000000000000000
-  m_XRRenderMode: 0
-  m_RenderTexture: {fileID: 0}
---- !u!114 &12
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -352,24 +335,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 12079, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 11500000, guid: cd0276e3a65ecfd43904ccfe7027d92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 390, y: 390}
+  m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Lighting
-    m_Image: {fileID: -1347227620855488341, guid: 0000000000000000d000000000000000,
-      type: 0}
+    m_Text: SuitsParticles VFX
+    m_Image: {fileID: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 73
-    width: 303
-    height: 614
+    y: 0
+    width: 1600
+    height: 839
   m_ViewDataDictionary: {fileID: 0}
---- !u!114 &13
+  m_DisplayedResource: {fileID: 8926484042661614527, guid: b083c8cdadb90af479ccc31a0638a1e8,
+    type: 2}
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -392,15 +376,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: -1280
     y: 73
-    width: 290
+    width: 200
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 52d2ffff
       m_LastClickedID: 0
-      m_ExpandedIDs: 9813ffffb613ffff7414ffff8815ffffa615ffff6416ffff3418ffff5218ffffa019ffffb61affffd41affff221cffff3c1dffff5a1dffffa81effff9624ffffb424ffffba25ffff8027ffff9e27ffffa428ffff642affff822affff882bffff982cffffb62cffffbc2dffffd22efffff02efffff62ffffffc31ffff1a32ffff2033ffff9e34ffffbc34ffff8635ffff789fffff969fffff60a0ffff78a1ffff96a1ffff60a2ffff78a3ffff96a3ffff60a4ffff74a5ffff92a5ffff5ca6ffff80acffff9eacffff2aadffffe4adffff02aeffffdaafffff9cb1ffffbab1ffff92b3ffff4cb4ffff6ab4ffff42b6ffff0ab8ffff28b8ffff00baffffc0baffffdebaffff6abbffffbebeffffdcbeffff68bfffff80c1ffff9ec1ffff2ac2ffff4cc3ffff6ac3fffff6c3ffff70c5ffff8ec5ffff1ac6ffff48c9ffff66c9ffff42cdffffe8cfffff06d0ffffe2d3ffff9cd4ffffbad4ffff96d8ffff50d9ffff6ed9ffff4addffff58deffff76deffff52e2ffff12e3ffff30e3ffff0ce7ffff3ee9ffff5ce9ffffe0eaffff96ecffffb4ecffff38eeffff92efffffb0efffffdef7ffff62fbffff4869000082690000
+      m_ExpandedIDs: 02d1ffff62fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -416,7 +400,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 6}
+        m_ClientGUIView: {fileID: 9}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -424,7 +408,33 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 6ccd2c825b5969b42a5edd932a14f3cd
---- !u!114 &14
+--- !u!114 &16
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12079, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 390, y: 390}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Lighting
+    m_Image: {fileID: -1347227620855488341, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 73
+    width: 286
+    height: 614
+  m_ViewDataDictionary: {fileID: 0}
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,34 +454,34 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1280
+    x: 0
     y: 73
-    width: 355
-    height: 566
+    width: 286
+    height: 614
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 2942
-    splitterInitialOffset: 398
+    ID: 2479
+    splitterInitialOffset: 460
     currentActiveSplitter: -1
-    realSizes: 46010000aa000000
+    realSizes: ac01000074000000
     relativeSizes:
-    - 0.6572581
-    - 0.3427419
+    - 0.78629035
+    - 0.21370965
     minSizes: 2000000020000000
     maxSizes: 0000000000000000
-    lastTotalSize: 496
+    lastTotalSize: 544
     splitSize: 6
     xOffset: 0
   m_TestTypeToolbarIndex: 0
   m_PlayModeTestListGUI:
-    m_Window: {fileID: 14}
+    m_Window: {fileID: 17}
     m_NewResultList:
     - id: 1004
       uniqueId: '[CrazySolitaire][suite]'
       name: CrazySolitaire
       fullName: CrazySolitaire
       resultStatus: 1
-      duration: 1.11098
+      duration: 3.1514747
       messages: 
       output: 
       stacktrace: 
@@ -487,7 +497,7 @@ MonoBehaviour:
       name: _Tests.dll
       fullName: C:/Users/Usuario/Documents/GitHub/CrazySolitaire/CrazySolitaire/Library/ScriptAssemblies/_Tests.dll
       resultStatus: 1
-      duration: 0.4761087
+      duration: 3.0169084
       messages: 
       output: 
       stacktrace: 
@@ -503,7 +513,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.4160802
+      duration: 2.9758146
       messages: 
       output: 
       stacktrace: 
@@ -519,7 +529,7 @@ MonoBehaviour:
       name: Solitaire
       fullName: Tests.Solitaire
       resultStatus: 1
-      duration: 0.377943
+      duration: 2.9239688
       messages: 
       output: 
       stacktrace: 
@@ -535,7 +545,7 @@ MonoBehaviour:
       name: Gameplay
       fullName: Tests.Solitaire.Gameplay
       resultStatus: 1
-      duration: 0.3416
+      duration: 2.8728764
       messages: 
       output: 
       stacktrace: 
@@ -551,7 +561,7 @@ MonoBehaviour:
       name: CardContainers
       fullName: Tests.Solitaire.Gameplay.CardContainers
       resultStatus: 1
-      duration: 2.3389907
+      duration: 0.7159764
       messages: 
       output: 
       stacktrace: 
@@ -567,7 +577,7 @@ MonoBehaviour:
       name: AbstractCardContainerTest
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest
       resultStatus: 1
-      duration: 2.0624993
+      duration: 0.4638576
       messages: 
       output: 
       stacktrace: 
@@ -583,7 +593,7 @@ MonoBehaviour:
       name: AbstractCardContainerMock_IsAbstractCardContainer
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.AbstractCardContainerMock_IsAbstractCardContainer
       resultStatus: 1
-      duration: 0.2850784
+      duration: 0.1139871
       messages: 
       output: 
       stacktrace: 
@@ -600,7 +610,7 @@ MonoBehaviour:
       name: WhenCheckingIfContainsACard_ThenReturnsIfContainsItOrNot
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenCheckingIfContainsACard_ThenReturnsIfContainsItOrNot
       resultStatus: 1
-      duration: 0.0116407
+      duration: 0.0069636
       messages: 
       output: 
       stacktrace: 
@@ -617,7 +627,7 @@ MonoBehaviour:
       name: WhenGettingTopCard_ThenReturnLastAddedCard
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenGettingTopCard_ThenReturnLastAddedCard
       resultStatus: 1
-      duration: 0.010572
+      duration: 0.0037101
       messages: 
       output: 
       stacktrace: 
@@ -634,7 +644,7 @@ MonoBehaviour:
       name: WhenInitialize_ThenReturnNoAddedCards
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards
       resultStatus: 1
-      duration: 0.890943
+      duration: 0.0911788
       messages: 
       output: 
       stacktrace: 
@@ -650,7 +660,7 @@ MonoBehaviour:
       name: WhenInitialize_ThenReturnNoAddedCards(2,5)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards(2,5)
       resultStatus: 1
-      duration: 0.0577552
+      duration: 0.0170649
       messages: 
       output: 
       stacktrace: 
@@ -667,7 +677,7 @@ MonoBehaviour:
       name: WhenInitialize_ThenReturnNoAddedCards(4,7)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards(4,7)
       resultStatus: 1
-      duration: 0.0022037
+      duration: 0.0036016
       messages: 
       output: 
       stacktrace: 
@@ -684,7 +694,7 @@ MonoBehaviour:
       name: WhenInitialize_ThenReturnNoAddedCards(3,3)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards(3,3)
       resultStatus: 1
-      duration: 0.0018059
+      duration: 0.0289188
       messages: 
       output: 
       stacktrace: 
@@ -701,7 +711,7 @@ MonoBehaviour:
       name: WhenInitialize_ThenReturnNoAddedCards(10,11)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards(10,11)
       resultStatus: 1
-      duration: 0.0027172
+      duration: 0.0020729
       messages: 
       output: 
       stacktrace: 
@@ -718,7 +728,7 @@ MonoBehaviour:
       name: WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding
       resultStatus: 1
-      duration: 0.5688133
+      duration: 0.1222762
       messages: 
       output: 
       stacktrace: 
@@ -734,7 +744,7 @@ MonoBehaviour:
       name: WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(0.0f,0.0f,0.0f)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(0.0f,0.0f,0.0f)
       resultStatus: 1
-      duration: 0.0325831
+      duration: 0.0323332
       messages: 
       output: 
       stacktrace: 
@@ -751,7 +761,7 @@ MonoBehaviour:
       name: WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(-10.0f,5.0f,3.0f)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(-10.0f,5.0f,3.0f)
       resultStatus: 1
-      duration: 0.001575
+      duration: 0.0015051
       messages: 
       output: 
       stacktrace: 
@@ -768,7 +778,7 @@ MonoBehaviour:
       name: WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(200.0f,-80.0f,-67.0f)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(200.0f,-80.0f,-67.0f)
       resultStatus: 1
-      duration: 0.0015084
+      duration: 0.0235964
       messages: 
       output: 
       stacktrace: 
@@ -785,7 +795,7 @@ MonoBehaviour:
       name: BasicCardContainerTest
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest
       resultStatus: 1
-      duration: 0.2374975
+      duration: 0.1791157
       messages: 
       output: 
       stacktrace: 
@@ -801,7 +811,7 @@ MonoBehaviour:
       name: BasicCardContainer_IsAbstractCardContainer
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.BasicCardContainer_IsAbstractCardContainer
       resultStatus: 1
-      duration: 0.0040819
+      duration: 0.0102866
       messages: 
       output: 
       stacktrace: 
@@ -818,7 +828,7 @@ MonoBehaviour:
       name: WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer
       resultStatus: 1
-      duration: 0.0199196
+      duration: 0.0143083
       messages: 
       output: 
       stacktrace: 
@@ -835,7 +845,7 @@ MonoBehaviour:
       name: WhenAddingCardListWithNullObjectToBasicCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingCardListWithNullObjectToBasicCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       resultStatus: 1
-      duration: 0.0077841
+      duration: 0.0105502
       messages: 
       output: 
       stacktrace: 
@@ -852,7 +862,7 @@ MonoBehaviour:
       name: WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer
       resultStatus: 1
-      duration: 0.0064155
+      duration: 0.0051506
       messages: 
       output: 
       stacktrace: 
@@ -869,7 +879,7 @@ MonoBehaviour:
       name: WhenAddingNullObjectToBasicCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingNullObjectToBasicCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       resultStatus: 1
-      duration: 0.0025273
+      duration: 0.0052074
       messages: 
       output: 
       stacktrace: 
@@ -886,7 +896,7 @@ MonoBehaviour:
       name: WhenCallingRemoveCardMethod_ThenEliminateItFromBasicCardContainerCards
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenCallingRemoveCardMethod_ThenEliminateItFromBasicCardContainerCards
       resultStatus: 1
-      duration: 0.0048209
+      duration: 0.0057336
       messages: 
       output: 
       stacktrace: 
@@ -903,7 +913,7 @@ MonoBehaviour:
       name: WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards
       resultStatus: 1
-      duration: 0.0061338
+      duration: 0.00774
       messages: 
       output: 
       stacktrace: 
@@ -920,7 +930,7 @@ MonoBehaviour:
       name: WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       resultStatus: 1
-      duration: 0.0100604
+      duration: 0.0159744
       messages: 
       output: 
       stacktrace: 
@@ -937,7 +947,7 @@ MonoBehaviour:
       name: WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.0039707
+      duration: 0.0053603
       messages: 
       output: 
       stacktrace: 
@@ -954,7 +964,7 @@ MonoBehaviour:
       name: WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.0024312
+      duration: 0.0021924
       messages: 
       output: 
       stacktrace: 
@@ -971,7 +981,7 @@ MonoBehaviour:
       name: WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       resultStatus: 1
-      duration: 0.0042921
+      duration: 0.0472065
       messages: 
       output: 
       stacktrace: 
@@ -988,7 +998,7 @@ MonoBehaviour:
       name: GameMode
       fullName: Tests.Solitaire.Gameplay.GameMode
       resultStatus: 1
-      duration: 0.7848462
+      duration: 1.1708502
       messages: 
       output: 
       stacktrace: 
@@ -1004,7 +1014,7 @@ MonoBehaviour:
       name: DeckControllerTest
       fullName: Tests.Solitaire.Gameplay.GameMode.DeckControllerTest
       resultStatus: 1
-      duration: 0.6949318
+      duration: 1.1448196
       messages: 
       output: 
       stacktrace: 
@@ -1020,7 +1030,7 @@ MonoBehaviour:
       name: WhenInitializingCards_ThenReturnPropperCardInstances
       fullName: Tests.Solitaire.Gameplay.GameMode.DeckControllerTest.WhenInitializingCards_ThenReturnPropperCardInstances
       resultStatus: 1
-      duration: 0.6365643
+      duration: 1.1045569
       messages: 
       output: 
       stacktrace: 
@@ -1037,7 +1047,7 @@ MonoBehaviour:
       name: Spider
       fullName: Tests.Solitaire.Gameplay.Spider
       resultStatus: 1
-      duration: 0.3169187
+      duration: 2.802587
       messages: 
       output: 
       stacktrace: 
@@ -1053,7 +1063,7 @@ MonoBehaviour:
       name: SpiderCardContainerForCardDistributionTest
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributionTest
       resultStatus: 1
-      duration: 1.5143127
+      duration: 0.5138932
       messages: 
       output: 
       stacktrace: 
@@ -1069,7 +1079,7 @@ MonoBehaviour:
       name: SpiderCardContainerForCardDistributor_IsAbstractCardContainer
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributionTest.SpiderCardContainerForCardDistributor_IsAbstractCardContainer
       resultStatus: 1
-      duration: 0.5923918
+      duration: 0.1413102
       messages: 
       output: 
       stacktrace: 
@@ -1086,7 +1096,7 @@ MonoBehaviour:
       name: WhenAddingACard_ThenThrowsNotImplementedException
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributionTest.WhenAddingACard_ThenThrowsNotImplementedException
       resultStatus: 1
-      duration: 0.2691927
+      duration: 0.0365501
       messages: 
       output: 
       stacktrace: 
@@ -1103,7 +1113,7 @@ MonoBehaviour:
       name: WhenAddingMultipleCards_ThenThrowsNotImplementedException
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributionTest.WhenAddingMultipleCards_ThenThrowsNotImplementedException
       resultStatus: 1
-      duration: 0.011695
+      duration: 0.0060033
       messages: 
       output: 
       stacktrace: 
@@ -1120,7 +1130,7 @@ MonoBehaviour:
       name: WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributionTest.WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards
       resultStatus: 1
-      duration: 0.1695555
+      duration: 0.0737003
       messages: 
       output: 
       stacktrace: 
@@ -1137,7 +1147,7 @@ MonoBehaviour:
       name: WhenCallMethodForMultipleCardRemoval_ThenThrowNotImplementedException
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributionTest.WhenCallMethodForMultipleCardRemoval_ThenThrowNotImplementedException
       resultStatus: 1
-      duration: 0.0161027
+      duration: 0.0141592
       messages: 
       output: 
       stacktrace: 
@@ -1154,7 +1164,7 @@ MonoBehaviour:
       name: WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributionTest.WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       resultStatus: 1
-      duration: 0.0840878
+      duration: 0.0815026
       messages: 
       output: 
       stacktrace: 
@@ -1171,7 +1181,7 @@ MonoBehaviour:
       name: WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributionTest.WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.0019494
+      duration: 0.0018299
       messages: 
       output: 
       stacktrace: 
@@ -1188,7 +1198,7 @@ MonoBehaviour:
       name: WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerForCardDistributionTest.WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       resultStatus: 1
-      duration: 0.0047006
+      duration: 0.0278165
       messages: 
       output: 
       stacktrace: 
@@ -1205,7 +1215,7 @@ MonoBehaviour:
       name: SpiderCardContainerTest
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest
       resultStatus: 1
-      duration: 0.3822933
+      duration: 0.3761633
       messages: 
       output: 
       stacktrace: 
@@ -1221,7 +1231,7 @@ MonoBehaviour:
       name: SpiderCardContainer_IsAbstractCardContainer
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest.SpiderCardContainer_IsAbstractCardContainer
       resultStatus: 1
-      duration: 0.0065744
+      duration: 0.0248607
       messages: 
       output: 
       stacktrace: 
@@ -1238,7 +1248,7 @@ MonoBehaviour:
       name: WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest.WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer
       resultStatus: 1
-      duration: 0.0624971
+      duration: 0.0732429
       messages: 
       output: 
       stacktrace: 
@@ -1255,7 +1265,7 @@ MonoBehaviour:
       name: WhenAddingCardListWithNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest.WhenAddingCardListWithNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       resultStatus: 1
-      duration: 0.0077928
+      duration: 0.0077673
       messages: 
       output: 
       stacktrace: 
@@ -1272,7 +1282,7 @@ MonoBehaviour:
       name: WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest.WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer
       resultStatus: 1
-      duration: 0.0769276
+      duration: 0.040599
       messages: 
       output: 
       stacktrace: 
@@ -1289,7 +1299,7 @@ MonoBehaviour:
       name: WhenAddingNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest.WhenAddingNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       resultStatus: 1
-      duration: 0.0031312
+      duration: 0.0026369
       messages: 
       output: 
       stacktrace: 
@@ -1306,7 +1316,7 @@ MonoBehaviour:
       name: WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest.WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards
       resultStatus: 1
-      duration: 0.0116982
+      duration: 0.0188406
       messages: 
       output: 
       stacktrace: 
@@ -1323,7 +1333,7 @@ MonoBehaviour:
       name: WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest.WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards
       resultStatus: 1
-      duration: 0.0147419
+      duration: 0.0121076
       messages: 
       output: 
       stacktrace: 
@@ -1340,7 +1350,7 @@ MonoBehaviour:
       name: WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest.WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       resultStatus: 1
-      duration: 0.0624875
+      duration: 0.0437202
       messages: 
       output: 
       stacktrace: 
@@ -1357,7 +1367,7 @@ MonoBehaviour:
       name: WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest.WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.0105962
+      duration: 0.0101128
       messages: 
       output: 
       stacktrace: 
@@ -1374,7 +1384,7 @@ MonoBehaviour:
       name: WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest.WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.0053454
+      duration: 0.0035545
       messages: 
       output: 
       stacktrace: 
@@ -1391,7 +1401,7 @@ MonoBehaviour:
       name: WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderCardContainerTest.WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       resultStatus: 1
-      duration: 0.0063682
+      duration: 0.0056939
       messages: 
       output: 
       stacktrace: 
@@ -1408,7 +1418,7 @@ MonoBehaviour:
       name: SpiderGameModeTest
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest
       resultStatus: 1
-      duration: 0.2863032
+      duration: 1.8731711
       messages: 
       output: 
       stacktrace: 
@@ -1424,7 +1434,7 @@ MonoBehaviour:
       name: SpiderGameMode_InheritsFromAbstractGameMode
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.SpiderGameMode_InheritsFromAbstractGameMode
       resultStatus: 1
-      duration: 0.2083232
+      duration: 0.0605998
       messages: 
       output: 
       stacktrace: 
@@ -1441,7 +1451,7 @@ MonoBehaviour:
       name: SpiderGameModeMock_InheritsFromSpiderGameMode
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.SpiderGameModeMock_InheritsFromSpiderGameMode
       resultStatus: 1
-      duration: 0.0024749
+      duration: 0.0016571
       messages: 
       output: 
       stacktrace: 
@@ -1458,7 +1468,7 @@ MonoBehaviour:
       name: WhenCardIsFacingDown_ThenDeactivateDragging
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingDown_ThenDeactivateDragging
       resultStatus: 1
-      duration: 0.2766669
+      duration: 0.0197846
       messages: 
       output: 'canBeDragged False
 
@@ -1472,12 +1482,28 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1022
       parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
-    - id: 1032
-      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging]
+    - id: 1040
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging][suite]
       name: WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging
       resultStatus: 1
-      duration: 0.151487
+      duration: 0.1827218
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1022
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
+    - id: 1036
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(6,"SPADES","BLACK","CLOVER","BLACK")]
+      name: WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(6,"SPADES","BLACK","CLOVER","BLACK")
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(6,"SPADES","BLACK","CLOVER","BLACK")
+      resultStatus: 1
+      duration: 0.0139134
       messages: 
       output: 'canBeDragged False
 
@@ -1489,14 +1515,87 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentId: 1022
-      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
-    - id: 1033
-      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging]
+      parentId: 1040
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging][suite]
+    - id: 1037
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(8,"HEARTS","RED","DIAMONDS","RED")]
+      name: WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(8,"HEARTS","RED","DIAMONDS","RED")
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(8,"HEARTS","RED","DIAMONDS","RED")
+      resultStatus: 1
+      duration: 0.0332194
+      messages: 
+      output: 'canBeDragged False
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1040
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging][suite]
+    - id: 1038
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(1,"CLOVER","BLACK","HEARTS","RED")]
+      name: WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(1,"CLOVER","BLACK","HEARTS","RED")
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(1,"CLOVER","BLACK","HEARTS","RED")
+      resultStatus: 1
+      duration: 0.00824
+      messages: 
+      output: 'canBeDragged False
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1040
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging][suite]
+    - id: 1039
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(13,"DIAMONDS","RED","SPADES","BLACK")]
+      name: WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(13,"DIAMONDS","RED","SPADES","BLACK")
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(13,"DIAMONDS","RED","SPADES","BLACK")
+      resultStatus: 1
+      duration: 0.0074568
+      messages: 
+      output: 'canBeDragged False
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1040
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging][suite]
+    - id: 1042
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging][suite]
       name: WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging
       resultStatus: 1
-      duration: 0.1632797
+      duration: 0.3958714
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1022
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
+    - id: 1041
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(1,2,"CLOVER","BLACK")]
+      name: WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(1,2,"CLOVER","BLACK")
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(1,2,"CLOVER","BLACK")
+      resultStatus: 1
+      duration: 0.0112507
       messages: 
       output: 'canBeDragged False
 
@@ -1508,14 +1607,52 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentId: 1022
-      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
+      parentId: 1044
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging][suite]
+    - id: 1042
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(12,12,"HEARTS","RED")]
+      name: WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(12,12,"HEARTS","RED")
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(12,12,"HEARTS","RED")
+      resultStatus: 1
+      duration: 0.0064365
+      messages: 
+      output: 'canBeDragged False
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1044
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging][suite]
+    - id: 1043
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(5,3,"SPADES","BLACK")]
+      name: WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(5,3,"SPADES","BLACK")
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(5,3,"SPADES","BLACK")
+      resultStatus: 1
+      duration: 0.0088866
+      messages: 
+      output: 'canBeDragged False
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1044
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging][suite]
     - id: 1030
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithNoChild_ThenActivateDragging]
       name: WhenCardIsFacingUpWithNoChild_ThenActivateDragging
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithNoChild_ThenActivateDragging
       resultStatus: 1
-      duration: 0.2572915
+      duration: 0.0117469
       messages: 
       output: 'canBeDragged True
 
@@ -1531,12 +1668,28 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1022
       parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
-    - id: 1031
-      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging]
+    - id: 1035
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging][suite]
       name: WhenCardIsFacingUpWithValidChild_ThenActivateDragging
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging
       resultStatus: 1
-      duration: 0.2059137
+      duration: 0.4635208
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1022
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
+    - id: 1031
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenCardIsFacingUpWithValidChild_ThenActivateDragging/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(12,"HEARTS","RED")]
+      name: WhenCardIsFacingUpWithValidChild_ThenActivateDragging(12,"HEARTS","RED")
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(12,"HEARTS","RED")
+      resultStatus: 1
+      duration: 0.0122482
       messages: 
       output: 'canBeDragged True
 
@@ -1550,14 +1703,93 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentId: 1022
-      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
+      parentId: 1035
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging][suite]
+    - id: 1032
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenCardIsFacingUpWithValidChild_ThenActivateDragging/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(1,"SPADES","BLACK")]
+      name: WhenCardIsFacingUpWithValidChild_ThenActivateDragging(1,"SPADES","BLACK")
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(1,"SPADES","BLACK")
+      resultStatus: 1
+      duration: 0.00847
+      messages: 
+      output: 'canBeDragged True
+
+        Deactivating childs physics.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1035
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging][suite]
+    - id: 1033
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenCardIsFacingUpWithValidChild_ThenActivateDragging/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(7,"DIAMONDS","RED")]
+      name: WhenCardIsFacingUpWithValidChild_ThenActivateDragging(7,"DIAMONDS","RED")
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(7,"DIAMONDS","RED")
+      resultStatus: 1
+      duration: 0.0125733
+      messages: 
+      output: 'canBeDragged True
+
+        Deactivating childs physics.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1035
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging][suite]
     - id: 1034
-      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer]
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenCardIsFacingUpWithValidChild_ThenActivateDragging/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(4,"CLOVER","BLACK")]
+      name: WhenCardIsFacingUpWithValidChild_ThenActivateDragging(4,"CLOVER","BLACK")
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(4,"CLOVER","BLACK")
+      resultStatus: 1
+      duration: 0.0110182
+      messages: 
+      output: 'canBeDragged True
+
+        Deactivating childs physics.
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1035
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging][suite]
+    - id: 1048
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer][suite]
       name: WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer
       resultStatus: 1
-      duration: 0.234983
+      duration: 0.4825867
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1022
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
+    - id: 1045
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(12)]
+      name: WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(12)
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(12)
+      resultStatus: 1
+      duration: 0.0284556
       messages: 
       output: 
       stacktrace: 
@@ -1567,14 +1799,48 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentId: 1022
-      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
+      parentId: 1048
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer][suite]
+    - id: 1046
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(2)]
+      name: WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(2)
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(2)
+      resultStatus: 1
+      duration: 0.0083297
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1048
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer][suite]
+    - id: 1047
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(5)]
+      name: WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(5)
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(5)
+      resultStatus: 1
+      duration: 0.012194
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1048
+      parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer][suite]
     - id: 1024
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenInitializing_ThenDistributeCardsToContainersPropperly]
       name: WhenInitializing_ThenDistributeCardsToContainersPropperly
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenInitializing_ThenDistributeCardsToContainersPropperly
       resultStatus: 1
-      duration: 0.2029781
+      duration: 0.0386262
       messages: 
       output: 
       stacktrace: 
@@ -1591,7 +1857,7 @@ MonoBehaviour:
       name: WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException
       resultStatus: 1
-      duration: 0.138439
+      duration: 0.0038485
       messages: 
       output: 
       stacktrace: 
@@ -1608,7 +1874,7 @@ MonoBehaviour:
       name: WhenInitializingListWithNullElement_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenInitializingListWithNullElement_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.2161379
+      duration: 0.0172219
       messages: 
       output: 
       stacktrace: 
@@ -1625,7 +1891,7 @@ MonoBehaviour:
       name: WhenInitializingWithNullObject_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenInitializingWithNullObject_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.1526826
+      duration: 0.0030982
       messages: 
       output: 
       stacktrace: 
@@ -1638,11 +1904,11 @@ MonoBehaviour:
       parentId: 1022
       parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
     - id: 1036
-      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenReceivesCardContainerWithANullElementInCardList_ThenThrowNullReferenceExceptionWithoutChangingContainersCardsAmount]
-      name: WhenReceivesCardContainerWithANullElementInCardList_ThenThrowNullReferenceExceptionWithoutChangingContainersCardsAmount
-      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenReceivesCardContainerWithANullElementInCardList_ThenThrowNullReferenceExceptionWithoutChangingContainersCardsAmount
-      resultStatus: 0
-      duration: 0
+      uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenReceivesCardContainerForCardDistributionWithANullElementInCardList_ThenThrowNullReferenceExceptionWithoutChangingContainersCardsAmount]
+      name: WhenReceivesCardContainerForCardDistributionWithANullElementInCardList_ThenThrowNullReferenceExceptionWithoutChangingContainersCardsAmount
+      fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenReceivesCardContainerForCardDistributionWithANullElementInCardList_ThenThrowNullReferenceExceptionWithoutChangingContainersCardsAmount
+      resultStatus: 1
+      duration: 0.0150273
       messages: 
       output: 
       stacktrace: 
@@ -1659,7 +1925,7 @@ MonoBehaviour:
       name: WhenReceivesNullObjectForCardDistribution_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest.WhenReceivesNullObjectForCardDistribution_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.152259
+      duration: 0.0088688
       messages: 
       output: 
       stacktrace: 
@@ -1671,14 +1937,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1022
       parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/Spider/[_Tests][Tests.Solitaire.Gameplay.Spider.SpiderGameModeTest][suite]
-    m_ResultText: WhenReceivesNullObjectForCardDistribution_ThenThrowNullReferenceException
-      (0.152s)
+    m_ResultText: SpiderGameModeTest (1.873s)
     m_ResultStacktrace: 
     m_TestListState:
-      scrollPos: {x: 0, y: 62}
-      m_SelectedIDs: f828f465
-      m_LastClickedID: 1710500088
-      m_ExpandedIDs: a3910e89dec2a494cf517c9e848ce6a6d022b3a7f71059ae1d5efbb28e7773bc375beebd7dcfdfccea07aed6f6d17ddfc49cc5e01c26e9e02a1999e2e268c1eebae7def01c2f29f257d1e5f2f5b10cfd9677d7180cae45254412e425c52af9310be85349d6af7253e163206caa33dd715c71d074ffffff7f
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 375beebd
+      m_LastClickedID: -1108452553
+      m_ExpandedIDs: a3910e89dec2a494cf517c9e848ce6a6d022b3a7f71059ae1d5efbb28e7773bc7dcfdfccea07aed6f6d17ddfc49cc5e01c26e9e02a1999e2e268c1eebae7def01c2f29f257d1e5f2f5b10cfd9677d7180cae45254412e425c52af9310be85349d6af7253aa33dd715c71d074ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1706,7 +1971,7 @@ MonoBehaviour:
       - Uncategorized
     m_SelectedOption: 0
   m_EditModeTestListGUI:
-    m_Window: {fileID: 14}
+    m_Window: {fileID: 17}
     m_NewResultList:
     - id: 1000
       uniqueId: '[CrazySolitaire][suite]'
@@ -1769,7 +2034,7 @@ MonoBehaviour:
       selectedCategoryMask: 0
       availableCategories:
       - Uncategorized
---- !u!114 &15
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1790,9 +2055,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -924
+    x: -1079
     y: 73
-    width: 273
+    width: 275
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0
@@ -1801,13 +2066,13 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewResizer:
-    m_CachedPref: -160
+    m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
---- !u!114 &16
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1828,9 +2093,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 539
+    x: -802
     y: 73
-    width: 740
+    width: 801
     height: 295
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
@@ -1838,14 +2103,14 @@ MonoBehaviour:
   m_Gizmos: 0
   m_SceneIsLit: 1
   m_SceneLighting: 1
-  m_2DMode: 1
+  m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 323.34418, y: 107.85163, z: -66.96647}
+    m_Target: {x: 0.06534076, y: -0.06366658, z: -0.02077365}
     speed: 2
-    m_Value: {x: 323.34418, y: 107.85163, z: -66.96647}
+    m_Value: {x: 0.06534076, y: -0.06366658, z: -0.02077365}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1873,7 +2138,7 @@ MonoBehaviour:
       m_Size: {x: 0, y: 0}
     yGrid:
       m_Fade:
-        m_Target: 0
+        m_Target: 1
         speed: 2
         m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
@@ -1881,7 +2146,7 @@ MonoBehaviour:
       m_Size: {x: 1, y: 1}
     zGrid:
       m_Fade:
-        m_Target: 1
+        m_Target: 0
         speed: 2
         m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
@@ -1891,17 +2156,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0, y: 0, z: 0, w: 1}
+    m_Target: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: 0.087172285, y: -0.89959043, z: 0.21045251, w: 0.37262297}
   m_Size:
-    m_Target: 129.65561
+    m_Target: 1.1952746
     speed: 2
-    m_Value: 129.65561
+    m_Value: 1.1952746
   m_Ortho:
-    m_Target: 1
+    m_Target: 0
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5
@@ -1922,7 +2187,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &17
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1986,7 +2251,217 @@ MonoBehaviour:
   m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &18
+--- !u!114 &21
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Game
+    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: -802
+    y: 73
+    width: 801
+    height: 295
+  m_ViewDataDictionary: {fileID: 0}
+  m_SerializedViewNames: []
+  m_SerializedViewValues: []
+  m_SerializedCustomFieldsNames: []
+  m_SerializedCustomFieldsValues: []
+  m_PlayModeViewName: GameView
+  m_ShowGizmos: 0
+  m_TargetDisplay: 0
+  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetSize: {x: 487, y: 274}
+  m_TextureFilterMode: 0
+  m_TextureHideFlags: 61
+  m_RenderIMGUI: 1
+  m_MaximizeOnPlay: 1
+  m_UseMipMap: 0
+  m_VSyncEnabled: 0
+  m_Gizmos: 0
+  m_Stats: 0
+  m_SelectedSizes: 05000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_ZoomArea:
+    m_HRangeLocked: 0
+    m_VRangeLocked: 0
+    hZoomLockedByDefault: 0
+    vZoomLockedByDefault: 0
+    m_HBaseRangeMin: -243.5
+    m_HBaseRangeMax: 243.5
+    m_VBaseRangeMin: -137
+    m_VBaseRangeMax: 137
+    m_HAllowExceedBaseRangeMin: 1
+    m_HAllowExceedBaseRangeMax: 1
+    m_VAllowExceedBaseRangeMin: 1
+    m_VAllowExceedBaseRangeMax: 1
+    m_ScaleWithWindow: 0
+    m_HSlider: 0
+    m_VSlider: 0
+    m_IgnoreScrollWheelUntilClicked: 0
+    m_EnableMouseInput: 1
+    m_EnableSliderZoomHorizontal: 0
+    m_EnableSliderZoomVertical: 0
+    m_UniformScale: 1
+    m_UpDirection: 1
+    m_DrawArea:
+      serializedVersion: 2
+      x: 0
+      y: 21
+      width: 801
+      height: 274
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 400.5, y: 137}
+    m_MarginLeft: 0
+    m_MarginRight: 0
+    m_MarginTop: 0
+    m_MarginBottom: 0
+    m_LastShownAreaInsideMargins:
+      serializedVersion: 2
+      x: -400.5
+      y: -137
+      width: 801
+      height: 274
+    m_MinimalGUI: 1
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 801, y: 295}
+  m_ClearInEditMode: 1
+  m_NoCameraWarning: 0
+  m_LowResolutionForAspectRatios: 01000000000000000000
+  m_XRRenderMode: 0
+  m_RenderTexture: {fileID: 0}
+--- !u!114 &22
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12373, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Audio Mixer
+    m_Image: {fileID: 2344599766593239149, guid: 0000000000000000d000000000000000,
+      type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: -802
+    y: 73
+    width: 801
+    height: 295
+  m_ViewDataDictionary: {fileID: 0}
+  m_MixersTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: -1544
+    m_ExpandedIDs: 12eb343c
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 0
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_LayoutStripsOnTop:
+    m_VerticalSplitter:
+      ID: 0
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes: 4100000023000000
+      relativeSizes:
+      - 0.65
+      - 0.35000002
+      minSizes: 5500000069000000
+      maxSizes: 0000000000000000
+      lastTotalSize: 0
+      splitSize: 6
+      xOffset: 0
+    m_HorizontalSplitter:
+      ID: 0
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes: 3c0000003c0000003c0000003c000000
+      relativeSizes:
+      - 0.25
+      - 0.25
+      - 0.25
+      - 0.25
+      minSizes: 55000000550000005500000055000000
+      maxSizes: 00000000000000000000000000000000
+      lastTotalSize: 0
+      splitSize: 6
+      xOffset: 0
+  m_LayoutStripsOnRight:
+    m_VerticalSplitter:
+      ID: 0
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes: 3c0000003c0000003c0000003c000000
+      relativeSizes:
+      - 0.25
+      - 0.25
+      - 0.25
+      - 0.25
+      minSizes: 64000000550000005500000055000000
+      maxSizes: 00000000000000000000000000000000
+      lastTotalSize: 0
+      splitSize: 6
+      xOffset: 0
+    m_HorizontalSplitter:
+      ID: 515
+      splitterInitialOffset: 0
+      currentActiveSplitter: -1
+      realSizes: f000000031020000
+      relativeSizes:
+      - 0.3
+      - 0.7
+      minSizes: a0000000a0000000
+      maxSizes: 0000000000000000
+      lastTotalSize: 801
+      splitSize: 6
+      xOffset: 0
+  m_SectionOrder: 00000000030000000100000002000000
+  m_LayoutMode: 1
+  m_SortGroupsAlphabetically: 0
+  m_ShowReferencedBuses: 1
+  m_ShowBusConnections: 0
+  m_ShowBusConnectionsOfSelection: 0
+--- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2007,10 +2482,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -649
-    y: 388
-    width: 648
-    height: 251
+    x: -802
+    y: 389
+    width: 801
+    height: 250
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -2025,20 +2500,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Code/Solitaire/Gameplay/Spider
+    - Assets/VFX/Shaders/GameOver
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Code/Solitaire/Gameplay/Spider
+  - Assets/VFX/Shaders/GameOver
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 90}
-    m_SelectedIDs: 94460000
-    m_LastClickedID: 18068
-    m_ExpandedIDs: 000000005446000056460000584600005a4600005c4600005e46000060460000624600006446000066460000684600006a4600006c4600006e4600007046000072460000744600008a460000
+    scrollPos: {x: 0, y: 26}
+    m_SelectedIDs: e64a0000
+    m_LastClickedID: 19174
+    m_ExpandedIDs: 00000000964a0000984a00009a4a00009c4a00009e4a0000a04a0000a24a0000a44a0000a64a0000a84a0000aa4a0000ac4a0000ae4a0000b04a0000b24a0000b44a0000cc4a0000e44a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2054,7 +2529,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 13}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -2066,7 +2541,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005446000056460000584600005a4600005c4600005e46000060460000624600006446000066460000684600006a4600006c4600006e460000704600007246000074460000
+    m_ExpandedIDs: 00000000964a0000984a00009a4a00009c4a00009e4a0000a04a0000a24a0000a44a0000a64a0000a84a0000aa4a0000ac4a0000ae4a0000b04a0000b24a0000b44a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2093,7 +2568,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 90100100c21201004ed103001eb30300fa6f040026e2030000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2110,7 +2585,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 13}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -2122,7 +2597,7 @@ MonoBehaviour:
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 221
---- !u!114 &19
+--- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2143,8 +2618,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -649
-    y: 388
-    width: 648
-    height: 251
+    x: -802
+    y: 389
+    width: 801
+    height: 250
   m_ViewDataDictionary: {fileID: 0}

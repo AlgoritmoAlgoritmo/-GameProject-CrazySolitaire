@@ -48,6 +48,11 @@ namespace Tests.Solitaire.Gameplay.Spider {
                                                     + "does not contain a SpiderGameMode component.");
             }
         }
+
+        [TearDown]
+        public void TearDown() {
+            GameObject.Destroy(spiderGameModeMockGameObject);
+        }
         #endregion
 
 

@@ -7,6 +7,7 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Solitaire.Feedbacks;
 
 
 
@@ -17,6 +18,8 @@ namespace Solitaire.Gameplay.GameMode {
         private AbstractGameMode gameMode;
         [SerializeField]
         private DeckController deckController;
+        [SerializeField]
+        private FeedbacksGlue feedbacksGlue;
         #endregion
 
 
@@ -41,6 +44,7 @@ namespace Solitaire.Gameplay.GameMode {
             Debug.Log( "---------------------------" );
             Debug.Log( "Game cleared." );
             Debug.Log( "---------------------------" );
+            feedbacksGlue.PlayGameOverFeedback();
         }
         #endregion
 
@@ -50,8 +54,7 @@ namespace Solitaire.Gameplay.GameMode {
             deckController.onCardsCleared += EndClearedGame;
             gameMode.OnCardsCleared.AddListener( deckController.RemoveCardsFromGame );
             gameMode.Initialize( deckController.InitializeCards( gameMode.Suits,
-                                                                gameMode.AmountOfEachSuit )
-                                                        );
+                                                                gameMode.AmountOfEachSuit ) );
         }
         #endregion
     }

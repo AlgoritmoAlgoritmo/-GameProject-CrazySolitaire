@@ -6,25 +6,25 @@
 
 
 using UnityEngine;
-using MoreMountains.Feedbacks;
+// using MoreMountains.Feedbacks;
 
 
 
 namespace Solitaire.Feedbacks {
     public class FeedbacksGlue : MonoBehaviour {
-        #region Variables
+        /*#region Variables
         [SerializeField]
         private MMFeedbacks gameOverFeedbacks;
         #endregion
 
-
+        */
         #region Public methods
         public void PlayGameOverFeedback() {
-            gameOverFeedbacks.PlayFeedbacks();
+            //gameOverFeedbacks.PlayFeedbacks();
         }
         #endregion
 
-
+        
         #region Private methods
 
         #endregion

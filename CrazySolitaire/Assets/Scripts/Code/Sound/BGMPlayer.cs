@@ -29,7 +29,6 @@ namespace Sound {
 
         private bool isPlaying = false;
         private int counter = 0;
-        private string channelName = "BGM";
         #endregion
 
         #region MonoBehavior functions

@@ -28,6 +28,11 @@ namespace Settings {
                                   (int)_resolutionValues.y,
                                   true );
         }
+
+
+        public void SetQuality( int _qualityIndex ) {
+            QualitySettings.SetQualityLevel(_qualityIndex);
+        }
         #endregion
     }
 }

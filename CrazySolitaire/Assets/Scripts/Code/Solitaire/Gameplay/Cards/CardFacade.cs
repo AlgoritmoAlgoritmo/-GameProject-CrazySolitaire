@@ -36,6 +36,8 @@ namespace Solitaire.Gameplay.Cards {
 
         public UnityEvent OnValidDrag = new UnityEvent();
         public UnityEvent OnInvalidDrag = new UnityEvent();
+        public UnityEvent OnValidDrop = new UnityEvent();
+        public UnityEvent OnInvalidDrop = new UnityEvent();
         #endregion
 
 

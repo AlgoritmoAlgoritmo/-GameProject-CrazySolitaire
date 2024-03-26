@@ -90,6 +90,7 @@ namespace Solitaire.Gameplay.Spider {
             //  CASE: no object colliding
             if (_detectedGameObject is null) {
                 GetCardContainer( _placedCard ).Refresh();
+                _placedCard.OnInvalidDrag?.Invoke();
 
 
 
@@ -106,11 +107,14 @@ namespace Solitaire.Gameplay.Spider {
                 if (!CanBeChildOf(_placedCard, detectedCardFacade)
                                     || _placedCard.ParentCard == detectedCardFacade) {
                     GetCardContainer(_placedCard).Refresh();
+                    _placedCard.OnInvalidDrop?.Invoke();
 
-                // Case: Card CAN be child of potential parent
+                    // Case: Card CAN be child of potential parent
                 } else {
                     MoveCardToNewContainer(_placedCard,
                                                 GetCardContainer(detectedCardFacade));
+
+                    _placedCard.OnValidDrop?.Invoke();
                 }
 
 
@@ -125,10 +129,11 @@ namespace Solitaire.Gameplay.Spider {
                                     + $"doesn't have an AbstractCardContainer component.");
 
                    MoveCardToNewContainer(_placedCard, detectedCardContainer);
+                    _placedCard.OnValidDrop?.Invoke();
 
 
 
-            //  CASE: detected object isn't a Card nor a CardContainer
+                //  CASE: detected object isn't a Card nor a CardContainer
             } else {
                 throw new Exception($"The object {_detectedGameObject.name}'s layer ("
                                     + LayerMask.LayerToName(_detectedGameObject.layer)

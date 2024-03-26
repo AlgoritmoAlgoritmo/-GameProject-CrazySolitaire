@@ -7,8 +7,7 @@
 
 using System;
 using UnityEngine;
-
-
+using UnityEngine.Events;
 
 namespace Solitaire.Gameplay.Cards {
     public class CardFacade : MonoBehaviour {
@@ -34,6 +33,8 @@ namespace Solitaire.Gameplay.Cards {
 
         public event Action<CardFacade> OnStartDrag;
         public event Action<CardFacade, GameObject> OnCardEvent;
+
+        public UnityEvent OnInvalidDrag = new UnityEvent();
         #endregion
 
 

@@ -3120,8 +3120,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1988741502}
   - {fileID: 1254027813}
+  - {fileID: 1988741502}
   - {fileID: 1269586035}
   - {fileID: 1515941279}
   - {fileID: 1540813991}
@@ -4200,7 +4200,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 694382710}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1254027814
 MonoBehaviour:
@@ -4219,7 +4219,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cb7844a9d9c32f3408fa3088b578000b, type: 3}
   audioMixerGroup: {fileID: 5659412230741189583, guid: cc1eda5eb51001445bdee71590802e02,
     type: 2}
-  autoStart: 1
+  autoStart: 0
   isCyclicModeOn: 1
   waitingTimeToRefreshInSeconds: 1
 --- !u!1 &1269586032
@@ -4258,7 +4258,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.14431292, g: 0.4433962, b: 0.16515204, a: 0}
+  m_BackGroundColor: {r: 0.14431292, g: 0.4433962, b: 0.16515204, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -6519,7 +6519,7 @@ Transform:
   m_Children:
   - {fileID: 1308826556}
   m_Father: {fileID: 694382710}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1988741503
 MonoBehaviour:

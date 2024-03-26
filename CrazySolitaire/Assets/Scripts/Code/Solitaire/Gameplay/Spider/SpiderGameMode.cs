@@ -58,6 +58,8 @@ namespace Solitaire.Gameplay.Spider {
                 // during dragging
                 _card.ActivateChildsPhysics( false );
                 _card.ActivatePhysics( true );
+                _card.OnValidDrag?.Invoke();
+
             } else {
                 _card.OnInvalidDrag?.Invoke();
             }

@@ -181,7 +181,6 @@ namespace Solitaire.Gameplay.Spider {
         #endregion
 
 
-
         #region Private methods
         private void MoveCardToNewContainer( CardFacade _card,
                                                 AbstractCardContainer _cardContainer ) {

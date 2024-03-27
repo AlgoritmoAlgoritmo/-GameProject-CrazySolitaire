@@ -1,6 +1,8 @@
 {
     "name": "_Solitaire.Feedbacks",
-    "references": [],
+    "references": [
+        "GUID:38b40f0eb5df86140be50769f61c4484"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

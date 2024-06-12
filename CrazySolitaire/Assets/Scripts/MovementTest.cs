@@ -15,6 +15,7 @@ public class MovementTest : MonoBehaviour {
     #region Variables
     public Transform transformToMove;
     public Transform targetPositionTransform;
+    public float speed = .25f;
     private CardMovementAnimationICommand command;
     #endregion
 
@@ -22,7 +23,8 @@ public class MovementTest : MonoBehaviour {
     #region Inherited methods
     private void Awake() {
         command = new CardMovementAnimationICommand( transformToMove, 
-                                                    targetPositionTransform.position );
+                                                    targetPositionTransform,
+                                                    speed );
     }
 
 

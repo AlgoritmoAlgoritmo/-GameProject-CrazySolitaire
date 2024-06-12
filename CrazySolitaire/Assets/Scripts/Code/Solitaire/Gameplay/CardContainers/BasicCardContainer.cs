@@ -75,7 +75,6 @@ namespace Solitaire.Gameplay.CardContainers {
         #endregion
 
 
-
         #region Protected
         protected override void SetUpStarterCards() {
             // Does nothing to let other classes to determine how to set them up

@@ -7,7 +7,7 @@
         "_Solitaire.Gameplay.Cards",
         "_Solitaire.Gameplay.Common",
         "_Solitaire.Gameplay.GameMode",
-        "_Solitaire.Gameplay.Spider"
+        "_Solitaire.GameModes.Spider"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

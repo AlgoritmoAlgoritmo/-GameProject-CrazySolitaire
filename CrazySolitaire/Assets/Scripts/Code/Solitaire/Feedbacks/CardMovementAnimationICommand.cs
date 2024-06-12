@@ -16,31 +16,28 @@ namespace Solitaire.Feedbacks {
     public class CardMovementAnimationICommand : ICommand {
         #region Variables
         private Transform transformToMove;
-        private Vector3 targetPosition;
+        private Transform targetPosition;
+        private float percentageOfDistancePerFrame;
         #endregion
 
 
         #region Constructors
-        public CardMovementAnimationICommand( Transform _transformToMove, 
-                                                Vector3 _targetPosition  ) {
+        public CardMovementAnimationICommand( Transform _transformToMove,
+                                                Transform _targetPosition,
+                                                float _percentageOfDistancePerFrame) {
             transformToMove = _transformToMove;
             targetPosition = _targetPosition;
+            percentageOfDistancePerFrame = _percentageOfDistancePerFrame;
         }
         #endregion
 
 
         #region Public methods
         public async Task Execute() {
-            bool isRunning = true;
-            float speed = .01f;
-            Vector3 positionDiff = targetPosition - transformToMove.position;
+            Vector3 positionDiff = targetPosition.position - transformToMove.position;
 
-
-            while (isRunning) {
-                transformToMove.position += positionDiff * speed;
-
-                if (transformToMove.position == targetPosition)
-                    isRunning = false;
+            for( int i = 0; i <= 1f/ percentageOfDistancePerFrame; i++ ) {
+               transformToMove.position += positionDiff * percentageOfDistancePerFrame;
 
                 await Task.Yield();
             }
@@ -68,6 +65,5 @@ namespace Solitaire.Feedbacks {
         #region Private methods
 
         #endregion
-
     }
 }

@@ -47,7 +47,7 @@ namespace Solitaire.GameModes.Spider {
         }
 
 
-        public void ValidateCardDragging( CardFacade _card ) {
+        public override void ValidateCardDragging( CardFacade _card ) {
             bool canBeDragged = CanCardBeDragged( _card );
             Debug.Log("canBeDragged " + canBeDragged);
             _card.SetCanBeDragged( canBeDragged );

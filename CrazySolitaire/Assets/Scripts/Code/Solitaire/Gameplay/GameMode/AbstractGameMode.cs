@@ -37,6 +37,9 @@ namespace Solitaire.Gameplay {
 
         #region Public abstract methods
         public abstract void Initialize( List<CardFacade> _cards );
+
+
+        public abstract void ValidateCardDragging(CardFacade _card);
         #endregion
 
 

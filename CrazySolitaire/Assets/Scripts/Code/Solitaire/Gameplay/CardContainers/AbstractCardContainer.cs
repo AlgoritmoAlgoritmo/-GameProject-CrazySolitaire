@@ -28,15 +28,15 @@ namespace Solitaire.Gameplay.CardContainers {
         protected List<CardFacade> cards = new List<CardFacade>();
         #endregion
 
+        #region Public Abstract methods
+        public abstract List<CardFacade> Initialize(List<CardFacade> _cards);
+        public abstract void AddCard(CardFacade _card);
+        public abstract bool AddCards(List<CardFacade> _cards);
+        public abstract void RemoveCard(CardFacade _card);
+        public abstract void RemoveCards(List<CardFacade> _cards);
+        #endregion
 
         #region Public methods
-        public abstract List<CardFacade> Initialize( List<CardFacade> _cards );
-        public abstract void AddCard( CardFacade _card );
-        public abstract bool AddCards( List<CardFacade> _cards );
-        public abstract void RemoveCard( CardFacade _card );
-        public abstract void RemoveCards( List<CardFacade> _cards );
-        
-
         public void SetDefaultAmountOfCards( short _defaultAmountOfCards ) {
             initialCardsAmount = _defaultAmountOfCards;
         }
@@ -44,7 +44,7 @@ namespace Solitaire.Gameplay.CardContainers {
         public bool ContainsCard( CardFacade _card ) {
             return cards.Contains( _card );
         }
-                
+        
         public CardFacade GetTopCard() {
             if( cards.Count == 0 ) 
                 return null;

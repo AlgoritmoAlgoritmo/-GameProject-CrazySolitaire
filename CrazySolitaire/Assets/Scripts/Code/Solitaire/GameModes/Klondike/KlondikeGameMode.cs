@@ -11,8 +11,7 @@ using UnityEngine;
 using Solitaire.Gameplay;
 using Solitaire.Gameplay.Cards;
 using Solitaire.Gameplay.CardContainers;
-
-
+using Solitaire.Gameplay.Common;
 
 namespace Solitaire.GameModes.Klondike {
     public class KlondikeGameMode : AbstractGameMode {
@@ -68,7 +67,8 @@ namespace Solitaire.GameModes.Klondike {
 
         #region Protected methods
         protected override bool CanBeChildOf(CardFacade _card, CardFacade _potentialParent) {
-            return _potentialParent.GetCardNumber() == _card.GetCardNumber() + 1;
+            return _potentialParent.GetCardNumber() == _card.GetCardNumber() + 1
+                        &&  !_potentialParent.GetColor().Equals( _card.GetColor() );
         }
     
 
@@ -99,8 +99,54 @@ namespace Solitaire.GameModes.Klondike {
             return true;
         }
 
-        protected override void ManageCardEvent(CardFacade _placedCard, GameObject _detectedGameObject) {
-            throw new System.NotImplementedException();
+
+        protected override void ManageCardEvent( CardFacade _placedCard, GameObject _detectedGameObject ) {
+            if (_detectedGameObject is null) {
+                GetCardContainer(_placedCard).Refresh();
+                _placedCard.OnInvalidDrag?.Invoke();
+
+            //  CASE: colliding object is a Card
+            } else if (_detectedGameObject.layer == LayerMask.NameToLayer( Constants.CARDS_LAYER_NAME) ) {
+                CardFacade detectedCardFacade = _detectedGameObject
+                                                            .GetComponent<CardFacade>();
+                if (!detectedCardFacade)
+                    throw new Exception($"The object {_detectedGameObject.name} doesn't"
+                                                + $" have a CardFacade component.");
+
+                // Logic to move card from one container to another
+                // Case: Card CANNOT be child of potential parent                
+                if (!CanBeChildOf(_placedCard, detectedCardFacade)
+                                    || _placedCard.ParentCard == detectedCardFacade) {
+                    GetCardContainer(_placedCard).Refresh();
+                    _placedCard.OnInvalidDrop?.Invoke();
+
+                    // Case: Card CAN be child of potential parent
+                } else {
+                    MoveCardToNewContainer(_placedCard,
+                                                GetCardContainer(detectedCardFacade));
+
+                    _placedCard.OnValidDrop?.Invoke();
+                }
+            }
+        }
+        #endregion
+
+
+        #region Private methods
+        private void MoveCardToNewContainer(CardFacade _card, AbstractCardContainer _cardContainer) {
+            // Recursively check childs
+            var auxCardFacade = _card;
+
+            while (auxCardFacade != null) {
+                // 1- Remove card from its card container
+                GetCardContainer(auxCardFacade).RemoveCard(auxCardFacade);
+
+                // 2- Add card to new card container
+                _cardContainer.AddCard(auxCardFacade);
+
+                // 3- Set ChildCard as card to check on next loop
+                auxCardFacade = auxCardFacade.ChildCard;
+            }
         }
         #endregion
     }

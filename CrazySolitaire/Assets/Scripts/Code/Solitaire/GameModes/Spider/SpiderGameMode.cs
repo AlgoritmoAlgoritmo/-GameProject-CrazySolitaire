@@ -14,6 +14,7 @@ using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay;
 
 
+
 namespace Solitaire.GameModes.Spider {
     public class SpiderGameMode : AbstractGameMode {
         #region Variables
@@ -168,7 +169,6 @@ namespace Solitaire.GameModes.Spider {
                 // Check if card number and suit are incorrect
                 if( !CanBeChildOf(auxCard.ChildCard, auxCard)
                             || !auxCard.GetSuit().Equals(auxCard.ChildCard.GetSuit()) ) {
-
                     return false;
                 }
 
@@ -198,6 +198,7 @@ namespace Solitaire.GameModes.Spider {
                 auxCardFacade = auxCardFacade.ChildCard;
             }
         }
+
 
         private void CheckIfColumnWasCompleted( CardFacade _placedCard ) {
             List<CardFacade> columnOfCards = GetCardColumn(_placedCard);

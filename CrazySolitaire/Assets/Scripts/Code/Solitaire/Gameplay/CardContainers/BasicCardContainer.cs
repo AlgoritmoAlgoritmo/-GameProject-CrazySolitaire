@@ -20,8 +20,8 @@ namespace Solitaire.Gameplay.CardContainers {
 
             cards.Add( _card );
             _card.transform.position = new Vector3( 
-                                            transform.position.x + cardsOffset.x,
-                                            transform.position.y + cardsOffset.y,
+                                            transform.position.x + (cardsOffset.x * (cards.Count - 1)),
+                                            transform.position.y + (cardsOffset.y * (cards.Count - 1)),
                                             transform.position.z
                                     );
         }

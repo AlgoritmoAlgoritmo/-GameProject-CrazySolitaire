@@ -14,10 +14,11 @@ using Solitaire.Gameplay;
 using Solitaire.Gameplay.Cards;
 using Solitaire.Gameplay.CardContainers;
 using Solitaire.GameModes.Spider;
-using Tests.Solitaire.GameModes.Spider;
 using Test;
 
-namespace Tests.Solitaire.Gameplay.Spider {
+
+
+namespace Tests.Solitaire.GameModes.Spider {
     public class SpiderGameModeTest {
         #region Variables
         private GameObject spiderGameModeMockGameObject;

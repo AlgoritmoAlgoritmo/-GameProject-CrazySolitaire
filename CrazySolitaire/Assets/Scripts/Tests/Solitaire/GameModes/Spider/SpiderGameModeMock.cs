@@ -12,7 +12,7 @@ using Solitaire.GameModes.Spider;
 
 
 
-namespace Tests.Solitaire.Gameplay.Spider {
+namespace Tests.Solitaire.GameModes.Spider {
     public class SpiderGameModeMock : SpiderGameMode {
         #region Variables
         #endregion

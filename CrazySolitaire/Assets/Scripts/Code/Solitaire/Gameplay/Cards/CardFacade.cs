@@ -56,8 +56,9 @@ namespace Solitaire.Gameplay.Cards {
         public void ConfigureCard( CardData _cardData, Sprite _backSprite,
                                                         Sprite _frontSprite) {
             SetCardData( _cardData );
-            SetBackSprite( _backSprite );
+            SetBackSprite(  _backSprite );
             SetFrontSprite( _frontSprite );
+            FlipCard( false );
         }
 
         public short GetCardNumber() {

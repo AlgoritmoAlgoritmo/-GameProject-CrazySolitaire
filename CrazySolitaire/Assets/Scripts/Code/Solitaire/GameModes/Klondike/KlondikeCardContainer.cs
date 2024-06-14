@@ -20,11 +20,24 @@ namespace Solitaire.GameModes.Klondike {
 
 
         #region Public methods
-        
+
         #endregion
 
 
         #region Protected methods
+        protected override void SetUpStarterCards() {
+            int counter = 0;
+
+            foreach( var auxCard in cards ) {
+                counter++;
+
+                if( counter < cards.Count ) {
+                    auxCard.FlipCard( false );
+                } else {
+                    auxCard.FlipCard( true );
+                }
+            }
+        }
         #endregion
     }
 }

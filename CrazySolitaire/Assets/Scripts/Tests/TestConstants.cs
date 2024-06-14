@@ -8,6 +8,12 @@
 
 namespace Test {
     public class TestConstants {
-        const string AUDIO_CLIP_PATH = "";
+        #region SpiderGameMode tests constants
+        public const string SPIDERGAMEMODEMOCK_PREFAB_PATH = "Assets/Scripts/Tests/Solitaire/"
+                                          + "GameModes/Spider/SpiderGameModeMock Prefab.prefab";
+        public const string CARD_PREFAB_PATH = "Assets/Prefabs/Gameplay/Card Prefab.prefab";
+        public const string SPIDERCARDCONTAINERM_PREFAB_PATH = "Assets/Prefabs/Gameplay/Spider"
+                                                + "/SpiderCardContainer 6Cards.prefab";
+        #endregion
     }
 }

@@ -7,8 +7,8 @@
 
 using UnityEngine;
 using System.Collections.Generic;
-using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay.Cards;
+using Solitaire.Gameplay.CardContainers;
 
 
 

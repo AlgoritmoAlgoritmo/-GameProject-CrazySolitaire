@@ -11,6 +11,8 @@ using UnityEngine;
 using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay.Cards;
 
+
+
 namespace Solitaire.GameModes.Klondike {
 	public class KlondikeLoopableCardContainer : BasicCardContainer {
 		#region Variables
@@ -25,8 +27,6 @@ namespace Solitaire.GameModes.Klondike {
 
 		#region Public methods
 		public void ShowNextCard() {
-			Debug.Log("ShowNextCard");
-
 			currentDisplayedCard++;
 
 			if( currentDisplayedCard >= 0 ) {

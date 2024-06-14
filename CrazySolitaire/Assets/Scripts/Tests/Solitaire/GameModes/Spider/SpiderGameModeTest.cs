@@ -15,20 +15,13 @@ using Solitaire.Gameplay.Cards;
 using Solitaire.Gameplay.CardContainers;
 using Solitaire.GameModes.Spider;
 using Tests.Solitaire.GameModes.Spider;
-
-
+using Test;
 
 namespace Tests.Solitaire.Gameplay.Spider {
     public class SpiderGameModeTest {
         #region Variables
         private GameObject spiderGameModeMockGameObject;
         private SpiderGameModeMock spiderGameModeMock;
-
-        private const string SPIDERGAMEMODEMOCK_PREFAB_PATH = "Assets/Scripts/Tests/Solitaire/"
-                                                + "Gameplay/Spider/SpiderGameModeMock Prefab.prefab";
-        private const string CARD_PREFAB_PATH = "Assets/Prefabs/Gameplay/Card Prefab.prefab";
-        private const string SPIDERCARDCONTAINERM_PREFAB_PATH = "Assets/Prefabs/Gameplay/Spider"
-                                                + "/SpiderCardContainer 6Cards.prefab";
         #endregion
 
 
@@ -37,15 +30,15 @@ namespace Tests.Solitaire.Gameplay.Spider {
         public void Setup() {
             spiderGameModeMockGameObject = GameObject.Instantiate( AssetDatabase
                                                             .LoadAssetAtPath<GameObject>(
-                                                                SPIDERGAMEMODEMOCK_PREFAB_PATH));
+                                                                TestConstants.SPIDERGAMEMODEMOCK_PREFAB_PATH ) );
             if (!spiderGameModeMockGameObject) {
-                throw new NullReferenceException($"GameObject at {SPIDERGAMEMODEMOCK_PREFAB_PATH} "
+                throw new NullReferenceException($"GameObject at {TestConstants.SPIDERGAMEMODEMOCK_PREFAB_PATH} "
                                                     + "could not be loaded.");
             }
 
             spiderGameModeMock = spiderGameModeMockGameObject.GetComponent<SpiderGameModeMock>();
             if (!spiderGameModeMock) {
-                throw new NullReferenceException($"GameObject at {SPIDERGAMEMODEMOCK_PREFAB_PATH} "
+                throw new NullReferenceException($"GameObject at {TestConstants.SPIDERGAMEMODEMOCK_PREFAB_PATH} "
                                                     + "does not contain a SpiderGameMode component.");
             }
         }
@@ -419,7 +412,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
         #region Private methods 
         private List<AbstractCardContainer> SpawnTheFollowingAmountOfAbstractCardContainers( int _amount ) {
             GameObject spiderCardContaierPrefabInstance = GameObject.Instantiate(
-                            AssetDatabase.LoadAssetAtPath<GameObject>(SPIDERCARDCONTAINERM_PREFAB_PATH));
+                            AssetDatabase.LoadAssetAtPath<GameObject>(TestConstants.SPIDERCARDCONTAINERM_PREFAB_PATH));
             List<AbstractCardContainer> listOfCardContainersToAdd = new List<AbstractCardContainer>();
 
             for (int i = 0; i < _amount; i++) {
@@ -432,7 +425,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
         private List<CardFacade> SpawnTheFollowingamountOfCards( int _amountOfCards ) {
             GameObject cardFacadePrefabGameObject = GameObject.Instantiate(AssetDatabase
-                                                        .LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH));
+                                                        .LoadAssetAtPath<GameObject>(TestConstants.CARD_PREFAB_PATH));
             CardFacade cardFacadePrefab = cardFacadePrefabGameObject.GetComponent<CardFacade>();
             List<CardFacade> listOfSpawnedCards = new List<CardFacade>();
             for (int i = 0; i < _amountOfCards; i++) {
@@ -445,7 +438,7 @@ namespace Tests.Solitaire.Gameplay.Spider {
 
         private CardFacade SpawnNewCard() {
             GameObject cardFacadePrefabGameObject = GameObject.Instantiate(AssetDatabase
-                                                        .LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH));
+                                                        .LoadAssetAtPath<GameObject>(TestConstants.CARD_PREFAB_PATH));
             CardFacade cardFacadePrefab = cardFacadePrefabGameObject.GetComponent<CardFacade>();
             
             return GameObject.Instantiate(cardFacadePrefabGameObject ).GetComponent<CardFacade>();

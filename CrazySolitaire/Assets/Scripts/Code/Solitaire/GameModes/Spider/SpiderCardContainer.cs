@@ -84,7 +84,7 @@ namespace Solitaire.GameModes.Spider {
             }
 
             cards.Remove(_card);
-            Refresh();            
+            Refresh();       
         }
 
 
@@ -108,18 +108,14 @@ namespace Solitaire.GameModes.Spider {
         #region Protected methods
         protected override void SetUpStarterCards() {
             for( int i = 0; i <= cards.Count - 1; i++ ) {
-                if( i != cards.Count - 1) { 
-                    cards[i].FlipCard( false );
-                    cards[i].ActivatePhysics( false );
-                    cards[i].ActivateParentDetection( false );
+                if( i != cards.Count - 1) {
+                    FlipCard(cards[i], false);
 
                     cards[i].SetChildCard( cards[i + 1] );
                     cards[i + 1].SetParentCard( cards[i] );
 
-                } else { 
-                    cards[i].FlipCard( true );
-                    cards[i].ActivatePhysics( true );
-                    cards[i].ActivateParentDetection( true );
+                } else {
+                    FlipCard(cards[i], true);
                 }
             }
         }

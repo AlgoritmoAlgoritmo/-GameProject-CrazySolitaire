@@ -58,8 +58,11 @@ namespace Solitaire.Gameplay.CardContainers {
         
         public virtual void Refresh() {
             if( cards.Count > 0 ) {
-                for( int i = 0; i < cards.Count; i++ ) {
-                    cards[i].transform.position = GetCardPosition( i );
+                int index = 0;
+
+                foreach( CardFacade auxCard in cards ) {
+                    auxCard.transform.position = GetCardPosition(index);
+                    index++;
                 }
             }
         }
@@ -95,8 +98,14 @@ namespace Solitaire.Gameplay.CardContainers {
             return -1;
         }
 
-        protected Vector2 GetCardPosition( int _index ) {
+        protected virtual Vector2 GetCardPosition( int _index ) {
             return (Vector2) transform.position + ( cardsOffset * _index );
+        }
+
+        protected virtual void FlipCard( CardFacade _card, bool _facingUp ) {
+            _card.FlipCard(_facingUp);
+            _card.SetCanBeInteractable(_facingUp);
+            _card.ActivatePhysics(_facingUp);
         }
         #endregion
     }

@@ -16,7 +16,6 @@ using Solitaire.Gameplay.Common;
 namespace Solitaire.GameModes.Klondike {
     public class KlondikeGameMode : AbstractGameMode {
         #region Variables
-
         #endregion
 
 
@@ -47,7 +46,6 @@ namespace Solitaire.GameModes.Klondike {
 
         public override void ValidateCardDragging( CardFacade _card ) {
             bool canBeDragged = CanCardBeDragged(_card);
-            Debug.Log("canBeDragged " + canBeDragged);
             _card.SetCanBeDragged(canBeDragged);
 
             if (canBeDragged) {
@@ -87,7 +85,7 @@ namespace Solitaire.GameModes.Klondike {
             while (auxCard.ChildCard) {
                 // Check if card number and suit are incorrect
                 if ( !CanBeChildOf(auxCard.ChildCard, auxCard)
-                            || !auxCard.GetSuit().Equals(auxCard.ChildCard.GetSuit())) {
+                            || auxCard.GetColor().Equals(auxCard.ChildCard.GetColor())) {
 
                     return false;
                 }
@@ -106,7 +104,7 @@ namespace Solitaire.GameModes.Klondike {
                 _placedCard.OnInvalidDrag?.Invoke();
 
             //  CASE: colliding object is a Card
-            } else if (_detectedGameObject.layer == LayerMask.NameToLayer( Constants.CARDS_LAYER_NAME) ) {
+            } else if (_detectedGameObject.layer == LayerMask.NameToLayer( Constants.CARDS_LAYER_NAME ) ) {
                 CardFacade detectedCardFacade = _detectedGameObject
                                                             .GetComponent<CardFacade>();
                 if (!detectedCardFacade)
@@ -120,12 +118,25 @@ namespace Solitaire.GameModes.Klondike {
                     GetCardContainer(_placedCard).Refresh();
                     _placedCard.OnInvalidDrop?.Invoke();
 
-                    // Case: Card CAN be child of potential parent
+                // Case: Card CAN be child of potential parent
                 } else {
-                    MoveCardToNewContainer(_placedCard,
-                                                GetCardContainer(detectedCardFacade));
+                    MoveCardToNewContainer(_placedCard, GetCardContainer(detectedCardFacade));
 
                     _placedCard.OnValidDrop?.Invoke();
+                }
+
+            //  CASE: colliding object is a KlondikeCompletedColumnContainer
+            } else if (_detectedGameObject.layer == LayerMask.NameToLayer( Constants.CARD_CONTAINERS_LAYER_NAME ) ) {
+                // IF PLACED CARD IS A KING
+                if( _placedCard.GetCardNumber() == 13 ) {
+                    MoveCardToNewContainer( _placedCard,
+                                            _detectedGameObject.GetComponent<AbstractCardContainer>() );
+                    _placedCard.OnValidDrop?.Invoke();
+
+                // ELSE RESET CARD POSITION
+                } else {
+                    GetCardContainer(_placedCard).Refresh();
+                    _placedCard.OnInvalidDrop?.Invoke();
                 }
             }
         }

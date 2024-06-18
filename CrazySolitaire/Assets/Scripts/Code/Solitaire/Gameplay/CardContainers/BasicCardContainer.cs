@@ -24,6 +24,7 @@ namespace Solitaire.Gameplay.CardContainers {
                                             transform.position.y + (cardsOffset.y * (cards.Count - 1)),
                                             transform.position.z
                                     );
+            Refresh();
         }
 
         public override bool AddCards( List<CardFacade> _cards ) {
@@ -40,6 +41,8 @@ namespace Solitaire.Gameplay.CardContainers {
                                         transform.position.z
                                     );
             }
+
+            Refresh();
 
             return true;
         }

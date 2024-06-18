@@ -5,7 +5,6 @@
 
 
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Solitaire.Gameplay.CardContainers;
@@ -14,18 +13,34 @@ using Solitaire.Gameplay.Cards;
 
 
 namespace Solitaire.GameModes.Klondike {
-	public class KlondikeLoopableCardContainer : BasicCardContainer {
+	public class KlondikeLoopableCardContainer : AbstractCardContainer {
 		#region Variables
-		[SerializeField]
-		private RectTransform orginalCardPosition;
 		[SerializeField]
 		private RectTransform cardDisplayPosition;
 
+		private List<CardFacade> displayedCards = new List<CardFacade>();
 		private int currentDisplayedCard = -1;
 		#endregion
 
 
 		#region Public methods
+		public override List<CardFacade> Initialize(List<CardFacade> _cards) {
+			if (_cards == null || _cards.Count == 0) {
+				throw new System.Exception("Cards list is empty.");
+
+			} else if (_cards.Contains(null)) {
+				throw new System.NullReferenceException("There's a null element in the list of cards"
+														+ " passed for initialization.");
+
+			} else if (_cards.Count < initialCardsAmount) {
+				throw new System.Exception("There aren't enough cards to initialize CardContainer. "
+											+ $"It was expected to {initialCardsAmount} but received"
+											+ $" {_cards.Count} instead. ");
+			}
+
+			return AddInitializationCards(_cards);
+		}
+
 		public void ShowNextCard() {
 			currentDisplayedCard++;
 
@@ -42,6 +57,33 @@ namespace Solitaire.GameModes.Klondike {
                 }
             } 
         }
+
+		public override void AddCard(CardFacade _card) {
+			throw new System.NotImplementedException();
+		}
+
+		public override bool AddCards(List<CardFacade> _cards) {
+			throw new System.NotImplementedException();
+		}
+
+		
+
+		public override void RemoveCard(CardFacade _card) {
+			throw new System.NotImplementedException();
+		}
+
+		public override void RemoveCards(List<CardFacade> _cards) {
+			throw new System.NotImplementedException();
+		}
+
+		protected override Vector2 GetCardPosition( int _index ) {
+			if( displayedCards.Contains( cards[_index] ) ) {
+				return cardDisplayPosition.position;
+
+			} else {
+				return (Vector2)transform.position + (cardsOffset * _index);
+			}
+		}
 		#endregion
 
 
@@ -55,22 +97,31 @@ namespace Solitaire.GameModes.Klondike {
 				cardIndex++;
             }
 		}
+
+        protected override void FlipCard( CardFacade _card, bool _facingUp ) {
+			_card.FlipCard(_facingUp);
+			_card.SetCanBeInteractable(_facingUp);
+		}
         #endregion
 
 
+
+
         #region Private methods
-		private void DisplayCard( CardFacade _card ) {
+        private void DisplayCard( CardFacade _card ) {
+			displayedCards.Add(_card);
+
 			_card.transform.GetComponent<RectTransform>().position
-						= cardDisplayPosition.position;
-			_card.FlipCard( true );
-			_card.SetCanBeInteractable( true );
+									= cardDisplayPosition.position;
+			FlipCard( _card, true );
 		}
 
 		private void HideCard( CardFacade _card ) {
-			_card.transform.GetComponent<RectTransform>().position
-						= orginalCardPosition.position;
-			_card.FlipCard( false );
-			_card.SetCanBeInteractable( false );
+			displayedCards.Remove(_card);
+
+			_card.transform.GetComponent<RectTransform>().position 
+												= transform.position;
+			FlipCard( _card, false );
 		}
         #endregion
     }

@@ -19,7 +19,7 @@ namespace Solitaire.GameModes.Klondike {
 		private RectTransform cardDisplayPosition;
 
 		private List<CardFacade> displayedCards = new List<CardFacade>();
-		private int currentDisplayedCard = -1;
+		private short currentDisplayedCard = -1;
 		#endregion
 
 
@@ -65,11 +65,16 @@ namespace Solitaire.GameModes.Klondike {
 		public override bool AddCards(List<CardFacade> _cards) {
 			throw new System.NotImplementedException();
 		}
-
 		
-
 		public override void RemoveCard(CardFacade _card) {
-			throw new System.NotImplementedException();
+			if (!_card) {
+				throw new System.NullReferenceException("The card intended to be removed is "
+															+ "null.");
+			}
+
+			cards.Remove(_card);
+			displayedCards.Remove(_card);
+			Refresh();
 		}
 
 		public override void RemoveCards(List<CardFacade> _cards) {
@@ -111,16 +116,14 @@ namespace Solitaire.GameModes.Klondike {
         private void DisplayCard( CardFacade _card ) {
 			displayedCards.Add(_card);
 
-			_card.transform.GetComponent<RectTransform>().position
-									= cardDisplayPosition.position;
+			_card.transform.GetComponent<RectTransform>().position = cardDisplayPosition.position;
 			FlipCard( _card, true );
 		}
 
 		private void HideCard( CardFacade _card ) {
 			displayedCards.Remove(_card);
 
-			_card.transform.GetComponent<RectTransform>().position 
-												= transform.position;
+			_card.transform.GetComponent<RectTransform>().position = transform.position;
 			FlipCard( _card, false );
 		}
         #endregion

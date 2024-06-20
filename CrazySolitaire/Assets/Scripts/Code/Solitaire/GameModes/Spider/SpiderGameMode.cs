@@ -24,30 +24,6 @@ namespace Solitaire.GameModes.Spider {
 
 
         #region Public methods
-        public override void Initialize(List<CardFacade> _cards) {
-            if( _cards.Contains(null) ) {
-                throw new NullReferenceException("The list of cards passed for "
-                                        + "initialization contains a null element.");
-
-            } else if( _cards.Count < 1 ) {
-                throw new IndexOutOfRangeException("The list of cards passed for "
-                                                    + "initialization is empty.");
-            }
-
-            List<CardFacade> auxCards = new List<CardFacade>();
-
-            foreach (CardFacade auxCard in _cards) {
-                auxCards.Add(auxCard);
-                auxCard.SubscribeToOnStartDragging(ValidateCardDragging);
-                auxCard.SubscribeToCardEvent(ManageCardEvent);
-            }
-
-            foreach( AbstractCardContainer auxCardContainer in cardContainers ) {
-                auxCards = auxCardContainer.Initialize(auxCards);
-            }
-        }
-
-
         public override void ValidateCardDragging( CardFacade _card ) {
             bool canBeDragged = CanCardBeDragged( _card );
             Debug.Log("canBeDragged " + canBeDragged);

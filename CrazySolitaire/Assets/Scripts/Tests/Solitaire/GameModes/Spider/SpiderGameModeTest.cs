@@ -70,7 +70,7 @@ namespace Tests.Solitaire.GameModes.Spider {
         }
 
         [Test]
-        public void WhenInitializing_ThenDistributeCardsToContainersPropperly() {
+        public void WhenInitializingGameModeClass_ThenGameModeDistributesCorrectAmountOfCardsToEachContainer() {
             int amountOfAbstractCardContainersToSpawn = 2;
             int amountOfCardsToSpawn = 26;
 

@@ -9,8 +9,7 @@ using System.Collections.Generic;
 using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay.Common;
 using Solitaire.GameModes.Spider;
-
-
+using Solitaire.Gameplay.Cards;
 
 namespace Tests.Solitaire.GameModes.Spider {
     public class SpiderGameModeMock : SpiderGameMode {
@@ -19,6 +18,30 @@ namespace Tests.Solitaire.GameModes.Spider {
 
 
         #region Public methods
+        public override void Initialize( List<CardFacade> _cards ) {
+            if( _cards.Contains( null ) ) {
+                throw new System.NullReferenceException( "The list of cards passed for "
+                                        + "initialization contains a null element." );
+
+            } else if( _cards.Count < 1 ) {
+                throw new System.IndexOutOfRangeException( "The list of cards passed for "
+                                                    + "initialization is empty." );
+            }
+
+            List<CardFacade> auxCards = new List<CardFacade>();
+
+            foreach( CardFacade auxCard in _cards ) {
+                auxCards.Add( auxCard );
+                auxCard.SubscribeToOnStartDragging( ValidateCardDragging );
+                auxCard.SubscribeToCardEvent( ManageCardEvent );
+            }
+
+            foreach( AbstractCardContainer auxCardContainer in cardContainers ) {
+                auxCards = auxCardContainer.Initialize( auxCards );
+            }
+        }
+
+
         public int GetAmountOfDistributedCards() {
             int amountOfCards = 0;
 

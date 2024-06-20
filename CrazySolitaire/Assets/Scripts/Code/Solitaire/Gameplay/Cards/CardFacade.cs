@@ -9,6 +9,8 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+
 namespace Solitaire.Gameplay.Cards {
     public class CardFacade : MonoBehaviour {
         #region Variables

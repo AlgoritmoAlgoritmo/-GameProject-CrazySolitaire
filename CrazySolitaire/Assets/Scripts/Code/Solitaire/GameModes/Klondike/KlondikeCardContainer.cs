@@ -62,7 +62,7 @@ namespace Solitaire.GameModes.Klondike {
 
         public override void RemoveCard(CardFacade _card) {
             if (!_card) {
-                throw new System.NullReferenceException("The card intended to be removed is "
+                throw new System.NullReferenceException( "The card intended to be removed is "
                                                             + "null.");
             }
 
@@ -71,13 +71,10 @@ namespace Solitaire.GameModes.Klondike {
             CheckAndFlipUpperCard();
         }
 
-
         public override void RemoveCards(List<CardFacade> _cards) {
             throw new System.NotImplementedException();
         }
-
-        
-
+                
         public override bool AddCards(List<CardFacade> _cards) {
             throw new System.NotImplementedException();
         }

@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 3}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 442}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -69,7 +69,7 @@ MonoBehaviour:
     y: 0
     width: 1280
     height: 637
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 442}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &4
 MonoBehaviour:
@@ -134,10 +134,10 @@ MonoBehaviour:
     y: 30
     width: 1280
     height: 587
-  m_MinSize: {x: 707, y: 371}
-  m_MaxSize: {x: 18002, y: 14021}
+  m_MinSize: {x: 534, y: 392}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 1
-  controlID: 71
+  controlID: 2376
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -160,10 +160,10 @@ MonoBehaviour:
     y: 0
     width: 1280
     height: 587
-  m_MinSize: {x: 707, y: 371}
-  m_MaxSize: {x: 18002, y: 14021}
+  m_MinSize: {x: 534, y: 392}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 72
+  controlID: 2377
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -181,7 +181,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 240
+    width: 235
     height: 587
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
@@ -201,23 +201,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: TestRunnerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 240
+    x: 235
     y: 0
-    width: 277
+    width: 635
     height: 587
-  m_MinSize: {x: 277, y: 71}
+  m_MinSize: {x: 102, y: 121}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -235,14 +235,14 @@ MonoBehaviour:
   - {fileID: 12}
   m_Position:
     serializedVersion: 2
-    x: 517
+    x: 870
     y: 0
-    width: 763
+    width: 410
     height: 587
-  m_MinSize: {x: 231, y: 371}
-  m_MaxSize: {x: 10001, y: 14021}
+  m_MinSize: {x: 231, y: 392}
+  m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 73
+  controlID: 2378
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -260,8 +260,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 763
-    height: 316
+    width: 410
+    height: 308
   m_MinSize: {x: 101, y: 121}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
@@ -286,9 +286,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 316
-    width: 763
-    height: 271
+    y: 308
+    width: 410
+    height: 279
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 19}
@@ -319,10 +319,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -763
+    x: -410
     y: 73
-    width: 762
-    height: 295
+    width: 409
+    height: 287
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
   m_SerializedViewValues: []
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 487, y: 274}
+  m_TargetSize: {x: 409, y: 230}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -347,10 +347,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -243.5
-    m_HBaseRangeMax: 243.5
-    m_VBaseRangeMin: -137
-    m_VBaseRangeMax: 137
+    m_HBaseRangeMin: -204.5
+    m_HBaseRangeMax: 204.5
+    m_VBaseRangeMin: -115
+    m_VBaseRangeMax: 115
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -368,23 +368,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 762
-      height: 274
+      width: 409
+      height: 266
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 381, y: 137}
+    m_Translation: {x: 204.5, y: 133}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -381
-      y: -137
-      width: 762
-      height: 274
+      x: -204.5
+      y: -133
+      width: 409
+      height: 266
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 762, y: 295}
+  m_LastWindowPixelSize: {x: 409, y: 287}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -411,9 +411,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1280
-    y: 73
-    width: 239
+    x: 0
+    y: 19
+    width: 234
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
@@ -421,7 +421,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 62fbffff
+      m_ExpandedIDs: 8244ffffa044ffff2a4effff2253ffff4053ffffca5cffff4a60ffff6860fffff269ffff307fffff4e7fffffd888ffff888dffffa68dffff24f1ffff62fbffff003d00004a3d0000863d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -442,7 +442,7 @@ MonoBehaviour:
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
     m_LockTracker:
-      m_IsLocked: 0
+      m_IsLocked: 1
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 6ccd2c825b5969b42a5edd932a14f3cd
 --- !u!114 &15
@@ -492,9 +492,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1040
+    x: -1045
     y: 73
-    width: 275
+    width: 279
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0
@@ -529,19 +529,19 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -975
+    x: -1045
     y: 73
-    width: 246
+    width: 633
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 4459
-    splitterInitialOffset: 0
+    ID: 2504
+    splitterInitialOffset: 331
     currentActiveSplitter: -1
-    realSizes: 740100007c000000
+    realSizes: 03010000ed000000
     relativeSizes:
-    - 0.75
-    - 0.25
+    - 0.5221774
+    - 0.4778226
     minSizes: 2000000020000000
     maxSizes: 0000000000000000
     lastTotalSize: 496
@@ -555,9 +555,9 @@ MonoBehaviour:
       uniqueId: '[CrazySolitaire][suite]'
       name: CrazySolitaire
       fullName: CrazySolitaire
-      resultStatus: 1
-      duration: 1.6404961
-      messages: 
+      resultStatus: 2
+      duration: 415.10712
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -571,9 +571,9 @@ MonoBehaviour:
       uniqueId: '[_Tests.dll][suite]'
       name: _Tests.dll
       fullName: C:/Users/Usuario/Documents/GitHub/CrazySolitaire/CrazySolitaire/Library/ScriptAssemblies/_Tests.dll
-      resultStatus: 1
-      duration: 1.5443264
-      messages: 
+      resultStatus: 2
+      duration: 415.023
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -587,9 +587,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/[Tests][suite]
       name: Tests
       fullName: Tests
-      resultStatus: 1
-      duration: 1.5137447
-      messages: 
+      resultStatus: 2
+      duration: 415.0021
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -603,9 +603,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/[Solitaire][suite]
       name: Solitaire
       fullName: Tests.Solitaire
-      resultStatus: 1
-      duration: 1.485846
-      messages: 
+      resultStatus: 2
+      duration: 414.98172
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -619,9 +619,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/[GameModes][suite]
       name: GameModes
       fullName: Tests.Solitaire.GameModes
-      resultStatus: 1
-      duration: 1.4442487
-      messages: 
+      resultStatus: 2
+      duration: 414.9658
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -635,9 +635,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/GameModes/[_Tests][Tests.Solitaire.GameModes.Spider][suite]
       name: Spider
       fullName: Tests.Solitaire.GameModes.Spider
-      resultStatus: 1
-      duration: 1.4214357
-      messages: 
+      resultStatus: 2
+      duration: 414.94928
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -652,7 +652,7 @@ MonoBehaviour:
       name: SpiderCardContainerForCardDistributionTest
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerForCardDistributionTest
       resultStatus: 1
-      duration: 0.8661983
+      duration: 0.6721237
       messages: 
       output: 
       stacktrace: 
@@ -668,7 +668,7 @@ MonoBehaviour:
       name: SpiderCardContainerForCardDistributor_IsAbstractCardContainer
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerForCardDistributionTest.SpiderCardContainerForCardDistributor_IsAbstractCardContainer
       resultStatus: 1
-      duration: 0.1592927
+      duration: 0.2006036
       messages: 
       output: 
       stacktrace: 
@@ -685,7 +685,7 @@ MonoBehaviour:
       name: WhenAddingACard_ThenThrowsNotImplementedException
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerForCardDistributionTest.WhenAddingACard_ThenThrowsNotImplementedException
       resultStatus: 1
-      duration: 0.0524371
+      duration: 0.0694508
       messages: 
       output: 
       stacktrace: 
@@ -702,7 +702,7 @@ MonoBehaviour:
       name: WhenAddingMultipleCards_ThenThrowsNotImplementedException
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerForCardDistributionTest.WhenAddingMultipleCards_ThenThrowsNotImplementedException
       resultStatus: 1
-      duration: 0.0050712
+      duration: 0.0036364
       messages: 
       output: 
       stacktrace: 
@@ -719,7 +719,7 @@ MonoBehaviour:
       name: WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerForCardDistributionTest.WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards
       resultStatus: 1
-      duration: 0.397865
+      duration: 0.1309755
       messages: 
       output: 
       stacktrace: 
@@ -736,7 +736,7 @@ MonoBehaviour:
       name: WhenCallMethodForMultipleCardRemoval_ThenThrowNotImplementedException
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerForCardDistributionTest.WhenCallMethodForMultipleCardRemoval_ThenThrowNotImplementedException
       resultStatus: 1
-      duration: 0.0188443
+      duration: 0.0174481
       messages: 
       output: 
       stacktrace: 
@@ -753,7 +753,7 @@ MonoBehaviour:
       name: WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerForCardDistributionTest.WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       resultStatus: 1
-      duration: 0.0582269
+      duration: 0.0912224
       messages: 
       output: 
       stacktrace: 
@@ -770,7 +770,7 @@ MonoBehaviour:
       name: WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerForCardDistributionTest.WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.0017949
+      duration: 0.0016412
       messages: 
       output: 
       stacktrace: 
@@ -787,7 +787,7 @@ MonoBehaviour:
       name: WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerForCardDistributionTest.WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       resultStatus: 1
-      duration: 0.0032624
+      duration: 0.0028621
       messages: 
       output: 
       stacktrace: 
@@ -804,7 +804,7 @@ MonoBehaviour:
       name: SpiderCardContainerTest
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest
       resultStatus: 1
-      duration: 0.6538896
+      duration: 0.5751405
       messages: 
       output: 
       stacktrace: 
@@ -820,7 +820,7 @@ MonoBehaviour:
       name: SpiderCardContainer_IsAbstractCardContainer
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest.SpiderCardContainer_IsAbstractCardContainer
       resultStatus: 1
-      duration: 0.0589593
+      duration: 0.1319758
       messages: 
       output: 
       stacktrace: 
@@ -837,7 +837,7 @@ MonoBehaviour:
       name: WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest.WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer
       resultStatus: 1
-      duration: 0.0758473
+      duration: 0.0592622
       messages: 
       output: 
       stacktrace: 
@@ -854,7 +854,7 @@ MonoBehaviour:
       name: WhenAddingCardListWithNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest.WhenAddingCardListWithNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       resultStatus: 1
-      duration: 0.0112703
+      duration: 0.0104171
       messages: 
       output: 
       stacktrace: 
@@ -871,7 +871,7 @@ MonoBehaviour:
       name: WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest.WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer
       resultStatus: 1
-      duration: 0.227382
+      duration: 0.0461726
       messages: 
       output: 
       stacktrace: 
@@ -888,7 +888,7 @@ MonoBehaviour:
       name: WhenAddingNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest.WhenAddingNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       resultStatus: 1
-      duration: 0.0024666
+      duration: 0.0024007
       messages: 
       output: 
       stacktrace: 
@@ -905,7 +905,7 @@ MonoBehaviour:
       name: WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest.WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards
       resultStatus: 1
-      duration: 0.013781
+      duration: 0.0131778
       messages: 
       output: 
       stacktrace: 
@@ -922,7 +922,7 @@ MonoBehaviour:
       name: WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest.WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards
       resultStatus: 1
-      duration: 0.0204082
+      duration: 0.0189878
       messages: 
       output: 
       stacktrace: 
@@ -939,7 +939,7 @@ MonoBehaviour:
       name: WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest.WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       resultStatus: 1
-      duration: 0.0936499
+      duration: 0.1144731
       messages: 
       output: 
       stacktrace: 
@@ -956,7 +956,7 @@ MonoBehaviour:
       name: WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest.WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.0183489
+      duration: 0.0177268
       messages: 
       output: 
       stacktrace: 
@@ -973,7 +973,7 @@ MonoBehaviour:
       name: WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest.WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.0023342
+      duration: 0.0020487
       messages: 
       output: 
       stacktrace: 
@@ -990,7 +990,7 @@ MonoBehaviour:
       name: WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCardContainerTest.WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       resultStatus: 1
-      duration: 0.0079311
+      duration: 0.0088635
       messages: 
       output: 
       stacktrace: 
@@ -1006,9 +1006,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Spider/[_Tests][Tests.Solitaire.GameModes.Spider.SpiderGameModeTest][suite]
       name: SpiderGameModeTest
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest
-      resultStatus: 1
-      duration: 1.3898664
-      messages: 
+      resultStatus: 2
+      duration: 414.92776
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -1023,7 +1023,7 @@ MonoBehaviour:
       name: SpiderGameMode_InheritsFromAbstractGameMode
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.SpiderGameMode_InheritsFromAbstractGameMode
       resultStatus: 1
-      duration: 0.0833318
+      duration: 0.042302
       messages: 
       output: 
       stacktrace: 
@@ -1040,7 +1040,7 @@ MonoBehaviour:
       name: SpiderGameModeMock_InheritsFromSpiderGameMode
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.SpiderGameModeMock_InheritsFromSpiderGameMode
       resultStatus: 1
-      duration: 0.0055962
+      duration: 0.0014632
       messages: 
       output: 
       stacktrace: 
@@ -1057,7 +1057,7 @@ MonoBehaviour:
       name: WhenCardIsFacingDown_ThenDeactivateDragging
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingDown_ThenDeactivateDragging
       resultStatus: 1
-      duration: 0.3635256
+      duration: 0.1425789
       messages: 
       output: 'canBeDragged False
 
@@ -1088,7 +1088,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging
       resultStatus: 1
-      duration: 0.1751749
+      duration: 0.1735411
       messages: 
       output: 'There are no audio listeners in the scene. Please ensure there is
         always one audio listener in the scene
@@ -1124,7 +1124,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(6,"SPADES","BLACK","CLOVER","BLACK")
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(6,"SPADES","BLACK","CLOVER","BLACK")
       resultStatus: 1
-      duration: 0.0305008
+      duration: 0.0419348
       messages: 
       output: 'canBeDragged False
 
@@ -1155,7 +1155,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(8,"HEARTS","RED","DIAMONDS","RED")
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(8,"HEARTS","RED","DIAMONDS","RED")
       resultStatus: 1
-      duration: 0.0228176
+      duration: 0.0436711
       messages: 
       output: 'canBeDragged False
 
@@ -1186,7 +1186,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(1,"CLOVER","BLACK","HEARTS","RED")
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(1,"CLOVER","BLACK","HEARTS","RED")
       resultStatus: 1
-      duration: 0.0243347
+      duration: 0.02094
       messages: 
       output: 'canBeDragged False
 
@@ -1217,7 +1217,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(13,"DIAMONDS","RED","SPADES","BLACK")
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildOfAnotherSuit_ThenDeactivateDragging(13,"DIAMONDS","RED","SPADES","BLACK")
       resultStatus: 1
-      duration: 0.0219562
+      duration: 0.0209226
       messages: 
       output: 'canBeDragged False
 
@@ -1248,7 +1248,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging
       resultStatus: 1
-      duration: 0.1057763
+      duration: 0.2253176
       messages: 
       output: 'There are no audio listeners in the scene. Please ensure there is
         always one audio listener in the scene
@@ -1284,7 +1284,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(1,2,"CLOVER","BLACK")
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(1,2,"CLOVER","BLACK")
       resultStatus: 1
-      duration: 0.0273328
+      duration: 0.0218837
       messages: 
       output: 'canBeDragged False
 
@@ -1315,7 +1315,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(12,12,"HEARTS","RED")
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(12,12,"HEARTS","RED")
       resultStatus: 1
-      duration: 0.0216833
+      duration: 0.0208845
       messages: 
       output: 'canBeDragged False
 
@@ -1346,7 +1346,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(5,3,"SPADES","BLACK")
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithAChildWithAnInvalidNumber_ThenDeactivateDragging(5,3,"SPADES","BLACK")
       resultStatus: 1
-      duration: 0.0218233
+      duration: 0.0204849
       messages: 
       output: 'canBeDragged False
 
@@ -1377,7 +1377,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithNoChild_ThenActivateDragging
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithNoChild_ThenActivateDragging
       resultStatus: 1
-      duration: 0.0190797
+      duration: 0.0252375
       messages: 
       output: 'canBeDragged True
 
@@ -1406,7 +1406,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithValidChild_ThenActivateDragging
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging
       resultStatus: 1
-      duration: 0.133609
+      duration: 0.1916675
       messages: 
       output: 'There are no audio listeners in the scene. Please ensure there is
         always one audio listener in the scene
@@ -1442,7 +1442,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithValidChild_ThenActivateDragging(12,"HEARTS","RED")
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(12,"HEARTS","RED")
       resultStatus: 1
-      duration: 0.0242221
+      duration: 0.0282474
       messages: 
       output: 'canBeDragged True
 
@@ -1471,7 +1471,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithValidChild_ThenActivateDragging(1,"SPADES","BLACK")
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(1,"SPADES","BLACK")
       resultStatus: 1
-      duration: 0.0226607
+      duration: 0.0204954
       messages: 
       output: 'canBeDragged True
 
@@ -1500,7 +1500,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithValidChild_ThenActivateDragging(7,"DIAMONDS","RED")
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(7,"DIAMONDS","RED")
       resultStatus: 1
-      duration: 0.0218895
+      duration: 0.0257758
       messages: 
       output: 'canBeDragged True
 
@@ -1529,7 +1529,7 @@ MonoBehaviour:
       name: WhenCardIsFacingUpWithValidChild_ThenActivateDragging(4,"CLOVER","BLACK")
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenCardIsFacingUpWithValidChild_ThenActivateDragging(4,"CLOVER","BLACK")
       resultStatus: 1
-      duration: 0.0206867
+      duration: 0.0233857
       messages: 
       output: 'canBeDragged True
 
@@ -1558,7 +1558,7 @@ MonoBehaviour:
       name: WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer
       resultStatus: 1
-      duration: 0.2663451
+      duration: 0.1745897
       messages: 
       output: 'There are no audio listeners in the scene. Please ensure there is
         always one audio listener in the scene
@@ -1572,10 +1572,6 @@ MonoBehaviour:
 
         There are no audio listeners in the scene.
         Please ensure there is always one audio listener in the scene
-
-        There
-        are no audio listeners in the scene. Please ensure there is always one audio
-        listener in the scene
 
 '
       stacktrace: 
@@ -1591,7 +1587,7 @@ MonoBehaviour:
       name: WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(12)
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(12)
       resultStatus: 1
-      duration: 0.1806607
+      duration: 0.0447652
       messages: 
       output: 
       stacktrace: 
@@ -1608,7 +1604,7 @@ MonoBehaviour:
       name: WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(2)
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(2)
       resultStatus: 1
-      duration: 0.0128671
+      duration: 0.0142558
       messages: 
       output: 
       stacktrace: 
@@ -1625,7 +1621,7 @@ MonoBehaviour:
       name: WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(5)
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenDistributesCardsBetweenCardContainers_ThenAddOneCardToEachContainer(5)
       resultStatus: 1
-      duration: 0.0217644
+      duration: 0.0206475
       messages: 
       output: 
       stacktrace: 
@@ -1641,11 +1637,22 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializing_ThenDistributeCardsToContainersPropperly]
       name: WhenInitializing_ThenDistributeCardsToContainersPropperly
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializing_ThenDistributeCardsToContainersPropperly
-      resultStatus: 1
-      duration: 0.0777265
-      messages: 
+      resultStatus: 2
+      duration: 414.7435
+      messages: 'System.Exception : Cards list is empty.'
       output: 
-      stacktrace: 
+      stacktrace: "  at Solitaire.GameModes.Spider.SpiderCardContainer.Initialize
+        (System.Collections.Generic.List`1[T] _cards) [0x00015] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\GameModes\\Spider\\SpiderCardContainer.cs:31
+        \r\n  at Solitaire.Gameplay.AbstractGameMode.Initialize (System.Collections.Generic.List`1[T]
+        _cards) [0x000c3] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\GameMode\\AbstractGameMode.cs:60
+        \r\n  at Tests.Solitaire.GameModes.Spider.SpiderGameModeMock.Initialize (System.Collections.Generic.List`1[T]
+        _cards) [0x00001] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeMock.cs:22
+        \r\n  at Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializing_ThenDistributeCardsToContainersPropperly
+        () [0x0008d] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeTest.cs:95
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1658,11 +1665,19 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException]
       name: WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException
-      resultStatus: 1
-      duration: 0.0045649
-      messages: 
+      resultStatus: 2
+      duration: 0.0030183
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
       output: 
-      stacktrace: 
+      stacktrace: "  at Tests.Solitaire.GameModes.Spider.SpiderGameModeMock.GetAmountOfDistributedCards
+        () [0x00004] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeMock.cs:25
+        \r\n  at Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException
+        () [0x00019] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeTest.cs:106
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1675,11 +1690,19 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializingListWithNullElement_ThenThrowNullReferenceException]
       name: WhenInitializingListWithNullElement_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializingListWithNullElement_ThenThrowNullReferenceException
-      resultStatus: 1
-      duration: 0.0326771
-      messages: 
+      resultStatus: 2
+      duration: 0.0307392
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
       output: 
-      stacktrace: 
+      stacktrace: "  at Tests.Solitaire.GameModes.Spider.SpiderGameModeMock.GetAmountOfDistributedCards
+        () [0x00004] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeMock.cs:25
+        \r\n  at Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializingListWithNullElement_ThenThrowNullReferenceException
+        () [0x0001c] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeTest.cs:127
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1692,11 +1715,19 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Spider/SpiderGameModeTest/[_Tests][Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializingWithNullObject_ThenThrowNullReferenceException]
       name: WhenInitializingWithNullObject_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializingWithNullObject_ThenThrowNullReferenceException
-      resultStatus: 1
-      duration: 0.0025272
-      messages: 
+      resultStatus: 2
+      duration: 0.0028173
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
       output: 
-      stacktrace: 
+      stacktrace: "  at Tests.Solitaire.GameModes.Spider.SpiderGameModeMock.GetAmountOfDistributedCards
+        () [0x00004] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeMock.cs:25
+        \r\n  at Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializingWithNullObject_ThenThrowNullReferenceException
+        () [0x00001] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeTest.cs:151
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1710,7 +1741,7 @@ MonoBehaviour:
       name: WhenReceivesCardContainerForCardDistributionWithANullElementInCardList_ThenThrowNullReferenceExceptionWithoutChangingContainersCardsAmount
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenReceivesCardContainerForCardDistributionWithANullElementInCardList_ThenThrowNullReferenceExceptionWithoutChangingContainersCardsAmount
       resultStatus: 1
-      duration: 0.0217
+      duration: 0.0215574
       messages: 
       output: 
       stacktrace: 
@@ -1727,7 +1758,7 @@ MonoBehaviour:
       name: WhenReceivesNullObjectForCardDistribution_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenReceivesNullObjectForCardDistribution_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.0041039
+      duration: 0.0034933
       messages: 
       output: 
       stacktrace: 
@@ -1743,9 +1774,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/[Gameplay][suite]
       name: Gameplay
       fullName: Tests.Solitaire.Gameplay
-      resultStatus: 1
-      duration: 1.2081858
-      messages: 
+      resultStatus: 2
+      duration: 2.6065235
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -1759,9 +1790,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/[_Tests][Tests.Solitaire.Gameplay.CardContainers][suite]
       name: CardContainers
       fullName: Tests.Solitaire.Gameplay.CardContainers
-      resultStatus: 1
-      duration: 0.3634198
-      messages: 
+      resultStatus: 2
+      duration: 0.5902495
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -1775,9 +1806,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest][suite]
       name: AbstractCardContainerTest
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest
-      resultStatus: 1
-      duration: 0.2392105
-      messages: 
+      resultStatus: 2
+      duration: 0.3811579
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -1792,7 +1823,7 @@ MonoBehaviour:
       name: AbstractCardContainerMock_IsAbstractCardContainer
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.AbstractCardContainerMock_IsAbstractCardContainer
       resultStatus: 1
-      duration: 0.0037898
+      duration: 0.0028381
       messages: 
       output: 
       stacktrace: 
@@ -1809,7 +1840,7 @@ MonoBehaviour:
       name: WhenCheckingIfContainsACard_ThenReturnsIfContainsItOrNot
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenCheckingIfContainsACard_ThenReturnsIfContainsItOrNot
       resultStatus: 1
-      duration: 0.0026736
+      duration: 0.0019996
       messages: 
       output: 
       stacktrace: 
@@ -1826,7 +1857,7 @@ MonoBehaviour:
       name: WhenGettingTopCard_ThenReturnLastAddedCard
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenGettingTopCard_ThenReturnLastAddedCard
       resultStatus: 1
-      duration: 0.0029716
+      duration: 0.0022841
       messages: 
       output: 
       stacktrace: 
@@ -1843,7 +1874,7 @@ MonoBehaviour:
       name: WhenInitialize_ThenReturnNoAddedCards
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards
       resultStatus: 1
-      duration: 0.0589744
+      duration: 0.1253148
       messages: 
       output: 
       stacktrace: 
@@ -1859,7 +1890,7 @@ MonoBehaviour:
       name: WhenInitialize_ThenReturnNoAddedCards(2,5)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards(2,5)
       resultStatus: 1
-      duration: 0.0033623
+      duration: 0.0031611
       messages: 
       output: 
       stacktrace: 
@@ -1876,7 +1907,7 @@ MonoBehaviour:
       name: WhenInitialize_ThenReturnNoAddedCards(4,7)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards(4,7)
       resultStatus: 1
-      duration: 0.001669
+      duration: 0.0014615
       messages: 
       output: 
       stacktrace: 
@@ -1893,7 +1924,7 @@ MonoBehaviour:
       name: WhenInitialize_ThenReturnNoAddedCards(3,3)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards(3,3)
       resultStatus: 1
-      duration: 0.001315
+      duration: 0.0009301
       messages: 
       output: 
       stacktrace: 
@@ -1910,7 +1941,7 @@ MonoBehaviour:
       name: WhenInitialize_ThenReturnNoAddedCards(10,11)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenInitialize_ThenReturnNoAddedCards(10,11)
       resultStatus: 1
-      duration: 0.0020051
+      duration: 0.001436
       messages: 
       output: 
       stacktrace: 
@@ -1926,9 +1957,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding][suite]
       name: WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding
-      resultStatus: 1
-      duration: 0.0937393
-      messages: 
+      resultStatus: 2
+      duration: 0.1186656
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -1942,11 +1973,22 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(0.0f,0.0f,0.0f)]
       name: WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(0.0f,0.0f,0.0f)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(0.0f,0.0f,0.0f)
-      resultStatus: 1
-      duration: 0.0100985
-      messages: 
+      resultStatus: 2
+      duration: 0.0096053
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
       output: 
-      stacktrace: 
+      stacktrace: "  at Solitaire.Gameplay.Cards.CardFacade.RenderOnTop () [0x00001]
+        in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\Cards\\CardFacade.cs:144
+        \r\n  at Solitaire.Gameplay.CardContainers.AbstractCardContainer.Refresh
+        () [0x00046] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\AbstractCardContainer.cs:65
+        \r\n  at Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding
+        (System.Single _xOffset, System.Single _yOffset, System.Single _zOffset)
+        [0x000d7] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\Gameplay\\CardContainers\\AbstractCardContainerTest.cs:138
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1959,11 +2001,22 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(-10.0f,5.0f,3.0f)]
       name: WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(-10.0f,5.0f,3.0f)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(-10.0f,5.0f,3.0f)
-      resultStatus: 1
-      duration: 0.0017915
-      messages: 
+      resultStatus: 2
+      duration: 0.002197
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
       output: 
-      stacktrace: 
+      stacktrace: "  at Solitaire.Gameplay.Cards.CardFacade.RenderOnTop () [0x00001]
+        in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\Cards\\CardFacade.cs:144
+        \r\n  at Solitaire.Gameplay.CardContainers.AbstractCardContainer.Refresh
+        () [0x00046] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\AbstractCardContainer.cs:65
+        \r\n  at Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding
+        (System.Single _xOffset, System.Single _yOffset, System.Single _zOffset)
+        [0x000d7] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\Gameplay\\CardContainers\\AbstractCardContainerTest.cs:138
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1976,11 +2029,22 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/AbstractCardContainerTest/WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding/[_Tests][Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(200.0f,-80.0f,-67.0f)]
       name: WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(200.0f,-80.0f,-67.0f)
       fullName: Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding(200.0f,-80.0f,-67.0f)
-      resultStatus: 1
-      duration: 0.0013862
-      messages: 
+      resultStatus: 2
+      duration: 0.002392
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
       output: 
-      stacktrace: 
+      stacktrace: "  at Solitaire.Gameplay.Cards.CardFacade.RenderOnTop () [0x00001]
+        in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\Cards\\CardFacade.cs:144
+        \r\n  at Solitaire.Gameplay.CardContainers.AbstractCardContainer.Refresh
+        () [0x00046] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\AbstractCardContainer.cs:65
+        \r\n  at Tests.Solitaire.Gameplay.CardContainers.AbstractCardContainerTest.WhenRefreshingAbstractCardContainer_ThenChangeCardPositionToCorresponding
+        (System.Single _xOffset, System.Single _yOffset, System.Single _zOffset)
+        [0x000d7] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\Gameplay\\CardContainers\\AbstractCardContainerTest.cs:138
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1993,9 +2057,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest][suite]
       name: BasicCardContainerTest
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest
-      resultStatus: 1
-      duration: 0.101587
-      messages: 
+      resultStatus: 2
+      duration: 0.0884078
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -2010,7 +2074,7 @@ MonoBehaviour:
       name: BasicCardContainer_IsAbstractCardContainer
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.BasicCardContainer_IsAbstractCardContainer
       resultStatus: 1
-      duration: 0.0051665
+      duration: 0.0025277
       messages: 
       output: 
       stacktrace: 
@@ -2026,11 +2090,23 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/BasicCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer]
       name: WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer
-      resultStatus: 1
-      duration: 0.0102817
-      messages: 
+      resultStatus: 2
+      duration: 0.004194
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
       output: 
-      stacktrace: 
+      stacktrace: "  at Solitaire.Gameplay.Cards.CardFacade.RenderOnTop () [0x00001]
+        in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\Cards\\CardFacade.cs:144
+        \r\n  at Solitaire.Gameplay.CardContainers.AbstractCardContainer.Refresh
+        () [0x00046] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\AbstractCardContainer.cs:65
+        \r\n  at Solitaire.Gameplay.CardContainers.BasicCardContainer.AddCard (Solitaire.Gameplay.Cards.CardFacade
+        _card) [0x0009d] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\BasicCardContainer.cs:27
+        \r\n  at Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer
+        () [0x0003a] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\Gameplay\\CardContainers\\BasicCardContainerTest.cs:51
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -2044,7 +2120,7 @@ MonoBehaviour:
       name: WhenAddingCardListWithNullObjectToBasicCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingCardListWithNullObjectToBasicCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       resultStatus: 1
-      duration: 0.0040112
+      duration: 0.0042888
       messages: 
       output: 
       stacktrace: 
@@ -2060,11 +2136,23 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/BasicCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer]
       name: WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer
-      resultStatus: 1
-      duration: 0.0034856
-      messages: 
+      resultStatus: 2
+      duration: 0.0080553
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
       output: 
-      stacktrace: 
+      stacktrace: "  at Solitaire.Gameplay.Cards.CardFacade.RenderOnTop () [0x00001]
+        in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\Cards\\CardFacade.cs:144
+        \r\n  at Solitaire.Gameplay.CardContainers.AbstractCardContainer.Refresh
+        () [0x00046] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\AbstractCardContainer.cs:65
+        \r\n  at Solitaire.Gameplay.CardContainers.BasicCardContainer.AddCards (System.Collections.Generic.List`1[T]
+        _cards) [0x000a8] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\BasicCardContainer.cs:45
+        \r\n  at Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer
+        () [0x0005c] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\Gameplay\\CardContainers\\BasicCardContainerTest.cs:87
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -2078,7 +2166,7 @@ MonoBehaviour:
       name: WhenAddingNullObjectToBasicCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenAddingNullObjectToBasicCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt
       resultStatus: 1
-      duration: 0.001786
+      duration: 0.001975
       messages: 
       output: 
       stacktrace: 
@@ -2094,11 +2182,23 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/BasicCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenCallingRemoveCardMethod_ThenEliminateItFromBasicCardContainerCards]
       name: WhenCallingRemoveCardMethod_ThenEliminateItFromBasicCardContainerCards
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenCallingRemoveCardMethod_ThenEliminateItFromBasicCardContainerCards
-      resultStatus: 1
-      duration: 0.0033488
-      messages: 
+      resultStatus: 2
+      duration: 0.0044194
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
       output: 
-      stacktrace: 
+      stacktrace: "  at Solitaire.Gameplay.Cards.CardFacade.RenderOnTop () [0x00001]
+        in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\Cards\\CardFacade.cs:144
+        \r\n  at Solitaire.Gameplay.CardContainers.AbstractCardContainer.Refresh
+        () [0x00046] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\AbstractCardContainer.cs:65
+        \r\n  at Solitaire.Gameplay.CardContainers.BasicCardContainer.AddCards (System.Collections.Generic.List`1[T]
+        _cards) [0x000a8] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\BasicCardContainer.cs:45
+        \r\n  at Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenCallingRemoveCardMethod_ThenEliminateItFromBasicCardContainerCards
+        () [0x00066] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\Gameplay\\CardContainers\\BasicCardContainerTest.cs:205
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -2111,11 +2211,23 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/BasicCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards]
       name: WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards
-      resultStatus: 1
-      duration: 0.0045018
-      messages: 
+      resultStatus: 2
+      duration: 0.0047454
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
       output: 
-      stacktrace: 
+      stacktrace: "  at Solitaire.Gameplay.Cards.CardFacade.RenderOnTop () [0x00001]
+        in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\Cards\\CardFacade.cs:144
+        \r\n  at Solitaire.Gameplay.CardContainers.AbstractCardContainer.Refresh
+        () [0x00046] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\AbstractCardContainer.cs:65
+        \r\n  at Solitaire.Gameplay.CardContainers.BasicCardContainer.AddCards (System.Collections.Generic.List`1[T]
+        _cards) [0x000a8] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\BasicCardContainer.cs:45
+        \r\n  at Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards
+        () [0x00060] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\Gameplay\\CardContainers\\BasicCardContainerTest.cs:240
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -2129,7 +2241,7 @@ MonoBehaviour:
       name: WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenInitializing_ThenAddOnlyTheRightAmountOfCards
       resultStatus: 1
-      duration: 0.0074086
+      duration: 0.0045533
       messages: 
       output: 
       stacktrace: 
@@ -2145,11 +2257,23 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/Gameplay/CardContainers/BasicCardContainerTest/[_Tests][Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException]
       name: WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
-      resultStatus: 1
-      duration: 0.0034519
-      messages: 
+      resultStatus: 2
+      duration: 0.0046172
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
       output: 
-      stacktrace: 
+      stacktrace: "  at Solitaire.Gameplay.Cards.CardFacade.RenderOnTop () [0x00001]
+        in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\Cards\\CardFacade.cs:144
+        \r\n  at Solitaire.Gameplay.CardContainers.AbstractCardContainer.Refresh
+        () [0x00046] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\AbstractCardContainer.cs:65
+        \r\n  at Solitaire.Gameplay.CardContainers.BasicCardContainer.AddCards (System.Collections.Generic.List`1[T]
+        _cards) [0x000a8] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Code\\Solitaire\\Gameplay\\CardContainers\\BasicCardContainer.cs:45
+        \r\n  at Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException
+        () [0x0006d] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\Gameplay\\CardContainers\\BasicCardContainerTest.cs:285
+        \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -2163,7 +2287,7 @@ MonoBehaviour:
       name: WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException
       resultStatus: 1
-      duration: 0.0015855
+      duration: 0.0016809
       messages: 
       output: 
       stacktrace: 
@@ -2180,7 +2304,7 @@ MonoBehaviour:
       name: WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       fullName: Tests.Solitaire.Gameplay.CardContainers.BasicCardContainerTest.WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard
       resultStatus: 1
-      duration: 0.0028377
+      duration: 0.0024982
       messages: 
       output: 
       stacktrace: 
@@ -2197,7 +2321,7 @@ MonoBehaviour:
       name: GameMode
       fullName: Tests.Solitaire.Gameplay.GameMode
       resultStatus: 1
-      duration: 2.6260695
+      duration: 1.6113403
       messages: 
       output: 
       stacktrace: 
@@ -2213,7 +2337,7 @@ MonoBehaviour:
       name: DeckControllerTest
       fullName: Tests.Solitaire.Gameplay.GameMode.DeckControllerTest
       resultStatus: 1
-      duration: 2.577197
+      duration: 1.591036
       messages: 
       output: 
       stacktrace: 
@@ -2229,7 +2353,7 @@ MonoBehaviour:
       name: WhenInitializingCards_ThenReturnPropperCardInstances
       fullName: Tests.Solitaire.Gameplay.GameMode.DeckControllerTest.WhenInitializingCards_ThenReturnPropperCardInstances
       resultStatus: 1
-      duration: 2.5624106
+      duration: 1.5738378
       messages: 
       output: 
       stacktrace: 
@@ -2241,13 +2365,29 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1005
       parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/GameMode/[_Tests][Tests.Solitaire.Gameplay.GameMode.DeckControllerTest][suite]
-    m_ResultText: SpiderGameModeTest (1.390s)
-    m_ResultStacktrace: 
+    m_ResultText: "WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException
+      (0.003s)\n---\nSystem.NullReferenceException : Object reference not set to
+      an instance of an object\n---\nat Tests.Solitaire.GameModes.Spider.SpiderGameModeMock.GetAmountOfDistributedCards
+      () [0x00004] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeMock.cs:25
+      \r\n  at Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException
+      () [0x00019] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeTest.cs:106
+      \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+      at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
+      culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0"
+    m_ResultStacktrace: "  at Tests.Solitaire.GameModes.Spider.SpiderGameModeMock.GetAmountOfDistributedCards
+      () [0x00004] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeMock.cs:25
+      \r\n  at Tests.Solitaire.GameModes.Spider.SpiderGameModeTest.WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException
+      () [0x00019] in C:\\Users\\Usuario\\Documents\\GitHub\\CrazySolitaire\\CrazySolitaire\\Assets\\Scripts\\Tests\\Solitaire\\GameModes\\Spider\\SpiderGameModeTest.cs:106
+      \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+      at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
+      culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0 "
     m_TestListState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 33f03681
-      m_LastClickedID: -2127105997
-      m_ExpandedIDs: a3910e89853400a4e700ffb01d5efbb2375beebd674ab0c62a1999e21c2f29f2d6af7253e163206cffffff7f
+      scrollPos: {x: 0, y: 193}
+      m_SelectedIDs: 8bcab081
+      m_LastClickedID: -2119120245
+      m_ExpandedIDs: 33f03681a3910e89dec2a494853400a4727195a5e700ffb01d5efbb2375beebd674ab0c62a1999e21c2f29f266a64852d6af7253e163206cffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2346,10 +2486,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 540
-    y: 73
-    width: 739
-    height: 295
+    x: -764
+    y: 93
+    width: 763
+    height: 294
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
   m_WindowGUID: 83fa2cbf8fac5674fa5fd5b36ff662a6
@@ -2361,9 +2501,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 95.761604, y: 241.66875, z: -19.24733}
+    m_Target: {x: 178.25241, y: 203.90752, z: -22.369858}
     speed: 2
-    m_Value: {x: 95.761604, y: 241.66875, z: -19.24733}
+    m_Value: {x: 178.25241, y: 203.90752, z: -22.369858}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2413,9 +2553,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.0033090997, y: -0.01740183, z: 0.00005761558, w: -0.99984336}
   m_Size:
-    m_Target: 103.05204
+    m_Target: 54.500828
     speed: 2
-    m_Value: 103.05204
+    m_Value: 54.500828
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -2461,13 +2601,13 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -763
-    y: 389
-    width: 762
-    height: 250
+    x: -410
+    y: 381
+    width: 409
+    height: 258
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: abstract card container
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -2478,21 +2618,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/Scripts/Code/Solitaire/GameModes/Spider
+    m_Folders: []
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Code/Solitaire/GameModes/Spider
+  - Assets/Scripts/Code/Solitaire/Gameplay/GameMode
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 180}
-    m_SelectedIDs: 1e430000
-    m_LastClickedID: 17182
-    m_ExpandedIDs: 00000000f0420000f2420000f4420000f6420000f8420000fa420000fc420000fe42000000430000
+    scrollPos: {x: 0, y: 166}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 00000000f8420000fa420000fc420000fe4200000043000002430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2520,7 +2659,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f0420000f2420000f4420000f6420000f8420000fa420000fc420000fe42000000430000
+    m_ExpandedIDs: 00000000f8420000fa420000fc420000fe4200000043000002430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2597,10 +2736,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -770
-    y: 389
-    width: 769
-    height: 250
+    x: -697
+    y: 381
+    width: 696
+    height: 258
   m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &21
 MonoBehaviour:

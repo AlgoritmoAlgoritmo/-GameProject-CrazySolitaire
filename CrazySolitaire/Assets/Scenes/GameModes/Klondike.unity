@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 35630638}
   - component: {fileID: 35630641}
   - component: {fileID: 35630640}
+  - component: {fileID: 35630642}
   - component: {fileID: 35630639}
   m_Layer: 10
   m_Name: Klondike CompletedColumnContainer (3)
@@ -285,13 +286,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 35630637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a7cac2a98941a468c720097d7b8c2f, type: 3}
+  m_Script: {fileID: 11500000, guid: dd25b42ef50f520419dba6669ceb2bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardsOffset: {x: 0, y: 0}
   initialCardsAmount: 0
   canAddCards: 1
-  cardAnimationSpeed: 0.2
 --- !u!114 &35630640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +329,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35630637}
   m_CullTransparentMesh: 0
+--- !u!61 &35630642
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35630637}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &49239333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3517,6 +3543,7 @@ GameObject:
   - component: {fileID: 1365685632}
   - component: {fileID: 1365685635}
   - component: {fileID: 1365685634}
+  - component: {fileID: 1365685636}
   - component: {fileID: 1365685633}
   m_Layer: 10
   m_Name: Klondike CompletedColumnContainer (2)
@@ -3553,13 +3580,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1365685631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a7cac2a98941a468c720097d7b8c2f, type: 3}
+  m_Script: {fileID: 11500000, guid: dd25b42ef50f520419dba6669ceb2bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardsOffset: {x: 0, y: 0}
   initialCardsAmount: 0
   canAddCards: 1
-  cardAnimationSpeed: 0.2
 --- !u!114 &1365685634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3597,6 +3623,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365685631}
   m_CullTransparentMesh: 0
+--- !u!61 &1365685636
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365685631}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1398988465
 GameObject:
   m_ObjectHideFlags: 0
@@ -4339,6 +4391,7 @@ GameObject:
   - component: {fileID: 1780807155}
   - component: {fileID: 1780807158}
   - component: {fileID: 1780807157}
+  - component: {fileID: 1780807159}
   - component: {fileID: 1780807156}
   m_Layer: 10
   m_Name: Klondike CompletedColumnContainer (1)
@@ -4375,13 +4428,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1780807154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a7cac2a98941a468c720097d7b8c2f, type: 3}
+  m_Script: {fileID: 11500000, guid: dd25b42ef50f520419dba6669ceb2bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardsOffset: {x: 0, y: 0}
   initialCardsAmount: 0
   canAddCards: 1
-  cardAnimationSpeed: 0.2
 --- !u!114 &1780807157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4419,6 +4471,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780807154}
   m_CullTransparentMesh: 0
+--- !u!61 &1780807159
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780807154}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1807404881
 GameObject:
   m_ObjectHideFlags: 0
@@ -4789,7 +4867,6 @@ MonoBehaviour:
   cardsOffset: {x: 0, y: 0}
   initialCardsAmount: 24
   canAddCards: 1
-  orginalCardPosition: {fileID: 1933576471}
   cardDisplayPosition: {fileID: 1273446955}
 --- !u!1 &1953898059
 GameObject:
@@ -5647,22 +5724,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 374ee7878c489bf41954b77d01377e0a, type: 3}
---- !u!114 &2508930576830969139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8061769318940121282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a7cac2a98941a468c720097d7b8c2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardsOffset: {x: 0, y: 0}
-  initialCardsAmount: 0
-  canAddCards: 1
-  cardAnimationSpeed: 0.2
 --- !u!222 &3504508968593778504
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6614,7 +6675,8 @@ GameObject:
   - component: {fileID: 6142086537475067500}
   - component: {fileID: 3504508968593778504}
   - component: {fileID: 6315672926596928422}
-  - component: {fileID: 2508930576830969139}
+  - component: {fileID: 8061769318940121283}
+  - component: {fileID: 8061769318940121284}
   m_Layer: 10
   m_Name: Klondike CompletedColumnContainer
   m_TagString: Untagged
@@ -6622,3 +6684,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &8061769318940121283
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8061769318940121282}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &8061769318940121284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8061769318940121282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd25b42ef50f520419dba6669ceb2bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardsOffset: {x: 0, y: 0}
+  initialCardsAmount: 0
+  canAddCards: 1

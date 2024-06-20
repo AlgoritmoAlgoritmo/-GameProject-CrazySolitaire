@@ -81,18 +81,31 @@ namespace Solitaire.GameModes.Klondike {
 			throw new System.NotImplementedException();
 		}
 
+		public override void Refresh() {
+			if( cards.Count > 0 ) {
+				int index = 0;
+
+				foreach( CardFacade auxCard in cards ) {
+					auxCard.transform.position = GetCardPosition( index );
+					auxCard.RenderOnTop();
+					index++;
+				}
+			}
+		}
+
+		#endregion
+
+
+		#region Protected methods
 		protected override Vector2 GetCardPosition( int _index ) {
 			if( displayedCards.Contains( cards[_index] ) ) {
 				return cardDisplayPosition.position;
 
 			} else {
-				return (Vector2)transform.position + (cardsOffset * _index);
+				return transform.position;
 			}
 		}
-		#endregion
 
-
-		#region Protected methods
 		protected override void SetUpStarterCards() {
 			short cardIndex = 0;
 

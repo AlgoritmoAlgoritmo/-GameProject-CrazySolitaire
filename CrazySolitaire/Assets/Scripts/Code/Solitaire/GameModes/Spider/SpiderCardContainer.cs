@@ -84,7 +84,7 @@ namespace Solitaire.GameModes.Spider {
             }
 
             cards.Remove(_card);
-            Refresh();       
+            Refresh();
         }
 
 

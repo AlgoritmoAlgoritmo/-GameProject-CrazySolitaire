@@ -130,7 +130,7 @@ namespace Solitaire.GameModes.Klondike {
 
                     // RESET CARD POSITION
                     } else {
-                        detectedCardContainer.Refresh();
+                        GetCardContainer( _placedCard ).Refresh();
                         _placedCard.OnInvalidDrop?.Invoke();
                     }
 
@@ -143,7 +143,7 @@ namespace Solitaire.GameModes.Klondike {
                     
                 // ELSE, IF IT'S NOT THE NEXT IN THE SEQUENCE, RESET CARD POSITION
                 } else {
-                    detectedCardContainer.Refresh();
+                    GetCardContainer(_placedCard).Refresh();
                     _placedCard.OnInvalidDrop?.Invoke();
                 }
             }

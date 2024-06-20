@@ -117,9 +117,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             // Set up
             abstractCardContainerObject.transform.position = new Vector3(   Random.Range(-100, 100),
                                                                             Random.Range(-100, 100),
-                                                                            Random.Range(-100, 100)
-                                                                        );
-            // Setup
+                                                                            Random.Range(-100, 100) );
             Vector3 expectedPosition = abstractCardContainerObject.transform.position;
             expectedPosition.z = 0;  // Must always be 0
             GameObject cardContainerObject = GameObject.Instantiate(new GameObject());
@@ -140,15 +138,6 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             // Assert position
             Assert.AreEqual(expectedPosition, cardContainerObject.transform.position);
         }
-
-
-
-
-        /*        
-        static Vector3[] offsetPosition = { Vector3.zero,
-                                            new Vector3(-10, 5, 3),
-                                            new Vector3( 200, -80, -67 ) };
-        */
         #endregion
     }
 }

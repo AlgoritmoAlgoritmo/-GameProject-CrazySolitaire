@@ -62,7 +62,6 @@ namespace Solitaire.Gameplay.CardContainers {
 
                 foreach( CardFacade auxCard in cards ) {
                     auxCard.transform.position = GetCardPosition(index);
-                    auxCard.RenderOnTop();
                     index++;
                 }
             }

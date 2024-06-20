@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace Tests.Solitaire.Gameplay.CardContainers {
     public class AbstractCardContainerMock : AbstractCardContainer {
-
+        #region Public methods
         public override void AddCard(CardFacade _card) {
             cards.Add(_card);
         }
@@ -44,10 +44,6 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
         }
 
 
-
-
-
-
         public override void RemoveCard(CardFacade _card) {
             throw new System.NotImplementedException();
         }
@@ -55,9 +51,13 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
         public override void RemoveCards(List<CardFacade> _cards) {
             throw new System.NotImplementedException();
         }
+        #endregion
 
+
+        #region Protected Methods
         protected override void SetUpStarterCards() {
-            
+            // INTENTIONALLY LEFT BLANK TO AVOID EXCEPTIONS
         }
+        #endregion
     }
 }

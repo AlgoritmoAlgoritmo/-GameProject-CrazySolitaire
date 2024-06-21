@@ -31,6 +31,8 @@ namespace Solitaire.GameModes.Spider {
 
             foreach (CardFacade auxCard in _cards) {
                 cards.Add(auxCard);
+                auxCard.SetCanBeInteractable( false );
+                auxCard.ActivateChildsPhysics( false );
                 GenericCommandQueue.Instance.AddCommand( new CardMovementAnimationICommand(
                                                                         auxCard.GetComponent<RectTransform>(),
                                                                         GetComponent<RectTransform>(),

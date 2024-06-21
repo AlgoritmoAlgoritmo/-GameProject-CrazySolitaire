@@ -95,7 +95,6 @@ namespace Solitaire.GameModes.Spider {
                                             + "for multiple card removal is null.");
             }
 
-
             for( int i = _cards.Count - 1; i >= 0; i-- ) {
                 cards.Remove( _cards[i] );
             }
@@ -128,11 +127,11 @@ namespace Solitaire.GameModes.Spider {
             
             // Deactivate physics from cards
             foreach( CardFacade auxCard in cards ) {
-                auxCard.ActivatePhysics( false );
+                FlipCard( GetTopCard(), false );
             }
 
             // Flip up top card 
-            CheckAndFlipUpperCard();
+            FlipUpperCardUp();
 
             //  If there aren't any cards left, activate collider
             //  so it can be detected by cards
@@ -140,10 +139,9 @@ namespace Solitaire.GameModes.Spider {
         }
 
 
-        private void CheckAndFlipUpperCard() {
+        private void FlipUpperCardUp() {
             if( GetTopCard() ) {
-                GetTopCard().FlipCard( true );
-                GetTopCard().ActivatePhysics( true );
+                FlipCard( GetTopCard(), true );
             }
         }
         #endregion

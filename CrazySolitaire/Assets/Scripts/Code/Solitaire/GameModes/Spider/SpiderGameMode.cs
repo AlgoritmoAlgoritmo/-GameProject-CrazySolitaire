@@ -26,11 +26,9 @@ namespace Solitaire.GameModes.Spider {
         #region Public methods
         public override void ValidateCardDragging( CardFacade _card ) {
             bool canBeDragged = CanCardBeDragged( _card );
-            Debug.Log("canBeDragged " + canBeDragged);
             _card.SetCanBeDragged( canBeDragged );
 
             if( canBeDragged ) {
-                Debug.Log( "Deactivating childs physics." );
                 // Deactivating childs physics to avoid the parent to detect them
                 // during dragging
                 _card.ActivateChildsPhysics( false );
@@ -51,11 +49,29 @@ namespace Solitaire.GameModes.Spider {
             
             List<CardFacade> auxCardsToDistribute = _cardContainer.GetCards();
 
+            short cardContainerIndex = 0;
+            bool hasToStopLoop = false;
+
+
             for( int i = auxCardsToDistribute.Count - 1; i >= 0; i-- ) {
-                auxCardsToDistribute[i].SetCanBeInteractable( true );
-                cardContainers[i].AddCard( auxCardsToDistribute[i] );
+                while( !( cardContainers[cardContainerIndex] is SpiderCardContainer ) ) {
+                    cardContainerIndex++;
+                    if( cardContainerIndex == cardContainers.Count ) {
+                        hasToStopLoop = true;
+                        break;
+                    }
+                }
+
+                if( !hasToStopLoop ) {
+                    auxCardsToDistribute[i].SetCanBeInteractable( true );
+                    cardContainers[cardContainerIndex].AddCard( auxCardsToDistribute[i] );
+                    cardContainerIndex++;
+                } else {
+                    break;
+                }
             }
 
+            cardContainers.Remove( _cardContainer );
             Destroy(_cardContainer.gameObject);
         }
         #endregion

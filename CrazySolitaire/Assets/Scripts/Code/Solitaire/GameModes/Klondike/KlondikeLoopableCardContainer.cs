@@ -19,8 +19,7 @@ namespace Solitaire.GameModes.Klondike {
 		private RectTransform cardDisplayPosition;
 
 		private List<CardFacade> displayedCards = new List<CardFacade>();
-		private short currentDisplayedCard = -1;
-		private short amountOfCardsToDisplay;
+		private List<CardFacade> hiddenCards = new List<CardFacade>();
 		#endregion
 
 
@@ -39,28 +38,17 @@ namespace Solitaire.GameModes.Klondike {
 											+ $" {_cards.Count} instead. ");
 			}
 
-			amountOfCardsToDisplay = initialCardsAmount;
-
 			return AddInitializationCards(_cards);
 		}
 
 		public void ShowNextCard() {
-			currentDisplayedCard++;
+			if( hiddenCards.Count > 0 ) {
+				DisplayCard( hiddenCards[0] );
 
-			if( currentDisplayedCard >= 0 ) {
-				if( currentDisplayedCard >= amountOfCardsToDisplay ) {
-					currentDisplayedCard = -1;
-					amountOfCardsToDisplay = (short)cards.Count;
-
-					foreach( var auxCard in cards ) {
-						HideCard( auxCard );
-                    }
-
-				} else {
-					DisplayCard( cards[currentDisplayedCard] );
-                }
-            } 
-        }
+			} else if( displayedCards.Count > 0 ) {
+				ResetCards();
+			}
+		}
 
 		public override void AddCard(CardFacade _card) {
 			throw new System.NotImplementedException();
@@ -77,6 +65,7 @@ namespace Solitaire.GameModes.Klondike {
 			}
 
 			displayedCards.Remove(_card);
+			cards.Remove(_card);
 			Refresh();
 		}
 
@@ -88,7 +77,7 @@ namespace Solitaire.GameModes.Klondike {
 			if( cards.Count > 0 ) {
 				int index = 0;
 
-				foreach( CardFacade auxCard in cards ) {
+				foreach( var auxCard in cards ) {
 					auxCard.transform.position = GetCardPosition( index );
 					auxCard.RenderOnTop();
 					index++;
@@ -109,13 +98,9 @@ namespace Solitaire.GameModes.Klondike {
 		}
 
 		protected override void SetUpStarterCards() {
-			short cardIndex = 0;
-
 			foreach( var auxCard in cards ) {
 				HideCard(auxCard);
-
-				cardIndex++;
-            }
+			}
 		}
 
         protected override void FlipCard( CardFacade _card, bool _facingUp ) {
@@ -126,21 +111,30 @@ namespace Solitaire.GameModes.Klondike {
 
 
 
-
         #region Private methods
         private void DisplayCard( CardFacade _card ) {
 			displayedCards.Add(_card);
-
+			hiddenCards.Remove(_card);
 			_card.transform.GetComponent<RectTransform>().position = cardDisplayPosition.position;
+
 			FlipCard( _card, true );
 		}
 
 		private void HideCard( CardFacade _card ) {
 			displayedCards.Remove(_card);
-
+			hiddenCards.Add(_card);
 			_card.transform.GetComponent<RectTransform>().position = transform.position;
+
 			FlipCard( _card, false );
 		}
-        #endregion
-    }
+
+		private void ResetCards() {
+			short displayedCardsAmount = (short)displayedCards.Count;
+
+			for( int i = 0; i < displayedCardsAmount; i++ ) {
+				HideCard(displayedCards[0]);
+			}
+		}
+		#endregion
+	}
 }

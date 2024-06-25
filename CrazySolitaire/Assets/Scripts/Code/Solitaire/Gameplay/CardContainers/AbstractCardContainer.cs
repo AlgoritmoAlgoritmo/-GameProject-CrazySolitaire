@@ -91,8 +91,10 @@ namespace Solitaire.Gameplay.CardContainers {
         }
         
         protected int GetCardIndex( string _cardID ) {
-            for( int index = 0 ; index < cards.Count; index++ ) {
-                if ( _cardID.Equals( cards[index].GetID() ) ) {
+            short index = 0;
+
+            foreach(var auxCard in cards ) {
+                if( _cardID.Equals( cards[index].GetID() ) ) {
                     return index;
                 }
             }

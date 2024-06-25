@@ -20,6 +20,7 @@ namespace Solitaire.GameModes.Klondike {
 
 		private List<CardFacade> displayedCards = new List<CardFacade>();
 		private short currentDisplayedCard = -1;
+		private short amountOfCardsToDisplay;
 		#endregion
 
 
@@ -38,6 +39,8 @@ namespace Solitaire.GameModes.Klondike {
 											+ $" {_cards.Count} instead. ");
 			}
 
+			amountOfCardsToDisplay = initialCardsAmount;
+
 			return AddInitializationCards(_cards);
 		}
 
@@ -45,8 +48,9 @@ namespace Solitaire.GameModes.Klondike {
 			currentDisplayedCard++;
 
 			if( currentDisplayedCard >= 0 ) {
-				if( currentDisplayedCard >= cards.Count ) {
+				if( currentDisplayedCard >= amountOfCardsToDisplay ) {
 					currentDisplayedCard = -1;
+					amountOfCardsToDisplay = (short)cards.Count;
 
 					foreach( var auxCard in cards ) {
 						HideCard( auxCard );
@@ -72,7 +76,6 @@ namespace Solitaire.GameModes.Klondike {
 															+ "null.");
 			}
 
-			cards.Remove(_card);
 			displayedCards.Remove(_card);
 			Refresh();
 		}
@@ -92,7 +95,6 @@ namespace Solitaire.GameModes.Klondike {
 				}
 			}
 		}
-
 		#endregion
 
 

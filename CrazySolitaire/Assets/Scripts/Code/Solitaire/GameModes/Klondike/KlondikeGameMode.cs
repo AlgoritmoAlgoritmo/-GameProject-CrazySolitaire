@@ -13,6 +13,8 @@ using Solitaire.Gameplay.Cards;
 using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay.Common;
 
+
+
 namespace Solitaire.GameModes.Klondike {
     public class KlondikeGameMode : AbstractGameMode {
         #region Variables
@@ -88,7 +90,7 @@ namespace Solitaire.GameModes.Klondike {
                                                 + $" have a CardFacade component.");
 
                 // Logic to move card from one container to another
-                // Case: Card CANNOT be child of potential parent                
+                // Case: Card CANNOT be child of potential parent
                 if (!CanBeChildOf(_placedCard, detectedCardFacade)
                                     || _placedCard.ParentCard == detectedCardFacade) {
                     GetCardContainer(_placedCard).Refresh();
@@ -127,6 +129,7 @@ namespace Solitaire.GameModes.Klondike {
                     if(_placedCard.GetCardNumber() == 1) {
                         MoveCardToNewContainer(_placedCard, detectedCardContainer);
                         _placedCard.OnValidDrop?.Invoke();
+                        OnCardsCleared.Invoke( new List<CardFacade>() { _placedCard } );
 
                     // RESET CARD POSITION
                     } else {

@@ -137,14 +137,17 @@ namespace Solitaire.GameModes.Klondike {
                         _placedCard.OnInvalidDrop?.Invoke();
                     }
 
-                // ELSE IF CONTAINER IS NOT EMPTY, AND PLACED CARD IS THE NEXT IN THE SEQUENCE
+                // ELSE IF CONTAINER IS NOT EMPTY, PLACED CARD IS THE NEXT IN THE SEQUENCE
+                // AND HAS NO CHILD CARDS
                 } else if ( _placedCard.GetCardNumber() == detectedContainerTopCard.GetCardNumber() + 1
-                            && _placedCard.GetSuit().Equals(detectedContainerTopCard.GetSuit() ) ) {
+                                && _placedCard.GetSuit().Equals(detectedContainerTopCard.GetSuit() )
+                                &&  _placedCard.ChildCard is null ) {
                     MoveCardToNewContainer(_placedCard, _detectedGameObject.GetComponent<AbstractCardContainer>());
                     _placedCard.OnValidDrop?.Invoke();
+                    OnCardsCleared.Invoke( new List<CardFacade>() { _placedCard } );
 
-                    
-                // ELSE, IF IT'S NOT THE NEXT IN THE SEQUENCE, RESET CARD POSITION
+
+                    // ELSE, IF IT'S NOT THE NEXT IN THE SEQUENCE, RESET CARD POSITION
                 } else {
                     GetCardContainer(_placedCard).Refresh();
                     _placedCard.OnInvalidDrop?.Invoke();

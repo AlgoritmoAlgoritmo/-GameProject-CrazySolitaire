@@ -22,9 +22,9 @@ namespace Tests.Solitaire.GameModes.Spider {
         private GameObject spiderCardContainerGameObject;
         private SpiderCardContainer spiderCardContainer;
 
-        private const string CARD_PREFAB_PATH = "Assets/Prefabs/Gameplay/Card Prefab.prefab";
-        private const string SPIDERCARDCONTAINER_PREFAB_PATH = "Assets/Prefabs/Gameplay/Spider"
-                                                + "/SpiderCardContainer 6Cards.prefab";
+        private const string CARD_PREFAB_PATH = Test.TestConstants.CARD_PREFAB_PATH;
+        private const string SPIDERCARDCONTAINER_PREFAB_PATH = Test.TestConstants
+                                                    .SPIDERCARDCONTAINER_PREFAB_PATH;
         #endregion
 
 

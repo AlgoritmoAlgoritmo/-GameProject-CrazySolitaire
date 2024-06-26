@@ -12,8 +12,10 @@ namespace Test {
         public const string SPIDERGAMEMODEMOCK_PREFAB_PATH = "Assets/Scripts/Tests/Solitaire/"
                                           + "GameModes/Spider/SpiderGameModeMock Prefab.prefab";
         public const string CARD_PREFAB_PATH = "Assets/Prefabs/Gameplay/Card Prefab.prefab";
-        public const string SPIDERCARDCONTAINERM_PREFAB_PATH = "Assets/Prefabs/Gameplay/Spider"
+        public const string SPIDERCARDCONTAINER_PREFAB_PATH = "Assets/Prefabs/Gameplay/Spider"
                                                 + "/SpiderCardContainer 6Cards.prefab";
+        public const string KLONDIKECARDCONTAINER_PREFAB_PATH = "Assets/Prefabs/Gameplay/Klondike"
+                                                + "/KlondikeCardContainer.prefab";
         #endregion
     }
 }

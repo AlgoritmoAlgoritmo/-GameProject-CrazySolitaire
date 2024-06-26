@@ -413,7 +413,7 @@ namespace Tests.Solitaire.GameModes.Spider {
         #region Private methods 
         private List<AbstractCardContainer> SpawnTheFollowingAmountOfAbstractCardContainers( int _amount ) {
             GameObject spiderCardContaierPrefabInstance = GameObject.Instantiate(
-                            AssetDatabase.LoadAssetAtPath<GameObject>(TestConstants.SPIDERCARDCONTAINERM_PREFAB_PATH));
+                            AssetDatabase.LoadAssetAtPath<GameObject>(TestConstants.SPIDERCARDCONTAINER_PREFAB_PATH));
             List<AbstractCardContainer> listOfCardContainersToAdd = new List<AbstractCardContainer>();
 
             for (int i = 0; i < _amount; i++) {

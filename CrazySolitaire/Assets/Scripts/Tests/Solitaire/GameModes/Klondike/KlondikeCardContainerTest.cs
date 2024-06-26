@@ -96,6 +96,32 @@ namespace Tests.Solitaire.GameModes.Klondike {
             Assert.Zero( klondikeCardContainer.GetCards().Count,
                         "Null object was added when it shouldn't." );
         }
+
+
+        [Test]
+        public void WhenAddingMultipleCards_ThenThrowsNotImplementedException() {
+            // Instantiate cards
+            int amountOfCardsToSpawn = UnityEngine.Random.Range( 0, 100 );
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>( CARD_PREFAB_PATH );
+
+            List<CardFacade> cardsToAdd = new List<CardFacade>();
+            for( int i = 0; i < amountOfCardsToSpawn; i++ ) {
+                cardsToAdd.Add( GameObject.Instantiate( cardFacadePrefab ).GetComponent<CardFacade>() );
+            }
+
+            // Check to avoid false positive
+            Assert.Zero( klondikeCardContainer.GetCards().Count,
+                        "klondikeCardContainer shouldn't contain any cards" );
+
+            // Asserts NotImplementedException is thrown
+            Assert.Throws<NotImplementedException>( () => klondikeCardContainer.AddCards( cardsToAdd ) );
+
+            // Assert the amount of cards is still 0
+            Assert.Zero( klondikeCardContainer.GetCards().Count,
+                        "klondikeCardContainer shouldn't contain any cards" );
+        }
+
+
         #endregion
     }
 }

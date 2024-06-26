@@ -121,6 +121,7 @@ namespace Tests.Solitaire.GameModes.Klondike {
                         "klondikeCardContainer shouldn't contain any cards" );
         }
 
+
         [Test]
         public void WhenInitializing_ThenAddOnlyTheRightAmountOfCards() {
             // Create list of cards to add
@@ -151,6 +152,41 @@ namespace Tests.Solitaire.GameModes.Klondike {
                                 $"{amountOfCardsToAdd - klondikeCardContainer.GetCards().Count} "
                                 + $"but there are {remainingCards.Count} instead." );
         }
+
+
+        [Test]
+        public void WhenPassingListWithANullElementForInitialization_ThenThrowsNullReferenceExceptionAndCardCountDoesntChange() {
+            // Create list of cards
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>( CARD_PREFAB_PATH );
+            List<CardFacade> listForInitialization = new List<CardFacade>() {
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                                null,
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
+                                            };
+            int amountOfCardsToAddForInitialization = listForInitialization.Count;
+
+            // Check klondikeCardContainer doesn't have any cards to avoid false positive
+            Assert.Zero( klondikeCardContainer.GetCards().Count,
+                        "klondikeCardContainer shouldn't contain any card but it does." );
+
+            // Assert initialization
+            Assert.Throws<System.NullReferenceException>( () =>
+                                                    klondikeCardContainer.Initialize( listForInitialization ),
+                                                    "klondikeCardContainer should have thrown a "
+                                                    + "NullReferenceException error since at least one of "
+                                                    + "the elements of the list is null." );
+
+            // Check no card was added
+            Assert.Zero( klondikeCardContainer.GetCards().Count,
+                        "Cards have been added to klondikeCardContainer when they shouldn't." );
+            Assert.AreEqual( amountOfCardsToAddForInitialization,
+                            listForInitialization.Count,
+                            "listForInitialization amount of elements should be "
+                                    + $"{amountOfCardsToAddForInitialization} but it's "
+                                    + $"{listForInitialization.Count} instead." );
+        }
+
+
         #endregion
     }
 }

@@ -121,7 +121,36 @@ namespace Tests.Solitaire.GameModes.Klondike {
                         "klondikeCardContainer shouldn't contain any cards" );
         }
 
+        [Test]
+        public void WhenInitializing_ThenAddOnlyTheRightAmountOfCards() {
+            // Create list of cards to add
+            short defaultAmountOfCards = (short)UnityEngine.Random.Range( 1, 50 );
+            int amountOfCardsToAdd = UnityEngine.Random.Range( defaultAmountOfCards, 50 );
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>( CARD_PREFAB_PATH );
 
+            klondikeCardContainer.SetDefaultAmountOfCards( defaultAmountOfCards );
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>();
+            for( int i = 0; i < amountOfCardsToAdd; i++ ) {
+                listOfCardsToAdd.Add( GameObject.Instantiate( cardFacadePrefab ).GetComponent<CardFacade>() );
+            }
+
+            // Check there aren't any cards already to avoid false positive
+            Assert.Zero( klondikeCardContainer.GetCards().Count,
+                        "klondikeCardContainer shouldn't contain any cards but it does." );
+
+            // Initialize spiderCardContainer
+            List<CardFacade> remainingCards = klondikeCardContainer.Initialize( listOfCardsToAdd );
+
+            // Check cards have been added successfully
+            Assert.AreEqual( defaultAmountOfCards, klondikeCardContainer.GetCards().Count,
+                            $"klondikeCardContainer should contain {amountOfCardsToAdd} "
+                                    + $"but it has {klondikeCardContainer.GetCards().Count} instead" );
+            Assert.AreEqual( ( amountOfCardsToAdd - klondikeCardContainer.GetCards().Count ),
+                                remainingCards.Count,
+                                $"The remaining cards should be " +
+                                $"{amountOfCardsToAdd - klondikeCardContainer.GetCards().Count} "
+                                + $"but there are {remainingCards.Count} instead." );
+        }
         #endregion
     }
 }

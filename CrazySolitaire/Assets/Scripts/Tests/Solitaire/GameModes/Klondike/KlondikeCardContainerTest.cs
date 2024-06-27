@@ -187,6 +187,38 @@ namespace Tests.Solitaire.GameModes.Klondike {
         }
 
 
+        [Test]
+        public void WhenCallingRemoveCardMethod_ThenRemoveThatCard() {
+            //  Instantiate cards to add
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>( CARD_PREFAB_PATH );
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
+                                            };
+
+            //  Check klondikeCardContainer doesn't have cards already
+            Assert.Zero( klondikeCardContainer.GetCards().Count,
+                        "klondikeCardContainer shouldn't contain any card but it does." );
+
+            //  Add cards to spiderCardContainer
+            foreach( var auxCard in listOfCardsToAdd ) {
+                klondikeCardContainer.AddCard( auxCard );
+            }
+
+            //  Remove card
+            int indexOfTheCardToBeRemoved = UnityEngine.Random.Range( 0, listOfCardsToAdd.Count - 1 );
+            klondikeCardContainer.RemoveCard( listOfCardsToAdd[indexOfTheCardToBeRemoved] );
+
+            //  Assert container doesn't have that card anymore and that the amount of cards is correct
+            Assert.False( klondikeCardContainer.GetCards().Contains( listOfCardsToAdd[indexOfTheCardToBeRemoved] ),
+                        "klondikeCardContainer still  has the card that should have been removed." );
+            Assert.AreEqual( listOfCardsToAdd.Count - 1,
+                            klondikeCardContainer.GetCards().Count,
+                            "The amount of cards in klondikeCardContainer should be "
+                            + $"{listOfCardsToAdd.Count - 1} instead of {klondikeCardContainer.GetCards().Count} " );
+        }
         #endregion
     }
 }

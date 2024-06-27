@@ -219,6 +219,43 @@ namespace Tests.Solitaire.GameModes.Klondike {
                             "The amount of cards in klondikeCardContainer should be "
                             + $"{listOfCardsToAdd.Count - 1} instead of {klondikeCardContainer.GetCards().Count} " );
         }
+
+
+        [Test]
+        public void WhenPassingNullToRemoveCardMethod_ThenThrowNullReferenceException() {
+            // Assert null reference exception is thrown
+            Assert.Throws<NullReferenceException>( () => klondikeCardContainer.RemoveCard( null ) );
+        }
+
+
+        [Test]
+        public void WhenCallMethodForMultipleCardRemoval_ThenThrowsNullPointerException() {
+            //  Instantiate cards to add
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>( CARD_PREFAB_PATH );
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
+            };
+
+            //  Add cards to containner
+            foreach( var auxCard in listOfCardsToAdd ) {
+                klondikeCardContainer.AddCard( auxCard );
+            }
+
+            //  Create list of cards to remove
+            List<CardFacade> listOfCardsToRemove = new List<CardFacade>() {
+                listOfCardsToAdd[1],
+                listOfCardsToAdd[3],
+                listOfCardsToAdd[5]
+            };
+
+            //  Assert NotImplementedException is thrown
+            Assert.Throws<NotImplementedException>( () => klondikeCardContainer.RemoveCards( listOfCardsToRemove ) );
+        }
         #endregion
     }
 }

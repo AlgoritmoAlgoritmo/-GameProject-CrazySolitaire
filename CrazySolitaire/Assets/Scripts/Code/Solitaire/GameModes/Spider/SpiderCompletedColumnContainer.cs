@@ -42,10 +42,5 @@ namespace Solitaire.GameModes.Spider {
             return true;
         }
         #endregion
-
-
-        #region Private methods
-
-        #endregion
     }
 }

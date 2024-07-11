@@ -5,7 +5,6 @@
 
 
 
-using UnityEngine;
 using Solitaire.GameModes.Spider;
 
 
@@ -19,13 +18,8 @@ namespace Tests.Solitaire.GameModes.Spider {
 
 		#region Public methods
 		public int GetCardsAmount() {
-			return cards.Capacity;
+			return cards.Count;
 		}
-		#endregion
-
-
-		#region Private methods
-
 		#endregion
 	}
 }

@@ -11,6 +11,8 @@ using Solitaire.Gameplay.Common;
 using Solitaire.GameModes.Spider;
 using Solitaire.Gameplay.Cards;
 
+
+
 namespace Tests.Solitaire.GameModes.Spider {
     public class SpiderGameModeMock : SpiderGameMode {
         #region Variables
@@ -63,11 +65,6 @@ namespace Tests.Solitaire.GameModes.Spider {
         public void SetAmountPerSuit(short _amountPerSuit ) {
             amountOfEachSuit = _amountPerSuit;
         }
-        #endregion
-
-
-        #region Mocked SpiderGameMode private methods
-
         #endregion
     }
 }

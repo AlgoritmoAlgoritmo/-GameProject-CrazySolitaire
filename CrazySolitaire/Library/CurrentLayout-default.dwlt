@@ -113,10 +113,10 @@ MonoBehaviour:
     y: 30
     width: 1280
     height: 587
-  m_MinSize: {x: 504, y: 342}
-  m_MaxSize: {x: 12004, y: 8042}
+  m_MinSize: {x: 531, y: 471}
+  m_MaxSize: {x: 18001, y: 14021}
   vertical: 0
-  controlID: 2659
+  controlID: 1312
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,10 +134,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 273
+    width: 229
     height: 587
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -158,12 +158,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 273
+    x: 229
     y: 0
-    width: 355
+    width: 299
     height: 587
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 13}
@@ -187,14 +187,14 @@ MonoBehaviour:
   - {fileID: 10}
   m_Position:
     serializedVersion: 2
-    x: 628
+    x: 528
     y: 0
-    width: 652
+    width: 752
     height: 587
-  m_MinSize: {x: 201, y: 342}
-  m_MaxSize: {x: 4001, y: 8042}
+  m_MinSize: {x: 231, y: 471}
+  m_MaxSize: {x: 10001, y: 14021}
   vertical: 1
-  controlID: 2660
+  controlID: 1313
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -212,10 +212,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 652
+    width: 752
     height: 316
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 15}
@@ -232,23 +232,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 316
-    width: 652
+    width: 752
     height: 271
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -270,9 +270,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 628
+    x: 528
     y: 73
-    width: 651
+    width: 751
     height: 295
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
@@ -319,23 +319,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 651
+      width: 751
       height: 274
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 325.5, y: 137}
+    m_Translation: {x: 375.5, y: 137}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -325.5
+      x: -375.5
       y: -137
-      width: 651
+      width: 751
       height: 274
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 651, y: 295}
+  m_LastWindowPixelSize: {x: 751, y: 295}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -364,15 +364,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 272
+    width: 228
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 8e350000
       m_LastClickedID: 0
-      m_ExpandedIDs: 8ebeffffacbeffff8abfffff8cc7ffffaac7ffff64c8ffff8accffffa8ccffff62cdffff32d3ffff50d3ffff0ad4ffffc4daffffe0daffff92dbffffb4dfffffd0dfffff84e0ffff54e5ffff70e5ffff2ae6ffff0ef7ffff62fbffff443d000050430000ac430000ec4300006a440000
+      m_ExpandedIDs: f8d8ffff14d9ffffecd9ffffdadefffff6deffffcedffffff4e3ffff10e4ffffe8e4ffff0ae9ffff26e9ffffdae9ffff66eeffff82eeffff5aefffff7cf3ffff98f3ffff76f4ffff62fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -432,7 +432,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: 12204
   m_LastVerticalScrollValue: 0
 --- !u!114 &14
 MonoBehaviour:
@@ -454,13 +454,13 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 273
+    x: 229
     y: 73
-    width: 353
+    width: 297
     height: 566
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 2765
+    ID: 1261
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes: 740100007c000000
@@ -480,9 +480,9 @@ MonoBehaviour:
       uniqueId: '[CrazySolitaire][suite]'
       name: CrazySolitaire
       fullName: CrazySolitaire
-      resultStatus: 2
-      duration: 0.6317585
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.6407461
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -496,9 +496,9 @@ MonoBehaviour:
       uniqueId: '[_Tests.dll][suite]'
       name: _Tests.dll
       fullName: C:/Users/Usuario/Documents/GitHub/CrazySolitaire/CrazySolitaire/Library/ScriptAssemblies/_Tests.dll
-      resultStatus: 2
-      duration: 0.5331368
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.5546355
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -512,9 +512,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/[Tests][suite]
       name: Tests
       fullName: Tests
-      resultStatus: 2
-      duration: 0.5066494
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.5105193
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -528,9 +528,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/[Solitaire][suite]
       name: Solitaire
       fullName: Tests.Solitaire
-      resultStatus: 2
-      duration: 0.4770699
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.4797283
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -544,9 +544,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/[GameModes][suite]
       name: GameModes
       fullName: Tests.Solitaire.GameModes
-      resultStatus: 2
-      duration: 0.4484216
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.4494942
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -741,63 +741,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1078
       parentUniqueId: _Tests.dll/Tests/Solitaire/GameModes/Klondike/[_Tests][Tests.Solitaire.GameModes.Klondike.KlondikeCardContainerTest][suite]
-    - id: 1078
-      uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Klondike/[_Tests][Tests.Solitaire.GameModes.Klondike.KlondikeGameModeTest][suite]
-      name: KlondikeGameModeTest
-      fullName: Tests.Solitaire.GameModes.Klondike.KlondikeGameModeTest
-      resultStatus: 1
-      duration: 0.1321754
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 1
-      categories: []
-      parentId: 1089
-      parentUniqueId: _Tests.dll/Tests/Solitaire/GameModes/[_Tests][Tests.Solitaire.GameModes.Klondike][suite]
-    - id: 1079
-      uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Klondike/KlondikeGameModeTest/[_Tests][Tests.Solitaire.GameModes.Klondike.KlondikeGameModeTest.KlondikeGameModeTestSimplePasses]
-      name: KlondikeGameModeTestSimplePasses
-      fullName: Tests.Solitaire.GameModes.Klondike.KlondikeGameModeTest.KlondikeGameModeTestSimplePasses
-      resultStatus: 1
-      duration: 0.0278719
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1078
-      parentUniqueId: _Tests.dll/Tests/Solitaire/GameModes/Klondike/[_Tests][Tests.Solitaire.GameModes.Klondike.KlondikeGameModeTest][suite]
-    - id: 1080
-      uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Klondike/KlondikeGameModeTest/[_Tests][Tests.Solitaire.GameModes.Klondike.KlondikeGameModeTest.KlondikeGameModeTestWithEnumeratorPasses]
-      name: KlondikeGameModeTestWithEnumeratorPasses
-      fullName: Tests.Solitaire.GameModes.Klondike.KlondikeGameModeTest.KlondikeGameModeTestWithEnumeratorPasses
-      resultStatus: 1
-      duration: 0.0425035
-      messages: 
-      output: 
-      stacktrace: 
-      notRunnable: 0
-      ignoredOrSkipped: 0
-      description: 
-      isSuite: 0
-      categories:
-      - Uncategorized
-      parentId: 1078
-      parentUniqueId: _Tests.dll/Tests/Solitaire/GameModes/Klondike/[_Tests][Tests.Solitaire.GameModes.Klondike.KlondikeGameModeTest][suite]
     - id: 1089
       uniqueId: _Tests.dll/Tests/Solitaire/GameModes/[_Tests][Tests.Solitaire.GameModes.Spider][suite]
       name: Spider
       fullName: Tests.Solitaire.GameModes.Spider
-      resultStatus: 2
-      duration: 0.4068104
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.4269362
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -1166,9 +1116,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Spider/[_Tests][Tests.Solitaire.GameModes.Spider.SpiderCompletedColumnContainerTest][suite]
       name: SpiderCompletedColumnContainerTest
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCompletedColumnContainerTest
-      resultStatus: 2
-      duration: 0.3772872
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.3978956
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -1233,9 +1183,9 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Spider/SpiderCompletedColumnContainerTest/[_Tests][Tests.Solitaire.GameModes.Spider.SpiderCompletedColumnContainerTest.WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly][suite]
       name: WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCompletedColumnContainerTest.WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly
-      resultStatus: 2
-      duration: 0.3481926
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.3735796
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -1249,15 +1199,11 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Spider/SpiderCompletedColumnContainerTest/WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly/[_Tests][Tests.Solitaire.GameModes.Spider.SpiderCompletedColumnContainerTest.WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly(1)]
       name: WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly(1)
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCompletedColumnContainerTest.WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly(1)
-      resultStatus: 2
-      duration: 0.2720536
-      messages: "  spiderCompletedColumnContainerMock should contain 1 cards.\r\n 
-        Expected: 1\r\n  But was:  4\r\n"
+      resultStatus: 1
+      duration: 0.3123418
+      messages: 
       output: 
-      stacktrace: 'at Tests.Solitaire.GameModes.Spider.SpiderCompletedColumnContainerTest.WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly
-        (System.Int16 _amountOfCardsToAdd) [0x0004e] in C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire\Assets\Scripts\Tests\Solitaire\GameModes\Spider\SpiderCompletedColumnContainerTest.cs:113
-
-'
+      stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1270,15 +1216,11 @@ MonoBehaviour:
       uniqueId: _Tests.dll/Tests/Solitaire/GameModes/Spider/SpiderCompletedColumnContainerTest/WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly/[_Tests][Tests.Solitaire.GameModes.Spider.SpiderCompletedColumnContainerTest.WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly(3)]
       name: WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly(3)
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCompletedColumnContainerTest.WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly(3)
-      resultStatus: 2
-      duration: 0.0039216
-      messages: "  spiderCompletedColumnContainerMock should contain 3 cards.\r\n 
-        Expected: 3\r\n  But was:  4\r\n"
+      resultStatus: 1
+      duration: 0.0023208
+      messages: 
       output: 
-      stacktrace: 'at Tests.Solitaire.GameModes.Spider.SpiderCompletedColumnContainerTest.WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly
-        (System.Int16 _amountOfCardsToAdd) [0x0004e] in C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire\Assets\Scripts\Tests\Solitaire\GameModes\Spider\SpiderCompletedColumnContainerTest.cs:113
-
-'
+      stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1292,7 +1234,7 @@ MonoBehaviour:
       name: WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly(4)
       fullName: Tests.Solitaire.GameModes.Spider.SpiderCompletedColumnContainerTest.WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly(4)
       resultStatus: 1
-      duration: 0.008488
+      duration: 0.0014318
       messages: 
       output: 
       stacktrace: 
@@ -2459,14 +2401,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1005
       parentUniqueId: _Tests.dll/Tests/Solitaire/Gameplay/GameMode/[_Tests][Tests.Solitaire.Gameplay.GameMode.DeckControllerTest][suite]
-    m_ResultText: WhenAddingValidListOfCards_ThenIncreasesTheAmountOfContainedCardsCorrectly(4)
-      (0.008s)
+    m_ResultText: KlondikeGameModeTest (0.132s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: f4a3f362
-      m_LastClickedID: 1660134388
-      m_ExpandedIDs: a3910e89853400a4727195a5a9ef0db21d5efbb24fe4b9bf7e348ec5cf95bccf9c902bdd6972d1de1c26e9e02a1999e21c2f29f2b8a6def63d447423c61ddf2be04ad1340fffc54bdf9a084f66a64852d6af7253ffffff7f
+      m_SelectedIDs: cf95bccf
+      m_LastClickedID: -809724465
+      m_ExpandedIDs: a3910e89727195a5a9ef0db21d5efbb24fe4b9bf7e348ec5cf95bccf9c902bdd6972d1de1c26e9e02a1999e21c2f29f2b8a6def6e04ad1340fffc54bdf9a084f66a64852d6af7253ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2630,7 +2571,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: -0, y: 0, z: -0, w: -1}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
     m_Target: 339.7837
     speed: 2
@@ -2680,9 +2621,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 681
+    x: 528
     y: 389
-    width: 598
+    width: 751
     height: 250
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
@@ -2698,20 +2639,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Tests/Solitaire/GameModes/Spider
+    - Assets/Scripts/Tests/Solitaire/GameModes/Klondike
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Tests/Solitaire/GameModes/Spider
+  - Assets/Scripts/Tests/Solitaire/GameModes/Klondike
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Usuario\Documents\GitHub\CrazySolitaire\CrazySolitaire
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 254}
-    m_SelectedIDs: f8420000
-    m_LastClickedID: 17144
-    m_ExpandedIDs: 00000000ca420000cc420000ce420000d0420000d2420000d4420000d6420000
+    m_SelectedIDs: 444f0000
+    m_LastClickedID: 20292
+    m_ExpandedIDs: 000000002e43000030430000324300003443000036430000384300003a430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2739,7 +2680,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ca420000cc420000ce420000d0420000d2420000d4420000d6420000
+    m_ExpandedIDs: 000000002e43000030430000324300003443000036430000384300003a430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2766,7 +2707,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2816,8 +2757,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 628
+    x: 528
     y: 389
-    width: 651
+    width: 751
     height: 250
   m_ViewDataDictionary: {fileID: 0}

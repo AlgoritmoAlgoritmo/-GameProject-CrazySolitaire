@@ -53,6 +53,9 @@ namespace Tests.Solitaire.GameModes.Klondike {
         public void KlondikeGameModeMock_Is_AbstractGameMode() {
             Assert.IsInstanceOf( typeof( AbstractGameMode ), klondikeGameModeMock );
         }
+
+        [Test]
+        public void WhenInitializing
         #endregion
     }
 }

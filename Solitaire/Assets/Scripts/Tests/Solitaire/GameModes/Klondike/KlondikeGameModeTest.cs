@@ -55,11 +55,13 @@ namespace Tests.Solitaire.GameModes.Klondike {
                                "Make sure KlondikeGameModeMock inherits from KlondikeGameMode." );
         }
 
+
         [Test]
         public void KlondikeGameModeMock_Is_AbstractGameMode() {
             Assert.IsInstanceOf( typeof( AbstractGameMode ), klondikeGameModeMock,
                                "Make sure KlondikeGameMode inherits from AbstractGameMode." );
         }
+
 
         [TestCase( 2, 4 )]
         [TestCase( 3, 3 )]
@@ -69,7 +71,7 @@ namespace Tests.Solitaire.GameModes.Klondike {
                                                                         short _amountOfContainersToSpawn,
                                                                          short _amountOfCardsPerContainer) {
             // Instantiate Card containers and add them to KlondikeGameModeMock
-            List<AbstractCardContainer> cardContainerList = SpawnTheFollowingAmountOfAbstractCardContainers(
+            List<AbstractCardContainer> cardContainerList = InstantiateKlondikeCardContainers(
                                                                         _amountOfContainersToSpawn );
             foreach( var auxContainer in cardContainerList ) {
                 auxContainer.SetDefaultAmountOfCards( _amountOfCardsPerContainer );
@@ -221,7 +223,7 @@ namespace Tests.Solitaire.GameModes.Klondike {
             childCard.SetCardData( new CardData( (short)( _cardNumber - 1 ), _childCardSuit, _childCardColor,
                                                                                         "CHILD" ) );
 
-            // Set prent facing up and child card
+            // Set parent facing up and child card
             cardToValidate.FlipCard( true );
             cardToValidate.SetChildCard( childCard );
 
@@ -235,27 +237,24 @@ namespace Tests.Solitaire.GameModes.Klondike {
             Assert.IsTrue( cardToValidate.gameObject.GetComponent<CardPhysics>().CanBeDragged,
                             "card should be draggable. Check its child card is valid." );
         }
-
-
-
         #endregion
 
 
         #region Private methods
-        private List<AbstractCardContainer> SpawnTheFollowingAmountOfAbstractCardContainers( int _amount ) {
+        private List<AbstractCardContainer> InstantiateKlondikeCardContainers( int _amount ) {
             List<AbstractCardContainer> listOfCardContainersToAdd = new List<AbstractCardContainer>();
 
-            GameObject klondikeCardContaierPrefabInstance = GameObject.Instantiate(
+            GameObject klondikeCardContainerPrefabInstance = GameObject.Instantiate(
                             AssetDatabase.LoadAssetAtPath<GameObject>( TestConstants
                                                                     .KLONDIKECARDCONTAINER_PREFAB_PATH ) );
-            listOfCardContainersToAdd.Add( klondikeCardContaierPrefabInstance.GetComponent<AbstractCardContainer>() );
+            listOfCardContainersToAdd.Add( klondikeCardContainerPrefabInstance.GetComponent<AbstractCardContainer>() );
 
-            if( !klondikeCardContaierPrefabInstance )
+            if( !klondikeCardContainerPrefabInstance )
                 throw new NullReferenceException("Couldn't load prefab at "
                                                     + $"{TestConstants.KLONDIKECARDCONTAINER_PREFAB_PATH}.");
 
             for( int i = 0; i < _amount-1; i++ ) {
-                listOfCardContainersToAdd.Add( GameObject.Instantiate( klondikeCardContaierPrefabInstance )
+                listOfCardContainersToAdd.Add( GameObject.Instantiate( klondikeCardContainerPrefabInstance )
                                                                 .GetComponent<AbstractCardContainer>() );
             }
 

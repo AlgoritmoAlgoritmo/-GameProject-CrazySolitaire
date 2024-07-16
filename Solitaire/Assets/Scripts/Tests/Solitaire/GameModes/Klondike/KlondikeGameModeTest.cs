@@ -183,7 +183,25 @@ namespace Tests.Solitaire.GameModes.Klondike {
         }
 
 
+        [Test]
+        public void WhenCardIsFacingUpWithNoChild_ThenActivateDragging() {
+            // Create card to validate
+            CardFacade card = SpawnTheFollowingAmountOfCards(1)[0];
 
+            // Set card facing up without child
+            card.FlipCard( true );
+            card.SetChildCard( null );
+
+            // Set card can bedragging to false
+            card.SetCanBeDragged( false );
+
+            // Validate card dragging
+            klondikeGameModeMock.ValidateCardDragging( card );
+
+            // Assert cannot be dragged
+            Assert.IsTrue( card.gameObject.GetComponent<CardPhysics>().CanBeDragged,
+                            "card should be draggable." );
+        }
         #endregion
 
 

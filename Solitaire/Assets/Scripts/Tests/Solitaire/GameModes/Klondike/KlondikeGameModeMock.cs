@@ -5,22 +5,30 @@
 
 
 
-using Solitaire.GameModes.Klondike;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Solitaire.GameModes.Klondike;
+using Solitaire.Gameplay.CardContainers;
 
 
 
 namespace Tests.Solitaire.GameModes.Klondike {
 	public class KlondikeGameModeMock : KlondikeGameMode {
-		#region Variables
-
-		#endregion
-
-
 		#region Public methods
+		public void SetCardContainers( List<AbstractCardContainer> _containerList ) {
+			cardContainers = _containerList;
+		}
 
+		public int GetAmountOfDistributedCards() {
+			int amountOfCards = 0;
+
+			foreach( var auxContainer in cardContainers ) {
+				amountOfCards += auxContainer.GetCards().Count;
+			}
+
+			return amountOfCards;
+		}
 		#endregion
 	}
 }

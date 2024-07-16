@@ -15,10 +15,6 @@ using Solitaire.Gameplay.Cards;
 
 namespace Tests.Solitaire.GameModes.Spider {
     public class SpiderGameModeMock : SpiderGameMode {
-        #region Variables
-        #endregion
-
-
         #region Public methods
         public override void Initialize( List<CardFacade> _cards ) {
             if( _cards.Contains( null ) ) {
@@ -62,7 +58,7 @@ namespace Tests.Solitaire.GameModes.Spider {
             suits = _suits;
         }
 
-        public void SetAmountPerSuit(short _amountPerSuit ) {
+        public void SetAmountPerSuit( short _amountPerSuit ) {
             amountOfEachSuit = _amountPerSuit;
         }
         #endregion

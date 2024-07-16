@@ -46,8 +46,13 @@ namespace Solitaire.Gameplay {
                 throw new IndexOutOfRangeException( "The list of cards passed for "
                                                     + "initialization is empty." );
             }
-            
-            cardContainers = new List<AbstractCardContainer>( FindObjectsOfType<AbstractCardContainer>() );
+
+
+            if( cardContainers is null || cardContainers.Count == 0 ) {
+                cardContainers = new List<AbstractCardContainer>( FindObjectsOfType<AbstractCardContainer>() );
+            }
+
+
             List<CardFacade> auxCards = new List<CardFacade>();
 
             foreach( CardFacade auxCard in _cards ) {

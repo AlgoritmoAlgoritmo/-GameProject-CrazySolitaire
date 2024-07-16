@@ -61,10 +61,10 @@ namespace Tests.Solitaire.GameModes.Klondike {
                                "Make sure KlondikeGameMode inherits from AbstractGameMode." );
         }
 
-        [Test]
         [TestCase( 2, 4 )]
         [TestCase( 3, 3 )]
         [TestCase( 4, 6 )]
+        [Test]
         public void WhenInitializingKlondikeGameMode_ThenDistributesProperAmountOfCardsToEverySingleContainer(
                                                                         short _amountOfContainersToSpawn,
                                                                          short _amountOfCardsPerContainer) {
@@ -202,6 +202,42 @@ namespace Tests.Solitaire.GameModes.Klondike {
             Assert.IsTrue( card.gameObject.GetComponent<CardPhysics>().CanBeDragged,
                             "card should be draggable." );
         }
+
+
+        [TestCase( 12, "HEARTS", "RED", "SPADES", "BLACK" )]
+        [TestCase( 1, "SPADES", "BLACK", "DIAMONDS", "RED" )]
+        [TestCase( 7, "DIAMONDS", "RED", "CLOVER", "BLACK" )]
+        [TestCase( 4, "CLOVER", "BLACK", "HEARTS", "RED" )]
+        [Test]
+        public void WhenCardIsFacingUpWithValidChild_ThenActivateDragging(
+                                short _cardNumber, string _cardSuit, string _cardColor,
+                                string _childCardSuit, string _childCardColor ) {
+            // Create card to validate
+            CardFacade cardToValidate = SpawnTheFollowingAmountOfCards(1)[0];
+            cardToValidate.SetCardData( new CardData( _cardNumber, _cardSuit, _cardColor, "PARENT" ) );
+
+            // Create calid child card
+            CardFacade childCard = SpawnTheFollowingAmountOfCards(1)[0];
+            childCard.SetCardData( new CardData( (short)( _cardNumber - 1 ), _childCardSuit, _childCardColor,
+                                                                                        "CHILD" ) );
+
+            // Set prent facing up and child card
+            cardToValidate.FlipCard( true );
+            cardToValidate.SetChildCard( childCard );
+
+            // Set card can bedragging to false
+            cardToValidate.SetCanBeDragged( false );
+
+            // Validate card dragging
+            klondikeGameModeMock.ValidateCardDragging( cardToValidate );
+
+            // Assert cannot be dragged
+            Assert.IsTrue( cardToValidate.gameObject.GetComponent<CardPhysics>().CanBeDragged,
+                            "card should be draggable. Check its child card is valid." );
+        }
+
+
+
         #endregion
 
 

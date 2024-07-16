@@ -18,6 +18,8 @@ using Solitaire.Gameplay.CardContainers;
 using System.Collections.Generic;
 using Solitaire.Gameplay.Cards;
 
+
+
 namespace Tests.Solitaire.GameModes.Klondike {
     public class KlondikeGameModeTest {
         #region Variables
@@ -91,6 +93,97 @@ namespace Tests.Solitaire.GameModes.Klondike {
                             $"klondikeGameModeMock should contain {_amountOfCardsPerContainer * _amountOfContainersToSpawn} "
                                     + $"instead of {klondikeGameModeMock.GetAmountOfDistributedCards()}." );
         }
+
+
+        [Test]
+        public void WhenInitializingEmptyListOfCards_ThenThrowIndexOutOfRangeException() {
+            List<CardFacade> listOfCards = new List<CardFacade>();
+            int currentAmountOfCardsBeforeInitialization = klondikeGameModeMock.GetAmountOfDistributedCards();
+
+
+            Assert.Throws<IndexOutOfRangeException>( () => klondikeGameModeMock.Initialize(
+                                 listOfCards ),
+                        "klondikeGameModeMock didn't throw IndexOutOfRangeException as expected. "
+                                + "Check if the list passed is empty."
+            );
+
+            // Assert the amount of cards from spiderGameModeMock didn't change
+            Assert.AreEqual( currentAmountOfCardsBeforeInitialization,
+                            klondikeGameModeMock.GetAmountOfDistributedCards(),
+                            "klondikeGameModeMock amount of cards changed: it should have "
+                                    + $"{currentAmountOfCardsBeforeInitialization} instead of "
+                                    + $"{klondikeGameModeMock.GetAmountOfDistributedCards() }." );
+        }
+
+
+        [Test]
+        public void WhenInitializingListWithNullElement_ThenThrowNullReferenceException() {
+            // Create list of cards
+            List<CardFacade> listOfCards = SpawnTheFollowingAmountOfCards( 10 );
+            int currentAmountOfCardsBeforeInitialization = klondikeGameModeMock.GetAmountOfDistributedCards();
+
+
+            // Add null element to list
+            listOfCards[UnityEngine.Random.Range( 0, listOfCards.Count - 1 )] = null;
+
+
+            // Assert addition of list of cards with null element
+            Assert.Throws<NullReferenceException>( () => klondikeGameModeMock.Initialize( listOfCards ),
+                            "klondikeGameModeMock didn't throw NullReferenceException as expected. "
+                                    + "Check if the list contains a null element."
+            );
+
+
+            // Assert the amount of cards from spiderGameModeMock didn't change
+            Assert.AreEqual( currentAmountOfCardsBeforeInitialization,
+                            klondikeGameModeMock.GetAmountOfDistributedCards(),
+                            "klondikeGameModeMock amount of cards changed: it should have "
+                                    + $"{currentAmountOfCardsBeforeInitialization} instead of "
+                                    + $"{klondikeGameModeMock.GetAmountOfDistributedCards()}." );
+        }
+
+
+        [Test]
+        public void WhenInitializingWithNullObject_ThenThrowNullReferenceException() {
+            int currentAmountOfCardsBeforeInitialization = klondikeGameModeMock.GetAmountOfDistributedCards();
+
+            // Assert addition of list of cards with null element
+            Assert.Throws<NullReferenceException>( () => klondikeGameModeMock.Initialize( null ),
+                            "klondikeGameModeMock didn't throw NullReferenceException as expected. "
+                                    + "Check if the object is actually null."
+            );
+
+
+            // Assert the amount of cards from spiderGameModeMock didn't change
+            Assert.AreEqual( currentAmountOfCardsBeforeInitialization,
+                            klondikeGameModeMock.GetAmountOfDistributedCards(),
+                            "spiderGameModeMock amount of cards changed: it should have "
+                                    + $"{currentAmountOfCardsBeforeInitialization} instead of "
+                                    + $"{klondikeGameModeMock.GetAmountOfDistributedCards()}." );
+        }
+
+
+        [Test]
+        public void WhenCardIsFacingDown_ThenDeactivateDragging() {
+            // Create facing down card
+            CardFacade card = SpawnTheFollowingAmountOfCards(1)[0];
+
+            // Set card facing down
+            card.FlipCard( false );
+
+            // Set card can bedragging to true
+            card.SetCanBeDragged( true );
+
+            // Validate card dragging
+            klondikeGameModeMock.ValidateCardDragging( card );
+
+            // Assert cannot be dragged
+            Assert.IsFalse( card.gameObject.GetComponent<CardPhysics>().CanBeDragged,
+                            "card shouldn't be draggable." );
+        }
+
+
+
         #endregion
 
 

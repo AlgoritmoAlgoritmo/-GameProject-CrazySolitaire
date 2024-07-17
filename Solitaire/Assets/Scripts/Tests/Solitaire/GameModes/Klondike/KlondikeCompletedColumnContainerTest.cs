@@ -152,6 +152,39 @@ namespace Tests.Solitaire.GameModes.Klondike {
                                     + $"but there are {remainingCards.Count} instead." );
         }
 
+
+        [Test]
+        public void WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards() {
+            //  Instantiate cards to add
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>( Test.TestConstants.CARD_PREFAB_PATH );
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                                                GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>() };
+
+            //  Check spiderCardContainer doesn't have cards already
+            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+                            "klondikeCompletedColumnContainer shouldn't contain any card but it does." );
+
+            //  Add cards to klondikeCompletedColumnContainer
+            foreach(var auxCard in listOfCardsToAdd) {
+                klondikeCompletedColumnContainer.AddCard( auxCard );
+            }
+
+            //  Remove card
+            int indexOfTheCardToBeRemoved = UnityEngine.Random.Range( 0, listOfCardsToAdd.Count - 1 );
+            klondikeCompletedColumnContainer.RemoveCard( listOfCardsToAdd[indexOfTheCardToBeRemoved] );
+
+            //  Assert container doesn't have that card anymore and that the amount of cards is correct
+            Assert.False( klondikeCompletedColumnContainer.GetCards().Contains( listOfCardsToAdd[indexOfTheCardToBeRemoved] ),
+                            "klondikeCompletedColumnContainer still  has the card that should have been removed." );
+            Assert.AreEqual( listOfCardsToAdd.Count - 1,
+                            klondikeCompletedColumnContainer.GetCards().Count,
+                            "The amount of cards in klondikeCompletedColumnContainer should be "
+                                    + $"{listOfCardsToAdd.Count - 1} instead of "
+                                    + $"{klondikeCompletedColumnContainer.GetCards().Count} " );
+        }
         #endregion
     }
 }

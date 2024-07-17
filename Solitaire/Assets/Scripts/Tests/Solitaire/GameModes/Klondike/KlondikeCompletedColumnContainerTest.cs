@@ -81,6 +81,18 @@ namespace Tests.Solitaire.GameModes.Klondike {
                         $"spiderCardContainer cards has {klondikeCompletedColumnContainer.GetCards().Count} "
                                 + $"when it should have {amountOfCardsToSpawn} cards" );
         }
+        
+        
+        [Test]
+        public void WhenAddingNullObjectToCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt() {
+            // Test to avoid false positive
+            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+                        "There was an alement in klondikeCompletedColumnContainer before the null object was added." );
+            Assert.Throws<NullReferenceException>( () => klondikeCompletedColumnContainer.AddCard( null ) );
+            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+                        "Null object was added when it shouldn't." );
+        }
+
         #endregion
     }
 }

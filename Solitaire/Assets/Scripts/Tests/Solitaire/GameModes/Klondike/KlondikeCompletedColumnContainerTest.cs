@@ -185,6 +185,61 @@ namespace Tests.Solitaire.GameModes.Klondike {
                                     + $"{listOfCardsToAdd.Count - 1} instead of "
                                     + $"{klondikeCompletedColumnContainer.GetCards().Count} " );
         }
+
+
+        [Test]
+        public void WhenPassingNullObjectToRemoveCardMethod_ThenThrowNullReferenceException() {
+            // Assert null reference
+            Assert.Throws<NullReferenceException>( () => klondikeCompletedColumnContainer.RemoveCard( null ) );
+        }
+
+
+        [Test]
+        public void WhenCallMethodForMultipleCardRemoval_ThenThrowNotImplementedException() {
+            //  Instantiate cards to add
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>( Test.TestConstants.CARD_PREFAB_PATH );
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
+                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
+            };
+
+            //  Add cards to containner
+            foreach( var auxCard in listOfCardsToAdd ) {
+                klondikeCompletedColumnContainer.AddCard( auxCard );
+            }
+
+            //  Save amount of cards
+            int amountOfCardsAfterAddition = klondikeCompletedColumnContainer.GetCards().Count;
+
+            //  Create list of cards to remove
+            List<CardFacade> listOfCardsToRemove = new List<CardFacade>() {
+                listOfCardsToAdd[1],
+                listOfCardsToAdd[3],
+                listOfCardsToAdd[5]
+            };
+
+
+            //  Assert the remaining amount of cards in container matches the amount of cards to be added
+            Assert.AreEqual( amountOfCardsAfterAddition,
+                            klondikeCompletedColumnContainer.GetCards().Count,
+                            $"The container has {klondikeCompletedColumnContainer.GetCards().Count} "
+                                    + "when it was expected it to have {amountOfCardsAfterAddition}." );
+
+
+            //  Assert removal of multiple cards throws exception
+            Assert.Throws<NotImplementedException>( 
+                            () => klondikeCompletedColumnContainer.RemoveCards( listOfCardsToRemove ) );
+
+            //  Assert the remaining amount of cards hasn't changed
+            Assert.AreEqual( amountOfCardsAfterAddition,
+                            klondikeCompletedColumnContainer.GetCards().Count,
+                            $"The container has {klondikeCompletedColumnContainer.GetCards().Count} "
+                                    + $"when it was expected it to have {amountOfCardsAfterAddition}." );
+        }
         #endregion
     }
 }

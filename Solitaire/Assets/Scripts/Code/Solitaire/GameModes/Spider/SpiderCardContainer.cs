@@ -17,6 +17,7 @@ namespace Solitaire.GameModes.Spider {
         private new UnityEngine.Collider2D collider;
         #endregion
 
+
         #region MonoBehaviour methods
         private void Awake() {
             collider = GetComponent<UnityEngine.Collider2D>();

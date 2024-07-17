@@ -292,10 +292,9 @@ namespace Tests.Solitaire.GameModes.Spider {
 
             //  Assert cards for removal are not referenced by container
             foreach (var auxCard in listOfCardsToRemove) {
-                Assert.False(spiderCardContainer.GetCards().Contains(auxCard),
+                Assert.False( spiderCardContainer.GetCards().Contains(auxCard),
                             "At least one of the cards from listOfCardsToRemove "
-                                    + "wasn't successfully removed."
-                    );
+                                    + "wasn't successfully removed." );
             }
         }
 

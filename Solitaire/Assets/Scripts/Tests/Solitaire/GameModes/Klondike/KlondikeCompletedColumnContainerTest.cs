@@ -121,6 +121,37 @@ namespace Tests.Solitaire.GameModes.Klondike {
                                 + $"{klondikeCompletedColumnContainer.GetCards().Count} "
                                 + $"when it should have 0 cards" );
         }
+
+
+        [Test]
+        public void WhenInitializing_ThenDontAddAnyCard() {
+            // Create list of cards to add
+            short defaultAmountOfCards = (short)UnityEngine.Random.Range( 1, 50 );
+            int amountOfCardsToAdd = UnityEngine.Random.Range( defaultAmountOfCards, 50 );
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>( Test.TestConstants.CARD_PREFAB_PATH );
+
+            klondikeCompletedColumnContainer.SetDefaultAmountOfCards( defaultAmountOfCards );
+            List<CardFacade> listOfCardsToAdd = new List<CardFacade>();
+            for( int i = 0; i < amountOfCardsToAdd; i++ ) {
+                listOfCardsToAdd.Add( GameObject.Instantiate( cardFacadePrefab ).GetComponent<CardFacade>() );
+            }
+
+            // Check there aren't any cards already to avoid false positive
+            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+                        "spiderCardContainer shouldn't contain any cards but it does." );
+
+            // Initialize spiderCardContainer
+            List<CardFacade> remainingCards = klondikeCompletedColumnContainer.Initialize( listOfCardsToAdd );
+
+            // Check cards have been added successfully
+            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+                            $"klondikeCompletedColumnContainer shouldn't contain any card "
+                                    + $"but it has {klondikeCompletedColumnContainer.GetCards().Count} instead" );
+            Assert.AreEqual( amountOfCardsToAdd, remainingCards.Count,
+                            $"The remaining cards should be {amountOfCardsToAdd} "
+                                    + $"but there are {remainingCards.Count} instead." );
+        }
+
         #endregion
     }
 }

@@ -12,8 +12,7 @@ using UnityEditor;
 using Solitaire.GameModes.Klondike;
 using Solitaire.Gameplay.CardContainers;
 using Test;
-
-
+using Solitaire.Gameplay.Cards;
 
 namespace Tests.Solitaire.GameModes.Klondike {
     public class KlondikeCompletedColumnContainerTest {
@@ -58,8 +57,30 @@ namespace Tests.Solitaire.GameModes.Klondike {
         }
         
         
-        //[Test]
+        [Test]
+        public void WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer() {
+            //  Generate random amount of cards
+            int amountOfCardsToSpawn = UnityEngine.Random.Range( 0, 50 );
+            GameObject cardPrefab = AssetDatabase.LoadAssetAtPath<GameObject>( TestConstants.CARD_PREFAB_PATH );
 
+            // Assert CardPrefab was loaded successfully
+            Assert.IsNotNull( cardPrefab, "Card prefab could not be loaded." );
+
+            // Check to avoid false positive
+            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+                            "spiderCardContainer shouldn't contain any cards" );
+
+            //  Add cards to spiderCardContainer
+            for( int i = 0; i < amountOfCardsToSpawn; i++ ) {
+                klondikeCompletedColumnContainer.AddCard( GameObject.Instantiate( cardPrefab )
+                                                .GetComponent<CardFacade>() );
+            }
+
+            // Assert the amount of cards added is the same the BasicaCardContainer's contain
+            Assert.True( amountOfCardsToSpawn == klondikeCompletedColumnContainer.GetCards().Count,
+                        $"spiderCardContainer cards has {klondikeCompletedColumnContainer.GetCards().Count} "
+                                + $"when it should have {amountOfCardsToSpawn} cards" );
+        }
         #endregion
     }
 }

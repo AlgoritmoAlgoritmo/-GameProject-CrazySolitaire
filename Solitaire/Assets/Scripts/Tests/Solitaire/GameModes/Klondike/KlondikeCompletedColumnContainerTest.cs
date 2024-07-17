@@ -13,6 +13,9 @@ using Solitaire.GameModes.Klondike;
 using Solitaire.Gameplay.CardContainers;
 using Test;
 using Solitaire.Gameplay.Cards;
+using System.Collections.Generic;
+
+
 
 namespace Tests.Solitaire.GameModes.Klondike {
     public class KlondikeCompletedColumnContainerTest {
@@ -93,6 +96,31 @@ namespace Tests.Solitaire.GameModes.Klondike {
                         "Null object was added when it shouldn't." );
         }
 
+
+        [Test]
+        public void WhenAddingMultipleCards_ThenThrowsNotImplementedException() {
+            // Instantiate cards
+            int amountOfCardsToSpawn = UnityEngine.Random.Range( 0, 100 );
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>( TestConstants.CARD_PREFAB_PATH );
+
+            List<CardFacade> cardsToAdd = new List<CardFacade>();
+            for( int i = 0; i < amountOfCardsToSpawn; i++ ) {
+                cardsToAdd.Add( GameObject.Instantiate( cardFacadePrefab ).GetComponent<CardFacade>() );
+            }
+
+            // Check the amount of cards is zero to avoid false positive
+            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+                        "klondikeCompletedColumnContainer shouldn't contain any cards" );
+
+            // Assert multiple card addition throws exception
+            Assert.Throws<NotImplementedException>( () => klondikeCompletedColumnContainer.AddCards( cardsToAdd ) );
+
+            // Assert the amount of cards added is still zero
+            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+                        $"klondikeCompletedColumnContainer cards has "
+                                + $"{klondikeCompletedColumnContainer.GetCards().Count} "
+                                + $"when it should have 0 cards" );
+        }
         #endregion
     }
 }

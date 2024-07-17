@@ -22,7 +22,6 @@ namespace Tests.Solitaire.GameModes.Spider {
         private GameObject spiderCardContainerGameObject;
         private SpiderCardContainer spiderCardContainer;
 
-        private const string CARD_PREFAB_PATH = Test.TestConstants.CARD_PREFAB_PATH;
         private const string SPIDERCARDCONTAINER_PREFAB_PATH = Test.TestConstants
                                                     .SPIDERCARDCONTAINER_PREFAB_PATH;
         #endregion
@@ -63,7 +62,7 @@ namespace Tests.Solitaire.GameModes.Spider {
         public void WhenAddingCard_ThenGetCorrectAmoutOfCardsFromCardContainer() {
             //  Generate random amount of cards
             int amountOfCardsToSpawn = UnityEngine.Random.Range(0, 50);
-            GameObject cardPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            GameObject cardPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Test.TestConstants.CARD_PREFAB_PATH);
 
             // Assert CardPrefab was loaded successfully
             Assert.IsNotNull(cardPrefab, "Card prefab could not be loaded.");
@@ -101,7 +100,7 @@ namespace Tests.Solitaire.GameModes.Spider {
         public void WhenAddingMultipleCards_ThenGetCorrectAmoutOfCardsFromCardContainer() {
             // Instantiate cards
             int amountOfCardsToSpawn = UnityEngine.Random.Range(0, 100);
-            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Test.TestConstants.CARD_PREFAB_PATH);
 
             List<CardFacade> cardsToAdd = new List<CardFacade>();
             for (int i = 0; i < amountOfCardsToSpawn; i++) {
@@ -125,13 +124,13 @@ namespace Tests.Solitaire.GameModes.Spider {
         [Test]
         public void WhenAddingCardListWithNullObjectToSpiderCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt() {
             //  Create list of cards
-            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(
+                                    Test.TestConstants.CARD_PREFAB_PATH);
             List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
                                     GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
                                     null,
                                     GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
-                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>()
-                                };
+                                    GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>() };
 
             //  Check spiderCardContainer has 0 cards
             Assert.Zero(spiderCardContainer.GetCards().Count,
@@ -155,7 +154,7 @@ namespace Tests.Solitaire.GameModes.Spider {
             // Create list of cards to add
             short defaultAmountOfCards = (short)UnityEngine.Random.Range(1, 50);
             int amountOfCardsToAdd = UnityEngine.Random.Range(defaultAmountOfCards, 50);
-            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Test.TestConstants.CARD_PREFAB_PATH);
 
             spiderCardContainer.SetDefaultAmountOfCards(defaultAmountOfCards);
             List<CardFacade> listOfCardsToAdd = new List<CardFacade>();
@@ -185,7 +184,7 @@ namespace Tests.Solitaire.GameModes.Spider {
         [Test]
         public void WhenTriesToInitializeAListWithANullElement_ThenThorwNullReferenceExceptionBeforeAddingAnyCard() {
             // Create list of cards
-            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Test.TestConstants.CARD_PREFAB_PATH);
             List<CardFacade> listForInitialization = new List<CardFacade>() {
                                                 GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
                                                 null,
@@ -219,7 +218,7 @@ namespace Tests.Solitaire.GameModes.Spider {
         [Test]
         public void WhenCallingRemoveCardMethod_ThenEliminateItFromspiderCardContainerCards() {
             //  Instantiate cards to add
-            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Test.TestConstants.CARD_PREFAB_PATH);
             List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
                                                 GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
                                                 GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
@@ -258,7 +257,7 @@ namespace Tests.Solitaire.GameModes.Spider {
         [Test]
         public void WhenCallMethodForMultipleCardRemoval_ThenRemoveOnlyTheRightAmountOfCards() {
             //  Instantiate cards to add
-            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Test.TestConstants.CARD_PREFAB_PATH);
             List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
                     GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
                     GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
@@ -304,7 +303,7 @@ namespace Tests.Solitaire.GameModes.Spider {
         [Test]
         public void WhenPassingListWithNullElementToRemoveCardMethod_ThenThrowNullReferenceException() {
             //  Create list of cards
-            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CARD_PREFAB_PATH);
+            GameObject cardFacadePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(Test.TestConstants.CARD_PREFAB_PATH);
             List<CardFacade> listOfCardsToAdd = new List<CardFacade>() {
                     GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),
                     GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>(),

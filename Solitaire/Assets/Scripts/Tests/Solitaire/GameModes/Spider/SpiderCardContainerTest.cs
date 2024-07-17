@@ -41,7 +41,7 @@ namespace Tests.Solitaire.GameModes.Spider {
                         + "could not be loaded.");
             }
 
-            spiderCardContainer = spiderCardContainerGameObject.AddComponent<SpiderCardContainer>();
+            spiderCardContainer = spiderCardContainerGameObject.GetComponent<SpiderCardContainer>();
 
             if( !spiderCardContainer ) {
                 throw new NullReferenceException("GameObject at SPIDERCARDCONTAINER_PREFAB_PATH "

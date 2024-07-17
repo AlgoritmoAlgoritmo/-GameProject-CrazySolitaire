@@ -20,7 +20,7 @@ namespace Solitaire.GameModes.Klondike {
 
         #region Public methods
         public override List<CardFacade> Initialize(List<CardFacade> _cards) {
-            // INTENTIONALLY DOES NOTHING, SINCE IT STARTS WITH 0 CARDS
+            // INTENTIONALLY DOES NOTHING SINCE IT MUST START WITH 0 CARDS
             return _cards;
         }
 

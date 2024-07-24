@@ -110,7 +110,6 @@ namespace Solitaire.GameModes.Klondike {
         #endregion
 
 
-
         #region Private methods
         private void DisplayCard( CardFacade _card ) {
 			displayedCards.Add(_card);

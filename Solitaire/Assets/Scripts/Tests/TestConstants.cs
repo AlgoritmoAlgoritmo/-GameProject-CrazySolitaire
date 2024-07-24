@@ -33,6 +33,8 @@ namespace Test {
                                                 + "/KlondikeCardContainer.prefab";
         public const string KLONDIKECOMPLETEDCOLUMNCONTAINER_PREFAB_PATH = "Assets/Prefabs/Gameplay/Klondike"
                                                 + "/Klondike CompletedColumnContainer.prefab";
+        public const string KLONDIKELOOPABLECONTAINER_PREFAB_PATH = "Assets/Prefabs/Gameplay/Klondike"
+                                                + "/KlondikeLoopableCardDistributor.prefab";
         #endregion
     }
 }

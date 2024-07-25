@@ -32,9 +32,7 @@ namespace Tests.Solitaire.GameModes.Spider {
         public void Setup() {
             spiderCardContainerGameObject = GameObject.Instantiate( AssetDatabase
                                                         .LoadAssetAtPath<GameObject>(
-                                                            SPIDERCARDCONTAINER_PREFAB_PATH
-                                                    ));
-
+                                                            SPIDERCARDCONTAINER_PREFAB_PATH ));
             if( !spiderCardContainerGameObject ) {
                 throw new NullReferenceException("GameObject at SPIDERCARDCONTAINER_PREFAB_PATH "
                         + "could not be loaded.");

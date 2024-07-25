@@ -11,8 +11,8 @@ using UnityEngine;
 using Solitaire.GameModes.Klondike;
 using UnityEditor;
 using Solitaire.Gameplay.CardContainers;
-
-
+using Solitaire.Gameplay.Cards;
+using System.Collections.Generic;
 
 namespace Tests.Solitaire.GameModes.Klondike {
     public class KlondikeLoopableCardContainerTest {
@@ -55,6 +55,43 @@ namespace Tests.Solitaire.GameModes.Klondike {
                         "KlondikeLoopableCardContainer does not inherit from AbstractCardContainer." );
         }
 
+        [Test]
+        public void WhenAddingCard_ThenThrowNotImplementedException() {
+            //  Generate random amount of cards
+            int amountOfCardsToSpawn = UnityEngine.Random.Range( 0, 50 );
+            var card = SpawnFollowingAmountOfCards(1)[0];
+
+
+            // Assert CardPrefab was loaded successfully
+            Assert.IsNotNull( card, "Card prefab could not be loaded." );
+
+            // Check to avoid false positive
+            Assert.Zero( klondikeLoopableCardContainer.GetCards().Count,
+                            "klondikeLoopableCardContainer shouldn't contain any cards" );            
+
+            // Assert the amount of cards added is the same the BasicaCardContainer's contain
+            Assert.Throws<NotImplementedException>( () => klondikeLoopableCardContainer.AddCard( card ) );
+        }
+        #endregion
+
+
+        #region Private methods
+        private List<CardFacade> SpawnFollowingAmountOfCards( int _amount ) {
+            GameObject cardPrefab = AssetDatabase.LoadAssetAtPath<GameObject>( Test.TestConstants.CARD_PREFAB_PATH );
+
+            if( !cardPrefab ) {
+                throw new NullReferenceException( $"Couldn't load card prefab at {Test.TestConstants.CARD_PREFAB_PATH}" );
+            }
+
+
+            List<CardFacade> cardInstances = new List<CardFacade>();
+
+            for( int i = 0; i <= _amount; i++ ) {
+                cardInstances.Add( GameObject.Instantiate( cardPrefab ).GetComponent<CardFacade>() );
+            }
+
+            return cardInstances;
+        }
         #endregion
     }
 }

@@ -54,8 +54,8 @@ namespace Solitaire.Gameplay.CardContainers {
             return cards[cards.Count - 1];
         }
 
-        public List<CardFacade> GetCards() {
-            return cards;
+        public int GetCardCount() {
+            return cards.Count;
         }
         
         public virtual void Refresh() {

@@ -60,13 +60,13 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             abstractCardContainerMock.SetInitialCardsAmount((short)_initialCardsAmount);
 
             // Check there aren't previous cards
-            Assert.IsTrue(abstractCardContainerMock.GetCards().Count < 1);
+            Assert.IsTrue(abstractCardContainerMock.GetCardCount() < 1);
 
             // Pass array of cards for AbstractCardContainerInitialization
             cardsList = abstractCardContainerMock.Initialize(cardsList);
 
             // Assertions
-            Assert.IsTrue(abstractCardContainerMock.GetCards().Count == _initialCardsAmount);
+            Assert.IsTrue(abstractCardContainerMock.GetCardCount() == _initialCardsAmount);
         }
 
 
@@ -78,7 +78,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             CardFacade card1 = cardContainerObject.AddComponent<CardFacade>();
 
             // Test against false positive
-            Assert.IsTrue(abstractCardContainerMock.GetCards().Count == 0,
+            Assert.IsTrue(abstractCardContainerMock.GetCardCount() == 0,
                             "abstractCardContainerMock shouldn't containe any card.");
 
             // Add card

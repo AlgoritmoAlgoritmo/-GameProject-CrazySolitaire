@@ -66,12 +66,18 @@ namespace Tests.Solitaire.GameModes.Klondike {
             Assert.IsNotNull( card, "Card prefab could not be loaded." );
 
             // Check to avoid false positive
-            Assert.Zero( klondikeLoopableCardContainer.GetCards().Count,
-                            "klondikeLoopableCardContainer shouldn't contain any cards" );            
+            Assert.Zero( klondikeLoopableCardContainer.GetCardCount(),
+                            "klondikeLoopableCardContainer shouldn't contain any cards" );     
 
             // Assert the amount of cards added is the same the BasicaCardContainer's contain
             Assert.Throws<NotImplementedException>( () => klondikeLoopableCardContainer.AddCard( card ) );
+
+            // Assert amount of cards is still 0
+            Assert.Zero( klondikeLoopableCardContainer.GetCardCount(),
+                            "klondikeLoopableCardContainer shouldn't contain any cards" );
         }
+
+
         #endregion
 
 

@@ -68,7 +68,7 @@ namespace Tests.Solitaire.GameModes.Spider {
             GameObject cardGameObject = GameObject.Instantiate(new GameObject());
 
             // Check to avoid false positive
-            Assert.Zero(spiderCardContainerForCardDistribution.GetCards().Count,
+            Assert.Zero(spiderCardContainerForCardDistribution.GetCardCount(),
                             "spiderCardContainerForCardDistributor shouldn't contain any cards");
 
             //  Assert addition of card
@@ -79,9 +79,9 @@ namespace Tests.Solitaire.GameModes.Spider {
             }
 
             // Assert the amount of cards added is the same the BasicaCardContainer's contain
-            Assert.Zero(spiderCardContainerForCardDistribution.GetCards().Count,
+            Assert.Zero(spiderCardContainerForCardDistribution.GetCardCount(),
                         $"spiderCardContainerForCardDistributor cards has "
-                            + $"{spiderCardContainerForCardDistribution.GetCards().Count} "
+                            + $"{spiderCardContainerForCardDistribution.GetCardCount()} "
                             + $"when it should have 0 cards");
         }
 
@@ -97,7 +97,7 @@ namespace Tests.Solitaire.GameModes.Spider {
             }
 
             // Check to avoid false positive
-            Assert.Zero(spiderCardContainerForCardDistribution.GetCards().Count,
+            Assert.Zero(spiderCardContainerForCardDistribution.GetCardCount(),
                             "spiderCardContainerForCardDistributor shouldn't contain any cards");
 
             // Assert addition of multiple cards
@@ -107,9 +107,9 @@ namespace Tests.Solitaire.GameModes.Spider {
                                                         + "NotImplementedException.");
 
             // Assert the amount of cards added is the same the BasicaCardContainer's contain
-            Assert.Zero(spiderCardContainerForCardDistribution.GetCards().Count,
+            Assert.Zero(spiderCardContainerForCardDistribution.GetCardCount(),
                         $"spiderCardContainerForCardDistributor cards has "
-                                + $"{spiderCardContainerForCardDistribution.GetCards().Count} "
+                                + $"{spiderCardContainerForCardDistribution.GetCardCount()} "
                                 + $"when it should have 0 cards");
         }
 
@@ -128,20 +128,20 @@ namespace Tests.Solitaire.GameModes.Spider {
             }
 
             // Check there aren't any cards already to avoid false positive
-            Assert.Zero(spiderCardContainerForCardDistribution.GetCards().Count,
+            Assert.Zero(spiderCardContainerForCardDistribution.GetCardCount(),
                         "spiderCardContainerForCardDistributor shouldn't contain any cards but it does.");
 
             // Initialize spiderCardContainer
             List<CardFacade> remainingCards = spiderCardContainerForCardDistribution.Initialize(listOfCardsToAdd);
 
             // Check cards have been added successfully
-            Assert.AreEqual(defaultAmountOfCards, spiderCardContainerForCardDistribution.GetCards().Count,
+            Assert.AreEqual(defaultAmountOfCards, spiderCardContainerForCardDistribution.GetCardCount(),
                             $"spiderCardContainerForCardDistributor should contain {amountOfCardsToAdd} "
-                                    + $"but it has {spiderCardContainerForCardDistribution.GetCards().Count} instead");
-            Assert.AreEqual((amountOfCardsToAdd - spiderCardContainerForCardDistribution.GetCards().Count),
+                                    + $"but it has {spiderCardContainerForCardDistribution.GetCardCount()} instead");
+            Assert.AreEqual((amountOfCardsToAdd - spiderCardContainerForCardDistribution.GetCardCount() ),
                                 remainingCards.Count,
                                 $"The remaining cards should be " +
-                                $"{amountOfCardsToAdd - spiderCardContainerForCardDistribution.GetCards().Count} "
+                                $"{amountOfCardsToAdd - spiderCardContainerForCardDistribution.GetCardCount()} "
                                 + $"but there are {remainingCards.Count} instead.");
         }
 
@@ -158,7 +158,7 @@ namespace Tests.Solitaire.GameModes.Spider {
             int amountOfCardsToAddForInitialization = listForInitialization.Count;
 
             // Check basic card container doesn't have any cards to avoid false positive
-            Assert.Zero(spiderCardContainerForCardDistribution.GetCards().Count,
+            Assert.Zero(spiderCardContainerForCardDistribution.GetCardCount(),
                         "casicCardContainer shouldn't contain any card but it does.");
 
             // Assert initialization
@@ -170,7 +170,7 @@ namespace Tests.Solitaire.GameModes.Spider {
                                                             + "the elements of the list is null.");
 
             // Check no card was added
-            Assert.Zero(spiderCardContainerForCardDistribution.GetCards().Count,
+            Assert.Zero(spiderCardContainerForCardDistribution.GetCardCount(),
                         "Cards have been added to spiderCardContainerForCardDistributor when they shouldn't.");
             Assert.AreEqual(amountOfCardsToAddForInitialization,
                             listForInitialization.Count,
@@ -197,7 +197,7 @@ namespace Tests.Solitaire.GameModes.Spider {
             CardFacade cardToRemove = listOfCardsToAdd[indexOfTheCardToBeRemoved];
 
             //  Check spiderCardContainer doesn't have cards already
-            Assert.Zero(spiderCardContainerForCardDistribution.GetCards().Count,
+            Assert.Zero(spiderCardContainerForCardDistribution.GetCardCount(),
                         "casicCardContainer shouldn't contain any card but it does.");
 
             //  Initialize spiderCardContainer
@@ -207,18 +207,18 @@ namespace Tests.Solitaire.GameModes.Spider {
             spiderCardContainerForCardDistribution.RemoveCard(cardToRemove);
 
             //  Assert container doesn't have that card anymore and that the amount of cards is correct
-            Assert.False(spiderCardContainerForCardDistribution.GetCards().Contains(cardToRemove),
+            Assert.False(spiderCardContainerForCardDistribution.ContainsCard(cardToRemove),
                         "spiderCardContainer still  has the card that should have been removed.");
 
-            Assert.False(spiderCardContainerForCardDistribution.GetCards().Contains(null),
+            Assert.False(spiderCardContainerForCardDistribution.ContainsCard(null),
                             "spiderCardContainerForCardDistributor contains a null element in "
                                     + "its list of cards.");
 
             Assert.AreEqual( amountOfCardsToAdd -1,
-                            spiderCardContainerForCardDistribution.GetCards().Count,
+                            spiderCardContainerForCardDistribution.GetCardCount(),
                             "The amount of cards in spiderCardContainerForCardDistributor should be "
                                     + $"{amountOfCardsToAdd - 1} instead of "
-                                    + $"{spiderCardContainerForCardDistribution.GetCards().Count} ");
+                                    + $"{spiderCardContainerForCardDistribution.GetCardCount()} ");
 
 
         }
@@ -258,7 +258,7 @@ namespace Tests.Solitaire.GameModes.Spider {
             spiderCardContainerForCardDistribution.Initialize(listOfCardsToAdd);
 
             //  Save amount of cards
-            int amountOfCardsAfterAddition = spiderCardContainerForCardDistribution.GetCards().Count;
+            int amountOfCardsAfterAddition = spiderCardContainerForCardDistribution.GetCardCount();
 
             //  Assert ramoval of multiple cards
             Assert.Throws<NotImplementedException>( () =>
@@ -269,8 +269,8 @@ namespace Tests.Solitaire.GameModes.Spider {
 
             //  Assert the remaining amount of cards in container is correct
             Assert.AreEqual(amountOfCardsAfterAddition,
-                            spiderCardContainerForCardDistribution.GetCards().Count,
-                            $"The container has {spiderCardContainerForCardDistribution.GetCards().Count} "
+                            spiderCardContainerForCardDistribution.GetCardCount(),
+                            $"The container has {spiderCardContainerForCardDistribution.GetCardCount()} "
                                     + $"when it was expected it to have {amountOfCardsToAdd}.");
         }
         #endregion

@@ -70,7 +70,7 @@ namespace Tests.Solitaire.GameModes.Klondike {
             Assert.IsNotNull( cardPrefab, "Card prefab could not be loaded." );
 
             // Check to avoid false positive
-            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+            Assert.Zero( klondikeCompletedColumnContainer.GetCardCount(),
                             "spiderCardContainer shouldn't contain any cards" );
 
             //  Add cards to spiderCardContainer
@@ -80,8 +80,8 @@ namespace Tests.Solitaire.GameModes.Klondike {
             }
 
             // Assert the amount of cards added is the same the BasicaCardContainer's contain
-            Assert.True( amountOfCardsToSpawn == klondikeCompletedColumnContainer.GetCards().Count,
-                        $"spiderCardContainer cards has {klondikeCompletedColumnContainer.GetCards().Count} "
+            Assert.True( amountOfCardsToSpawn == klondikeCompletedColumnContainer.GetCardCount(),
+                        $"spiderCardContainer cards has {klondikeCompletedColumnContainer.GetCardCount()} "
                                 + $"when it should have {amountOfCardsToSpawn} cards" );
         }
         
@@ -89,10 +89,10 @@ namespace Tests.Solitaire.GameModes.Klondike {
         [Test]
         public void WhenAddingNullObjectToCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt() {
             // Test to avoid false positive
-            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+            Assert.Zero( klondikeCompletedColumnContainer.GetCardCount(),
                         "There was an alement in klondikeCompletedColumnContainer before the null object was added." );
             Assert.Throws<NullReferenceException>( () => klondikeCompletedColumnContainer.AddCard( null ) );
-            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+            Assert.Zero( klondikeCompletedColumnContainer.GetCardCount(),
                         "Null object was added when it shouldn't." );
         }
 
@@ -109,16 +109,16 @@ namespace Tests.Solitaire.GameModes.Klondike {
             }
 
             // Check the amount of cards is zero to avoid false positive
-            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+            Assert.Zero( klondikeCompletedColumnContainer.GetCardCount(),
                         "klondikeCompletedColumnContainer shouldn't contain any cards" );
 
             // Assert multiple card addition throws exception
             Assert.Throws<NotImplementedException>( () => klondikeCompletedColumnContainer.AddCards( cardsToAdd ) );
 
             // Assert the amount of cards added is still zero
-            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+            Assert.Zero( klondikeCompletedColumnContainer.GetCardCount(),
                         $"klondikeCompletedColumnContainer cards has "
-                                + $"{klondikeCompletedColumnContainer.GetCards().Count} "
+                                + $"{klondikeCompletedColumnContainer.GetCardCount()} "
                                 + $"when it should have 0 cards" );
         }
 
@@ -137,16 +137,16 @@ namespace Tests.Solitaire.GameModes.Klondike {
             }
 
             // Check there aren't any cards already to avoid false positive
-            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+            Assert.Zero( klondikeCompletedColumnContainer.GetCardCount(),
                         "spiderCardContainer shouldn't contain any cards but it does." );
 
             // Initialize spiderCardContainer
             List<CardFacade> remainingCards = klondikeCompletedColumnContainer.Initialize( listOfCardsToAdd );
 
             // Check cards have been added successfully
-            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+            Assert.Zero( klondikeCompletedColumnContainer.GetCardCount(),
                             $"klondikeCompletedColumnContainer shouldn't contain any card "
-                                    + $"but it has {klondikeCompletedColumnContainer.GetCards().Count} instead" );
+                                    + $"but it has {klondikeCompletedColumnContainer.GetCardCount()} instead" );
             Assert.AreEqual( amountOfCardsToAdd, remainingCards.Count,
                             $"The remaining cards should be {amountOfCardsToAdd} "
                                     + $"but there are {remainingCards.Count} instead." );
@@ -164,7 +164,7 @@ namespace Tests.Solitaire.GameModes.Klondike {
                                                 GameObject.Instantiate(cardFacadePrefab).GetComponent<CardFacade>() };
 
             //  Check spiderCardContainer doesn't have cards already
-            Assert.Zero( klondikeCompletedColumnContainer.GetCards().Count,
+            Assert.Zero( klondikeCompletedColumnContainer.GetCardCount(),
                             "klondikeCompletedColumnContainer shouldn't contain any card but it does." );
 
             //  Add cards to klondikeCompletedColumnContainer
@@ -177,13 +177,13 @@ namespace Tests.Solitaire.GameModes.Klondike {
             klondikeCompletedColumnContainer.RemoveCard( listOfCardsToAdd[indexOfTheCardToBeRemoved] );
 
             //  Assert container doesn't have that card anymore and that the amount of cards is correct
-            Assert.False( klondikeCompletedColumnContainer.GetCards().Contains( listOfCardsToAdd[indexOfTheCardToBeRemoved] ),
+            Assert.False( klondikeCompletedColumnContainer.ContainsCard( listOfCardsToAdd[indexOfTheCardToBeRemoved] ),
                             "klondikeCompletedColumnContainer still  has the card that should have been removed." );
             Assert.AreEqual( listOfCardsToAdd.Count - 1,
-                            klondikeCompletedColumnContainer.GetCards().Count,
+                            klondikeCompletedColumnContainer.GetCardCount(),
                             "The amount of cards in klondikeCompletedColumnContainer should be "
                                     + $"{listOfCardsToAdd.Count - 1} instead of "
-                                    + $"{klondikeCompletedColumnContainer.GetCards().Count} " );
+                                    + $"{klondikeCompletedColumnContainer.GetCardCount()} " );
         }
 
 
@@ -213,7 +213,7 @@ namespace Tests.Solitaire.GameModes.Klondike {
             }
 
             //  Save amount of cards
-            int amountOfCardsAfterAddition = klondikeCompletedColumnContainer.GetCards().Count;
+            int amountOfCardsAfterAddition = klondikeCompletedColumnContainer.GetCardCount();
 
             //  Create list of cards to remove
             List<CardFacade> listOfCardsToRemove = new List<CardFacade>() {
@@ -225,8 +225,8 @@ namespace Tests.Solitaire.GameModes.Klondike {
 
             //  Assert the remaining amount of cards in container matches the amount of cards to be added
             Assert.AreEqual( amountOfCardsAfterAddition,
-                            klondikeCompletedColumnContainer.GetCards().Count,
-                            $"The container has {klondikeCompletedColumnContainer.GetCards().Count} "
+                            klondikeCompletedColumnContainer.GetCardCount(),
+                            $"The container has {klondikeCompletedColumnContainer.GetCardCount()} "
                                     + "when it was expected it to have {amountOfCardsAfterAddition}." );
 
 
@@ -236,8 +236,8 @@ namespace Tests.Solitaire.GameModes.Klondike {
 
             //  Assert the remaining amount of cards hasn't changed
             Assert.AreEqual( amountOfCardsAfterAddition,
-                            klondikeCompletedColumnContainer.GetCards().Count,
-                            $"The container has {klondikeCompletedColumnContainer.GetCards().Count} "
+                            klondikeCompletedColumnContainer.GetCardCount(),
+                            $"The container has {klondikeCompletedColumnContainer.GetCardCount()} "
                                     + $"when it was expected it to have {amountOfCardsAfterAddition}." );
         }
         #endregion

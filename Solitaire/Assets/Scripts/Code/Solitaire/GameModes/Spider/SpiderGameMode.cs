@@ -41,19 +41,19 @@ namespace Solitaire.GameModes.Spider {
         }
 
 
-        public void DistributeCardsBetweenCardContainers(AbstractCardContainer _cardContainer) {
-            if( _cardContainer.GetCards().Contains( null ) ) {
-                throw new NullReferenceException("There is a null element in the CardContainer "
-                                                    + "passed for distribution.");
+        public void DistributeCardsBetweenCardContainers( List<CardFacade> _cards ) {
+            if( _cards.Contains( null ) ) {
+                throw new NullReferenceException( "There is a null element in the list of cards "
+                                                    + "passed for distribution." );
             }
-            
-            List<CardFacade> auxCardsToDistribute = _cardContainer.GetCards();
 
+
+            var oldContainer = GetCardContainer( _cards[0] );
             short cardContainerIndex = 0;
             bool hasToStopLoop = false;
 
 
-            for( int i = auxCardsToDistribute.Count - 1; i >= 0; i-- ) {
+            for( int i = _cards.Count - 1; i >= 0; i-- ) {
                 while( !( cardContainers[cardContainerIndex] is SpiderCardContainer ) ) {
                     cardContainerIndex++;
                     if( cardContainerIndex == cardContainers.Count ) {
@@ -63,16 +63,17 @@ namespace Solitaire.GameModes.Spider {
                 }
 
                 if( !hasToStopLoop ) {
-                    auxCardsToDistribute[i].SetCanBeInteractable( true );
-                    cardContainers[cardContainerIndex].AddCard( auxCardsToDistribute[i] );
+                    _cards[i].SetCanBeInteractable( true );
+                    cardContainers[cardContainerIndex].AddCard( _cards[i] );
                     cardContainerIndex++;
                 } else {
                     break;
                 }
             }
 
-            cardContainers.Remove( _cardContainer );
-            Destroy(_cardContainer.gameObject);
+
+            cardContainers.Remove( oldContainer );
+            Destroy( oldContainer.gameObject );
         }
         #endregion
 

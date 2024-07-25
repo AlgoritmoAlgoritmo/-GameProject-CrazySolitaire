@@ -22,7 +22,7 @@ namespace Tests.Solitaire.GameModes.Klondike {
 			int amountOfCards = 0;
 
 			foreach( var auxContainer in cardContainers ) {
-				amountOfCards += auxContainer.GetCards().Count;
+				amountOfCards += auxContainer.GetCardCount();
 			}
 
 			return amountOfCards;

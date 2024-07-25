@@ -44,7 +44,7 @@ namespace Tests.Solitaire.GameModes.Spider {
             int amountOfCards = 0;
 
             foreach( var auxContainer in cardContainers ) {
-                amountOfCards += auxContainer.GetCards().Count;
+                amountOfCards += auxContainer.GetCardCount();
             }
 
             return amountOfCards;
@@ -52,6 +52,11 @@ namespace Tests.Solitaire.GameModes.Spider {
 
         public void SetCardContainers( List<AbstractCardContainer> _containersList ) {
             cardContainers = _containersList;
+        }
+
+
+        public void AddCardContainer( AbstractCardContainer _cardContainer ) {
+            cardContainers.Add(_cardContainer);
         }
 
         public void SetSuits(List<BasicSuitData> _suits) {

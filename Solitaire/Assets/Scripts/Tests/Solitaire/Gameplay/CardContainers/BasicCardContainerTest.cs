@@ -43,7 +43,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             GameObject cardGameObject = GameObject.Instantiate( new GameObject() );
 
             // Check to avoid false positive
-            Assert.Zero ( basicCardContainer.GetCards().Count,
+            Assert.Zero ( basicCardContainer.GetCardCount(),
                             "basicCardContainer shouldn't contain any cards");
 
             //  Add cards to BasicCardContainer
@@ -52,8 +52,8 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             }
 
             // Assert the amount of cards added is the same the BasicaCardContainer's contain
-            Assert.True(  amountOfCardsToSpawn == basicCardContainer.GetCards().Count,
-                            $"basicCardContainer cards has {basicCardContainer.GetCards().Count} "
+            Assert.True(  amountOfCardsToSpawn == basicCardContainer.GetCardCount(),
+                            $"basicCardContainer cards has {basicCardContainer.GetCardCount()} "
                             + $"when it should have {amountOfCardsToSpawn} cards" );
         }
 
@@ -61,10 +61,10 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
         [Test]
         public void WhenAddingNullObjectToBasicCardContainer_ThenThrowNullReferenceExceptionAndDontAddIt() {
             // Test to avoid false positive
-            Assert.Zero( basicCardContainer.GetCards().Count,
+            Assert.Zero( basicCardContainer.GetCardCount(),
                         "There was an alement in basicCardContainer before the null object was added.");
             Assert.Throws<System.NullReferenceException>( () => basicCardContainer.AddCard( null ) );
-            Assert.Zero( basicCardContainer.GetCards().Count,
+            Assert.Zero( basicCardContainer.GetCardCount(),
                         "Null object was added when it shouldn't.");
         }
         
@@ -80,15 +80,15 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             }
 
             // Check to avoid false positive
-            Assert.Zero( basicCardContainer.GetCards().Count,
+            Assert.Zero( basicCardContainer.GetCardCount(),
                             "basicCardContainer shouldn't contain any cards");
 
             // Add cards to BasicCardContainer
             basicCardContainer.AddCards( cardsToAdd );
 
             // Assert the amount of cards added is the same the BasicaCardContainer's contain
-            Assert.True( amountOfCardsToSpawn == basicCardContainer.GetCards().Count,
-                            $"basicCardContainer cards has {basicCardContainer.GetCards().Count} "
+            Assert.True( amountOfCardsToSpawn == basicCardContainer.GetCardCount(),
+                            $"basicCardContainer cards has {basicCardContainer.GetCardCount()} "
                             + $"when it should have {amountOfCardsToSpawn} cards" );
         }
 
@@ -105,7 +105,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
                                             };
 
             //  Check basicCardcontainer has 0 cards
-            Assert.Zero( basicCardContainer.GetCards().Count,
+            Assert.Zero( basicCardContainer.GetCardCount(),
                             "basicCardContainer shouldn't contain any cards but it does." );
 
             //  Assert list contains null object
@@ -117,7 +117,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
                                                     () => basicCardContainer.AddCards(listOfCardsToAdd));
 
             //  Check no card was added
-            Assert.Zero( basicCardContainer.GetCards().Count,
+            Assert.Zero( basicCardContainer.GetCardCount(),
                             "At least one card has been added to basicCardContainer when it shouldn't.");
         }
         
@@ -136,20 +136,20 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
 
 
             // Check there aren't any cards already to avoid false positive
-            Assert.Zero( basicCardContainer.GetCards().Count,
+            Assert.Zero( basicCardContainer.GetCardCount(),
                         "basicCardContainer shouldn't contain any cards but it does.");
 
             // Initialize basicCardContainer
             List<CardFacade> remainingCards = basicCardContainer.Initialize(listOfCardsToAdd);
 
             // Check cards have been added successfully
-            Assert.AreEqual( defaultAmountOfCards, basicCardContainer.GetCards().Count,
+            Assert.AreEqual( defaultAmountOfCards, basicCardContainer.GetCardCount(),
                             $"basicCardContainer should contain {amountOfCardsToAdd} "
-                                    + $"but it has {basicCardContainer.GetCards().Count} instead");
-            Assert.AreEqual( (amountOfCardsToAdd - basicCardContainer.GetCards().Count),
+                                    + $"but it has {basicCardContainer.GetCardCount()} instead");
+            Assert.AreEqual( (amountOfCardsToAdd - basicCardContainer.GetCardCount() ),
                                 remainingCards.Count,
                                 $"The remaining cards should be " +
-                                $"{amountOfCardsToAdd - basicCardContainer.GetCards().Count} "
+                                $"{amountOfCardsToAdd - basicCardContainer.GetCardCount()} "
                                 + $"but there are {remainingCards.Count} instead.");
         }
 
@@ -165,7 +165,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             int amountOfCardsToAddForInitialization = listForInitialization.Count;
 
             // Check basic card container doesn't have any cards to avoid false positive
-            Assert.Zero( basicCardContainer.GetCards().Count,
+            Assert.Zero( basicCardContainer.GetCardCount(),
                         "casicCardContainer shouldn't contain any card but it does.");
 
             // Assert initialization
@@ -176,7 +176,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
                                                     + "the elements of the list is null.");
 
             // Check no card was added
-            Assert.Zero( basicCardContainer.GetCards().Count,
+            Assert.Zero( basicCardContainer.GetCardCount(),
                         "Cards have been added to basicCardContainer when they shouldn't.");
             Assert.AreEqual( amountOfCardsToAddForInitialization,
                             listForInitialization.Count,
@@ -198,7 +198,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
                                                     };
 
             //  Check BasicCardContainer doesn't have cards already
-            Assert.Zero(basicCardContainer.GetCards().Count,
+            Assert.Zero(basicCardContainer.GetCardCount(),
                         "casicCardContainer shouldn't contain any card but it does.");
 
             //  Add cards  to BasicCardContainer
@@ -209,12 +209,12 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             basicCardContainer.RemoveCard(listOfCardsToAdd[indexOfTheCardToBeRemoved]);
 
             //  Assert container doesn't have that card anymore and that the amount of cards is correct
-            Assert.False( basicCardContainer.GetCards().Contains(listOfCardsToAdd[indexOfTheCardToBeRemoved]),
+            Assert.False( basicCardContainer.ContainsCard(listOfCardsToAdd[indexOfTheCardToBeRemoved]),
                         "basicCardContainer still  has the card that should have been removed.");
             Assert.AreEqual( listOfCardsToAdd.Count - 1,
-                            basicCardContainer.GetCards().Count,
+                            basicCardContainer.GetCardCount(),
                             "The amount of cards in basicCardContainer should be "
-                            + $"{listOfCardsToAdd.Count - 1} instead of {basicCardContainer.GetCards().Count} ");
+                            + $"{listOfCardsToAdd.Count - 1} instead of {basicCardContainer.GetCardCount()} ");
         }
 
         [Test]
@@ -240,7 +240,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
             basicCardContainer.AddCards( listOfCardsToAdd );
 
             //  Save amount of cards
-            int amountOfCardsAfterAddition = basicCardContainer.GetCards().Count;
+            int amountOfCardsAfterAddition = basicCardContainer.GetCardCount();
 
             //  Create list of cards to remove
             List<CardFacade> listOfCardsToRemove = new List<CardFacade>() {
@@ -254,14 +254,14 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
 
             //  Assert the remaining amount of cards in container is correct
             Assert.AreEqual(amountOfCardsAfterAddition - listOfCardsToRemove.Count,
-                            basicCardContainer.GetCards().Count,
-                            $"The container has {basicCardContainer.GetCards().Count} "
+                            basicCardContainer.GetCardCount(),
+                            $"The container has {basicCardContainer.GetCardCount()} "
                                     + "when it was expected it to have "
                                     + $"{amountOfCardsAfterAddition - listOfCardsToRemove.Count}.");
 
             //  Assert cards for removal are not referenced by container
             foreach(var auxCard in listOfCardsToRemove ) {
-                Assert.False( basicCardContainer.GetCards().Contains( auxCard ),
+                Assert.False( basicCardContainer.ContainsCard( auxCard ),
                             "At least one of the cards from listOfCardsToRemove "
                                     + "wasn't successfully removed."
                     );
@@ -293,9 +293,7 @@ namespace Tests.Solitaire.Gameplay.CardContainers {
 
             //  Assert remove method
             Assert.Throws<System.NullReferenceException>(
-                                () => basicCardContainer.RemoveCards(listOfCardsToRemove)
-                            );
-
+                                () => basicCardContainer.RemoveCards(listOfCardsToRemove) );
         }
         #endregion
     }

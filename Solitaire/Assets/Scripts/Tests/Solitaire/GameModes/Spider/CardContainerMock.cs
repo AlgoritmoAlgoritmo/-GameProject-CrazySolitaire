@@ -36,6 +36,10 @@ namespace Tests.Solitaire.GameModes.Spider {
         public override void RemoveCards(List<CardFacade> _cards) {
             throw new System.NotImplementedException();
         }
+
+        public List<CardFacade> GetCards() {
+            return cards;
+        }
         #endregion
 
 

@@ -13,11 +13,6 @@ using Solitaire.Gameplay.CardContainers;
 
 namespace Solitaire.GameModes.Spider {
     public class SpiderCardContainerForCardDistribution : AbstractCardContainer {
-        #region Variables
-
-        #endregion
-
-
         #region Public methods
         public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
             if( _cards.Contains(null) ) {
@@ -51,6 +46,10 @@ namespace Solitaire.GameModes.Spider {
 
         public override void RemoveCards( List<CardFacade> _cards ) {
             throw new System.NotImplementedException();
+        }
+
+        public List<CardFacade> GetCardsForDistribution() {
+            return cards;
         }
         #endregion
 

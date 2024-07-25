@@ -69,7 +69,7 @@ namespace Tests.Solitaire.GameModes.Klondike {
             Assert.IsNotNull( cardPrefab, "Card prefab could not be loaded." );
 
             // Check to avoid false positive
-            Assert.Zero( klondikeCardContainer.GetCards().Count,
+            Assert.Zero( klondikeCardContainer.GetCardCount(),
                             "klondikeCardContainer shouldn't contain any cards" );
 
             //  Add cards to spiderCardContainer
@@ -79,8 +79,8 @@ namespace Tests.Solitaire.GameModes.Klondike {
             }
 
             // Assert the amount of cards added is the same the BasicaCardContainer's contain
-            Assert.True( amountOfCardsToSpawn == klondikeCardContainer.GetCards().Count,
-                            $"klondikeCardContainer cards has {klondikeCardContainer.GetCards().Count} "
+            Assert.True( amountOfCardsToSpawn == klondikeCardContainer.GetCardCount(),
+                            $"klondikeCardContainer cards has {klondikeCardContainer.GetCardCount()} "
                             + $"when it should have {amountOfCardsToSpawn} cards" );
         }
 
@@ -88,10 +88,10 @@ namespace Tests.Solitaire.GameModes.Klondike {
         [Test]
         public void WhenAddingNullObjectToKlondikeCardContainer_ThenThrowNullReferenceExceptionAndCardsAmountRemainsTheSame() {
             // Test to avoid false positive
-            Assert.Zero( klondikeCardContainer.GetCards().Count,
+            Assert.Zero( klondikeCardContainer.GetCardCount(),
                         "There was an alement in klondikeCardContainer before the null object was added." );
             Assert.Throws<NullReferenceException>( () => klondikeCardContainer.AddCard( null ) );
-            Assert.Zero( klondikeCardContainer.GetCards().Count,
+            Assert.Zero( klondikeCardContainer.GetCardCount(),
                         "Null object was added when it shouldn't." );
         }
 
@@ -108,14 +108,14 @@ namespace Tests.Solitaire.GameModes.Klondike {
             }
 
             // Check to avoid false positive
-            Assert.Zero( klondikeCardContainer.GetCards().Count,
+            Assert.Zero( klondikeCardContainer.GetCardCount(),
                         "klondikeCardContainer shouldn't contain any cards" );
 
             // Asserts NotImplementedException is thrown
             Assert.Throws<NotImplementedException>( () => klondikeCardContainer.AddCards( cardsToAdd ) );
 
             // Assert the amount of cards is still 0
-            Assert.Zero( klondikeCardContainer.GetCards().Count,
+            Assert.Zero( klondikeCardContainer.GetCardCount(),
                         "klondikeCardContainer shouldn't contain any cards" );
         }
 
@@ -134,20 +134,20 @@ namespace Tests.Solitaire.GameModes.Klondike {
             }
 
             // Check there aren't any cards already to avoid false positive
-            Assert.Zero( klondikeCardContainer.GetCards().Count,
+            Assert.Zero( klondikeCardContainer.GetCardCount(),
                         "klondikeCardContainer shouldn't contain any cards but it does." );
 
             // Initialize spiderCardContainer
             List<CardFacade> remainingCards = klondikeCardContainer.Initialize( listOfCardsToAdd );
 
             // Check cards have been added successfully
-            Assert.AreEqual( defaultAmountOfCards, klondikeCardContainer.GetCards().Count,
+            Assert.AreEqual( defaultAmountOfCards, klondikeCardContainer.GetCardCount(),
                             $"klondikeCardContainer should contain {amountOfCardsToAdd} "
-                                    + $"but it has {klondikeCardContainer.GetCards().Count} instead" );
-            Assert.AreEqual( ( amountOfCardsToAdd - klondikeCardContainer.GetCards().Count ),
+                                    + $"but it has {klondikeCardContainer.GetCardCount()} instead" );
+            Assert.AreEqual( ( amountOfCardsToAdd - klondikeCardContainer.GetCardCount() ),
                                 remainingCards.Count,
                                 $"The remaining cards should be " +
-                                $"{amountOfCardsToAdd - klondikeCardContainer.GetCards().Count} "
+                                $"{amountOfCardsToAdd - klondikeCardContainer.GetCardCount()} "
                                 + $"but there are {remainingCards.Count} instead." );
         }
 
@@ -164,7 +164,7 @@ namespace Tests.Solitaire.GameModes.Klondike {
             int amountOfCardsToAddForInitialization = listForInitialization.Count;
 
             // Check klondikeCardContainer doesn't have any cards to avoid false positive
-            Assert.Zero( klondikeCardContainer.GetCards().Count,
+            Assert.Zero( klondikeCardContainer.GetCardCount(),
                         "klondikeCardContainer shouldn't contain any card but it does." );
 
             // Assert initialization
@@ -175,7 +175,7 @@ namespace Tests.Solitaire.GameModes.Klondike {
                                                     + "the elements of the list is null." );
 
             // Check no card was added
-            Assert.Zero( klondikeCardContainer.GetCards().Count,
+            Assert.Zero( klondikeCardContainer.GetCardCount(),
                         "Cards have been added to klondikeCardContainer when they shouldn't." );
             Assert.AreEqual( amountOfCardsToAddForInitialization,
                             listForInitialization.Count,
@@ -197,7 +197,7 @@ namespace Tests.Solitaire.GameModes.Klondike {
                                             };
 
             //  Check klondikeCardContainer doesn't have cards already
-            Assert.Zero( klondikeCardContainer.GetCards().Count,
+            Assert.Zero( klondikeCardContainer.GetCardCount(),
                         "klondikeCardContainer shouldn't contain any card but it does." );
 
             //  Add cards to spiderCardContainer
@@ -210,12 +210,12 @@ namespace Tests.Solitaire.GameModes.Klondike {
             klondikeCardContainer.RemoveCard( listOfCardsToAdd[indexOfTheCardToBeRemoved] );
 
             //  Assert container doesn't have that card anymore and that the amount of cards is correct
-            Assert.False( klondikeCardContainer.GetCards().Contains( listOfCardsToAdd[indexOfTheCardToBeRemoved] ),
+            Assert.False( klondikeCardContainer.ContainsCard( listOfCardsToAdd[indexOfTheCardToBeRemoved] ),
                         "klondikeCardContainer still  has the card that should have been removed." );
             Assert.AreEqual( listOfCardsToAdd.Count - 1,
-                            klondikeCardContainer.GetCards().Count,
+                            klondikeCardContainer.GetCardCount(),
                             "The amount of cards in klondikeCardContainer should be "
-                            + $"{listOfCardsToAdd.Count - 1} instead of {klondikeCardContainer.GetCards().Count} " );
+                            + $"{listOfCardsToAdd.Count - 1} instead of {klondikeCardContainer.GetCardCount()} " );
         }
 
 

@@ -41,19 +41,17 @@ namespace Solitaire.GameModes.Spider {
         }
 
 
-        public void DistributeCardsBetweenCardContainers( List<CardFacade> _cards ) {
-            if( _cards.Contains( null ) ) {
+        public void DistributeCardsBetweenCardContainers( SpiderCardContainerForCardDistribution _container ) {
+            if( _container.GetCardsForDistribution().Contains( null ) ) {
                 throw new NullReferenceException( "There is a null element in the list of cards "
                                                     + "passed for distribution." );
             }
 
-
-            var oldContainer = GetCardContainer( _cards[0] );
             short cardContainerIndex = 0;
             bool hasToStopLoop = false;
+            List<CardFacade> cardsToDistribute = _container.GetCardsForDistribution();
 
-
-            for( int i = _cards.Count - 1; i >= 0; i-- ) {
+            for( int i = cardsToDistribute.Count - 1; i >= 0; i-- ) {
                 while( !( cardContainers[cardContainerIndex] is SpiderCardContainer ) ) {
                     cardContainerIndex++;
                     if( cardContainerIndex == cardContainers.Count ) {
@@ -63,17 +61,16 @@ namespace Solitaire.GameModes.Spider {
                 }
 
                 if( !hasToStopLoop ) {
-                    _cards[i].SetCanBeInteractable( true );
-                    cardContainers[cardContainerIndex].AddCard( _cards[i] );
+                    cardsToDistribute[i].SetCanBeInteractable( true );
+                    cardContainers[cardContainerIndex].AddCard( cardsToDistribute[i] );
                     cardContainerIndex++;
                 } else {
                     break;
                 }
             }
 
-
-            cardContainers.Remove( oldContainer );
-            Destroy( oldContainer.gameObject );
+            cardContainers.Remove( _container );
+            Destroy( _container.gameObject );
         }
         #endregion
 
@@ -140,8 +137,7 @@ namespace Solitaire.GameModes.Spider {
         }
 
 
-        protected override bool CanBeChildOf( CardFacade _card,
-                                                CardFacade _potentialParent ) {
+        protected override bool CanBeChildOf( CardFacade _card, CardFacade _potentialParent ) {
             return _potentialParent.GetCardNumber() == _card.GetCardNumber() + 1;
         }
 

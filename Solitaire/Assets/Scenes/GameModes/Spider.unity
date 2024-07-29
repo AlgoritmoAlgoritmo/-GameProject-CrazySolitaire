@@ -421,7 +421,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.Gameplay.CardContainers
+      value: Solitaire.GameModes.Spider.SpiderCardContainerForCardDistribution, _Solitaire.GameModes.Spider
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -2727,7 +2727,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.Gameplay.CardContainers
+      value: Solitaire.GameModes.Spider.SpiderCardContainerForCardDistribution, _Solitaire.GameModes.Spider
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -3527,7 +3527,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 56928075}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4914,7 +4914,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.Gameplay.CardContainers
+      value: Solitaire.GameModes.Spider.SpiderCardContainerForCardDistribution, _Solitaire.GameModes.Spider
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -5811,7 +5811,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.Gameplay.CardContainers
+      value: Solitaire.GameModes.Spider.SpiderCardContainerForCardDistribution, _Solitaire.GameModes.Spider
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
@@ -7178,8 +7178,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2127053204}
   m_HandleRect: {fileID: 2127053203}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.6882353
+  m_Value: 0.9999997
+  m_Size: 0.6882352
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7251,7 +7251,7 @@ PrefabInstance:
     - target: {fileID: 1632949661486050515, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Solitaire.Gameplay.CardContainers.AbstractCardContainer, _Solitaire.Gameplay.CardContainers
+      value: Solitaire.GameModes.Spider.SpiderCardContainerForCardDistribution, _Solitaire.GameModes.Spider
       objectReference: {fileID: 0}
     - target: {fileID: 1766059598392448554, guid: 6101012204694cf4cb5ca158cf63c4d6,
         type: 3}

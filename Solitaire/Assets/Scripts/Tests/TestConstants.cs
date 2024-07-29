@@ -22,9 +22,10 @@ namespace Test {
                                                 + ".prefab";
         public const string SPIDERCARDCONTAINER_PREFAB_PATH = "Assets/Prefabs/Gameplay/Spider"
                                                 + "/SpiderCardContainer 6Cards.prefab";
-
         public const string SPIDERCARDCONTAINERFORDISTRIBUTION_PREFAB_PATH = "Assets/Prefabs/" 
                                                 + "Gameplay/Spider/CardDistributor.prefab";
+        public const string SPIDERCARDCONTAINERFORDISTRIBUTIONMOCK_PREFAB_PATH = "Assets/Scripts/Tests/Solitaire/"
+                                                + "GameModes/Spider/SpiderCardContainerForDistributionMock.prefab";
 
 
         /*

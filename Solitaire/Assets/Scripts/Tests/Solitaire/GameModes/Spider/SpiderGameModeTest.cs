@@ -311,17 +311,15 @@ namespace Tests.Solitaire.GameModes.Spider {
             List<CardFacade> cardsToDistribute = SpawnTheFollowingamountOfCards( _amountOfCardsAndContainersToSpawn );
 
             // Create card container for distribution
-            GameObject cardContainerforDistributionGameObject = GameObject.Instantiate( new GameObject() );
-            CardContainerMock cardContainerForDistributionMock = cardContainerforDistributionGameObject
-                                                                    .AddComponent<CardContainerMock>();            
+            SpiderCardContainerForCardDistribution cardContainerForDistribution = SpawnSpiderCardContainerForCardDistribution();
 
             // Add cards to card container
-            cardContainerForDistributionMock.AddCards(cardsToDistribute);
+            cardContainerForDistribution.AddCards(cardsToDistribute);
 
             // Create card containers for SpiderGameModeMock
             List<AbstractCardContainer> cardContainersForSpiderGameModeMock
                             = SpawnTheFollowingAmountOfAbstractCardContainers( _amountOfCardsAndContainersToSpawn );
-            cardContainersForSpiderGameModeMock.Add( cardContainerForDistributionMock );
+            cardContainersForSpiderGameModeMock.Add( cardContainerForDistribution );
 
             // Add card containers to SpiderGameModeMock
             spiderGameModeMock.SetCardContainers(cardContainersForSpiderGameModeMock);
@@ -333,7 +331,7 @@ namespace Tests.Solitaire.GameModes.Spider {
             }
 
             // Distribute cards
-            spiderGameModeMock.DistributeCardsBetweenCardContainers( cardContainerForDistributionMock.GetCards() );
+            spiderGameModeMock.DistributeCardsBetweenCardContainers( cardContainerForDistribution );
 
             // Check amount of cards per container after distribution
             for( int i = 0; i < cardContainersForSpiderGameModeMock.Count; i++ ) {
@@ -378,9 +376,7 @@ namespace Tests.Solitaire.GameModes.Spider {
             cardsForDistribution[UnityEngine.Random.Range(0, cardsForDistribution.Count - 1)] = null;
 
             // Create CardContainer for distribution
-            GameObject cardContainerforDistributionGameObject = GameObject.Instantiate(new GameObject());
-            CardContainerMock cardContaineForDistribution = cardContainerforDistributionGameObject
-                                                                    .AddComponent<CardContainerMock>();
+            SpiderCardContainerForCardDistributionMock cardContaineForDistribution = SpawnSpiderCardContainerForCardDistribution();
 
             // Add list of cards to card container for distribution
             cardContaineForDistribution.AddCards(cardsForDistribution);
@@ -400,7 +396,7 @@ namespace Tests.Solitaire.GameModes.Spider {
 
             // Assert card distribution exception
             Assert.Throws<NullReferenceException>( () => spiderGameModeMock.DistributeCardsBetweenCardContainers(
-                                                        cardContaineForDistribution.GetCards()),
+                                                        cardContaineForDistribution ),
                                                 "Check cardsForDistribution List containes a null element.");
 
             // Assert containers amount of cards didn't change
@@ -425,6 +421,14 @@ namespace Tests.Solitaire.GameModes.Spider {
             }
 
             return listOfCardContainersToAdd;
+        }
+
+        private SpiderCardContainerForCardDistributionMock SpawnSpiderCardContainerForCardDistribution() {
+            GameObject spiderCardContaierPrefabInstance = GameObject.Instantiate(
+                                        AssetDatabase.LoadAssetAtPath<GameObject>(
+                                                TestConstants.SPIDERCARDCONTAINERFORDISTRIBUTIONMOCK_PREFAB_PATH ) );
+
+            return spiderCardContaierPrefabInstance.GetComponent<SpiderCardContainerForCardDistributionMock>();
         }
 
         private List<CardFacade> SpawnTheFollowingamountOfCards( int _amountOfCards ) {

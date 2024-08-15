@@ -43,12 +43,16 @@ namespace UI {
 
         #region Private methods
         private void Scroll( Vector2 _distance ) {
-            Debug.Log( contentRectTransform.anchoredPosition );
-            if( (contentRectTransform.anchoredPosition.x + _distance.x) >= minLimit.x
-                    && (contentRectTransform.anchoredPosition.x + _distance.x) <= maxLimit.x
+            // contentRectTransform.anchoredPosition += _distance;
+
+            
+            if( ( contentRectTransform.anchoredPosition.x + _distance.x ) >= minLimit.x
+                    && ( contentRectTransform.anchoredPosition.x + _distance.x ) <= maxLimit.x
                     && ( contentRectTransform.anchoredPosition.y + _distance.y ) >= minLimit.y
-                    && ( contentRectTransform.anchoredPosition.y + _distance.y ) <= maxLimit.y )
-                contentRectTransform.anchoredPosition += _distance; 
+                    && ( contentRectTransform.anchoredPosition.y + _distance.y ) <= maxLimit.y ) {
+
+                contentRectTransform.anchoredPosition += _distance;
+            }
         }
         #endregion
     }

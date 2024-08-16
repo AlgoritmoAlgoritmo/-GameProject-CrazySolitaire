@@ -4,11 +4,9 @@
 */
 
 
-
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 using Solitaire.Feedbacks;
-
 
 
 namespace Solitaire.Gameplay.GameMode {
@@ -19,22 +17,13 @@ namespace Solitaire.Gameplay.GameMode {
         [SerializeField]
         private DeckController deckController;
         [SerializeField]
-        private FeedbacksGlue feedbacksGlue;
+        private UnityEvent onGameOverEvent;
         #endregion
 
 
         #region MonoBehaviour methods
         private void Start() {
             StartGame();
-        }
-
-
-        private void Update() {
-            #if UNITY_EDITOR
-            if( Input.GetKeyUp( KeyCode.R) ) {
-                SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex );
-            }
-            #endif
         }
         #endregion
 
@@ -44,7 +33,7 @@ namespace Solitaire.Gameplay.GameMode {
             Debug.Log( "---------------------------" );
             Debug.Log( "Game cleared." );
             Debug.Log( "---------------------------" );
-            feedbacksGlue.PlayGameOverFeedback();
+            onGameOverEvent.Invoke();
         }
         #endregion
 

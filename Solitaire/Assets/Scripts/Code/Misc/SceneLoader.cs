@@ -16,6 +16,10 @@ namespace Misc {
 		public void LoadScene( string _sceneName ) {
 			SceneManager.LoadScene( _sceneName );
 		}
+
+		public void RestartCurrentScene() {
+			SceneManager.LoadScene( SceneManager.GetActiveScene().name );
+		}
 		#endregion
 	}
 }

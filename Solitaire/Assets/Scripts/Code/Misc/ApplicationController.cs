@@ -21,15 +21,6 @@ namespace Misc {
             else
                 Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
         }
-
-        public void RestartCurrentScene() {
-            SceneManager.LoadScene( SceneManager.GetActiveScene().name );
-        }
-        #endregion
-
-
-        #region Private methods
-
         #endregion
     }
 }

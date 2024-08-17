@@ -33,7 +33,7 @@ namespace Solitaire.GameModes.Spider {
                 cards.Add(auxCard);
                 auxCard.SetCanBeInteractable( false );
                 auxCard.ActivateChildsPhysics( false );
-                GenericCommandQueue.Instance.AddCommand( new CardMovementAnimationICommand(
+                SingletonCommandQueue.Instance.AddCommand( new CardMovementAnimationICommand(
                                                                         auxCard.GetComponent<RectTransform>(),
                                                                         GetComponent<RectTransform>(),
                                                                         cardAnimationSpeed ));

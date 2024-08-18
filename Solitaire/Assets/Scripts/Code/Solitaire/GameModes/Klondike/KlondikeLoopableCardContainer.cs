@@ -75,7 +75,7 @@ namespace Solitaire.GameModes.Klondike {
 
 		public override void Refresh() {
 			if( cards.Count > 0 ) {
-				int index = 0;
+				short index = 0;
 
 				foreach( var auxCard in cards ) {
 					auxCard.transform.position = GetCardPosition( index );

@@ -4,9 +4,8 @@
 */
 
 
-
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 namespace Misc {
     public class ApplicationController : MonoBehaviour {

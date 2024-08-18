@@ -17,17 +17,12 @@ using Solitaire.Gameplay.Common;
 
 namespace Solitaire.GameModes.Klondike {
     public class KlondikeGameMode : AbstractGameMode {
-        #region Variables
-        #endregion
-
-
         #region Public methods
         public override void ValidateCardDragging( CardFacade _card ) {
             bool canBeDragged = CanCardBeDragged(_card);
             _card.SetCanBeDragged(canBeDragged);
 
             if (canBeDragged) {
-                Debug.Log("Deactivating childs physics.");
                 // Deactivating childs physics to avoid the parent to detect them
                 // during dragging
                 _card.ActivateChildsPhysics(false);
@@ -83,81 +78,96 @@ namespace Solitaire.GameModes.Klondike {
 
             //  CASE: colliding object is a Card
             } else if (_detectedGameObject.layer == LayerMask.NameToLayer(Constants.CARDS_LAYER_NAME)) {
-                CardFacade detectedCardFacade = _detectedGameObject
-                                                            .GetComponent<CardFacade>();
-                if (!detectedCardFacade)
-                    throw new Exception($"The object {_detectedGameObject.name} doesn't"
-                                                + $" have a CardFacade component.");
-
-                // Logic to move card from one container to another
-                // Case: Card CANNOT be child of potential parent
-                if (!CanBeChildOf(_placedCard, detectedCardFacade)
-                                    || _placedCard.ParentCard == detectedCardFacade) {
-                    GetCardContainer(_placedCard).Refresh();
-                    _placedCard.OnInvalidDrop?.Invoke();
-
-                    // Case: Card CAN be child of potential parent
-                } else {
-                    MoveCardToNewContainer(_placedCard, GetCardContainer(detectedCardFacade));
-
-                    _placedCard.OnValidDrop?.Invoke();
-                }
+                DropCardOnAnotherCard( _placedCard, _detectedGameObject );
 
             //  CASE: colliding object is a KlondikeCardContainer
             } else if (_detectedGameObject.layer == LayerMask.NameToLayer(Constants.CARD_CONTAINERS_LAYER_NAME)) {
-                // IF PLACED CARD IS A KING
-                if (_placedCard.GetCardNumber() == 13) {
-                    MoveCardToNewContainer(_placedCard,
-                                            _detectedGameObject.GetComponent<AbstractCardContainer>());
-                    _placedCard.OnValidDrop?.Invoke();
-
-                    // ELSE RESET CARD POSITION
-                } else {
-                    GetCardContainer(_placedCard).Refresh();
-                    _placedCard.OnInvalidDrop?.Invoke();
-                }
+                DropCardOnKlondikeCardContainer( _placedCard, _detectedGameObject );
 
             //  CASE: colliding object is a KlondikeCompletedColumnContainer
             } else if (_detectedGameObject.layer == LayerMask.NameToLayer(
                                                     Constants.COMPLETED_CARD_COLUMN_CONTAINER_LAYER_NAME)) {
-                AbstractCardContainer detectedCardContainer
-                                    = _detectedGameObject.GetComponent<AbstractCardContainer>();
-                CardFacade detectedContainerTopCard = detectedCardContainer.GetTopCard();
-
-                // IF CONTAINER IS EMPTY
-                if (detectedCardContainer.GetTopCard() is null) {
-                    if(_placedCard.GetCardNumber() == 1) {
-                        MoveCardToNewContainer(_placedCard, detectedCardContainer);
-                        _placedCard.OnValidDrop?.Invoke();
-                        OnCardsCleared.Invoke( new List<CardFacade>() { _placedCard } );
-
-                    // RESET CARD POSITION
-                    } else {
-                        GetCardContainer( _placedCard ).Refresh();
-                        _placedCard.OnInvalidDrop?.Invoke();
-                    }
-
-                // ELSE IF CONTAINER IS NOT EMPTY, PLACED CARD IS THE NEXT IN THE SEQUENCE
-                // AND HAS NO CHILD CARDS
-                } else if ( _placedCard.GetCardNumber() == detectedContainerTopCard.GetCardNumber() + 1
-                                && _placedCard.GetSuit().Equals(detectedContainerTopCard.GetSuit() )
-                                &&  _placedCard.ChildCard is null ) {
-                    MoveCardToNewContainer(_placedCard, _detectedGameObject.GetComponent<AbstractCardContainer>());
-                    _placedCard.OnValidDrop?.Invoke();
-                    OnCardsCleared.Invoke( new List<CardFacade>() { _placedCard } );
-
-
-                // ELSE, IF IT'S NOT THE NEXT IN THE SEQUENCE, RESET CARD POSITION
-                } else {
-                    GetCardContainer(_placedCard).Refresh();
-                    _placedCard.OnInvalidDrop?.Invoke();
-                }
+                DropCardOnKlondikeCompletedColumnContainer( _placedCard, _detectedGameObject );
             }
         }
         #endregion
 
 
         #region Private methods
+        private void DropCardOnAnotherCard( CardFacade _placedCard, GameObject _detectedGameObject ) {
+            CardFacade detectedCardFacade = _detectedGameObject.GetComponent<CardFacade>();
+
+            if( !detectedCardFacade )
+                throw new Exception( $"The object {_detectedGameObject.name} doesn't"
+                                            + $" have a CardFacade component." );
+
+            // Logic to move card from one container to another
+            // Case: Card CANNOT be child of potential parent
+            if( !CanBeChildOf( _placedCard, detectedCardFacade )
+                                || _placedCard.ParentCard == detectedCardFacade ) {
+                GetCardContainer( _placedCard ).Refresh();
+                _placedCard.OnInvalidDrop?.Invoke();
+
+                // Case: Card CAN be child of potential parent
+            } else {
+                MoveCardToNewContainer( _placedCard, GetCardContainer( detectedCardFacade ) );
+
+                _placedCard.OnValidDrop?.Invoke();
+            }
+        }
+
+
+        private void DropCardOnKlondikeCardContainer( CardFacade _placedCard, GameObject _detectedGameObject ) {
+            // IF PLACED CARD IS A KING
+            if( _placedCard.GetCardNumber() == 13 ) {
+                MoveCardToNewContainer( _placedCard,
+                                        _detectedGameObject.GetComponent<AbstractCardContainer>() );
+                _placedCard.OnValidDrop?.Invoke();
+
+                // ELSE RESET CARD POSITION
+            } else {
+                GetCardContainer( _placedCard ).Refresh();
+                _placedCard.OnInvalidDrop?.Invoke();
+            }
+        }
+
+
+        private void DropCardOnKlondikeCompletedColumnContainer( CardFacade _placedCard, GameObject _detectedGameObject ) {
+            AbstractCardContainer detectedCardContainer
+                                    = _detectedGameObject.GetComponent<AbstractCardContainer>();
+            CardFacade detectedContainerTopCard = detectedCardContainer.GetTopCard();
+
+            // IF CONTAINER IS EMPTY
+            if( detectedCardContainer.GetTopCard() is null ) {
+                if( _placedCard.GetCardNumber() == 1 ) {
+                    MoveCardToNewContainer( _placedCard, detectedCardContainer );
+                    _placedCard.OnValidDrop?.Invoke();
+                    OnCardsCleared.Invoke( new List<CardFacade>() { _placedCard } );
+
+                    // RESET CARD POSITION
+                } else {
+                    GetCardContainer( _placedCard ).Refresh();
+                    _placedCard.OnInvalidDrop?.Invoke();
+                }
+
+                // ELSE IF CONTAINER IS NOT EMPTY, PLACED CARD IS THE NEXT IN THE SEQUENCE
+                // AND HAS NO CHILD CARDS
+            } else if( _placedCard.GetCardNumber() == detectedContainerTopCard.GetCardNumber() + 1
+                            && _placedCard.GetSuit().Equals( detectedContainerTopCard.GetSuit() )
+                            && _placedCard.ChildCard is null ) {
+                MoveCardToNewContainer( _placedCard, _detectedGameObject.GetComponent<AbstractCardContainer>() );
+                _placedCard.OnValidDrop?.Invoke();
+                OnCardsCleared.Invoke( new List<CardFacade>() { _placedCard } );
+
+
+                // ELSE, IF IT'S NOT THE NEXT IN THE SEQUENCE, RESET CARD POSITION
+            } else {
+                GetCardContainer( _placedCard ).Refresh();
+                _placedCard.OnInvalidDrop?.Invoke();
+            }
+        }
+
+
         private void MoveCardToNewContainer(CardFacade _card, AbstractCardContainer _cardContainer) {
             // Recursively check childs
             var auxCardFacade = _card;

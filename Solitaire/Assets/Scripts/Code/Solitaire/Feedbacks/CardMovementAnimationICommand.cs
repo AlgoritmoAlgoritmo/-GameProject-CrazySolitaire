@@ -5,10 +5,10 @@
 
 
 
+using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using Misc.Command;
-using System.Threading.Tasks;
-using System.Collections;
 
 
 
@@ -59,11 +59,6 @@ namespace Solitaire.Feedbacks {
                 yield return null;
             }
         }
-        #endregion
-
-
-        #region Private methods
-
         #endregion
     }
 }

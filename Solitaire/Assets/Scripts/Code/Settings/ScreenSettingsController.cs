@@ -29,7 +29,6 @@ namespace Settings {
                                   true );
         }
 
-
         public void SetQuality( int _qualityIndex ) {
             QualitySettings.SetQualityLevel(_qualityIndex);
         }

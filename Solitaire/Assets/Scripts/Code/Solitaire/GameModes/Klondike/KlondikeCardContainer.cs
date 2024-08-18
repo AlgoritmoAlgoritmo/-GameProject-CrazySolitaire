@@ -62,8 +62,7 @@ namespace Solitaire.GameModes.Klondike {
 
         public override void RemoveCard(CardFacade _card) {
             if (!_card) {
-                throw new System.NullReferenceException( "The card intended to be removed is "
-                                                            + "null.");
+                throw new System.NullReferenceException( "The card intended to be removed is null." );
             }
 
             cards.Remove(_card);
@@ -83,7 +82,7 @@ namespace Solitaire.GameModes.Klondike {
 
         #region Protected methods
         protected override void SetUpStarterCards() {
-            int counter = 0;
+            short counter = 0;
 
             foreach( var auxCard in cards ) {
                 counter++;

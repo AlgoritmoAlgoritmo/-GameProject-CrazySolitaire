@@ -5,7 +5,6 @@
 
 
 
-using UnityEngine;
 using System.Collections.Generic;
 using Solitaire.Gameplay.Cards;
 using Solitaire.Gameplay.CardContainers;
@@ -14,12 +13,8 @@ using Solitaire.Gameplay.CardContainers;
 
 namespace Solitaire.GameModes.Klondike {
     public class KlondikeCompletedColumnContainer : AbstractCardContainer {
-        #region Variables
-        #endregion
-
-
         #region Public methods
-        public override List<CardFacade> Initialize(List<CardFacade> _cards) {
+        public override List<CardFacade> Initialize( List<CardFacade> _cards ) {
             // INTENTIONALLY DOES NOTHING SINCE IT MUST START WITH 0 CARDS
             return _cards;
         }

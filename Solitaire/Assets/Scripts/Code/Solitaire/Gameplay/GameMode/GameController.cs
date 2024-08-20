@@ -6,7 +6,6 @@
 
 using UnityEngine;
 using UnityEngine.Events;
-using Solitaire.Feedbacks;
 
 
 namespace Solitaire.Gameplay.GameMode {
@@ -30,9 +29,6 @@ namespace Solitaire.Gameplay.GameMode {
 
         #region Public methods
         public void EndClearedGame( object _object, System.EventArgs _args ) {
-            Debug.Log( "---------------------------" );
-            Debug.Log( "Game cleared." );
-            Debug.Log( "---------------------------" );
             onGameOverEvent.Invoke();
         }
         #endregion

@@ -1103,16 +1103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ea338f80d5242409813a9f4e234102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  suits:
-  - suitName: CLOVER
-    color: BLACK
-  - suitName: HEARTS
-    color: RED
-  - suitName: SPADES
-    color: BLACK
-  - suitName: DIAMOND
-    color: RED
-  amountOfEachSuit: 1
+  suitsData: {fileID: 11400000, guid: 03b0d8fb5e455614aa22e5e1849070a4, type: 2}
   OnCardsCleared:
     m_PersistentCalls:
       m_Calls: []
@@ -3870,7 +3861,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1988741502}
-  - component: {fileID: 1988741503}
   m_Layer: 0
   m_Name: FeedbacksGlue
   m_TagString: Untagged
@@ -3893,18 +3883,6 @@ Transform:
   m_Father: {fileID: 694382710}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1988741503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988741501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 765d009a3bf95cd4fac131a5ae58ba71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2000544790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4657,8 +4635,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2127053204}
   m_HandleRect: {fileID: 2127053203}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.6882353
+  m_Value: 1.0000002
+  m_Size: 0.68823534
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

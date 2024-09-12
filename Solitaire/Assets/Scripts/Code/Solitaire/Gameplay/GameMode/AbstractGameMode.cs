@@ -17,20 +17,18 @@ using Solitaire.Gameplay.CardContainers;
 namespace Solitaire.Gameplay {
     public abstract class AbstractGameMode : MonoBehaviour {
         #region Variables
-        
         [SerializeField]
-        protected List<BasicSuitData> suits;
+        protected GameModeSuitsDataScriptableObject suitsData;
+
         public List<BasicSuitData> Suits {
-            get => suits;
+            get => suitsData.Suits;
         }
 
-        [SerializeField]
-        protected short amountOfEachSuit;
         public short AmountOfEachSuit {
-            get => amountOfEachSuit;
+            get => suitsData.AmountOfEachSuit;
         }
 
-        public CardsEvent OnCardsCleared = new CardsEvent();
+    public CardsEvent OnCardsCleared = new CardsEvent();
 
         protected List<AbstractCardContainer> cardContainers = new List<AbstractCardContainer>();
         #endregion

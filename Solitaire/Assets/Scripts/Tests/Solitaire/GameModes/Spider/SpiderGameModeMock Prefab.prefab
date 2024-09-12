@@ -43,11 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e78a853b8885ff41a891c96db69eafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardContainers: []
-  suits:
-  - suitName: SPADES
-    color: BLACK
-  amountOfEachSuit: 2
+  suitsData: {fileID: 11400000, guid: 53bf5aa8a3c400746a90e60f292e7042, type: 2}
   OnCardsCleared:
     m_PersistentCalls:
       m_Calls: []

@@ -36,7 +36,7 @@ namespace Solitaire.Gameplay.Common {
                     return auxSuit.sprites;
             }
 
-            throw new System.Exception( $"Suit key {_suitData} not found." );
+            throw new System.Exception( $"Suit key {_suitData.suitName.ToUpper()} not found." );
         }
         #endregion
     }

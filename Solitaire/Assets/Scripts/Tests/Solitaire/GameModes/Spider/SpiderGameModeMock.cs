@@ -60,11 +60,11 @@ namespace Tests.Solitaire.GameModes.Spider {
         }
 
         public void SetSuits(List<BasicSuitData> _suits) {
-            suits = _suits;
+            suitsData.Suits = _suits;
         }
 
         public void SetAmountPerSuit( short _amountPerSuit ) {
-            amountOfEachSuit = _amountPerSuit;
+            suitsData.AmountOfEachSuit = _amountPerSuit;
         }
         #endregion
     }

@@ -102,8 +102,7 @@ namespace Solitaire.GameModes.Spider {
 
                     // Case: Card CAN be child of potential parent
                 } else {
-                    MoveCardToNewContainer(_placedCard,
-                                                GetCardContainer(detectedCardFacade));
+                    MoveCardToNewContainer( _placedCard, GetCardContainer(detectedCardFacade) );
 
                     _placedCard.OnValidDrop?.Invoke();
                 }
@@ -171,8 +170,7 @@ namespace Solitaire.GameModes.Spider {
 
 
         #region Private methods
-        private void MoveCardToNewContainer( CardFacade _card,
-                                                AbstractCardContainer _cardContainer ) {
+        protected void MoveCardToNewContainer( CardFacade _card, AbstractCardContainer _cardContainer ) {
             // Recursively check childs
             var auxCardFacade = _card;
 
@@ -187,6 +185,22 @@ namespace Solitaire.GameModes.Spider {
                 auxCardFacade = auxCardFacade.ChildCard;
             }
         }
+
+        private void MoveColumnToCompletedColumnContainer( List<CardFacade> _cards ) {
+            AbstractCardContainer auxCardContainer = GetCardContainer( _cards[0] );
+            _cards[0].SetParentCard( null );
+
+            foreach( CardFacade auxCard in _cards ) {
+                auxCard.ActivatePhysics( false );
+                auxCard.SetCanBeDragged( false );
+            }
+
+            auxCardContainer.RemoveCards( _cards );
+
+            completedColumnContainers[completedColumnContainers.Count - 1].AddCards( _cards );
+            completedColumnContainers.RemoveAt( completedColumnContainers.Count - 1 );
+        }
+
 
 
         private void CheckIfColumnWasCompleted( CardFacade _placedCard ) {
@@ -203,22 +217,6 @@ namespace Solitaire.GameModes.Spider {
             return _columnOfCards.Count == 13
                     && _columnOfCards[0].GetCardNumber() == 13
                     && _columnOfCards[12].GetCardNumber() == 1;
-        }
-
-
-        private void MoveColumnToCompletedColumnContainer(List<CardFacade> _cards) {
-            AbstractCardContainer auxCardContainer = GetCardContainer(_cards[0]);
-            _cards[0].SetParentCard(null);
-
-            foreach (CardFacade auxCard in _cards) {
-                auxCard.ActivatePhysics(false);
-                auxCard.SetCanBeDragged(false);
-            }
-
-            auxCardContainer.RemoveCards(_cards);
-
-            completedColumnContainers[completedColumnContainers.Count - 1].AddCards(_cards);
-            completedColumnContainers.RemoveAt(completedColumnContainers.Count - 1);
         }
 
 

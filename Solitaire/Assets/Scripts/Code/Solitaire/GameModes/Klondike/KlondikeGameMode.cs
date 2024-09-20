@@ -168,7 +168,7 @@ namespace Solitaire.GameModes.Klondike {
         }
 
 
-        private void MoveCardToNewContainer(CardFacade _card, AbstractCardContainer _cardContainer) {
+        private void MoveCardToNewContainer( CardFacade _card, AbstractCardContainer _cardContainer ) {
             // Recursively check childs
             var auxCardFacade = _card;
 

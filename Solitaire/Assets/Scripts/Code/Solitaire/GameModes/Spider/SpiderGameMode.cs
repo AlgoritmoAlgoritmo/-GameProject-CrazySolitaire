@@ -135,11 +135,9 @@ namespace Solitaire.GameModes.Spider {
             CheckIfColumnWasCompleted( _placedCard );
         }
 
-
         protected override bool CanBeChildOf( CardFacade _card, CardFacade _potentialParent ) {
             return _potentialParent.GetCardNumber() == _card.GetCardNumber() + 1;
         }
-
 
         protected override bool CanCardBeDragged( CardFacade _card ) {
             if(  !_card.IsFacingUp() ) {
@@ -169,14 +167,14 @@ namespace Solitaire.GameModes.Spider {
         #endregion
 
 
-        #region Private methods
-        protected void MoveCardToNewContainer( CardFacade _card, AbstractCardContainer _cardContainer ) {
+        #region Protected methods
+        protected virtual void MoveCardToNewContainer( CardFacade _card, AbstractCardContainer _cardContainer ) {
             // Recursively check childs
             var auxCardFacade = _card;
 
-            while (auxCardFacade != null) {
+            while( auxCardFacade != null ) {
                 // 1- Remove card from its card container
-                GetCardContainer( auxCardFacade ).RemoveCard(auxCardFacade);
+                GetCardContainer( auxCardFacade ).RemoveCard( auxCardFacade );
 
                 // 2- Add card to new card container
                 _cardContainer.AddCard( auxCardFacade );
@@ -186,6 +184,66 @@ namespace Solitaire.GameModes.Spider {
             }
         }
 
+
+        protected virtual void CheckIfColumnWasCompleted( CardFacade _placedCard ) {
+            List<CardFacade> columnOfCards = GetCardColumn( _placedCard );
+
+            if( IsColumnCompleted( columnOfCards ) ) {
+                MoveColumnToCompletedColumnContainer( columnOfCards );
+                OnCardsCleared.Invoke( columnOfCards );
+            }
+        }
+
+        protected List<CardFacade> GetCardColumn( CardFacade _card ) {
+            List<CardFacade> columnOfCards = new List<CardFacade>();
+            CardFacade auxCard = _card;
+
+            // Checking if parent numbers are consecutive
+            // And if there's a king at the end of them
+            while( auxCard ) {
+                if( auxCard.ParentCard
+                            && auxCard.GetCardNumber() != 13
+                            && auxCard.GetCardNumber() + 1 == auxCard.ParentCard.
+                                                                GetCardNumber() ) {
+                    auxCard = auxCard.ParentCard;
+
+                } else {
+                    break;
+                }
+            }
+
+            // Checking if child numbers are consecutive
+            // And if there's an as at the end of them
+            while( auxCard ) {
+                if( auxCard.GetCardNumber() == 1 ) {
+                    columnOfCards.Add( auxCard );
+
+
+                }
+                if( auxCard.GetCardNumber() != 1
+                                          && auxCard.ChildCard != null
+                                          && auxCard.GetCardNumber() ==
+                                              auxCard.ChildCard.GetCardNumber() + 1 ) {
+                    columnOfCards.Add( auxCard );
+                    auxCard = auxCard.ChildCard;
+
+                } else {
+                    break;
+                }
+            }
+
+            return columnOfCards;
+        }
+
+        protected bool IsColumnCompleted( List<CardFacade> _columnOfCards ) {
+            return _columnOfCards.Count == 13
+                    && _columnOfCards[0].GetCardNumber() == 13
+                    && _columnOfCards[12].GetCardNumber() == 1;
+        }
+        #endregion
+
+
+        #region Private methods
         private void MoveColumnToCompletedColumnContainer( List<CardFacade> _cards ) {
             AbstractCardContainer auxCardContainer = GetCardContainer( _cards[0] );
             _cards[0].SetParentCard( null );
@@ -199,66 +257,6 @@ namespace Solitaire.GameModes.Spider {
 
             completedColumnContainers[completedColumnContainers.Count - 1].AddCards( _cards );
             completedColumnContainers.RemoveAt( completedColumnContainers.Count - 1 );
-        }
-
-
-
-        private void CheckIfColumnWasCompleted( CardFacade _placedCard ) {
-            List<CardFacade> columnOfCards = GetCardColumn(_placedCard);
-
-            if (IsColumnCompleted(columnOfCards)) {
-                MoveColumnToCompletedColumnContainer(columnOfCards);
-                OnCardsCleared.Invoke( columnOfCards );
-            }
-        }
-
-
-        private bool IsColumnCompleted( List<CardFacade> _columnOfCards ) {
-            return _columnOfCards.Count == 13
-                    && _columnOfCards[0].GetCardNumber() == 13
-                    && _columnOfCards[12].GetCardNumber() == 1;
-        }
-
-
-        private List<CardFacade> GetCardColumn(CardFacade _card) {
-            List<CardFacade> columnOfCards = new List<CardFacade>();
-            CardFacade auxCard = _card;
-
-            // Checking if parent numbers are consecutive
-            // And if there's a king at the end of them
-            while (auxCard) {
-                if ( auxCard.ParentCard
-                            && auxCard.GetCardNumber() != 13
-                            && auxCard.GetCardNumber() + 1 == auxCard.ParentCard.
-                                                                GetCardNumber()) {
-                    auxCard = auxCard.ParentCard;
-
-                } else {
-                    break;
-                }
-            }
-
-            // Checking if child numbers are consecutive
-            // And if there's an as at the end of them
-            while (auxCard) {
-                if (auxCard.GetCardNumber() == 1) {
-                    columnOfCards.Add(auxCard);
-
-
-                }
-                if (auxCard.GetCardNumber() != 1
-                                          && auxCard.ChildCard != null
-                                          && auxCard.GetCardNumber() ==
-                                              auxCard.ChildCard.GetCardNumber() + 1) {
-                    columnOfCards.Add(auxCard);
-                    auxCard = auxCard.ChildCard;
-
-                } else {
-                    break;
-                }
-            }
-
-            return columnOfCards;
         }
         #endregion
     }

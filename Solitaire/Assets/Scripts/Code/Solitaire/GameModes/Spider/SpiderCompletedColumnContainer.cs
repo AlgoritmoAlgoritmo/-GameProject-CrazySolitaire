@@ -41,6 +41,7 @@ namespace Solitaire.GameModes.Spider {
 
             return true;
         }
+
         #endregion
     }
 }

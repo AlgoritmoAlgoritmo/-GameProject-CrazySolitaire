@@ -19,7 +19,7 @@ namespace Solitaire.GameModes.Spider {
     public class SpiderGameMode : AbstractGameMode {
         #region Variables
         [SerializeField]
-        private List<AbstractCardContainer> completedColumnContainers;
+        protected List<AbstractCardContainer> completedColumnContainers;
         #endregion
 
 
@@ -184,7 +184,6 @@ namespace Solitaire.GameModes.Spider {
             }
         }
 
-
         protected virtual void CheckIfColumnWasCompleted( CardFacade _placedCard ) {
             List<CardFacade> columnOfCards = GetCardColumn( _placedCard );
 
@@ -244,7 +243,7 @@ namespace Solitaire.GameModes.Spider {
 
 
         #region Private methods
-        private void MoveColumnToCompletedColumnContainer( List<CardFacade> _cards ) {
+        protected virtual void MoveColumnToCompletedColumnContainer( List<CardFacade> _cards ) {
             AbstractCardContainer auxCardContainer = GetCardContainer( _cards[0] );
             _cards[0].SetParentCard( null );
 

@@ -18,8 +18,8 @@ namespace Solitaire.GameModes.UndoableCommands {
     public class ColumnCompletitionCheckCommand : IUndoableCommand {
         #region Variables
         private List<CardFacade> columnOfCards;
-        private AbstractCardContainer completedColumnContainer;
         private AbstractCardContainer originalCardContainer;
+        private AbstractCardContainer completedColumnContainer;
         #endregion
 
 
@@ -35,8 +35,18 @@ namespace Solitaire.GameModes.UndoableCommands {
 
 
         #region Public methods
-        public Task Execute() {
-            throw new System.NotImplementedException();
+        public async Task Execute() {
+            columnOfCards[0].SetParentCard( null );
+
+            foreach( CardFacade auxCard in columnOfCards ) {
+                auxCard.ActivatePhysics( false );
+                auxCard.SetCanBeDragged( false );
+
+                await Task.Yield();
+            }
+
+            originalCardContainer.RemoveCards( columnOfCards );
+            completedColumnContainer.AddCards( columnOfCards );
         }
 
         public Task Undo() {

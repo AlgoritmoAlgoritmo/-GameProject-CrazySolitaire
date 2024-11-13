@@ -47,6 +47,7 @@ namespace Solitaire.GameModes.Spider {
 																	_targetCardContainer );
 
 			undoController.AddCommand( switchContainerCommand );
+			undoController.MakePlay();
 		}
 
 
@@ -55,7 +56,13 @@ namespace Solitaire.GameModes.Spider {
 			List<CardFacade> columnOfCards = GetCardColumn( _placedCard );
 
 			if( IsColumnCompleted( columnOfCards ) ) {
+				ColumnCompletitionCheckCommand columnCompletedCommand 
+										= new ColumnCompletitionCheckCommand( columnOfCards,
+											completedColumnContainers[completedColumnContainers.Count - 1],
+											GetCardContainer( columnOfCards[0] ) );
+				undoController.AddCommand( columnCompletedCommand );
 				// MoveColumnToCompletedColumnContainer( columnOfCards );
+				completedColumnContainers.RemoveAt( completedColumnContainers.Count - 1 );
 				OnCardsCleared.Invoke( columnOfCards );
 			}
 		}

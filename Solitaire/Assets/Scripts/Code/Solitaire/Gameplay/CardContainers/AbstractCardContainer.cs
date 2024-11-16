@@ -68,6 +68,10 @@ namespace Solitaire.Gameplay.CardContainers {
                 }
             }
         }
+
+        public virtual void FlipUpperCard( bool _faceUp) {
+            FlipCard( GetTopCard(), _faceUp );
+        }
         #endregion
 
 
@@ -107,9 +111,11 @@ namespace Solitaire.Gameplay.CardContainers {
         }
 
         protected virtual void FlipCard( CardFacade _card, bool _facingUp ) {
-            _card.FlipCard(_facingUp);
-            _card.SetCanBeInteractable(_facingUp);
-            _card.ActivatePhysics(_facingUp);
+            if( _card ) {
+                _card.FlipCard(_facingUp);
+                _card.SetCanBeInteractable(_facingUp);
+                _card.ActivatePhysics(_facingUp);
+            }
         }
         #endregion
     }

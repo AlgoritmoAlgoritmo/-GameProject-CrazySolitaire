@@ -47,7 +47,9 @@ namespace Solitaire.Gameplay.Common {
             RunNextCommand().WrapErrors();
         }
 
+
         public void UndoPlay() {
+            RunNextUndoCommand().WrapErrors();
         }
         #endregion
 
@@ -67,23 +69,30 @@ namespace Solitaire.Gameplay.Common {
 
             isRunningACommand = false;
         }
-
-
-
-        /*
+        
+        
         private async Task RunNextUndoCommand() {
-            if( isRunningACommand ) {
+            Debug.Log( "RunNextUndoCommand" );
+            Debug.Log( "undoableCommandsToExecute.Count " + undoableCommandsToExecute.Count );
+
+            if( isRunningACommand || undoableCommandsToExecute.Count == 0 ) {
+                Debug.Log( "isRunningACommand || undoableCommandsToExecute.Count == 0" );
                 return;
             }
 
-            while( commandsToExecute.Count > 0 ) {
-                isRunningACommand = true;
-                ICommand commandToExecute = commandsToExecute.Dequeue();
-                await commandToExecute.Execute();
+            isRunningACommand = true;
+            currentCommandIndex = (short) (undoableCommandsToExecute.Count - 1);
+                        
+            while( currentCommandIndex >= 0 ) {
+                Debug.Log( "currentCommandIndex > 0" );
+                IUndoableCommand commandToExecute = undoableCommandsToExecute[currentCommandIndex];
+                currentCommandIndex--;
+                await commandToExecute.Undo();
             }
 
             isRunningACommand = false;
-        }*/
+            NewPlay();
+        }
         #endregion
     }
 }

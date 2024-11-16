@@ -4,12 +4,11 @@
 */
 
 
-
 using System.Threading.Tasks;
+using UnityEngine;
 using Misc.Command;
 using Solitaire.Gameplay.CardContainers;
 using Solitaire.Gameplay.Cards;
-
 
 
 namespace Solitaire.GameModes.UndoableCommands {
@@ -34,23 +33,20 @@ namespace Solitaire.GameModes.UndoableCommands {
 
         #region Public methods
         public async Task Execute() {
-            // Recursively check childs
-            var auxCardFacade = card;
+            originalCardContainer.RemoveCard( card );
+            newCardContainer.AddCard( card );
 
-            while( auxCardFacade != null ) {
-                originalCardContainer.RemoveCard( auxCardFacade );
-                newCardContainer.AddCard( auxCardFacade );
-                auxCardFacade = auxCardFacade.ChildCard;
-
-                await Task.Yield();
-            }
+            await Task.Yield();
         }
 
         public async Task Undo() {
             // Recursively check childs
+            Debug.Log( "Undo" );
             var auxCardFacade = card;
 
             while( auxCardFacade != null ) {
+                Debug.Log( "auxCardFacade != null" );
+                originalCardContainer.FlipUpperCard( false );
                 newCardContainer.RemoveCard( auxCardFacade );
                 originalCardContainer.AddCard( auxCardFacade );
                 auxCardFacade = auxCardFacade.ChildCard;

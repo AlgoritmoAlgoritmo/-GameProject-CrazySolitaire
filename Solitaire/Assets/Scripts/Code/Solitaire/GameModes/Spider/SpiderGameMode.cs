@@ -40,8 +40,7 @@ namespace Solitaire.GameModes.Spider {
             }
         }
 
-
-        public void DistributeCardsBetweenCardContainers( SpiderCardContainerForCardDistribution _container ) {
+        public virtual void DistributeCardsBetweenCardContainers( SpiderCardContainerForCardDistribution _container ) {
             if( _container.GetCardsForDistribution().Contains( null ) ) {
                 throw new NullReferenceException( "There is a null element in the list of cards "
                                                     + "passed for distribution." );
@@ -87,20 +86,20 @@ namespace Solitaire.GameModes.Spider {
 
             //  CASE: colliding object is a Card
             } else if (_detectedGameObject.layer == LayerMask.NameToLayer(Constants.CARDS_LAYER_NAME)) {
-                CardFacade detectedCardFacade = _detectedGameObject
-                                                            .GetComponent<CardFacade>();
+                CardFacade detectedCardFacade = _detectedGameObject.GetComponent<CardFacade>();
+
                 if( !detectedCardFacade )
                     throw new Exception( $"The object {_detectedGameObject.name} doesn't"
                                                 + $" have a CardFacade component.");
 
                 // Logic to move card from one container to another
-                // Case: Card CANNOT be child of potential parent                
-                if (!CanBeChildOf(_placedCard, detectedCardFacade)
+                // CASE: Card CANNOT be child of potential parent                
+                if( !CanBeChildOf(_placedCard, detectedCardFacade)
                                     || _placedCard.ParentCard == detectedCardFacade) {
                     GetCardContainer(_placedCard).Refresh();
                     _placedCard.OnInvalidDrop?.Invoke();
 
-                    // Case: Card CAN be child of potential parent
+                // CASE: Card CAN be child of potential parent
                 } else {
                     MoveCardToNewContainer( _placedCard, GetCardContainer(detectedCardFacade) );
 

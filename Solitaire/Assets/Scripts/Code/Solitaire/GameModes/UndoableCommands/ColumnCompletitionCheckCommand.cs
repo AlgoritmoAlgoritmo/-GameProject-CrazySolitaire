@@ -49,8 +49,11 @@ namespace Solitaire.GameModes.UndoableCommands {
             completedColumnContainer.AddCards( columnOfCards );
         }
 
-        public Task Undo() {
-            throw new System.NotImplementedException();
+        public async Task Undo() {
+            /*
+             * Intentionally unimplemented
+             */
+            await Task.Yield();
         }
         #endregion
     }

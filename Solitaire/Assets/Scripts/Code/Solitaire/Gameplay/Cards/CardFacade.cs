@@ -24,7 +24,7 @@ namespace Solitaire.Gameplay.Cards {
 
         private CardFacade childCard;
         public CardFacade ChildCard {
-            get => childCard;     
+            get => childCard;
         }
 
         private CardFacade parentCard;

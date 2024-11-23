@@ -16,9 +16,11 @@ namespace Solitaire.Gameplay.Cards {
     public class CardView {
         #region Variables
         [SerializeField]
-        private Image frontImage;
+        private Sprite frontSprite;
         [SerializeField]
-        private Image backImage;
+        private Sprite backSprite;
+        [SerializeField]
+        private Image imageComponent;
 
         private bool isFacingUp;
         public bool IsFacingUp {
@@ -35,31 +37,29 @@ namespace Solitaire.Gameplay.Cards {
 
         #region Public methods
         public void SetFrontSprite( Sprite _frontSprite ) {
-            if( frontImage )
-                frontImage.sprite = _frontSprite;
-
-            else
-                throw new System.Exception("frontImage reference is missing.");
+            frontSprite = _frontSprite;
         }
 
 
         public void SetBackSprite( Sprite _backSprite ) {
-            if( backImage )
-                backImage.sprite = _backSprite;
-
-            else
-                throw new System.Exception( "backImage reference is missing." );
+            backSprite = _backSprite;
         }
 
 
         public void FlipCard( bool _facingUp ) {
-            if( frontImage  &&  backImage ) {
-                frontImage.gameObject.SetActive( _facingUp );
-                backImage.gameObject.SetActive( !_facingUp );
+            if( imageComponent  ) {
+                if( _facingUp ) {
+                    imageComponent.sprite = frontSprite;
+
+                } else {
+                    imageComponent.sprite = backSprite;
+                }
+
+
                 isFacingUp = _facingUp;
 
             } else {
-                throw new System.Exception("Either frontImage or backImage reference is missing.");
+                throw new System.Exception( "imageComponent reference is missing." );
             }
         }
 
@@ -75,8 +75,7 @@ namespace Solitaire.Gameplay.Cards {
 
 
         public void SetInteractable( bool _interactable) {
-            frontImage.raycastTarget = _interactable;
-            backImage.raycastTarget = _interactable;
+            imageComponent.raycastTarget = _interactable;
         }
         #endregion
     }

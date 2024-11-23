@@ -188,7 +188,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  BoundImage: {fileID: 2846747136201608610}
+  BoundImage: {fileID: 0}
   Mode: 0
   Duration: 0.45
   StartsOff: 0
@@ -388,80 +388,6 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   InstantColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!1 &2846747136201608608
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2846747136201608611}
-  - component: {fileID: 2846747136201608621}
-  - component: {fileID: 2846747136201608610}
-  m_Layer: 5
-  m_Name: FrontImage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2846747136201608611
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2846747136201608608}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2846747137655090038}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2846747136201608621
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2846747136201608608}
-  m_CullTransparentMesh: 0
---- !u!114 &2846747136201608610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2846747136201608608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2846747136549988773
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +400,7 @@ GameObject:
   - component: {fileID: 2846747136549988774}
   - component: {fileID: 2846747136549988775}
   m_Layer: 5
-  m_Name: BackImage
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,7 +500,6 @@ RectTransform:
   - {fileID: 7547340556115474025}
   - {fileID: 2744474701414824599}
   - {fileID: 2846747136549988772}
-  - {fileID: 2846747136201608611}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -609,8 +534,9 @@ MonoBehaviour:
     color: 
     id: 
   cardView:
-    frontImage: {fileID: 2846747136201608610}
-    backImage: {fileID: 2846747136549988775}
+    frontSprite: {fileID: 0}
+    backSprite: {fileID: 0}
+    imageComponent: {fileID: 2846747136549988775}
   cardPhysics: {fileID: 2006339839323179246}
   OnValidDrag:
     m_PersistentCalls:
@@ -990,7 +916,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  BoundImage: {fileID: 2846747136201608610}
+  BoundImage: {fileID: 0}
   Mode: 0
   Duration: 0.45
   StartsOff: 0

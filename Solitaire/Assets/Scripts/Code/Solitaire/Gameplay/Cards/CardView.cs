@@ -34,7 +34,6 @@ namespace Solitaire.Gameplay.Cards {
         #endregion
 
 
-
         #region Public methods
         public void SetFrontSprite( Sprite _frontSprite ) {
             frontSprite = _frontSprite;

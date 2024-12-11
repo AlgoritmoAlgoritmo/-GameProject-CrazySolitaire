@@ -36,10 +36,11 @@ namespace Solitaire.Gameplay.GameMode {
             ShuffleCards();
             RenderSorting();
 
+
             return inGamecards;
         }
 
-        
+                
         public void RemoveCardsFromGame( List<CardFacade> _cards ) {
             foreach( CardFacade auxCard in _cards ) {
                 inGamecards.Remove( auxCard );
@@ -49,12 +50,17 @@ namespace Solitaire.Gameplay.GameMode {
                 onCardsCleared.Invoke( this, EventArgs.Empty );
             }
         }
+
+
+        public int GetRemainingCards() {
+            return inGamecards.Count;
+        }
         #endregion
 
 
         #region PrivateMethods
         private List<CardFacade> InstantiateCards( List<BasicSuitData> _suits,
-                                                short _amountOfCardsPerSuit ) {
+                                                short _amountOfEachSuit ) {
             List<Sprite> suitSprites;
 
             // Iterating each suit
@@ -63,7 +69,7 @@ namespace Solitaire.Gameplay.GameMode {
                 int generatedID = 0;
 
                 // For each amount amount suit
-                for( short suitAmountCouter = 0; suitAmountCouter < _amountOfCardsPerSuit;
+                for( short suitAmountCouter = 0; suitAmountCouter < _amountOfEachSuit;
                                                                     suitAmountCouter++) {
 
                     // Instantiating for each card sprite

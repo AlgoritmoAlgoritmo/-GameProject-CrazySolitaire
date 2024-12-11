@@ -28,7 +28,7 @@ namespace Solitaire.Gameplay {
             get => suitsData.AmountOfEachSuit;
         }
 
-    public CardsEvent OnCardsCleared = new CardsEvent();
+        public CardsEvent OnCardsCleared = new CardsEvent();
 
         protected List<AbstractCardContainer> cardContainers = new List<AbstractCardContainer>();
         #endregion
@@ -45,11 +45,10 @@ namespace Solitaire.Gameplay {
                                                     + "initialization is empty." );
             }
 
-
             if( cardContainers is null || cardContainers.Count == 0 ) {
                 cardContainers = new List<AbstractCardContainer>( FindObjectsOfType<AbstractCardContainer>() );
+                SortCardContainerListByHierarchy();
             }
-
 
             List<CardFacade> auxCards = new List<CardFacade>();
 
@@ -62,6 +61,41 @@ namespace Solitaire.Gameplay {
             foreach( AbstractCardContainer auxCardContainer in cardContainers ) {
                 auxCards = auxCardContainer.Initialize( auxCards );
             }
+
+        }
+        #endregion
+
+
+        #region Protected methods
+        protected void SortCardContainerListByHierarchy() {
+            // Using selection sort algorithm
+            AbstractCardContainer tempCardContainer;
+            int minIndex;
+
+            for( int i = 0; i < cardContainers.Count; i++ ) {
+                minIndex = i;
+
+                for( int j = i + 1; j < cardContainers.Count; j++ ) {
+                    if( cardContainers[j].gameObject.transform.GetSiblingIndex() 
+                            < cardContainers[minIndex].gameObject.transform.GetSiblingIndex() ) {
+                        minIndex = j;
+                    }
+
+                    tempCardContainer = cardContainers[i];
+                    cardContainers[i] = cardContainers[minIndex];
+                    cardContainers[minIndex] = tempCardContainer;
+                }
+            }
+        }
+
+        protected AbstractCardContainer GetCardContainer( CardFacade _card ) {
+            foreach( AbstractCardContainer auxCardContainer in cardContainers ) {
+                if( auxCardContainer.ContainsCard( _card ) ) {
+                    return auxCardContainer;
+                }
+            }
+
+            throw new Exception( "Card doesn't belong to any Card Container." );
         }
         #endregion
 
@@ -79,19 +113,6 @@ namespace Solitaire.Gameplay {
                                                             CardFacade _potentialParent );
 
         protected abstract bool CanCardBeDragged( CardFacade _card );
-        #endregion
-
-
-        #region Protected methods
-        protected AbstractCardContainer GetCardContainer( CardFacade _card ) {
-            foreach( AbstractCardContainer auxCardContainer in cardContainers) {
-                if( auxCardContainer.ContainsCard(_card) ) {
-                    return auxCardContainer;
-                }
-            }
-
-            throw new Exception("Card doesn't belong to any Card Container.");
-        }
         #endregion
     }
 }
